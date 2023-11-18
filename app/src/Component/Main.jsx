@@ -1,32 +1,29 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { StateContext } from "../Context/StateContext";
+import Robot from "./Robot";
 
 function Main(){
 
     /////// STATE /////////
-    const [readingSpeed, setReadingSpeed] = useState(15)
-    const [index, setIndex] = useState(0)
-    const [messageDisplay, setMessageDisplay] = useState("")
+    const {index, setIndex, messageDisplay, setMessageDisplay, initMessageParameter, firstDelay, setFirstDelay, startTyping, setStartTyping, readingSpeed, setReadingSpeed} = useContext(StateContext)
 
 
     /////// METHODE /////////
+    // Après firstDelay, on initialise le startTyping à true
     useEffect(() => {
-        const message = "Bonjour Maurane, ceci est un contrôle de la vitesse de lecture de mon programme informatique, pas de panique !"
-        const timeoutID = setTimeout(() => {
-            if(index < message.length){
-                setMessageDisplay(current => current + message[index])
-                setIndex(current => current + 1)
-            }
-        }, readingSpeed);
+        const startTypingTimeOut = setTimeout(() => {
+            setStartTyping(true)
+        }, firstDelay);
+        return(() => clearTimeout(startTypingTimeOut))
+    }, [])
 
-        return(() => clearTimeout(timeoutID))
-    }, [messageDisplay])
-
+    /////// REF /////////
 
     /////// RENDER /////////
-
     return(
-        <main>{messageDisplay}</main>
+        <main>
+            <Robot />
+        </main>
     )
 }
 
