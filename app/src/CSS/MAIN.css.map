@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../Sass/Global.scss","../Sass/main.scss"],"names":[],"mappings":"AAAA,0BCCI,YACA,aACA,gBACA,aACA,uBACA,mBACA,cACA","file":"MAIN.css"}
+{"version":3,"sourceRoot":"","sources":["../Sass/GLOBAL.scss","../Sass/main.scss","../Sass/robot.scss"],"names":[],"mappings":"AAAA,0BCCI,YACA,aACA,gBACA,aACA,uBACA,mBACA,cACA,WCNA,eACI,aACA,2CACA,aACA,2BACD,4BAEC,WACA,YACA,aACA,2BACA,uBACA","file":"MAIN.css"}

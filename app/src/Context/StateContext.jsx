@@ -14,8 +14,8 @@ export const StateProvider = ({children}) => {
     const [rootIndex, setRootIndex] = useState(0)
     const [messageMapIndex, setMessageMapIndex] = useState(0)
     const [messageMap, setMessageMap] = useState([
-        {id: 0, text:"Bonjour visiteur.", route: 0},
-        {id: 1, text:"Bienvenu sur le CV interactif d'Anthony.", route: 0},
+        {id: 0, text:"Bonjour.", route: 0},
+        {id: 1, text:"Bienvenue sur le CV interactif d'Anthony.", route: 0},
         {id: 2, text:"Je m'appelle Roboto3000.", route: 0},
         {id: 0, text:"On est sur la route 1, tu viens de cliquer sur le bouton de gauche", route: 1},
         {id: 1, text:"Tu viens de continuer sur la route 1 de gauche", route: 1},
@@ -23,6 +23,7 @@ export const StateProvider = ({children}) => {
         {id: 1, text:"Tu viens de continuer sur la route 2 de droite", route: 2},
     ])
 
+    // Aller à la route X et aller au premier message
     const setResetRootIndex = (numeroDeRoute) => {
         setRootIndex(current => (parseInt(numeroDeRoute)))
         setMessageMapIndex(0)

@@ -26,22 +26,25 @@ function Robot(){
         injectMessage()
     }, [messageMapIndex, rootIndex])
 
-    
-    /////// RENDER /////////
 
+    // Permet de calculer la différence entre scrollHeight ( la hauteur réel/total de mon contenu ) et clientHeight ( la hauteur visible de mon contenu ) et d'ajuster verticalement l'élément à chaque frappe
+    useEffect(() => {
+        if(robotBoxRef.current){
+            robotBoxRef.current.scrollTop = robotBoxRef.current.scrollHeight - robotBoxRef.current.clientHeight
+        }
+    }, [messageDisplay])
+    
+    const robotBoxRef = useRef(null)
+    /////// RENDER /////////
     return(
-        <div>
-            <div onClick={handleClick} className="robotBox">
-                {messageDisplay}
+        <div className="screen">
+            <div>
+                <div ref={robotBoxRef} onClick={handleClick} className="robotBox">
+                    {messageDisplay}
+                </div>
             </div>
-            <button data-route={1} onClick={buttonClick}>
-                Route 1
-            </button>
-            <button data-route={2} onClick={buttonClick}>
-                Route 2
-            </button>
             <button data-route={0} onClick={buttonClick}>
-                Reset
+                reset
             </button>
         </div>
     )

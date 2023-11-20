@@ -1,0 +1,19 @@
+div.screen{
+
+    >div{
+        padding: 10px;
+        outline: 10px double rgba(255, 255, 255, 0.716);
+        display: flex;
+        justify-content: flex-start;
+       div.robotBox{
+
+        width: 80vw;
+        height: 20vh;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        overflow-y:hidden;
+        } 
+    }
+}
+
