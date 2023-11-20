@@ -9,7 +9,7 @@ function Main(){
 
 
     /////// METHODE /////////
-    // Après firstDelay, on initialise le startTyping à true
+    // Déclenche le délai pour la première appartion du texte
     useEffect(() => {
         const startTypingTimeOut = setTimeout(() => {
             setStartTyping(true)
