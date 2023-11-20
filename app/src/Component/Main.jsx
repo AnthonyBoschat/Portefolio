@@ -5,7 +5,7 @@ import Robot from "./Robot";
 function Main(){
 
     /////// STATE /////////
-    const {index, setIndex, messageDisplay, setMessageDisplay, initMessageParameter, firstDelay, setFirstDelay, startTyping, setStartTyping, readingSpeed, setReadingSpeed} = useContext(StateContext)
+    const {firstDelay, setStartTyping} = useContext(StateContext)
 
 
     /////// METHODE /////////

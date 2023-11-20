@@ -4,7 +4,7 @@ import { StateContext } from "../Context/StateContext";
 function Robot(){
 
     /////// STATE /////////
-    const {messageMapIndex, setMessageMapIndex, setResetRootIndex, rootIndex, setRootIndex, injectMessage, index, setIndex, messageDisplay, setMessageDisplay, initMessageParameter, firstDelay, setFirstDelay, startTyping, setStartTyping, readingSpeed, setReadingSpeed} = useContext(StateContext)
+    const {messageMapIndex, setMessageMapIndex, setResetRootIndex, rootIndex, injectMessage, messageDisplay, startTyping} = useContext(StateContext)
 
     /////// METHODE /////////
     // Une fois que le délai initial est terminé, on injecte le premier message
@@ -30,7 +30,6 @@ function Robot(){
     /////// RENDER /////////
 
     return(
-        
         <div>
             <div onClick={handleClick} className="robotBox">
                 {messageDisplay}

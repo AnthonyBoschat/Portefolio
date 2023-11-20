@@ -8,7 +8,6 @@ export const StateProvider = ({children}) => {
     const [firstDelay, setFirstDelay] = useState(1500)
     const [startTyping, setStartTyping] = useState(false)
     const [readingSpeed, setReadingSpeed] = useState(25)
-    const [index, setIndex] = useState(0)
     const [messageDisplay, setMessageDisplay] = useState("")
 
 
@@ -62,7 +61,7 @@ export const StateProvider = ({children}) => {
 
     ///// RENDER DU CONTEXTE //////
     return(
-        <StateContext.Provider value={{messageMapIndex, setMessageMapIndex, setResetRootIndex, rootIndex, setRootIndex, injectMessage, index, setIndex, messageDisplay, setMessageDisplay, firstDelay, setFirstDelay, startTyping, setStartTyping, readingSpeed, setReadingSpeed}}>
+        <StateContext.Provider value={{messageMapIndex, setMessageMapIndex, setResetRootIndex, rootIndex, setRootIndex, injectMessage, messageDisplay, setMessageDisplay, firstDelay, setFirstDelay, startTyping, setStartTyping, readingSpeed, setReadingSpeed}}>
             {children}
         </StateContext.Provider>
     )
