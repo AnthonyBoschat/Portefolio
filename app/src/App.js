@@ -1,7 +1,7 @@
 import "./CSS/MAIN.css";
-import React, { useEffect, useState } from "react";
-import { StateProvider } from "./Context/StateContext";
-import Main from "./Component/Main";
+import React from "react";
+import { StateProvider } from "./Context/AppContext";
+import Main from "./Components/Main";
 
 function App() {
 

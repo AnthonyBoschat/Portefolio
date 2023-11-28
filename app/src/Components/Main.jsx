@@ -1,20 +1,19 @@
-import React, { useContext, useEffect, useState, useRef } from "react";
-import { StateContext } from "../Context/StateContext";
+import React, {useContext, useEffect} from "react";
 import Robot from "./Robot";
+import { StateContext } from "../Context/AppContext";
 
 function Main(){
 
     /////// STATE /////////
-    const {firstDelay, setStartTyping} = useContext(StateContext)
-
+    const {setStartTyping, globalParameter} = useContext(StateContext)
 
     /////// METHODE /////////
     // Déclenche le délai pour la première appartion du texte
     useEffect(() => {
-        const startTypingTimeOut = setTimeout(() => {
+        const startTypingTimeOutID = setTimeout(() => {
             setStartTyping(true)
-        }, firstDelay);
-        return(() => clearTimeout(startTypingTimeOut))
+        }, globalParameter.firstDelay);
+        return(() => clearTimeout(startTypingTimeOutID))
     }, [])
 
     /////// REF /////////
