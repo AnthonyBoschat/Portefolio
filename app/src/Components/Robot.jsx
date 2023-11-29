@@ -5,7 +5,7 @@ function Robot(){
 
     /////// STATE /////////
     const {setMessageMapIndex, setResetRootIndex, messageDisplay} = useContext(StateContext)
-
+    
     /////// METHODE /////////
     // Pour afficher le message suivant
     const handleClickNextMessage = () => {

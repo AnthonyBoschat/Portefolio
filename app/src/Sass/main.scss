@@ -1,3 +1,9 @@
+@keyframes waiting {
+    0%{transform: scale(1);}
+    50%{transform: scale(1.2);}
+    100%{transform: scale(1);}
+}
+
 main{
     width: 100vw;
     height: 100vh;
@@ -7,4 +13,14 @@ main{
     align-items: center;
     font-size: 3vw;
     color: white;
+
+    .beginSpan{
+        opacity: 0.5;
+        animation: waiting 2s infinite;
+
+        &:hover{
+            cursor: pointer;
+            opacity: 1;
+        }
+    }
 }

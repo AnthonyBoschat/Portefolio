@@ -7,12 +7,16 @@ div.screen{
         justify-content: flex-start;
        div.robotBox{
 
-        width: 80vw;
-        height: 20vh;
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        overflow-y:hidden;
+            width: 80vw;
+            height: 20vh;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            overflow-y:auto;
+
+            &::-webkit-scrollbar{
+                display: none;
+            }
         } 
     }
 }

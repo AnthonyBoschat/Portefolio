@@ -1,5 +1,9 @@
 import React, {useState, useEffect, useReducer} from "react";
 import { globalParameter } from "./GlobalParameter";
+import { playSound } from "./UseSound";
+
+
+
 
 const ACTIONS = {
     START_TYPING:"START_TYPING",
@@ -91,7 +95,8 @@ export const useRobot = () => {
     const [messageMap, setMessageMap] = useState([
         {id: 0, text:"Bonjour.", route: 0},
         {id: 1, text:"Bienvenue sur le CV interactif d'Anthony.", route: 0},
-        {id: 2, text:"Je m'appelle Roboto3000.", route: 0},
+        {id: 2, text:"Je vais vous guider à travers la présentation des différent projet d'anthony, son parcours, sa personnalité, son entourage. Je vais vous guider à travers la présentation des différent projet d'anthony, son parcours, sa personnalité, son entourage. Je vais vous guider à travers la présentation des différent projet d'anthony, son parcours, sa personnalité, son entourage.", route: 0},
+        {id: 3, text:"Je m'appelle Roboto3000.", route: 0},
         {id: 0, text:"On est sur la route 1, tu viens de cliquer sur le bouton de gauche", route: 1},
         {id: 1, text:"Tu viens de continuer sur la route 1 de gauche", route: 1},
         {id: 0, text:"On est sur la route 2, tu viens de cliquer sur le bouton de droite", route: 2},
@@ -117,6 +122,7 @@ export const useRobot = () => {
             const intervalID = setInterval(() => {
                 // Si startTyping est sur true ( après le firstDelay Déclencher dans Main.jsx)
                 if(startTyping){
+                    playSound(step)
                     // On incrémente step
                     step++
                     // On change le message
@@ -132,8 +138,6 @@ export const useRobot = () => {
             }, globalParameter.readingSpeed); 
         }
     }
-
-
 
     // Une fois que le premier délai est terminer
     useEffect(() => {
