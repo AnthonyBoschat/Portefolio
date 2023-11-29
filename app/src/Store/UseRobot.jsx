@@ -10,7 +10,7 @@ const ACTIONS = {
 
 const initialState = {
     startTyping:false,
-    messageDsplay:"",
+    messageDisplay:"",
     rootIndex:0,
     messageMapIndex:0,
     messageMap:[

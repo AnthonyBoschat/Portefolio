@@ -13,6 +13,8 @@ function Main(){
         const startTypingTimeOutID = setTimeout(() => {
             setStartTyping(true)
         }, globalParameter.firstDelay);
+
+        
         return(() => clearTimeout(startTypingTimeOutID))
     }, [])
 
