@@ -4,8 +4,16 @@ import { StateContext } from "../Context/AppContext";
 function Robot(){
 
     /////// STATE /////////
-    const {setMessageMapIndex, setResetRootIndex, messageDisplay} = useContext(StateContext)
+    const {setMessageMapIndex, setResetRootIndex, messageDisplay, setStartTyping} = useContext(StateContext)
     
+    useEffect(() => {
+        animationRef.current.addEventListener("animationend", () => {
+            setTimeout(() => {
+                setStartTyping(true)
+            }, 500)
+        })
+    }, [])
+
     /////// METHODE /////////
     // Pour afficher le message suivant
     const handleClickNextMessage = () => {
@@ -21,8 +29,9 @@ function Robot(){
     const handleClickPreviousMessage = () => {
         setMessageMapIndex(current => {
             if(current > 0){return current - 1}
-            setResetRootIndex(0)
+            return 0
         })
+        setResetRootIndex(0)
     }
 
     // Permet de calculer la différence entre scrollHeight ( la hauteur réel/total de mon contenu ) et clientHeight ( la hauteur visible de mon contenu ) et d'ajuster verticalement l'élément à chaque frappe
@@ -31,15 +40,14 @@ function Robot(){
             robotBoxRef.current.scrollTop = robotBoxRef.current.scrollHeight - robotBoxRef.current.clientHeight
         }
     }, [messageDisplay])
-    
 
 
-
+    const animationRef = useRef(null)
     const robotBoxRef = useRef(null)
     /////// RENDER /////////
     return(
         <div className="screen">
-            <div>
+            <div ref={animationRef} className="apparition">
                 <div ref={robotBoxRef} onClick={handleClickNextMessage} className="robotBox">
                     {messageDisplay}
                 </div>

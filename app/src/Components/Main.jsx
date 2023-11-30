@@ -1,30 +1,21 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useRef, useState} from "react";
 import Robot from "./Robot";
-import { StateContext } from "../Context/AppContext";
+import { UseAnimationLifeCycle } from "../Store/UseLifeCycle";
 
 function Main(){
 
     /////// STATE /////////
-    const {setStartTyping, globalParameter} = useContext(StateContext)
-    const [bouton, setBouton] = useState(false)
+    const {startRobot, renderSpanBegin} = UseAnimationLifeCycle()
 
     
     /////// METHODE /////////
-    const handleClick = () => {
-        
-        setBouton(true)
-
-        setTimeout(() => {
-            setStartTyping(true)
-        }, globalParameter.firstDelay);
-    }
 
     /////// REF /////////
-
+    
     /////// RENDER /////////
     return(
         <main>
-            {bouton ? <Robot /> : <span className="beginSpan" onClick={handleClick}>Commencer</span> }
+            {startRobot ? <Robot /> : renderSpanBegin }
         </main>
     )
 }

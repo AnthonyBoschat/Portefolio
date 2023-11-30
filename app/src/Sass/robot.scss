@@ -5,7 +5,7 @@ div.screen{
         outline: 10px double rgba(255, 255, 255, 0.716);
         display: flex;
         justify-content: flex-start;
-       div.robotBox{
+        div.robotBox{
 
             width: 80vw;
             height: 20vh;
@@ -21,3 +21,10 @@ div.screen{
     }
 }
 
+// ANIMATION
+@keyframes apparition{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+.apparition{animation: apparition 2s ease}
