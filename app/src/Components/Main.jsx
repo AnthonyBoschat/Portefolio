@@ -10,22 +10,11 @@ function Main(){
 
     
     /////// METHODE /////////
-    
-    // Déclenche le délai pour la première appartion du texte
-    /*useEffect(() => {
-
-        const startTypingTimeOutID = setTimeout(() => {
-            setStartTyping(true)
-        }, globalParameter.firstDelay);
-
-        return(() => clearTimeout(startTypingTimeOutID))
-        
-    }, [bouton])*/
-
-
     const handleClick = () => {
+        
         setBouton(true)
-        const startTypingTimeOutID = setTimeout(() => {
+
+        setTimeout(() => {
             setStartTyping(true)
         }, globalParameter.firstDelay);
     }

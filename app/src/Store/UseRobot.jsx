@@ -88,6 +88,7 @@ export const useRobotReducer = () => {
 
 export const useRobot = () => {
 
+    const [intervalID, setIntervalID] = useState(null)
     const [startTyping, setStartTyping] = useState(false)
     const [messageDisplay, setMessageDisplay] = useState("")
     const [rootIndex, setRootIndex] = useState(0)
@@ -104,11 +105,20 @@ export const useRobot = () => {
     ])
 
     const setResetRootIndex = (numeroDeRoute) => {
+        if(intervalID){
+            clearInterval(intervalID)
+        }
         setRootIndex(current => (parseInt(numeroDeRoute)))
         setMessageMapIndex(0)
+        if(rootIndex === 0 && messageMapIndex === 0){
+            injectMessage()
+        }
     }
 
     const injectMessage = () => {
+        if(intervalID){
+            clearInterval(intervalID)
+        }
         // On récupère l'index du message dans MAP qui correspond au step de message en cours
         const indexOfThisMessageInMap = messageMap.findIndex(message => (message.id === messageMapIndex && message.route === rootIndex))
         // Sécurité pour eviter de cliquer vers un message qui n'existe pas
@@ -120,6 +130,7 @@ export const useRobot = () => {
             let step = 0
             // On déclenche un interval basé sur le readingSpeed
             const intervalID = setInterval(() => {
+                setIntervalID(intervalID)
                 // Si startTyping est sur true ( après le firstDelay Déclencher dans Main.jsx)
                 if(startTyping){
                     playSound(step)
@@ -133,6 +144,7 @@ export const useRobot = () => {
                     if(step >= messageMap[indexOfThisMessageInMap].text.length){
                         // On clear l'interval
                         clearInterval(intervalID)
+                        setIntervalID(null)
                     }
                 }
             }, globalParameter.readingSpeed); 

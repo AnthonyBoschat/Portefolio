@@ -14,9 +14,15 @@ function Robot(){
 
 
     // Pour reset les message
-    const handleClickResetMessage = (event) => {
-        const {route} = event.currentTarget.dataset
-        setResetRootIndex(route)
+    const handleClickResetMessage = () => {
+        setResetRootIndex(0)
+    }
+
+    const handleClickPreviousMessage = () => {
+        setMessageMapIndex(current => {
+            if(current > 0){return current - 1}
+            setResetRootIndex(0)
+        })
     }
 
     // Permet de calculer la différence entre scrollHeight ( la hauteur réel/total de mon contenu ) et clientHeight ( la hauteur visible de mon contenu ) et d'ajuster verticalement l'élément à chaque frappe
@@ -38,9 +44,8 @@ function Robot(){
                     {messageDisplay}
                 </div>
             </div>
-            <button data-route={0} onClick={handleClickResetMessage}>
-                reset
-            </button>
+            <button onClick={handleClickResetMessage}>Reset</button>
+            <button onClick={handleClickPreviousMessage}>Précedent</button>
         </div>
     )
 }
