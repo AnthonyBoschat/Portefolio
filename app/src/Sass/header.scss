@@ -1,0 +1,26 @@
+header{
+
+    .optionGear{
+        position: absolute;
+        top: 0.3em;
+        left: 0.3em;
+        font-size: 2vw;
+        opacity: 0.5;
+        transition: all 0.3s;
+    
+        &:hover{
+            opacity: 1;
+            cursor: pointer;
+        }
+    }
+
+    .optionBox{
+        width: 90vw;
+        height: 90vh;
+        background: white;
+        outline: 1px solid blue;
+        z-index: 1001;
+    }
+
+}
+

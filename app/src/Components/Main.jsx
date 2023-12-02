@@ -1,6 +1,7 @@
-import React, {useRef, useState} from "react";
+import React from "react";
 import Robot from "./Robot";
 import { UseAnimationLifeCycle } from "../Store/UseLifeCycle";
+import Header from "./Header"
 
 function Main(){
 
@@ -15,6 +16,7 @@ function Main(){
     /////// RENDER /////////
     return(
         <main>
+            {startRobot ? (<Header />) : (null)}
             {startRobot ? <Robot /> : renderSpanBegin }
         </main>
     )
