@@ -49,7 +49,9 @@ function Robot(){
         <div className="screen">
             <div ref={animationRef} className="apparition">
                 <div ref={robotBoxRef} onClick={handleClickNextMessage} className="robotBox">
-                    {messageDisplay}
+                    <span className="boxEnglobeElement">
+                        <span className="robotTextContent">{messageDisplay}<span className="robotWhiteSquare tickle">|</span></span>
+                    </span>
                 </div>
             </div>
             <button onClick={handleClickResetMessage}>Reset</button>
