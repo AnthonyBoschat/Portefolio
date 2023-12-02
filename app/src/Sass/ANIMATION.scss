@@ -1,0 +1,35 @@
+@keyframes tickle{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+@keyframes apparition{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+@keyframes disparition{
+    0%{opacity: 1;}
+    100%{opacity: 0;}
+}
+
+@keyframes waiting {
+    0%{transform: scale(1);}
+    50%{transform: scale(1.2);}
+    100%{transform: scale(1);}
+}
+
+@keyframes disapear{
+    50%{transform: scale(1.2)}
+    100%{opacity: 0;}
+}
+
+
+
+// classe d'animation
+.waiting{animation: waiting 2s infinite;}
+.disapear{animation:disapear 2s ease;}
+.apparition{animation: apparition 2s ease}
+.optionsApparition{animation: apparition 0.3s ease}
+.optionsDisparition{animation: disparition 0.3s ease}
+.tickle{animation: tickle 0.8s infinite;}

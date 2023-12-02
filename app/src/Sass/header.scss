@@ -1,6 +1,5 @@
 header{
-
-    .optionGear{
+    .optionsGear{
         position: absolute;
         top: 0.3em;
         left: 0.3em;
@@ -14,12 +13,24 @@ header{
         }
     }
 
-    .optionBox{
-        width: 90vw;
-        height: 90vh;
-        background: white;
-        outline: 1px solid blue;
-        z-index: 1001;
+    .optionsOverlay{
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(3, 3, 3, 0.446);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .optionsBox{
+            width: 80vw;
+            height: 80vh;
+            background-color: black;
+            outline: 3px solid blue;
+            z-index: 1001;
+        }
     }
 
 }

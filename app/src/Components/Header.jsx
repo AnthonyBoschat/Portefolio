@@ -1,21 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useContext} from "react";
+import Options from "./Options";
+import { StateContext } from "../Context/AppContext";
 
 function Header(){
 
     /////// STATE /////////
-    const [displayOption, setDisplayOption] = useState(false)
-
-
+    const {optionsState, dispatchOptions, ACTION_OPTIONS} = useContext(StateContext)
     /////// METHODE /////////
-
+    
     /////// REF /////////
 
     /////// RENDER /////////
 
     return(
         <header>
-            <i onClick={() => setDisplayOption(true)} className="fa-solid fa-gear optionGear apparition"></i>
-            {displayOption ? (<div className="optionBox"></div>) : (null)}
+            <i onClick={() => dispatchOptions({type:ACTION_OPTIONS.OPEN})} className="fa-solid fa-gear optionsGear apparition"></i>
+            {optionsState.display ? (<Options />) : (null)}
         </header>
         
     )

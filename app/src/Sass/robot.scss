@@ -1,22 +1,4 @@
-// ANIMATION
-@keyframes apparition{
-    0%{opacity: 0;}
-    100%{opacity: 1;}
-}
-
-.apparition{animation: apparition 2s ease}
-
-@keyframes tickle{
-    0%{opacity: 0;}
-    100%{opacity: 1;}
-}
-
-.tickle{animation: tickle 0.8s infinite;}
-
-
-
-
-
+@import "./ANIMATION.scss";
 
 div.screen{
     >div{
@@ -42,7 +24,6 @@ div.screen{
                 .robotTextContent{
                     display: inline;
                     width: fit-content;
-                    
                     flex-wrap: wrap;
 
                     .robotWhiteSquare{
@@ -61,5 +42,3 @@ div.screen{
         } 
     }
 }
-
-

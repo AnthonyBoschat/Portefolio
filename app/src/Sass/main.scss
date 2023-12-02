@@ -1,4 +1,4 @@
-
+@import "./ANIMATION.scss";
 
 main{
     width: 100vw;
@@ -18,26 +18,5 @@ main{
             opacity: 1;
         }
     }
-}
-
-// ANIMATION
-
-@keyframes waiting {
-    0%{transform: scale(1);}
-    50%{transform: scale(1.2);}
-    100%{transform: scale(1);}
-}
-
-@keyframes disapear{
-    50%{transform: scale(1.2)}
-    100%{opacity: 0;}
-}
-
-.waiting{
-    animation: waiting 2s infinite;
-}
-
-.disapear{
-    animation:disapear 2s ease;
 }
 
