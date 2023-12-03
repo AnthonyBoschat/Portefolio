@@ -2,20 +2,12 @@ import React, {useState, useEffect, useReducer} from "react";
 import { globalParameter } from "./GlobalParameter";
 import { playSound } from "./UseSound";
 
-
-
-
-const ACTIONS = {
-    START_TYPING:"START_TYPING",
-    SET_MESSAGE:"SET_MESSAGE",
-    NEXT_MESSAGE:"NEXT_MESSAGE",
-    RESET:"RESET",
-}
-
 const initialState = {
     startTyping:false,
+    intervalID:null,
+    injectMessage:false,
     messageDisplay:"",
-    rootIndex:0,
+    messageRouteIndex:0,
     messageMapIndex:0,
     messageMap:[
         {id: 0, text:"Bonjour.", route: 0},
@@ -28,33 +20,101 @@ const initialState = {
     ]
 }
 
-function reducer(state, action){
-    switch(action.type){
-        case ACTIONS.START_TYPING:
-            return {...state, startTyping : true}
-        case ACTIONS.SET_MESSAGE:
-            return {...state, messageDisplay : action.payload}
-        case ACTIONS.NEXT_MESSAGE:
-            return {...state, messageMapIndex : state.messageMapIndex + 1}
-        case ACTIONS.RESET:
-            return {
-                ...state,
-                rootIndex : action.payload,
-                messageMapIndex : 0,
-                messageDisplay : "",
-            }
-    }
-}
+
 
 export const useRobotReducer = () => {
-    const [state, dispatch] = useReducer(reducer, initialState)
 
-    const injectMessage = () => {
-
+    const ACTIONS_ROBOT = {
+        START_TYPING:"START_TYPING",
+        SET_MESSAGE:"SET_MESSAGE",
+        NEXT_MESSAGE:"NEXT_MESSAGE",
+        PREVIOUS_MESSAGE:"PREVIOUS_MESSAGE",
+        RESET:"RESET",
+        SET_INTERVAL_ID:"SET_INTERVAL_ID",
     }
 
+    function reducer(state, action){
+        switch(action.type){
 
-    return [state, dispatch, injectMessage]
+            case ACTIONS_ROBOT.START_TYPING:
+                return {...state, startTyping : true}
+
+            case ACTIONS_ROBOT.SET_MESSAGE:
+                return {...state, messageDisplay : state.messageDisplay + action.payload}
+
+            case ACTIONS_ROBOT.NEXT_MESSAGE:
+                const lengthOfMessages = state.messageMap.filter(message => message.route === state.messageRouteIndex)
+                if(state.messageMapIndex + 1 < lengthOfMessages.length){
+                    return {...state, messageMapIndex : state.messageMapIndex + 1, messageDisplay : ""}
+                }else{return state}
+        
+            case ACTIONS_ROBOT.PREVIOUS_MESSAGE:
+                if(state.messageMapIndex !== 0){
+                    return {...state, messageMapIndex : state.messageMapIndex - 1, messageDisplay : ""}
+                }else{
+                    return {...state, messageDisplay: "", injectMessage: !state.injectMessage}
+                }
+                
+
+            case ACTIONS_ROBOT.SET_INTERVAL_ID:
+                return{...state, intervalID : action.payload}
+
+            case ACTIONS_ROBOT.RESET:
+                if(state.intervalID !== null){clearInterval(state.intervalID)}
+                return {
+                    ...state,
+                    rootIndex : parseInt(action.payload),
+                    messageMapIndex : 0,
+                    messageDisplay : "",
+                    injectMessage: !state.injectMessage
+                }
+        }
+    }
+
+    const [state, dispatchStateRobot] = useReducer(reducer, initialState)
+
+    const injectMessage = () => {
+        if(state.intervalID !== null){
+            clearInterval(state.intervalID)
+        }
+
+        const indexOfMessage = state.messageMap.findIndex(message => message.id === state.messageMapIndex && message.route === state.messageRouteIndex)
+
+        dispatchStateRobot({type:ACTIONS_ROBOT.SET_MESSAGE, payload:""})
+        let step = 0
+        const intervalID = setInterval(() => {
+            dispatchStateRobot({type:ACTIONS_ROBOT.SET_INTERVAL_ID, payload:intervalID})
+            if(state.startTyping){
+                playSound(step)
+                step++
+                dispatchStateRobot({type:ACTIONS_ROBOT.SET_MESSAGE, payload:state.messageMap[indexOfMessage].text[step - 1]})
+
+                if(step >= state.messageMap[indexOfMessage].text.length){
+                    clearInterval(intervalID)
+                    dispatchStateRobot({type:ACTIONS_ROBOT.SET_INTERVAL_ID, payload:null})
+                }
+            }
+        }, globalParameter.readingSpeed)
+    }
+
+    useEffect(() => {
+        if(state.startTyping){
+            injectMessage()
+        }
+    }, [state.startTyping])
+
+    useEffect(() => {
+        injectMessage()
+    }, [state.messageMapIndex, state.messageRouteIndex, state.injectMessage])
+
+
+
+    return {
+        ACTIONS_ROBOT,
+        state,
+        dispatchStateRobot,
+        injectMessage,
+    }
 }
 
 
@@ -85,7 +145,7 @@ export const useRobotReducer = () => {
 
 
 
-
+/*
 export const useRobot = () => {
 
     const [intervalID, setIntervalID] = useState(null)
@@ -182,3 +242,4 @@ export const useRobot = () => {
         injectMessage
     }
 }
+*/

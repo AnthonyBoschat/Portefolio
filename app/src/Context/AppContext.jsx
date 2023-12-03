@@ -1,6 +1,6 @@
 import React, { createContext, useState } from "react";
 import { globalParameter } from "../Store/GlobalParameter";
-import { useRobot } from "../Store/UseRobot";
+import { useRobotReducer } from "../Store/UseRobot";
 import { useOptions } from "../Store/UseOptions";
 
 // On définie un contexte
@@ -11,19 +11,11 @@ export const StateProvider = ({children}) => {
 
     // ROBOT
     const {
-        startTyping,
-        setStartTyping,
-        messageDisplay,
-        setMessageDisplay,
-        rootIndex,
-        setRootIndex,
-        messageMapIndex,
-        setMessageMapIndex,
-        messageMap,
-        setMessageMap,
-        setResetRootIndex,
-        injectMessage
-    } = useRobot()
+        ACTIONS_ROBOT,
+        state,
+        dispatchStateRobot,
+        injectMessage,
+    } = useRobotReducer()
 
     // OPTIONS
     const {
@@ -36,17 +28,9 @@ export const StateProvider = ({children}) => {
     return(
         <StateContext.Provider value={{
             globalParameter,
-            startTyping,
-            setStartTyping,
-            messageDisplay,
-            setMessageDisplay,
-            rootIndex,
-            setRootIndex,
-            messageMapIndex,
-            setMessageMapIndex,
-            messageMap,
-            setMessageMap,
-            setResetRootIndex,
+            ACTIONS_ROBOT,
+            state,
+            dispatchStateRobot,
             injectMessage,
             optionsState,
             dispatchOptions,

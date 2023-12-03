@@ -4,12 +4,12 @@ import { StateContext } from "../Context/AppContext";
 function Robot(){
 
     /////// STATE /////////
-    const {setMessageMapIndex, setResetRootIndex, messageDisplay, setStartTyping} = useContext(StateContext)
+    const {state, ACTIONS_ROBOT, dispatchStateRobot, injectMessage} = useContext(StateContext)
     
     useEffect(() => {
         animationRef.current.addEventListener("animationend", () => {
             setTimeout(() => {
-                setStartTyping(true)
+                dispatchStateRobot({type:ACTIONS_ROBOT.START_TYPING}) ////////
             }, 500)
         })
     }, [])
@@ -17,21 +17,17 @@ function Robot(){
     /////// METHODE /////////
     // Pour afficher le message suivant
     const handleClickNextMessage = () => {
-        setMessageMapIndex(current => (current + 1))
+        dispatchStateRobot({type:ACTIONS_ROBOT.NEXT_MESSAGE}) ///////
     }
 
 
     // Pour reset les message
     const handleClickResetMessage = () => {
-        setResetRootIndex(0)
+        dispatchStateRobot({type:ACTIONS_ROBOT.RESET, payload:state.messageRouteIndex})
     }
 
     const handleClickPreviousMessage = () => {
-        setMessageMapIndex(current => {
-            if(current > 0){return current - 1}
-            return 0
-        })
-        setResetRootIndex(0)
+        dispatchStateRobot({type:ACTIONS_ROBOT.PREVIOUS_MESSAGE})
     }
 
     // Permet de calculer la différence entre scrollHeight ( la hauteur réel/total de mon contenu ) et clientHeight ( la hauteur visible de mon contenu ) et d'ajuster verticalement l'élément à chaque frappe
@@ -39,7 +35,7 @@ function Robot(){
         if(robotBoxRef.current){
             robotBoxRef.current.scrollTop = robotBoxRef.current.scrollHeight - robotBoxRef.current.clientHeight
         }
-    }, [messageDisplay])
+    }, [state.messageDisplay])
 
 
     const animationRef = useRef(null)
@@ -50,7 +46,7 @@ function Robot(){
             <div ref={animationRef} className="apparition">
                 <div ref={robotBoxRef} onClick={handleClickNextMessage} className="robotBox">
                     <span className="boxEnglobeElement">
-                        <span className="robotTextContent">{messageDisplay}<span className="robotWhiteSquare tickle">|</span></span>
+                        <span className="robotTextContent">{state.messageDisplay}<span className="robotWhiteSquare tickle">|</span></span>
                     </span>
                 </div>
             </div>
