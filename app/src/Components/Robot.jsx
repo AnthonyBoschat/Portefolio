@@ -15,21 +15,6 @@ function Robot(){
     }, [])
 
     /////// METHODE /////////
-    // Pour afficher le message suivant
-    const handleClickNextMessage = () => {
-        dispatchStateRobot({type:ACTIONS_ROBOT.NEXT_MESSAGE}) ///////
-    }
-
-
-    // Pour reset les message
-    const handleClickResetMessage = () => {
-        dispatchStateRobot({type:ACTIONS_ROBOT.RESET, payload:state.messageRouteIndex})
-    }
-
-    const handleClickPreviousMessage = () => {
-        dispatchStateRobot({type:ACTIONS_ROBOT.PREVIOUS_MESSAGE})
-    }
-
     // Permet de calculer la différence entre scrollHeight ( la hauteur réel/total de mon contenu ) et clientHeight ( la hauteur visible de mon contenu ) et d'ajuster verticalement l'élément à chaque frappe
     useEffect(() => {
         if(robotBoxRef.current){
@@ -44,14 +29,14 @@ function Robot(){
     return(
         <div className="screen">
             <div ref={animationRef} className="apparition">
-                <div ref={robotBoxRef} onClick={handleClickNextMessage} className="robotBox">
+                <div ref={robotBoxRef} onClick={() => dispatchStateRobot({type:ACTIONS_ROBOT.NEXT_MESSAGE})} className="robotBox">
                     <span className="boxEnglobeElement">
                         <span className="robotTextContent">{state.messageDisplay}<span className="robotWhiteSquare tickle">|</span></span>
                     </span>
                 </div>
             </div>
-            <button onClick={handleClickResetMessage}>Reset</button>
-            <button onClick={handleClickPreviousMessage}>Précedent</button>
+            <button onClick={() => dispatchStateRobot({type:ACTIONS_ROBOT.RESET, payload:state.messageRouteIndex})}>Reset</button>
+            <button onClick={() => dispatchStateRobot({type:ACTIONS_ROBOT.PREVIOUS_MESSAGE})}>Précedent</button>
         </div>
     )
 }
