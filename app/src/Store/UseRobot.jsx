@@ -22,6 +22,7 @@ const initialState = {
 }
 
 export const useRobotReducer = () => {
+    
     const {globalParameter} = useContext(StateContext)
 
     // La référence de la boite de dialogue

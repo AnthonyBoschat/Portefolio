@@ -4,7 +4,7 @@ import Header from "./Header"
 import { StateContext } from "../Context/AppContext";
 
 function Main(){
-
+    
     /////// STATE /////////
     const {startRobot, renderSpanBegin} = useContext(StateContext)
     

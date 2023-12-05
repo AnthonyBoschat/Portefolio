@@ -4,7 +4,6 @@ import { StateProvider } from "./Context/AppContext";
 import Main from "./Components/Main";
 
 function App() {
-
   return (
     <StateProvider>
       <Main />
