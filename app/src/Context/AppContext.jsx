@@ -9,13 +9,7 @@ export const StateContext = createContext();
 
 // On définie son provider et les state par défaut
 export const StateProvider = ({children}) => {
-
-    // GLOBAL PARAMETER
-    const {
-        globalParameter,
-        ACTIONS_GLOBALPARAMETER,
-        dispatchStateGlobalParameter
-    } = useGlobalParameter()
+    
 
     // ROBOT
     const {
@@ -45,9 +39,6 @@ export const StateProvider = ({children}) => {
     ///// RENDER DU CONTEXTE //////
     return(
         <StateContext.Provider value={{
-            globalParameter,
-            ACTIONS_GLOBALPARAMETER,
-            dispatchStateGlobalParameter,
             ACTIONS_ROBOT,
             state,
             dispatchStateRobot,

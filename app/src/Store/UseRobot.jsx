@@ -1,6 +1,6 @@
 import React, {useRef, useEffect, useReducer, useContext } from "react";
 import { playSound } from "./UseSound";
-import { StateContext } from "../Context/AppContext";
+import { useGlobalParameter } from "../Store/UseGlobalParameter";
 
 
 const initialState = {
@@ -12,7 +12,7 @@ const initialState = {
     messageMapIndex:0,
     messageMap:[
         {id: 0, text:"Bonjour.", route: 0},
-        {id: 1, text:"Bienvenue sur le CV interactif d'Anthony.", route: 0},
+        {id: 1, text:"Bienvenue sur le CV interactif d'Anthony. Bienvenue sur le CV interactif d'Anthony. Bienvenue sur le CV interactif d'Anthony. Bienvenue sur le CV interactif d'Anthony. Bienvenue sur le CV interactif d'Anthony. Bienvenue sur le CV interactif d'Anthony. Bienvenue sur le CV interactif d'Anthony. Bienvenue sur le CV interactif d'Anthony. Bienvenue sur le CV interactif d'Anthony.", route: 0},
         {id: 2, text:"Je m'appelle Roboto3000.", route: 0},
         {id: 0, text:"On est sur la route 1, tu viens de cliquer sur le bouton de gauche", route: 1},
         {id: 1, text:"Tu viens de continuer sur la route 1 de gauche", route: 1},
@@ -23,7 +23,11 @@ const initialState = {
 
 export const useRobotReducer = () => {
     
-    const {globalParameter} = useContext(StateContext)
+    const {
+        globalParameter,
+        ACTIONS_GLOBALPARAMETER,
+        dispatchStateGlobalParameter
+    } = useGlobalParameter()
 
     // La référence de la boite de dialogue
     const robotBoxRef = useRef() 
