@@ -1,22 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import Robot from "./Robot";
-import { UseAnimationLifeCycle } from "../Store/UseLifeCycle";
 import Header from "./Header"
+import { StateContext } from "../Context/AppContext";
 
 function Main(){
 
     /////// STATE /////////
-    const {startRobot, renderSpanBegin} = UseAnimationLifeCycle()
-
-    
-    /////// METHODE /////////
-
-    /////// REF /////////
+    const {startRobot, renderSpanBegin} = useContext(StateContext)
     
     /////// RENDER /////////
     return(
         <main>
-            {startRobot ? (<Header />) : (null)}
+            {startRobot ? <Header /> : null}
             {startRobot ? <Robot /> : renderSpanBegin }
         </main>
     )

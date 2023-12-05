@@ -1,6 +1,8 @@
-import React, {useState, useEffect, useReducer} from "react";
+import React, {useRef, useEffect, useReducer} from "react";
 import { globalParameter } from "./GlobalParameter";
 import { playSound } from "./UseSound";
+
+
 
 const initialState = {
     startTyping:false,
@@ -20,10 +22,12 @@ const initialState = {
     ]
 }
 
-
-
 export const useRobotReducer = () => {
 
+    // La référence de la boite de dialogue
+    const robotBoxRef = useRef() 
+
+    // Les actions possibles à effectuer avec la boite de dialogue
     const ACTIONS_ROBOT = {
         START_TYPING:"START_TYPING",
         SET_MESSAGE:"SET_MESSAGE",
@@ -33,6 +37,7 @@ export const useRobotReducer = () => {
         SET_INTERVAL_ID:"SET_INTERVAL_ID",
     }
 
+    // Le reducer pour effectuer la mutation de l'état de la boite de dialogue
     function reducer(state, action){
         switch(action.type){
 
@@ -71,42 +76,86 @@ export const useRobotReducer = () => {
         }
     }
 
+    // Mise en place du dispatch pour le state de la boite de dialogue
     const [state, dispatchStateRobot] = useReducer(reducer, initialState)
 
+    // Lance le message
     const injectMessage = () => {
-        if(state.intervalID !== null){
+
+        // S'il y a déjà un interval, on le clear.
+        if(state.intervalID !== null){ 
             clearInterval(state.intervalID)
         }
 
-        const indexOfMessage = state.messageMap.findIndex(message => message.id === state.messageMapIndex && message.route === state.messageRouteIndex)
+        // On trouve l'index du message à envoyer ( déterminer par messageMapIndex et messageRouteIndex )
+        const indexOfMessage = state.messageMap.findIndex(message => message.id === state.messageMapIndex && message.route === state.messageRouteIndex) 
 
+        // On reset la boite de dialogue
         dispatchStateRobot({type:ACTIONS_ROBOT.SET_MESSAGE, payload:""})
+
+        // On initialise un step à 0
         let step = 0
+
+        // On lance un setInterval pour le defilmeent du message lettre par lettre, basé sur la vitesse de lecture de globalParameter 
         const intervalID = setInterval(() => {
+
+            // On stock l'identifiant de l'interval dans le state
             dispatchStateRobot({type:ACTIONS_ROBOT.SET_INTERVAL_ID, payload:intervalID})
+
+            // Si on est OK pour afficher un message
             if(state.startTyping){
+
+                // On joue du son, en fonction du step en cours ( pour éviter trop de bruit )
                 playSound(step)
+
+                // On incrémente step 
                 step++
+
+                // On affiche le premier caractère du message à afficher
                 dispatchStateRobot({type:ACTIONS_ROBOT.SET_MESSAGE, payload:state.messageMap[indexOfMessage].text[step - 1]})
 
+                // Une fois que le step a atteint la longueur total du message à afficher ( que tout le message est afficher )
                 if(step >= state.messageMap[indexOfMessage].text.length){
+                    // On clear l'interval
                     clearInterval(intervalID)
+                    // On supprime le stockage de l'identifiant dans le state
                     dispatchStateRobot({type:ACTIONS_ROBOT.SET_INTERVAL_ID, payload:null})
                 }
             }
         }, globalParameter.readingSpeed)
     }
 
+
+
+
+
+
+
+
+
+
+    // Gère l'affichage du premier message
     useEffect(() => {
         if(state.startTyping){
             injectMessage()
         }
     }, [state.startTyping])
 
+
+
+    // Gère l'affichage des messages
     useEffect(() => {
         injectMessage()
     }, [state.messageMapIndex, state.messageRouteIndex, state.injectMessage])
 
+
+
+    // Gère le defilement vers le bas de la boite de chat
+    useEffect(() => {
+        if(robotBoxRef.current){
+            robotBoxRef.current.scrollTop = robotBoxRef.current.scrollHeight - robotBoxRef.current.clientHeight
+        }
+    }, [state.messageDisplay])
 
 
     return {
@@ -114,6 +163,7 @@ export const useRobotReducer = () => {
         state,
         dispatchStateRobot,
         injectMessage,
+        robotBoxRef,
     }
 }
 
