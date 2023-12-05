@@ -1,4 +1,4 @@
-import React, { useState, useContext} from "react";
+import React, { useContext } from "react";
 import Options from "./Options";
 import { StateContext } from "../Context/AppContext";
 

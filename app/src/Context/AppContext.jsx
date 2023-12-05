@@ -1,5 +1,5 @@
-import React, { createContext, useState } from "react";
-import { globalParameter } from "../Store/GlobalParameter";
+import React, { createContext } from "react";
+import { useGlobalParameter } from "../Store/UseGlobalParameter";
 import { useRobotReducer } from "../Store/UseRobot";
 import { useOptions } from "../Store/UseOptions";
 import { UseAnimationLifeCycle } from "../Store/UseAnimationLifeCycle";
@@ -9,6 +9,13 @@ export const StateContext = createContext();
 
 // On définie son provider et les state par défaut
 export const StateProvider = ({children}) => {
+
+    // GLOBAL PARAMETER
+    const {
+        globalParameter,
+        ACTIONS_GLOBALPARAMETER,
+        dispatchStateGlobalParameter
+    } = useGlobalParameter()
 
     // ROBOT
     const {
@@ -26,6 +33,7 @@ export const StateProvider = ({children}) => {
         ACTION_OPTIONS
     } = useOptions()
 
+    // ANIMATIONS
     const {
         startRobot,
         setstartRobot,
@@ -38,6 +46,8 @@ export const StateProvider = ({children}) => {
     return(
         <StateContext.Provider value={{
             globalParameter,
+            ACTIONS_GLOBALPARAMETER,
+            dispatchStateGlobalParameter,
             ACTIONS_ROBOT,
             state,
             dispatchStateRobot,
