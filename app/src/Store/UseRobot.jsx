@@ -1,6 +1,6 @@
 import React, {useRef, useEffect, useReducer, useContext } from "react";
 import { playSound } from "./UseSound";
-import { useGlobalParameter } from "../Store/UseGlobalParameter";
+import { GlobalParameterContext } from "../Context/GlobalParameterContext";
 
 
 const initialState = {
@@ -23,11 +23,7 @@ const initialState = {
 
 export const useRobotReducer = () => {
     
-    const {
-        globalParameter,
-        ACTIONS_GLOBALPARAMETER,
-        dispatchStateGlobalParameter
-    } = useGlobalParameter()
+    const {globalParameter} = useContext(GlobalParameterContext)
 
     // La référence de la boite de dialogue
     const robotBoxRef = useRef() 
