@@ -24,18 +24,18 @@
 
             >div{
                 color: white;
-                height: 3vw;
+                height: 5rem;
+                display: flex;
+                align-items: center;
             }
 
             >div.nameApparition{
                 font-size: 3rem;
-                display: flex;
-                align-items: center;
-                gap: 0.3vw;
+                gap: 0.5vw;
 
                 .whiteBar{
-                    width: 1.2vw;
-                    height: 80%;
+                    width: 1.5rem;
+                    height: 60%;
                     background-color: white;
                 }
             }

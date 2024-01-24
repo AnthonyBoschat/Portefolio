@@ -1,17 +1,19 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import useWhiteBar from "../../CustomHook/Loading/useWhiteBar";
+import useWriteName from "../../CustomHook/Loading/useWriteName";
 
 function Loading_AnthonyBoschatApparition(){
 
-    // const onLoad = useSelector(store => store.lifeCycle.initialisation.onLoad)
-    
+    const {whiteBarVisible} = useWhiteBar()
+    const {nameToShow} = useWriteName()
+    const visible = whiteBarVisible ? {visibility:"visible"} : {visibility:"hidden"}
+
+
     return(
         <div className="nameApparitionBox">
             <div className="nameApparition">
-                Anthony Boschat
-                <div className="whiteBar">
-                    
-                </div>
+                <span className="nameBox">{nameToShow.join("")}</span>
+                <div style={visible} className="whiteBar"></div>
             </div>
         </div>
     )
