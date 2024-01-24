@@ -10,7 +10,7 @@ export default function useWhiteBar(){
     const whiteBarBlink = () => {
         const intervalBlinkID = setInterval(() => {
             setWhiteBarVisible(current => !current)
-        }, 400)
+        }, 300)
 
         return intervalBlinkID
     }

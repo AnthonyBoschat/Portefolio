@@ -8,8 +8,7 @@ function Loading(){
         <div className="loadingDisplay">
             <div className="loadingBox">
                 <Loading_AnthonyBoschatApparition/>
-                
-                <Loading_LogoLoading/>
+                {/* <Loading_LogoLoading/> */}
             </div>
         </div>
     )
