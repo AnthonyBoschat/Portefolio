@@ -1,0 +1,50 @@
+.loadingDisplay{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .loadingBox{
+        width: 80%;
+        height: 80%;
+        outline: 1px solid red;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5vw;
+
+        >div{
+            outline: 1px solid white;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+
+            >div{
+                color: white;
+                height: 3vw;
+            }
+
+            >div.nameApparition{
+                font-size: 3rem;
+                display: flex;
+                align-items: center;
+                gap: 0.3vw;
+
+                .whiteBar{
+                    width: 1.2vw;
+                    height: 80%;
+                    background-color: white;
+                }
+            }
+
+            >div.logoLoading{
+                font-size: 3rem;
+            }
+        }
+
+        
+    }
+}

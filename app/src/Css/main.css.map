@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../Sass/main.scss"],"names":[],"mappings":"AAAA","file":"main.css"}
+{"version":3,"sourceRoot":"","sources":["../Sass/Background-Color/background-color-global.scss","../Sass/Loading/loading.scss","../Sass/index.scss"],"names":[],"mappings":"AAAA,QACI,YACA,aACA,sBCHJ,gBACI,YACA,aACA,aACA,uBACA,mBAEA,4BACI,UACA,WACA,sBAEA,aACA,sBACA,uBACA,mBACA,QAEA,gCACI,uBACA,aACA,WACA,uBAEA,oCACI,WACA,WAGJ,mDACI,eACA,aACA,mBACA,SAEA,6DACI,YACA,WACA,sBAIR,gDACI,eCtChB","file":"main.css"}

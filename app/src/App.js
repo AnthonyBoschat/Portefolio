@@ -1,10 +1,13 @@
-
+import Loading from "./Components/Initialisation/Loading";
+import "./Css/main.css"
 
 function App() {
-  return (
-    <>
 
-    </>
+
+  return (
+    <div className="app">
+      <Loading/>
+    </div>
   );
 }
 
