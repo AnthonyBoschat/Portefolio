@@ -32,13 +32,21 @@
             >div.nameApparition{
                 font-size: 3rem;
                 gap: 0.5vw;
+                width: fit-content;
+                position: relative;
+                padding-left: 0.5em;
+                padding-right: 0.5em;
 
-                .whiteBar{
-                    width: 1.5rem;
-                    height: 60%;
-                    background-color: white;
-                }
+                
+
+                // .whiteBar{
+                //     width: 1.5rem;
+                //     height: 60%;
+                //     background-color: white;
+                // }
             }
+
+            
 
             >div.logoLoading{
                 font-size: 3rem;
@@ -46,5 +54,26 @@
         }
 
         
+    }
+}
+
+
+
+
+.cursorBox{
+    // outline: 1px solid blue;
+    position: absolute;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    animation: left-to-right 3s ease forwards;
+    
+    .cursorBar{
+        width: 0.3em;
+        height: 80%;
+        background-color: white;
     }
 }

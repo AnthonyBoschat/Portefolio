@@ -12,9 +12,15 @@ function Loading_AnthonyBoschatApparition(){
     return(
         <div className="nameApparitionBox">
             <div className="nameApparition">
-                <span className="nameBox">{nameToShow.join("")}</span>
-                <div style={visible} className="whiteBar"></div>
+                <span className="nameBox">Anthony Boschat</span>
+                <div className="cursorBox">
+                    <div className="cursorBar"></div>
+                </div>
+
+                {/* {<span className="nameBox">{nameToShow.join("")}</span>} */}
+                {/* {<div style={visible} className="whiteBar"></div> } */}
             </div>
+            
         </div>
     )
 }
