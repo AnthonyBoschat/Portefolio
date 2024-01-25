@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateCursor } from "../Slice/WritterSlice";
 
-export default function useWriteName(){
+export default function useWrite(){
 
     const cursor = useSelector(store => store.writter.cursor)
     const dispatch = useDispatch()

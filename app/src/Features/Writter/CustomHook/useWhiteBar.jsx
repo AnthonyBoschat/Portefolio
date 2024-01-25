@@ -10,7 +10,7 @@ export default function useWhiteBar(){
     const cursorBlink = () => {
         const intervalBlinkID = setInterval(() => {
             setcursorVisible(current => !current)
-        }, 300)
+        }, 500)
 
         return intervalBlinkID
     }

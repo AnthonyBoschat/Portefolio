@@ -3,6 +3,7 @@ import useWhiteBar from "../../Features/Writter/CustomHook/useWhiteBar";
 import useWrite from "../../Features/Writter/CustomHook/useWrite";
 import { useDispatch } from "react-redux";
 import { update_onLoad } from "./LoadingSlice";
+import { updateCursor } from "../../Features/Writter/Slice/WritterSlice";
 
 function Loading_AnthonyBoschatApparition(){
 
@@ -43,7 +44,7 @@ function Loading_AnthonyBoschatApparition(){
                         </div> */}
 
                         <span className="nameBox">{nameToLoad.join("")}</span>
-                        <div style={visible} className="cursorBar"></div>
+                        <div style={visible} className="loadingCursorBar"></div>
                         
                     </div>
                 </div>
