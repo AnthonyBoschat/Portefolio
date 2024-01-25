@@ -4,33 +4,34 @@ import { useDispatch, useSelector } from "react-redux";
 export default function useWhiteBar(){
 
     const onLoad = useSelector(store => store.lifeCycle.initialisation.onLoad)
-    const [whiteBarVisible, setWhiteBarVisible] = useState(true)
+    const cursor = useSelector(store => store.writter.cursor)
+    const [cursorVisible, setcursorVisible] = useState(false)
 
     // Fonction qui fait clignotter la bare blanche qui sert de curseur lors du chargement
-    const whiteBarBlink = () => {
+    const cursorBlink = () => {
         const intervalBlinkID = setInterval(() => {
-            setWhiteBarVisible(current => !current)
+            setcursorVisible(current => !current)
         }, 300)
 
         return intervalBlinkID
     }
 
-    // Si on est en loading, fait clignotter le curseur blanc
+    // Quand l'état du curseur change, on fait clignotter l'état local cursorVisible
     useEffect(() => {
         let intervalBlinkID
-        if(onLoad){
-            intervalBlinkID = whiteBarBlink()
+        if(cursor){
+            intervalBlinkID = cursorBlink()
 
             return(() => {
                 clearInterval(intervalBlinkID)
             })
         }
-    }, [onLoad])
+    }, [cursor])
 
 
 
     return{
-        whiteBarBlink,
-        whiteBarVisible
+        cursorBlink,
+        cursorVisible
     }
 }

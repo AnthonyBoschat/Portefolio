@@ -16,46 +16,36 @@
         align-items: center;
         gap: 5vw;
 
-        >div{
+        div.nameApparitionBox{
             // outline: 1px solid white;
             display: flex;
             width: 100%;
             justify-content: center;
 
-            >div{
+            >div.nameApparition{
+                // outline: 1px solid;
                 color: white;
                 height: 5rem;
                 display: flex;
+                gap: 0.2em;
                 align-items: center;
-            }
-
-            >div.nameApparition{
-                // outline: 1px solid;
                 font-size: 3rem;
-                gap: 0.5vw;
                 width: fit-content;
                 position: relative;
                 padding-left: 0.5em;
                 padding-right: 0.5em;
-                animation: opacity-out 1s 6s ease forwards;
-
+                opacity: 0;
+                animation: opacity-in 1s 0.5s ease forwards, opacity-out 1s 4s ease forwards;
+                // animation: opacity-out 1s 6s ease forwards;
                 
 
-                // .whiteBar{ // Deuxième solution : Comment
-                //     width: 1.5rem;
-                //     height: 60%;
-                //     background-color: white;
-                // } //
-            }
-
-            
-
-            >div.logoLoading{
-                font-size: 3rem;
+                .cursorBar{ // Deuxième solution : Comment
+                    width: 0.6rem;
+                    height: 60%;
+                    background-color: white;
+                } 
             }
         }
-
-        
     }
 }
 
@@ -64,22 +54,22 @@
 // Deuxième solution, décommenter
 
 
-.cursorBox{
-    // outline: 1px solid blue;
-    position: absolute;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    display: flex;
-    align-items: center;
-    animation: left-to-right 3s 2.5s ease forwards;
+// .cursorBox{
+//     // outline: 1px solid blue;
+//     position: absolute;
+//     left: 0%;
+//     width: 100%;
+//     height: 100%;
+//     background-color: black;
+//     display: flex;
+//     align-items: center;
+//     animation: left-to-right 3s 2.5s ease forwards;
     
-    .cursorBar{
-        width: 0.3em;
-        height: 80%;
-        background-color: rgb(181, 181, 181);
-        opacity: 0;
-        animation: opacity-in 1s 1s ease forwards;
-    }
-}
+//     .cursorBar{
+//         width: 0.3em;
+//         height: 80%;
+//         background-color: rgb(181, 181, 181);
+//         opacity: 0;
+//         animation: opacity-in 1s 1s ease forwards;
+//     }
+// }
