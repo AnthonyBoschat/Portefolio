@@ -1,9 +1,9 @@
 import { combineReducers } from "@reduxjs/toolkit"
-import { LifeCycleSliceReducer } from "./Slices/LifeCycleSlice"
-import { WritterSliceReducer } from "./Slices/WritterSlice"
+import { LoadingSliceReducer } from "../Components/Loading/LoadingSlice"
+import { WritterSliceReducer } from "../Features/Writter/Slice/WritterSlice"
 
 const rootReducer = combineReducers({
-    lifeCycle:LifeCycleSliceReducer,
+    loading:LoadingSliceReducer,
     writter:WritterSliceReducer,
 })
 

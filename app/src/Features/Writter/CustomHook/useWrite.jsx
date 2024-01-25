@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateCursor } from "../../Redux/Slices/WritterSlice";
+import { updateCursor } from "../Slice/WritterSlice";
 
 export default function useWriteName(){
 
-    const onLoad = useSelector(store => store.lifeCycle.initialisation.onLoad)
     const cursor = useSelector(store => store.writter.cursor)
     const dispatch = useDispatch()
     

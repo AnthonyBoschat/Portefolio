@@ -1,9 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function useWhiteBar(){
 
-    const onLoad = useSelector(store => store.lifeCycle.initialisation.onLoad)
     const cursor = useSelector(store => store.writter.cursor)
     const [cursorVisible, setcursorVisible] = useState(false)
 
