@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import useWhiteBar from "../../Features/Writter/CustomHook/useWhiteBar";
 import { useDispatch } from "react-redux";
 import { updateCursor } from "../../Features/Writter/Slice/WritterSlice";
@@ -9,8 +9,11 @@ function Main(){
     const [profilSentence, setProfilSentence] = useState([])
     const [projetSentence, setProjetSentence] = useState([])
     const [contactSentence, setContactSentence] = useState([])
+    const profilCursorRef = useRef()
+    const projetCursorRef = useRef()
+    const contactCursorRef = useRef()
     const {write} = useWrite()
-    const {cursorVisible} = useWhiteBar()
+    const {cursorVisible, cursorDisparition} = useWhiteBar()
     const visible = cursorVisible ? {visibility:"visible"} : {visibility:"hidden"}
     const dispatch = useDispatch()
 
@@ -21,19 +24,22 @@ function Main(){
             timeout:500,
             sentence:"Profil",
             speed:70,
-            setter:setProfilSentence
+            setter:setProfilSentence,
+            ending:() => cursorDisparition(profilCursorRef, 200)
         })
         const timeoutID2 = write({
             timeout:700,
             sentence:"Projet",
             speed:100,
-            setter:setProjetSentence
+            setter:setProjetSentence,
+            ending:() => cursorDisparition(projetCursorRef, 200)
         })
         const timeoutID3 = write({
             timeout:900,
             sentence:"Contact",
             speed:50,
-            setter:setContactSentence
+            setter:setContactSentence,
+            ending:() => cursorDisparition(contactCursorRef, 200)
         })
 
         return(() => {
@@ -50,17 +56,17 @@ function Main(){
 
                     <div className="categoryBox">
                         <div className="categoryName">{profilSentence}</div>
-                        <div style={visible} className="categoryCursorBar"></div>
+                        <div ref={profilCursorRef} style={visible} className="categoryCursorBar"></div>
                     </div>
 
                     <div className="categoryBox">
                         <div className="categoryName">{projetSentence}</div>
-                        <div style={visible} className="categoryCursorBar"></div>
+                        <div ref={projetCursorRef} style={visible} className="categoryCursorBar"></div>
                     </div>
 
                     <div className="categoryBox">
                         <div className="categoryName">{contactSentence}</div>
-                        <div style={visible} className="categoryCursorBar"></div>
+                        <div ref={contactCursorRef} style={visible} className="categoryCursorBar"></div>
                     </div>
                     
                     

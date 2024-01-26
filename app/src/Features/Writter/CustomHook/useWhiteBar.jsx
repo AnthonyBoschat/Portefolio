@@ -15,6 +15,12 @@ export default function useWhiteBar(){
         return intervalBlinkID
     }
 
+    const cursorDisparition = (cursorRef, timeoutDelay) => {
+        setTimeout(() => {
+            cursorRef?.current?.classList.add("cursor-opacity-out")
+        }, timeoutDelay);
+    }
+
     // Quand l'état du curseur change, on fait clignotter l'état local cursorVisible
     // useEffect(() => {
     //     let intervalBlinkID
@@ -31,6 +37,7 @@ export default function useWhiteBar(){
 
     return{
         cursorBlink,
-        cursorVisible
+        cursorVisible,
+        cursorDisparition
     }
 }
