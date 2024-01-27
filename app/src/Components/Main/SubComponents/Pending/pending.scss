@@ -8,6 +8,7 @@ div.pendingSentenceBox{
     margin-top: 0.3rem;
     overflow: auto;
     height: 95%;
+    font-family: 'Inconsolata', monospace;
 
     >div.pendingSentenceCursor{
 
@@ -15,7 +16,7 @@ div.pendingSentenceBox{
         margin-left: 0.3rem;
         width: 0.8rem;
         height: 1.5rem;
-        background-color: antiquewhite;
+        background-color: rgba(255, 255, 255, 0.762);
         vertical-align:sub;
     }
 }

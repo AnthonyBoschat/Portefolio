@@ -68,12 +68,8 @@ function Main(){
                         </div>
 
                         <div className="categorySentenceBox">
-                            <Link to="Contact" className="categoryName">{contactSentence}</Link>
+                            <Link to="/" className="categoryName">{contactSentence}</Link>
                             <div ref={contactCursorRef} className="categoryCursorBar"></div>
-                        </div>
-
-                        <div className="categorySentenceBox">
-                            <Link to="/" className="categoryName">Retour</Link>
                         </div>
                         
                     </div>
