@@ -1,0 +1,21 @@
+div.pendingSentenceBox{
+    // background-color: blue;
+    display: inline;
+    width: fit-content;
+    // background-color: rgba(0, 255, 255, 0.521); //
+    font-size: 1.5rem;
+    margin-left: 0.3rem;
+    margin-top: 0.3rem;
+    overflow: auto;
+    height: 95%;
+
+    >div.pendingSentenceCursor{
+
+        display: inline-block;
+        margin-left: 0.3rem;
+        width: 0.8rem;
+        height: 1.5rem;
+        background-color: antiquewhite;
+        vertical-align:sub;
+    }
+}

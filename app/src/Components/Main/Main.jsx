@@ -58,17 +58,17 @@ function Main(){
 
                     <div className="mainCategoryList">
 
-                        <div className="categoryBox">
+                        <div className="categorySentenceBox">
                             <Link to="Profil" className="categoryName">{profilSentence}</Link>
                             <div ref={profilCursorRef} style={visible} className="categoryCursorBar"></div>
                         </div>
 
-                        <div className="categoryBox">
+                        <div className="categorySentenceBox">
                             <Link to="Projet" className="categoryName">{projetSentence}</Link>
                             <div ref={projetCursorRef} style={visible} className="categoryCursorBar"></div>
                         </div>
 
-                        <div className="categoryBox">
+                        <div className="categorySentenceBox">
                             <Link to="Contact" className="categoryName">{contactSentence}</Link>
                             <div ref={contactCursorRef} style={visible} className="categoryCursorBar"></div>
                         </div>

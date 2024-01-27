@@ -23,7 +23,13 @@ export default function useWrite(){
             const intervalID = setInterval(() => {
                 if(index < goal){ // Tant qu'on est pas arriver à la fin du tableau
                     const currentIndex = index // On sauvegarde l'index en cours
-                    parameters.setter(current => [...current, sentenceArray[currentIndex]]) // On set dans le current du setter passé le caractère en cours de lecture
+                    const currentChar = sentenceArray[currentIndex]
+                    if(currentChar === "\n"){
+                        parameters.setter(current => [...current, <br key={currentIndex}/>]) // On set dans le current du setter passé le caractère en cours de lecture
+                    }else{
+                        parameters.setter(current => [...current, currentChar]) // On set dans le current du setter passé le caractère en cours de lecture
+                    }
+                    
                     index++ // On incrémente l'index
                 }else{
                     clearInterval(intervalID) // On clear l'interval

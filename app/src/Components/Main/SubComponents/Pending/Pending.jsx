@@ -3,7 +3,7 @@ import React from "react";
 function Pending(){
 
     return(
-        <h1>Pending</h1>
+        <h1>Pending Pending Pending</h1>
     )
 }
 

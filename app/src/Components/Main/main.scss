@@ -22,7 +22,7 @@ div.mainDisplay{
             justify-content: center;
             gap: 20%;
 
-            >div.categoryBox{
+            >div.categorySentenceBox{
                 height: 3.5rem;
                 margin-left: 20%;
                 font-size: 3rem;
@@ -67,8 +67,8 @@ div.mainDisplay{
                 width: 80%;
                 height: 80%;
                 display: flex;
-                justify-content: center;
-                align-items: center;
+                justify-content: flex-start;
+                align-items: flex-start;
             }
         }
     }

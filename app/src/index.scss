@@ -2,6 +2,7 @@
 @use "Sass/Background-Color/background-color-global.scss";
 @use "Components/Loading/loading.scss";
 @use "Components/Main/main.scss";
+@use "Components/Main/SubComponents/Pending/pending.scss";
 
 
 *{margin: 0; padding: 0;}
