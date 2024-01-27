@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { updateCursor } from "../../Features/Writter/Slice/WritterSlice";
 import useWrite from "../../Features/Writter/CustomHook/useWrite";
 import AnthonyBoschat from "../../Ressource/AnthonyBoschat.png"
+import { Outlet } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 function Main(){
 
@@ -51,36 +53,37 @@ function Main(){
     }, [])
 
     return(
-        <div className="mainDisplay">
-            <div className="mainCategoryBox">
+            <div className="mainDisplay">
+                <div className="mainCategoryBox">
 
-                <div className="mainCategoryList">
+                    <div className="mainCategoryList">
 
-                    <div className="categoryBox">
-                        <div className="categoryName">{profilSentence}</div>
-                        <div ref={profilCursorRef} style={visible} className="categoryCursorBar"></div>
+                        <div className="categoryBox">
+                            <Link to="Profil" className="categoryName">{profilSentence}</Link>
+                            <div ref={profilCursorRef} style={visible} className="categoryCursorBar"></div>
+                        </div>
+
+                        <div className="categoryBox">
+                            <Link to="Projet" className="categoryName">{projetSentence}</Link>
+                            <div ref={projetCursorRef} style={visible} className="categoryCursorBar"></div>
+                        </div>
+
+                        <div className="categoryBox">
+                            <Link to="Contact" className="categoryName">{contactSentence}</Link>
+                            <div ref={contactCursorRef} style={visible} className="categoryCursorBar"></div>
+                        </div>
+                        
                     </div>
 
-                    <div className="categoryBox">
-                        <div className="categoryName">{projetSentence}</div>
-                        <div ref={projetCursorRef} style={visible} className="categoryCursorBar"></div>
+
+                    <div className="mainCategoryPresentationDisplay">
+                        <div className="mainCategoryPresentationBox">
+                            <Outlet/>
+                        </div>
                     </div>
 
-                    <div className="categoryBox">
-                        <div className="categoryName">{contactSentence}</div>
-                        <div ref={contactCursorRef} style={visible} className="categoryCursorBar"></div>
-                    </div>
-                    
                 </div>
-
-
-                <div className="mainCategoryPresentationDisplay">
-                    <div className="mainCategoryPresentationBox">
-                    </div>
-                </div>
-
             </div>
-        </div>
     )
 }
 

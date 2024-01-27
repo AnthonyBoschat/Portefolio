@@ -31,12 +31,15 @@ div.mainDisplay{
                 justify-content: flex-start;
                 // outline: 1px solid red; //
                 gap: 0.2em;
+                color: white;
 
-                >div.categoryName{
+                >.categoryName{
                     height: 100%;
                     padding-left: 0.5rem;
                     padding-right: 0.5rem;
                     // outline: 1px solid white; //
+                    color: white;
+                    text-decoration: none;
 
                     &:hover{
                         cursor: pointer;
@@ -65,7 +68,7 @@ div.mainDisplay{
                 height: 80%;
                 display: flex;
                 justify-content: center;
-                align-items: flex-end;
+                align-items: center;
             }
         }
     }
