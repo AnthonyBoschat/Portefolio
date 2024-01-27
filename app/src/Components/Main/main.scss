@@ -19,9 +19,15 @@ div.mainDisplay{
             // outline: 1px solid blue; //
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            gap: 20%;
+            height: fit-content; //
+            // justify-content: center;
+            align-items: center;
+            position: relative;
+            top: 50%;
 
+            /////////////////////////
+            /////////////////////////
+            /// SOLUTION CLASSIQUE
             >div.categorySentenceBox{
                 height: 3.5rem;
                 margin-left: 20%;
@@ -31,7 +37,6 @@ div.mainDisplay{
                 justify-content: flex-start;
                 // outline: 1px solid red; //
                 gap: 0.2em;
-                color: white;
 
                 >.categoryName{
                     height: 100%;
@@ -52,7 +57,7 @@ div.mainDisplay{
                     width: 1.2rem;
                     background-color: rgba(255, 255, 255, 0.767);
                 }
-            }
+            }////////////////////
         }
 
         .mainCategoryPresentationDisplay{
@@ -63,7 +68,7 @@ div.mainDisplay{
             align-items: center;
 
             .mainCategoryPresentationBox{
-                outline: 1px solid white; //
+                outline: 1px solid rgba(255, 255, 255, 0.597); //
                 width: 80%;
                 height: 80%;
                 display: flex;
@@ -72,5 +77,83 @@ div.mainDisplay{
             }
         }
     }
-    
 }
+
+
+
+
+// SOLUTION HEXAGONALE
+div.hexagon{
+    float: left;
+    text-decoration: none;
+    color: white;
+    font-size: 0.8em;
+    position: relative;
+    text-align: center;
+    // outline: 1px solid red; //
+    width: fit-content; //
+    border-radius: 100%; //
+
+    >*:hover{
+        cursor: pointer;
+    }
+
+    &:hover svg{
+        fill: rgba(250, 250, 250, 0.146);
+    }
+
+    svg{
+        // outline: 1px solid red; //
+        border-radius: 100%; //
+        stroke: white;
+        stroke-width: 0.5em;
+        width: 12rem;
+        height: 12rem;
+        fill: rgba(250, 250, 250, 0.029);
+        transition: all 0.2s ease;
+    }
+
+    div.categorySentenceBox{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        // outline: 1px solid green;
+
+        >.categoryName{
+            // outline: 1px solid green; //
+            height: 100%;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            // outline: 1px solid white; //
+            color: white;
+            text-decoration: none;
+        }
+    }
+}
+
+div.profilCategoryBox{
+    position: absolute;
+    transform: translate(-40%, -100%);
+    // transform: translate(-40%);
+}
+
+div.projetCategoryBox{
+    position: absolute;
+    transform: translate(50%, -50%);
+    // transform: translate(50%, -50%);
+}
+
+div.contactCategoryBox{
+    position: absolute;
+    transform: translate(-40%, 0%);
+    // transform: translate(-40%, -100%);
+}
+    
+    
+    
+    
