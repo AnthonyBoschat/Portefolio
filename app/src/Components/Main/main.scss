@@ -1,4 +1,6 @@
 div.mainDisplay{
+    opacity: 0;
+    animation: opacity-in 0.5s ease forwards;
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -10,7 +12,7 @@ div.mainDisplay{
         height: 90%;
         // background-color: grey; //
         display: grid;
-        grid-template-columns: 30% 70%;
+        grid-template-columns: minmax(400px, 30%) minmax(70vh, 70%);
 
         >div.mainCategoryList{
             // background-color: rgba(255, 0, 0, 0.32); //
@@ -32,7 +34,14 @@ div.mainDisplay{
 
                 >div.categoryName{
                     height: 100%;
+                    padding-left: 0.5rem;
+                    padding-right: 0.5rem;
                     // outline: 1px solid white; //
+
+                    &:hover{
+                        cursor: pointer;
+                        background-color: grey;
+                    }
                 }
 
                 >div.categoryCursorBar{
@@ -43,9 +52,21 @@ div.mainDisplay{
             }
         }
 
-        .mainCategoryDisplay{
+        .mainCategoryPresentationDisplay{
             // background-color: rgba(0, 0, 255, 0.423); //
             outline: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .mainCategoryPresentationBox{
+                outline: 1px solid white; //
+                width: 80%;
+                height: 80%;
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+            }
         }
     }
     
