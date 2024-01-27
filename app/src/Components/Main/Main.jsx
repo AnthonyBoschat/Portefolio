@@ -16,8 +16,7 @@ function Main(){
     const projetCursorRef = useRef()
     const contactCursorRef = useRef()
     const {write} = useWrite()
-    const {cursorVisible, cursorDisparition} = useWhiteBar()
-    const visible = cursorVisible ? {visibility:"visible"} : {visibility:"hidden"}
+    const {cursorDisparition} = useWhiteBar()
     const dispatch = useDispatch()
 
     
@@ -60,17 +59,21 @@ function Main(){
 
                         <div className="categorySentenceBox">
                             <Link to="Profil" className="categoryName">{profilSentence}</Link>
-                            <div ref={profilCursorRef} style={visible} className="categoryCursorBar"></div>
+                            <div ref={profilCursorRef} className="categoryCursorBar"></div>
                         </div>
 
                         <div className="categorySentenceBox">
                             <Link to="Projet" className="categoryName">{projetSentence}</Link>
-                            <div ref={projetCursorRef} style={visible} className="categoryCursorBar"></div>
+                            <div ref={projetCursorRef} className="categoryCursorBar"></div>
                         </div>
 
                         <div className="categorySentenceBox">
                             <Link to="Contact" className="categoryName">{contactSentence}</Link>
-                            <div ref={contactCursorRef} style={visible} className="categoryCursorBar"></div>
+                            <div ref={contactCursorRef} className="categoryCursorBar"></div>
+                        </div>
+
+                        <div className="categorySentenceBox">
+                            <Link to="/" className="categoryName">Retour</Link>
                         </div>
                         
                     </div>

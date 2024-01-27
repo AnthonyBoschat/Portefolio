@@ -11,8 +11,6 @@ function Loading_AnthonyBoschatApparition(){
     const dispatch = useDispatch()
     const [nameToLoad, setNameToLoad] = useState([])
     const {write} = useWrite()
-    const {cursorVisible} = useWhiteBar()
-    const visible = cursorVisible ? {visibility:"visible"} : {visibility:"hidden"}
 
     useEffect(() => {
         const timeoutID = write({
@@ -44,7 +42,7 @@ function Loading_AnthonyBoschatApparition(){
                         </div> */}
 
                         <span className="nameBox">{nameToLoad.join("")}</span>
-                        <div style={visible} className="loadingCursorBar"></div>
+                        <div className="loadingCursorBar"></div>
                         
                     </div>
                 </div>
