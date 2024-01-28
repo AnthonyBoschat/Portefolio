@@ -1,18 +1,33 @@
 import React, { useEffect, useRef, useState } from "react";
-import useWhiteBar from "../../../../Features/Writter/CustomHook/useWhiteBar";
+import { useDispatch, useSelector } from "react-redux";
 import useWrite from "../../../../Features/Writter/CustomHook/useWrite";
-import Sphere from "./--SubComponent/Sphere/Sphere";
+import useWhiteBar from "../../../../Features/Writter/CustomHook/useWhiteBar";
+import { update_onPending } from "./PendingSlice";
 
-function Pending(){
+export default function usePending(){
 
+    const dispatch = useDispatch()
+    
     const [pendingSentence1, setPendingSentence1] = useState([])
     const [loadSentence2, setLoadSentence2] = useState(false)
     const [pendingSentence2, setPendingSentence2] = useState([])
-    const [loadAnimationSphere, setLoadAnimationSphere] = useState(false)
-    const {write} = useWrite()
     const cursorSentenceRef = useRef()
-    const {cursorVisible, cursorDisparition} = useWhiteBar()
+
+    const {write} = useWrite()
+    const {cursorVisible} = useWhiteBar()
     const visible = cursorVisible ? {visibility:"visible"} : {visibility:"hidden"}
+
+
+
+
+
+
+
+
+
+
+
+    // LIFECYCLE
 
     useEffect(() => {
         const timeoutID = write({
@@ -57,7 +72,7 @@ function Pending(){
                 setter:setPendingSentence2,
                 ending:() => {
                     setTimeout(() => {
-                        setLoadAnimationSphere(true)
+                        dispatch(update_onPending(false))
                     }, 1000);
                 }
     
@@ -69,22 +84,10 @@ function Pending(){
         }
     }, [loadSentence2])
 
-
-    return(
-        <>
-            {!loadAnimationSphere && (
-                <div className="pendingSentenceBox">
-                    {pendingSentence1}
-                    {pendingSentence2}
-                    <div style={visible} ref={cursorSentenceRef} className="pendingSentenceCursor"></div>
-                </div>
-            )}
-            {loadAnimationSphere && (
-                <Sphere/>
-            )}
-        </>
-    )
-    
+    return{
+        visible,
+        pendingSentence1,
+        pendingSentence2,
+        cursorSentenceRef
+    }
 }
-
-export default Pending;
