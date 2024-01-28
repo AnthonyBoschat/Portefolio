@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import useWhiteBar from "../../../../Features/Writter/CustomHook/useWhiteBar";
 import useWrite from "../../../../Features/Writter/CustomHook/useWrite";
-import Sphere from "../../../Sphere/sphere";
+import Sphere from "./--SubComponent/Sphere/Sphere";
 
 function Pending(){
 
@@ -27,6 +27,7 @@ function Pending(){
             \u00A0\u00A0\u00A0\u00A0- @reduxjs/toolkit@2.1.0 OK
             \u00A0\u00A0\u00A0\u00A0- react-router-dom@6.21.3 OK
             \u00A0\u00A0\u00A0\u00A0- npm@10.3.0 OK
+            \u00A0\u00A0\u00A0\u00A0- three@0.160.1 OK
             Démarrage de l'environnement de développement`,
             speed:2,
             setter:setPendingSentence1,

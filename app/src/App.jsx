@@ -7,7 +7,7 @@ import Pending from "./Components/Main/SubComponents/Pending/Pending";
 import Projet from "./Components/Main/SubComponents/Project/Projet";
 import Profil from "./Components/Main/SubComponents/Profil/Profil";
 import Contact from "./Components/Main/SubComponents/Contact/Contact";
-import Sphere from "./Components/Sphere/sphere";
+import Sphere from "./Components/Main/SubComponents/Pending/--SubComponent/Sphere/Sphere";
 
 function App() {
 

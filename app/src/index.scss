@@ -3,7 +3,7 @@
 @use "Components/Loading/loading.scss";
 @use "Components/Main/main.scss";
 @use "Components/Main/SubComponents/Pending/pending.scss";
-@use "Components/Sphere/sphere.scss";
+@use "Components/Main/SubComponents/Pending/--SubComponent/Sphere/sphere.scss";
 
 
 *{margin: 0; padding: 0;}

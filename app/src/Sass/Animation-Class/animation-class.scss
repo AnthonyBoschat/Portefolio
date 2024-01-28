@@ -9,6 +9,7 @@
         opacity: 0;
     }
 }
+.cursor-opacity-out{animation: opacity-out 0.5s ease forwards;}
 
 @keyframes left-to-right{
     to{
@@ -17,4 +18,3 @@
     }
 }
 
-.cursor-opacity-out{animation: opacity-out 0.5s ease forwards;}
