@@ -18,3 +18,10 @@
     }
 }
 
+@keyframes fade-out{
+    to{
+        outline: 1px solid transparent;
+    }
+}
+.presentationBox-fade-out{animation: fade-out 1s ease forwards;}
+

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import useWrite from "../../../../Features/Writter/CustomHook/useWrite";
 import useWhiteBar from "../../../../Features/Writter/CustomHook/useWhiteBar";
 import { update_onPending } from "./PendingSlice";
+import useMain from "../../useMain";
 
 export default function usePending(){
 

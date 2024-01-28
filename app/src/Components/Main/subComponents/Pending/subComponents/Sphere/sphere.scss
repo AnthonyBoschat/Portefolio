@@ -1,12 +1,8 @@
 .sphereAnimation{
     opacity: 0;
-    animation: opacity-in 1s ease forwards;
+    animation: opacity-in 2s ease forwards;
     display: flex;
     justify-content: center;
     align-items: center;
     // outline: 1px solid red;
-}
-
-.disparitionPresentationBox{
-    animation: opacity-out 500 ease forwards;
 }

@@ -8,7 +8,8 @@ function Main(){
         profilSentence,
         projetSentence,
         contactSentence,
-        navigateTo
+        navigateTo,
+        presentationBoxRef
     } = useMain()
 
     return(
@@ -64,7 +65,7 @@ function Main(){
 
 
                     <div className="mainCategoryPresentationDisplay">
-                        <div className="mainCategoryPresentationBox">
+                        <div ref={presentationBoxRef} className="mainCategoryPresentationBox">
                             <Outlet />
                         </div>
                     </div>
