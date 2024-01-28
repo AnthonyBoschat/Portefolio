@@ -9,7 +9,6 @@ function Main(){
         projetSentence,
         contactSentence,
         navigateTo,
-        presentationBoxRef
     } = useMain()
 
     return(
@@ -44,30 +43,11 @@ function Main(){
                                 <div className="categoryName">{contactSentence}</div>
                             </div>
                         </div>
-                    
-
-                        {/* <div className="categorySentenceBox">
-                            <Link to="Profil" className="categoryName">{profilSentence}</Link>
-                            <div ref={profilCursorRef} className="categoryCursorBar"></div>
-                        </div>
-
-                        <div className="categorySentenceBox">
-                            <Link to="Projet" className="categoryName">{projetSentence}</Link>
-                            <div ref={projetCursorRef} className="categoryCursorBar"></div>
-                        </div>
-
-                        <div className="categorySentenceBox">
-                            <Link to="/" className="categoryName">{contactSentence}</Link>
-                            <div ref={contactCursorRef} className="categoryCursorBar"></div>
-                        </div> */}
-                        
                     </div>
 
 
                     <div className="mainCategoryPresentationDisplay">
-                        <div ref={presentationBoxRef} className="mainCategoryPresentationBox">
-                            <Outlet />
-                        </div>
+                        <Outlet/>
                     </div>
 
                 </div>

@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import useWhiteBar from "../../../../Features/Writter/CustomHook/useWhiteBar";
-import useWrite from "../../../../Features/Writter/CustomHook/useWrite";
+import { useSelector } from "react-redux";
 import usePending from "./usePending"
 import Sphere from "./subComponents/Sphere/Sphere";
 
@@ -13,17 +11,20 @@ function Pending(){
         visible,
         pendingSentence1,
         pendingSentence2,
-        cursorSentenceRef
+        cursorSentenceRef,
+        presentationConsoleRef
     } = usePending()
 
 
     return(
         <>
             {onPending && (
-                <div className="pendingSentenceBox">
-                    {pendingSentence1}
-                    {pendingSentence2}
-                    <div style={visible} ref={cursorSentenceRef} className="pendingSentenceCursor"></div>
+                <div ref={presentationConsoleRef} className="mainCategoryPresentationConsoleBox">
+                    <div className="pendingSentenceBox">
+                        {pendingSentence1}
+                        {pendingSentence2}
+                        <div style={visible} ref={cursorSentenceRef} className="pendingSentenceCursor"></div>
+                    </div>
                 </div>
             )}
             {!onPending && (
