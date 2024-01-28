@@ -110,7 +110,7 @@ function Main(){
 
                     <div className="mainCategoryPresentationDisplay">
                         <div className="mainCategoryPresentationBox">
-                            <Outlet/>
+                            <Outlet />
                         </div>
                     </div>
 

@@ -1,0 +1,11 @@
+.sphereAnimation{
+    opacity: 0;
+    animation: opacity-in 1s ease forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.disparitionPresentationBox{
+    animation: opacity-out 500 ease forwards;
+}
