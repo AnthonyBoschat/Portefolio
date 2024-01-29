@@ -63,7 +63,7 @@ export default function usePending(){
     useEffect(() => {
         if(loadSentence2 && onPending){
             const timeoutID = write({
-                timeout:1000,
+                timeout:500,
                 sentence:
                 `
                 

@@ -1,9 +1,16 @@
 import React from "react";
+import useProfil from "./useProfil";
 
 function Profil(){
 
+    const {
+        sentenceProfilBase
+    } = useProfil()
+
     return(
-        <h1>Profil</h1>
+        <div className="mainCategoryPresentationConsoleBox">
+            <div className="pendingSentenceBox">{sentenceProfilBase}</div>
+        </div>
     )
 }
 
