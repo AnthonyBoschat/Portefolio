@@ -1,21 +1,21 @@
 @keyframes opacity-in{
+    from{
+        opacity: 0;
+    }
     to{
         opacity: 1;
     }
 }
 
 @keyframes opacity-out{
+    from{
+        opacity: 1;
+    }
     to{
         opacity: 0;
     }
 }
 .cursor-opacity-out{animation: opacity-out 0.5s ease forwards;}
-.presentationBox-opacity-out{animation: opacity-out 1s ease forwards;}
+.presentationBox-opacity-out{animation: opacity-out 1s ease forwards !important;}
 
-@keyframes left-to-right{
-    to{
-        left:100%;
-        
-    }
-}
 

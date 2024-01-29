@@ -43,6 +43,7 @@ function Main(){
                                 <div className="categoryName">{contactSentence}</div>
                             </div>
                         </div>
+                        
                     </div>
 
 
