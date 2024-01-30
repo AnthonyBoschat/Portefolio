@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 
 const Sphere = () => {
+    const [startAnimation, setStartAnimation] = useState(false)
     const mountRef = useRef();
 
     useEffect(() => {
@@ -86,7 +87,22 @@ const Sphere = () => {
             centerPoint.rotation.x += 0.010;
             centerPoint.rotation.y -= 0.020;
             centerPoint.rotation.z += 0.010;
-            
+
+
+
+            const calculCameraDistance = (cameraPosition) => {
+                return cameraPosition / 100
+            }
+
+            if(startAnimation){
+                if(camera.position.z > 2){
+                    camera.position.z -= calculCameraDistance(camera.position.z)
+                }
+            }else if(!startAnimation){
+                if(camera.position < 15){
+                    camera.position.z += calculCameraDistance(camera.position.z)
+                }
+            }
 
             renderer.render(scene, camera);
         };
@@ -100,9 +116,9 @@ const Sphere = () => {
                 mountRef.current.removeChild(renderer.domElement);
             }
         };
-    }, []);
+    }, [startAnimation]);
 
-    return <div className='sphereAnimation' ref={mountRef} style={{ width: '100%', height: '100%' }} />;
+    return <div onClick={() => setStartAnimation(current => !current)} className='sphereAnimation' ref={mountRef} style={{ width: '100%', height: '100%'}} />;
 };
 
 export default Sphere;
