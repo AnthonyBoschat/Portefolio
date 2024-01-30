@@ -28,9 +28,6 @@ const Sphere = () => {
         // scene.add(sphere2)
 
 
-        
-
-
         // Géométrie de la plus grande sphère
         const sphere1Geometry = new THREE.SphereGeometry(6, 160, 80);
         const sphere1Material = new THREE.PointsMaterial({color: "blue",size: 0.01});
@@ -39,12 +36,9 @@ const Sphere = () => {
 
         // Géométrie de la plus petite sphère
         const sphere2Geometry = new THREE.SphereGeometry(3, 80, 40); // Une petite sphère
-        const sphere2Material = new THREE.PointsMaterial({ color: "red", size: 0.01 } ); // Couleur rouge pour visibilité
+        const sphere2Material = new THREE.PointsMaterial({ color: "red", size: 0.01} ); // Couleur rouge pour visibilité
         const sphere2 = new THREE.Points(sphere2Geometry, sphere2Material);
         scene.add(sphere2)
-
-
-
 
 
         // Géométrie du carré central 
@@ -64,7 +58,6 @@ const Sphere = () => {
 
         const centerPointMaterial = new THREE.PointsMaterial({
             size: 0.01,
-            // sizeAttenuation:true,
             vertexColors:true,
             });
 
@@ -89,6 +82,7 @@ const Sphere = () => {
             centerPoint.rotation.z += 0.010;
 
 
+            
 
             const calculCameraDistance = (cameraPosition) => {
                 return cameraPosition / 100
