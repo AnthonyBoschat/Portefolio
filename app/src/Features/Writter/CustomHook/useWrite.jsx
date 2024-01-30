@@ -29,7 +29,9 @@ export default function useWrite(){
                     }else{
                         parameters.setter(current => [...current, currentChar]) // On set dans le current du setter passé le caractère en cours de lecture
                     }
-                    
+                       
+                    ////////////////// Note -> Changer la logique de la gestion du state en simple string += currentChar
+
                     index++ // On incrémente l'index
                 }else{
                     clearInterval(intervalID) // On clear l'interval
