@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import usePending from "./usePending"
-import Sphere from "./subComponents/Sphere/Sphere";
+import usePending from "./usePending";
+import Sphere from "../Sphere/Sphere"
 
 function Pending(){
 

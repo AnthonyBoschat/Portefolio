@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import useWrite from "../../../../Features/Writter/CustomHook/useWrite";
+import useWrite from "../../Features/Writter/CustomHook/useWrite";
 
 export default function useProfil(){
 

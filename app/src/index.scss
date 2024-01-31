@@ -3,8 +3,8 @@
 @use "Sass/Background-Color/background-color-global.scss";
 @use "Components/Loading/loading.scss";
 @use "Components/Main/main.scss";
-@use "Components/Main/subComponents/Pending/pending.scss";
-@use "Components/Main/subComponents/Pending/subComponents/Sphere/sphere.scss";
+@use "Components/Pending/pending.scss";
+@use "Components/Sphere/sphere.scss";
 
 
 *{margin: 0; padding: 0;}
