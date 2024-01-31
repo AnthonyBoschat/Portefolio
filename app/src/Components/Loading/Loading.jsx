@@ -1,9 +1,4 @@
-import React, { useEffect, useState } from "react";
-import useWhiteBar from "../../Features/Writter/CustomHook/useWhiteBar";
-import useWrite from "../../Features/Writter/CustomHook/useWrite";
-import { useDispatch } from "react-redux";
-import { update_onLoad } from "./LoadingSlice";
-import { updateCursor } from "../../Features/Writter/Slice/WritterSlice";
+import React from "react";
 import useLoading from "./useLoading";
 
 function Loading_AnthonyBoschatApparition(){
