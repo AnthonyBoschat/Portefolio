@@ -41,7 +41,7 @@ export default function useWrite(){
                 }
             }, parameters.speed)
 
-        }, parameters.timeout);
+        }, parameters.timeout)
         
 
         return timeoutID

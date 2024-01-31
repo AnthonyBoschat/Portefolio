@@ -18,7 +18,7 @@ export default function useWhiteBar(){
     const cursorDisparition = (cursorRef, timeoutDelay) => {
         setTimeout(() => {
             cursorRef?.current?.classList.add("cursor-opacity-out")
-        }, timeoutDelay);
+        }, timeoutDelay)
     }
 
     // Quand l'état du curseur change, on fait clignotter l'état local cursorVisible

@@ -9,7 +9,6 @@ export default function useMain(){
     const [profilSentence, setProfilSentence] = useState([])
     const [projetSentence, setProjetSentence] = useState([])
     const [contactSentence, setContactSentence] = useState([])
-    const [shadow, setShadow] = useState({ dx: 0, dy: 0, stdDeviation: 5, floodColor: "rgb(253, 44, 2)" });
     const hexagonRef = useRef()
 
     // const {cursorDisparition} = useWhiteBar()
