@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="app">
       {onLoad && <Loading />}
-      {!onLoad && (
+      {/* {!onLoad && (
         <Router>
           <Routes>
             <Route path="/" element={<Main />}>
@@ -28,7 +28,7 @@ function App() {
             </Route>
           </Routes>
         </Router>
-      )}
+      )} */}
     </div>
   );
 
