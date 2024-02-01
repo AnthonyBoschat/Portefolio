@@ -1,15 +1,14 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import useMain from "./useMain";
+import TypingSentence_Contact from "../TypingSentence/TypingSentence_Contact/TypingSentence_Contact";
+import TypingSentence_Profil from "../TypingSentence/TypingSentence_Profil/TypingSentence_Profil";
+import TypingSentence_Projet from "../TypingSentence/TypingSentence_Projet/TypingSentence_Projet";
+import TypingSentenceCompiler from "../TypingSentence/TypingSentenceCompiler";
 
 function Main(){
 
-    const {
-        profilSentence,
-        projetSentence,
-        contactSentence,
-        navigateTo,
-    } = useMain()
+    const { navigateTo } = useMain()
 
     return(
             <div className="mainDisplay">
@@ -22,7 +21,9 @@ function Main(){
                                 <polygon points="150.7,516.8 1.5,258.4 150.7,0 449,0 598.2,258.4 449,516.8 "/>
                             </svg>
                             <div className="categorySentenceBox">
-                                <div className="categoryName">{profilSentence}</div>
+                                <div className="categoryName">
+                                    <TypingSentence_Profil/>
+                                </div>
                             </div>
                         </div>
 
@@ -31,7 +32,9 @@ function Main(){
                                 <polygon points="150.7,516.8 1.5,258.4 150.7,0 449,0 598.2,258.4 449,516.8 "/>
                             </svg>
                             <div className="categorySentenceBox">
-                                <div className="categoryName">{projetSentence}</div>
+                                <div className="categoryName">
+                                    <TypingSentence_Projet/>
+                                </div>
                             </div>
                         </div>
 
@@ -40,7 +43,9 @@ function Main(){
                                 <polygon points="150.7,516.8 1.5,258.4 150.7,0 449,0 598.2,258.4 449,516.8 "/>
                             </svg>
                             <div className="categorySentenceBox">
-                                <div className="categoryName">{contactSentence}</div>
+                                <div className="categoryName">
+                                    <TypingSentence_Contact/>
+                                </div>
                             </div>
                         </div>
                         

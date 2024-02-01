@@ -9,13 +9,7 @@ export default function useProfil(){
 
     useEffect(() => {
         const timeoutID = write({
-            timeout:500,
-            sentence:
-            `Dénomination               :  Anthony Boschat
-            Âge                         :  29 ans
-            Zone d'habitat              :  Tours
-            Caractéristique physique    :  1m73, yeux noisette, cheveux court`,
-            speed:2,
+            
             setter:setSentenceProfilBase
         })
 
