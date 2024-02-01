@@ -3,15 +3,11 @@ import { useSelector } from "react-redux";
 import usePending from "./usePending";
 import Sphere from "../Sphere/Sphere"
 import TypingSentence_LoadingAnimation from "../TypingSentence/TypingSentence_LoadingAnimation/TypingSentence_LoadingAnimation"
-
+import Cursor_LoadingAnimation from "../Cursor/Cursor_loadingAnimation/Cursor_loadingAnimation"
 function Pending(){
 
     const onPending = useSelector(store => store.pending.onPending)
-    const {
-        visible,
-        cursorSentenceRef,
-        presentationConsoleRef
-    } = usePending()
+    const {presentationConsoleRef} = usePending()
 
 
     return(
@@ -20,7 +16,7 @@ function Pending(){
                 <div ref={presentationConsoleRef} className="mainCategoryPresentationConsoleBox">
                     <div className="pendingSentenceBox">
                         <TypingSentence_LoadingAnimation/>
-                        <div style={visible} ref={cursorSentenceRef} className="pendingSentenceCursor"></div>
+                        <Cursor_LoadingAnimation/>
                     </div>
                 </div>
             )}

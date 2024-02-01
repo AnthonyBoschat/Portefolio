@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import useTypingSentence from "../TypingSentence/useTypingSentence";
-import useWhiteBar from "../../Features/Writter/CustomHook/useWhiteBar";
 import { update_onPending } from "./PendingSlice";
+import useCursor from "../Cursor/useCursor";
 
 export default function usePending(){
 
@@ -16,7 +16,7 @@ export default function usePending(){
     const presentationConsoleRef = useRef()
 
     const {write} = useTypingSentence()
-    const {cursorVisible} = useWhiteBar()
+    const {cursorVisible} = useCursor()
     const visible = cursorVisible ? {visibility:"visible"} : {visibility:"hidden"}
 
 

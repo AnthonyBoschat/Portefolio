@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-export default function useWhiteBar(){
+export default function useCursor(blinkSpeed = 500){
 
     const cursor = useSelector(store => store.typingSentence.cursor)
     const [cursorVisible, setcursorVisible] = useState(false)
@@ -10,7 +10,7 @@ export default function useWhiteBar(){
     const cursorBlink = () => {
         const intervalBlinkID = setInterval(() => {
             setcursorVisible(current => !current)
-        }, 500)
+        }, blinkSpeed)
 
         return intervalBlinkID
     }

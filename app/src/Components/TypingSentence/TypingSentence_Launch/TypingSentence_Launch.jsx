@@ -2,6 +2,7 @@ import React from "react";
 import TypingSentenceCompiler from "../TypingSentenceCompiler";
 import { useDispatch } from "react-redux";
 import { update_onLoad } from "../../Loading/LoadingSlice"
+import Cursor_Launch from "../../Cursor/Cursor_Launch/Cursor_Launch";
 
 function TypingSentence_Launch(){
 
@@ -22,10 +23,8 @@ function TypingSentence_Launch(){
 
     return(
         <div className="nameApparition">
-            <TypingSentenceCompiler 
-                sentencesConfiguration={sentencesConfiguration}
-            />
-            <div className="loadingCursorBar"></div>
+            <TypingSentenceCompiler sentencesConfiguration={sentencesConfiguration}/>
+            <Cursor_Launch />
         </div>
     )
 }
