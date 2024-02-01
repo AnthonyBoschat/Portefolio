@@ -1,12 +1,12 @@
 import { combineReducers } from "@reduxjs/toolkit"
-import { LoadingSliceReducer } from "../Components/Loading/LoadingSlice"
-import { PendingSliceReducer } from "../Components/Pending/PendingSlice"
+import { LoadingLaunchSliceReducer } from "../Components/LoadingLaunch/LoadingLaunchSlice"
 import { TypingSentenceSliceReducer } from "../Components/TypingSentence/TypingSentenceSlice"
+import { LoadingAnimationSliceReducer } from "../Components/LoadingAnimation/LoadingAnimationSlice"
 
 const rootReducer = combineReducers({
-    loading:LoadingSliceReducer,
+    loadingLaunch:LoadingLaunchSliceReducer,
     typingSentence:TypingSentenceSliceReducer,
-    pending:PendingSliceReducer,
+    loadingAnimation:LoadingAnimationSliceReducer,
 })
 
 export default rootReducer

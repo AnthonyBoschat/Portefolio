@@ -1,7 +1,7 @@
 import React from "react";
 import TypingSentenceCompiler from "../TypingSentenceCompiler";
 import { useDispatch } from "react-redux";
-import { update_onLoad } from "../../Loading/LoadingSlice"
+import { update_onLoad } from "../../LoadingLaunch/LoadingLaunchSlice"
 import Cursor_Launch from "../../Cursor/Cursor_Launch/Cursor_Launch";
 
 function TypingSentence_Launch(){

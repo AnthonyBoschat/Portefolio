@@ -1,8 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { update_onPending } from "../../Pending/PendingSlice";
+import { update_onPending } from "../../LoadingAnimation/LoadingAnimationSlice";
 import TypingSentenceCompiler from "../TypingSentenceCompiler";
-import usePending from "../../Pending/usePending";
+import usePending from "../../LoadingAnimation/useLoadingAnimation";
+import { update_onLoad } from "../../LoadingAnimation/LoadingAnimationSlice";
 
 function TypingSentence_Loading(){
 
@@ -41,7 +42,7 @@ function TypingSentence_Loading(){
             speed:2,
             ending:() => {
                 // Ajout du style pour faire disparaitre la boite
-                dispatch(update_onPending(false))
+                dispatch(update_onLoad(false))
             }
         }
     ]

@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import useTypingSentence from "../TypingSentence/useTypingSentence";
-import { update_onPending } from "./PendingSlice";
+import { update_onPending } from "./LoadingAnimationSlice";
 import useCursor from "../Cursor/useCursor";
 
-export default function usePending(){
+export default function useLoadingAnimation(){
 
     const dispatch = useDispatch()
-    const onPending = useSelector(store => store.pending.onPending)
+    const onLoad = useSelector(store => store.loadingAnimation.onLoad)
     
     const [pendingSentence1, setPendingSentence1] = useState([])
     const [loadSentence2, setLoadSentence2] = useState(false)

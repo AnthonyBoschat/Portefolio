@@ -1,5 +1,4 @@
 import React from "react";
-import useLoading from "./useLoading";
 import TypingSentence_Launch from "../TypingSentence/TypingSentence_Launch/TypingSentence_Launch";
 
 function Loading_AnthonyBoschatApparition(){
@@ -12,11 +11,6 @@ function Loading_AnthonyBoschatApparition(){
             <div className="loadingBox">
                 <div className="nameApparitionBox">
                     <TypingSentence_Launch />
-                    
-                    {/* <div className="nameApparition">
-                        <span className="nameBox">{nameToLoad.join("")}</span>
-                        <div className="loadingCursorBar"></div>
-                    </div> */}
                 </div>
             </div>
         </div>

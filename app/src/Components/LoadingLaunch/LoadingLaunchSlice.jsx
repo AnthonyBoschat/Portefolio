@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit"
 
-const LoadingSlice = createSlice({
-    name:"loading",
+const LoadingLaunchSlice = createSlice({
+    name:"loadingLaunch",
     initialState:{
         onLoad:true,
     },
@@ -12,7 +12,7 @@ const LoadingSlice = createSlice({
     },
 })
 
-export const LoadingSliceReducer = LoadingSlice.reducer
+export const LoadingLaunchSliceReducer = LoadingLaunchSlice.reducer
 export const {
     update_onLoad
-} = LoadingSlice.actions
+} = LoadingLaunchSlice.actions

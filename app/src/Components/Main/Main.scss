@@ -1,4 +1,4 @@
-@use "../../Sass/Function/function.scss";
+@use "../../Sass/Function/Function.scss";
 
 div.mainDisplay{
     opacity: 0;
@@ -69,16 +69,16 @@ div.mainDisplay{
             }
             
             >:nth-child(1){
-                transform: function.hexagonPositionTransform(1);
+                transform: Function.hexagonPositionTransform(1);
             }
             >:nth-child(2){
-                transform: function.hexagonPositionTransform(2);
+                transform: Function.hexagonPositionTransform(2);
             }
             >:nth-child(3){
-                transform: function.hexagonPositionTransform(3);
+                transform: Function.hexagonPositionTransform(3);
             }
             >:nth-child(4){
-                transform: function.hexagonPositionTransform(4);
+                transform: Function.hexagonPositionTransform(4);
             }
         }
 

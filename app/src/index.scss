@@ -1,10 +1,10 @@
-@use "Sass/Function/function.scss" as function;
-@use "Sass/Animation-Class/animation-class.scss";
-@use "Sass/Background-Color/background-color-global.scss";
-@use "Components/Loading/loading.scss";
-@use "Components/Main/main.scss";
-@use "Components/Pending/pending.scss";
-@use "Components/Sphere/sphere.scss";
+@use "Sass/Function/Function.scss" as Function;
+@use "Sass/Animation-Class/Animation-class.scss";
+@use "Sass/Background-Color/Background-color-global.scss";
+@use "Components/LoadingLaunch/LoadingLaunch.scss";
+@use "Components/Main/Main.scss";
+@use "Components/LoadingAnimation/LoadingAnimation.scss";
+@use "Components/Sphere/Sphere.scss";
 
 
 *{margin: 0; padding: 0;}
