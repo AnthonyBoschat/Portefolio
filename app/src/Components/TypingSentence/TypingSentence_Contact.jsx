@@ -1,5 +1,5 @@
 import React from "react";
-import TypingSentenceCompiler from "../TypingSentenceCompiler";
+import TypingSentenceCompiler from "./TypingSentence_Constructor/TypingSentenceCompiler";
 
 function TypingSentence_Contact(){
 

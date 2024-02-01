@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import TypingSentenceCompiler from "../TypingSentenceCompiler";
-import { update_loadingSphere } from "../../Loading/LoadingSlice";
+import TypingSentenceCompiler from "./TypingSentence_Constructor/TypingSentenceCompiler";
+import { update_loadingSphere } from "../Loading/LoadingSlice";
 
 function TypingSentence_Loading({presentationConsoleRef}){
 

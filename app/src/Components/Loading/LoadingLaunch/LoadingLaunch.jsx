@@ -1,5 +1,5 @@
 import React from "react";
-import TypingSentence_Launch from "../../TypingSentence/TypingSentence_Launch/TypingSentence_Launch";
+import TypingSentence_Launch from "../../TypingSentence/TypingSentence_Launch";
 
 function Loading_AnthonyBoschatApparition(){
 

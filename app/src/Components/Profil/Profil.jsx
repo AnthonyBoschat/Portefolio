@@ -1,6 +1,5 @@
 import React from "react";
-import useProfil from "./useProfil";
-import TypingSentenceCompiler from "../TypingSentence/TypingSentenceCompiler";
+import TypingSentenceCompiler from "../TypingSentence/TypingSentence_Constructor/TypingSentenceCompiler";
 import Cursor_loading_Animation from "../Cursor/Cursor_Console/Cursor_Console";
 
 function Profil(){

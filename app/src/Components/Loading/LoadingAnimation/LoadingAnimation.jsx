@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import Sphere from "../../Sphere/Sphere"
-import TypingSentence_LoadingAnimation from "../../TypingSentence/TypingSentence_LoadingAnimation/TypingSentence_LoadingAnimation"
+import TypingSentence_LoadingAnimation from "../../TypingSentence/TypingSentence_LoadingAnimation"
 import Cursor_Console from "../../Cursor/Cursor_Console/Cursor_Console";
 
 

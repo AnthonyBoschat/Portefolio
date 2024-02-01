@@ -1,10 +1,9 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import useMain from "./useMain";
-import TypingSentence_Contact from "../TypingSentence/TypingSentence_Contact/TypingSentence_Contact";
-import TypingSentence_Profil from "../TypingSentence/TypingSentence_Profil/TypingSentence_Profil";
-import TypingSentence_Projet from "../TypingSentence/TypingSentence_Projet/TypingSentence_Projet";
-import TypingSentenceCompiler from "../TypingSentence/TypingSentenceCompiler";
+import TypingSentence_Contact from "../TypingSentence/TypingSentence_Contact";
+import TypingSentence_Profil from "../TypingSentence/TypingSentence_Profil";
+import TypingSentence_Projet from "../TypingSentence/TypingSentence_Projet";
 
 function Main(){
 
