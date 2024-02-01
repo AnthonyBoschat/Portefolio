@@ -7,7 +7,7 @@ function Sentence({configuration}){
 
     return(
         <>
-            <span className="nameBox">{sentence}</span>
+            {sentence}
         </>
     )
 }
