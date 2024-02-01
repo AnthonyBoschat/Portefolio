@@ -11,7 +11,7 @@ import Contact from "./Components/Contact/Contact";
 function App() {
 
 
-  const onLoad = useSelector(store => store.loadingLaunch.onLoad)
+  const onLoad = useSelector(store => store.loading.launch.onLoad)
   
 
   return (

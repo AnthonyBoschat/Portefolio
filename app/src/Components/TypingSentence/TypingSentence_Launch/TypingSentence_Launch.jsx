@@ -1,8 +1,8 @@
 import React from "react";
 import TypingSentenceCompiler from "../TypingSentenceCompiler";
 import { useDispatch } from "react-redux";
-import { update_onLoad } from "../../Loading/LoadingLaunch/LoadingLaunchSlice"
 import Cursor_Launch from "../../Cursor/Cursor_Launch/Cursor_Launch";
+import { update_loadingLaunch } from "../../Loading/LoadingSlice";
 
 function TypingSentence_Launch(){
 
@@ -15,7 +15,7 @@ function TypingSentence_Launch(){
             speed: 100,
             ending: () => {
                 setTimeout(() => {
-                    dispatch(update_onLoad(false))
+                    dispatch(update_loadingLaunch(false))
                 }, 2500);
             }
         }

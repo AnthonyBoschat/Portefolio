@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import TypingSentenceCompiler from "../TypingSentenceCompiler";
-import { update_onLoad } from "../../Loading/LoadingAnimation/LoadingAnimationSlice";
+import { update_loadingSphere } from "../../Loading/LoadingSlice";
 
 function TypingSentence_Loading({presentationConsoleRef}){
 
@@ -42,7 +42,7 @@ function TypingSentence_Loading({presentationConsoleRef}){
                     presentationConsoleRef.current.classList.add("presentationBox-opacity-out")
                 }, 500);
                 setTimeout(() => {
-                    dispatch(update_onLoad(false))
+                    dispatch(update_loadingSphere(false))
                 }, 1500);
             }
         }

@@ -3,9 +3,6 @@ import TypingSentence_Launch from "../../TypingSentence/TypingSentence_Launch/Ty
 
 function Loading_AnthonyBoschatApparition(){
 
-    // const {nameToLoad} = useLoading()
-
-
     return(
         <div className="loadingDisplay">
             <div className="loadingBox">
