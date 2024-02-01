@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 
 export default function useCursor(blinkSpeed = 500){
 
-    const cursor = useSelector(store => store.typingSentence.cursor)
     const [cursorVisible, setcursorVisible] = useState(false)
 
     // Fonction qui fait clignotter la bare blanche qui sert de curseur lors du chargement
@@ -23,15 +22,12 @@ export default function useCursor(blinkSpeed = 500){
 
     // Quand l'état du curseur change, on fait clignotter l'état local cursorVisible
     useEffect(() => {
-        let intervalBlinkID
-        if(cursor){
-            intervalBlinkID = cursorBlink()
+        const intervalBlinkID = cursorBlink()
 
-            return(() => {
-                clearInterval(intervalBlinkID)
-            })
-        }
-    }, [cursor])
+        return(() => {
+            clearInterval(intervalBlinkID)
+        })
+    }, [])
 
 
 

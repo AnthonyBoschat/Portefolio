@@ -1,6 +1,7 @@
 import React from "react";
 import useProfil from "./useProfil";
 import TypingSentenceCompiler from "../TypingSentence/TypingSentenceCompiler";
+import Cursor_loading_Animation from "../Cursor/Cursor_Console/Cursor_Console";
 
 function Profil(){
 
@@ -17,6 +18,7 @@ function Profil(){
                     Caractéristique physique    :  1m73, yeux noisette, cheveux court`,
                     speed:2,
                 }]} />
+                <Cursor_loading_Animation/>
             </div>
         </div>
     )

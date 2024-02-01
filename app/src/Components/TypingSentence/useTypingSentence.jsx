@@ -4,19 +4,11 @@ import { updateCursor } from "./TypingSentenceSlice";
 
 export default function useTypingSentence(configuration){
 
-    const cursor = useSelector(store => store.typingSentence.cursor)
-    const dispatch = useDispatch()
     const [sentence, setSentence] = useState([])
     
     // timeout, sentence,  speed, setter, ending
     const write = (configuration) => {
         if(configuration){
-            console.log(configuration)
-
-            if(!cursor){ // On lance l'apparition du curseur
-                dispatch(updateCursor(true))
-            }
-    
             // Dans configuration.timeout seconde, on lance l'écriture
             const timeoutID = setTimeout(() => {
                 const sentenceArray = configuration.sentence.split("") // On casse le phrase dans un tableau

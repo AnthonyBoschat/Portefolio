@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import Cursor from "../Cursor";
 
-function Cursor_loading_Animation(){
+function Cursor_Console(){
 
 
     const cursorConfiguration = {
@@ -14,4 +14,4 @@ function Cursor_loading_Animation(){
     )
 }
 
-export default Cursor_loading_Animation;
+export default Cursor_Console;
