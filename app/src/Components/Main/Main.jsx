@@ -1,9 +1,9 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import useMain from "./useMain";
-import TypingSentence_Contact from "../TypingSentence/TypingSentence_Contact";
-import TypingSentence_Profil from "../TypingSentence/TypingSentence_Profil";
-import TypingSentence_Projet from "../TypingSentence/TypingSentence_Projet";
+import TypingSentence_Contac from "../TypingSentence/Contact";
+import TypingSentence_Profil from "../TypingSentence/Profil";
+import TypingSentence_Projet from "../TypingSentence/Projet";
 
 function Main(){
 
@@ -43,7 +43,7 @@ function Main(){
                             </svg>
                             <div className="categorySentenceBox">
                                 <div className="categoryName">
-                                    <TypingSentence_Contact/>
+                                    <TypingSentence_Contac/>
                                 </div>
                             </div>
                         </div>
