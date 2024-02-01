@@ -1,9 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { update_onPending } from "../../LoadingAnimation/LoadingAnimationSlice";
 import TypingSentenceCompiler from "../TypingSentenceCompiler";
-import usePending from "../../LoadingAnimation/useLoadingAnimation";
-import { update_onLoad } from "../../LoadingAnimation/LoadingAnimationSlice";
+import { update_onLoad } from "../../Loading/LoadingAnimation/LoadingAnimationSlice";
 
 function TypingSentence_Loading(){
 
@@ -29,7 +27,7 @@ function TypingSentence_Loading(){
             // Trouver un moyen de faire une reaction en chaine comme avec les useEffect dans usePending
         },
         {
-            timeout:4000,
+            timeout:3000,
             sentence:
             `
 

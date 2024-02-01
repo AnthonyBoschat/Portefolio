@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import useTypingSentence from "../TypingSentence/useTypingSentence";
+import useTypingSentence from "../../TypingSentence/useTypingSentence";
 import { update_onLoad } from "./LoadingLaunchSlice";
 
 export default function useLoading(){

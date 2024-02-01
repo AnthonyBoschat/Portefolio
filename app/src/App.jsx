@@ -1,9 +1,9 @@
 import "./Css/main.css"
 import {useSelector} from "react-redux"
-import LoadingLaunch from "./Components/LoadingLaunch/LoadingLaunch";
+import LoadingLaunch from "./Components/Loading/LoadingLaunch/LoadingLaunch";
 import Main from "./Components/Main/Main";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LoadingAnimation from "./Components/LoadingAnimation/LoadingAnimation";
+import LoadingAnimation from "./Components/Loading/LoadingAnimation/LoadingAnimation";
 import Projet from "./Components/Project/Projet";
 import Profil from "./Components/Profil/Profil";
 import Contact from "./Components/Contact/Contact";

@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import useTypingSentence from "../TypingSentence/useTypingSentence";
+import useTypingSentence from "../../TypingSentence/useTypingSentence";
 import { update_onPending } from "./LoadingAnimationSlice";
-import useCursor from "../Cursor/useCursor";
+import useCursor from "../../Cursor/useCursor";
 
 export default function useLoadingAnimation(){
 
