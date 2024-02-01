@@ -12,6 +12,7 @@ function Loading_AnthonyBoschatApparition(){
             <div className="loadingBox">
                 <div className="nameApparitionBox">
                     <TypingSentence_Launch />
+                    
                     {/* <div className="nameApparition">
                         <span className="nameBox">{nameToLoad.join("")}</span>
                         <div className="loadingCursorBar"></div>

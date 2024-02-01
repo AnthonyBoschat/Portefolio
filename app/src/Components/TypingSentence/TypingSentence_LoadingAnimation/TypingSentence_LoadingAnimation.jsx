@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { update_onPending } from "../../Pending/PendingSlice";
 import TypingSentenceCompiler from "../TypingSentenceCompiler";
+import usePending from "../../Pending/usePending";
 
 function TypingSentence_Loading(){
 
@@ -9,8 +10,6 @@ function TypingSentence_Loading(){
 
     const sentencesConfiguration = [
         {
-            cursor:true,
-            cursorStyle:null,
             timeout:600,
             sentence:
             `Initialisation ...
@@ -23,9 +22,17 @@ function TypingSentence_Loading(){
             \u00A0\u00A0\u00A0\u00A0- react-router-dom@6.21.3 OK
             \u00A0\u00A0\u00A0\u00A0- npm@10.3.0 OK
             \u00A0\u00A0\u00A0\u00A0- three@0.160.1 OK
-            Démarrage de l'environnement de développement
-            
-                
+            Démarrage de l'environnement de développement`,
+            speed:2,
+            ending:false,
+            // Trouver un moyen de faire une reaction en chaine comme avec les useEffect dans usePending
+        },
+        {
+            timeout:4000,
+            sentence:
+            `
+
+
             Sécurisation de la connexion . . .
             \u00A0\u00A0\u00A0\u00A0- Génération de clés SSH...
             \u00A0\u00A0\u00A0\u00A0- Etablissement d'un tunnel VPN...
@@ -33,6 +40,7 @@ function TypingSentence_Loading(){
             Connexion sécurisée établie`,
             speed:2,
             ending:() => {
+                // Ajout du style pour faire disparaitre la boite
                 dispatch(update_onPending(false))
             }
         }
@@ -46,3 +54,8 @@ function TypingSentence_Loading(){
 }
 
 export default TypingSentence_Loading;
+
+
+
+
+                

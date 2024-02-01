@@ -16,9 +16,7 @@ function TypingSentence_Launch(){
                 setTimeout(() => {
                     dispatch(update_onLoad(false))
                 }, 2500);
-            },
-            cursor: true,
-            cursorStyle:<div className="loadingCursorBar"></div>
+            }
         }
     ]
 
@@ -27,6 +25,7 @@ function TypingSentence_Launch(){
             <TypingSentenceCompiler 
                 sentencesConfiguration={sentencesConfiguration}
             />
+            <div className="loadingCursorBar"></div>
         </div>
     )
 }

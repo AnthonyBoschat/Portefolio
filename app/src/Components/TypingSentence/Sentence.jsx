@@ -8,7 +8,6 @@ function Sentence({configuration}){
     return(
         <>
             <span className="nameBox">{sentence}</span>
-            {configuration.cursor && configuration.cursorStyle}
         </>
     )
 }
