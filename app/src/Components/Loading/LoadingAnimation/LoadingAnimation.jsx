@@ -17,7 +17,7 @@ function LoadingAnimation(){
             {onLoad && (
                 <div ref={presentationConsoleRef} className="mainCategoryPresentationConsoleBox">
                     <div className="pendingSentenceBox">
-                        <TypingSentence_LoadingAnimation/>
+                        <TypingSentence_LoadingAnimation presentationConsoleRef={presentationConsoleRef}/>
                         <Cursor_LoadingAnimation/>
                     </div>
                 </div>

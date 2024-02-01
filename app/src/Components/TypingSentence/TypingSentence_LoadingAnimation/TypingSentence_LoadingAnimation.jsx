@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import TypingSentenceCompiler from "../TypingSentenceCompiler";
 import { update_onLoad } from "../../Loading/LoadingAnimation/LoadingAnimationSlice";
 
-function TypingSentence_Loading(){
+function TypingSentence_Loading({presentationConsoleRef}){
 
     const dispatch = useDispatch()
 
@@ -23,7 +23,6 @@ function TypingSentence_Loading(){
             \u00A0\u00A0\u00A0\u00A0- three@0.160.1 OK
             Démarrage de l'environnement de développement`,
             speed:2,
-            ending:false,
             // Trouver un moyen de faire une reaction en chaine comme avec les useEffect dans usePending
         },
         {
@@ -39,8 +38,12 @@ function TypingSentence_Loading(){
             Connexion sécurisée établie`,
             speed:2,
             ending:() => {
-                // Ajout du style pour faire disparaitre la boite
-                dispatch(update_onLoad(false))
+                setTimeout(() => {
+                    presentationConsoleRef.current.classList.add("presentationBox-opacity-out")
+                }, 500);
+                setTimeout(() => {
+                    dispatch(update_onLoad(false))
+                }, 1500);
             }
         }
     ]
