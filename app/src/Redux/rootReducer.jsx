@@ -1,11 +1,11 @@
 import { combineReducers } from "@reduxjs/toolkit"
 import { LoadingSliceReducer } from "../Components/Loading/LoadingSlice"
-import { WritterSliceReducer } from "../Features/Writter/Slice/WritterSlice"
 import { PendingSliceReducer } from "../Components/Pending/PendingSlice"
+import { TypingSentenceSliceReducer } from "../Components/TypingSentence/TypingSentenceSlice"
 
 const rootReducer = combineReducers({
     loading:LoadingSliceReducer,
-    writter:WritterSliceReducer,
+    typingSentence:TypingSentenceSliceReducer,
     pending:PendingSliceReducer,
 })
 

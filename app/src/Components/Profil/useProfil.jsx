@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-import useWrite from "../../Features/Writter/CustomHook/useWrite";
+import useTypingSentence from "../TypingSentence/useTypingSentence";
 
 export default function useProfil(){
 
     const [sentenceProfilBase, setSentenceProfilBase] = useState([])
-    const [loadSentenceProfilDescription, setLoadSentenceProfilDescription] = useState(false)
-    const [sentenceProfilDescription, setSentenceProfilDescription] = useState([])
 
-    const {write} = useWrite()
+    const {write} = useTypingSentence()
 
     useEffect(() => {
         const timeoutID = write({

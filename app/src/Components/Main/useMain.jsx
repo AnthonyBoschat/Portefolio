@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import useWrite from "../../Features/Writter/CustomHook/useWrite";
+import useTypingSentence from "../TypingSentence/useTypingSentence";
 import { useNavigate } from "react-router-dom";
 
 export default function useMain(){
@@ -12,7 +12,7 @@ export default function useMain(){
     const hexagonRef = useRef()
 
     // const {cursorDisparition} = useWhiteBar()
-    const {write} = useWrite()
+    const {write} = useTypingSentence()
 
     const navigateTo = (route) => {
         navigate(route)

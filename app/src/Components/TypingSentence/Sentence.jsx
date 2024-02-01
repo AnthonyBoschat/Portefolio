@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import useWrite from "../../Features/Writter/CustomHook/useWrite";
+import useTypingSentence from "./useTypingSentence";
 
 function Sentence({configuration}){
 
-    const {sentence} = useWrite(configuration)
+    const {sentence} = useTypingSentence(configuration)
 
     return(
         <>
             <span className="nameBox">{sentence}</span>
-            {configuration.cursor && <div className="loadingCursorBar"></div>}
+            {configuration.cursor && configuration.cursorStyle}
         </>
     )
 }

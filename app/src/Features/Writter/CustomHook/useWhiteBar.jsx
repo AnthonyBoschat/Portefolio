@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 export default function useWhiteBar(){
 
-    const cursor = useSelector(store => store.writter.cursor)
+    const cursor = useSelector(store => store.typingSentence.cursor)
     const [cursorVisible, setcursorVisible] = useState(false)
 
     // Fonction qui fait clignotter la bare blanche qui sert de curseur lors du chargement

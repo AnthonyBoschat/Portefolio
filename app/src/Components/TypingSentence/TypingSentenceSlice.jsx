@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit"
 
-const WritterSlice = createSlice({
+const TypingSentenceSlice = createSlice({
     name:"writter",
     initialState:{
         cursor:false
@@ -12,7 +12,7 @@ const WritterSlice = createSlice({
     },
 })
 
-export const WritterSliceReducer = WritterSlice.reducer
+export const TypingSentenceSliceReducer = TypingSentenceSlice.reducer
 export const {
     updateCursor
-} = WritterSlice.actions
+} = TypingSentenceSlice.actions

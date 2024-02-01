@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import useWrite from "../../Features/Writter/CustomHook/useWrite";
+import useTypingSentence from "../TypingSentence/useTypingSentence";
 import { update_onLoad } from "./LoadingSlice";
 
 export default function useLoading(){
 
     const dispatch = useDispatch()
     const [nameToLoad, setNameToLoad] = useState([])
-    const {write} = useWrite()
+    const {write} = useTypingSentence()
 
     useEffect(() => {
         const timeoutID = write({
