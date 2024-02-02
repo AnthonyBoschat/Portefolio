@@ -1,6 +1,6 @@
 import React from "react";
-import TypingSentence_Launch from "../../TypingSentence/Launch";
-import Cursor_Launch from "../../Cursor/Launch";
+import TypingSentence_Launch from "../TypingSentence/Launch";
+import Cursor_Launch from "../Cursor/Launch";
 
 function Loading_Launch(){
 
