@@ -1,6 +1,7 @@
 import React from "react";
 import TypingSentenceCompiler from "../TypingSentence/TypingSentence_Constructor/TypingSentenceCompiler";
 import Cursor_Console from "../Cursor/Console";
+import Console from "../Console/Console";
 
 function Profil(){
 
@@ -14,14 +15,17 @@ function Profil(){
         speed:2,
     }]
 
+    const consoleConfiguration = {
+        typingSentence:<TypingSentenceCompiler sentencesConfiguration={sentencesConfiguration}/>,
+        cursor:<Cursor_Console/>,
+    }
+
+    
+
+    
 
     return(
-        <div className="mainCategoryPresentationConsoleBox">
-            <div className="pendingSentenceBox">
-                <TypingSentenceCompiler sentencesConfiguration={sentencesConfiguration} />
-                <Cursor_Console/>
-            </div>
-        </div>
+        <Console consoleConfiguration = {consoleConfiguration}/>
     )
 }
 

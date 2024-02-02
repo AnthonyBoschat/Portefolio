@@ -82,47 +82,12 @@ div.mainDisplay{
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
         .mainCategoryPresentationDisplay{
             // background-color: rgba(0, 0, 255, 0.423); //
             outline: 1px solid black;
             display: flex;
             justify-content: center;
             align-items: center;
-
-            .mainCategoryPresentationConsoleBox{
-                opacity: 0;
-                animation: opacity-in 0.5s ease forwards;
-                outline: 1px solid rgba(255, 255, 255, 0.597); //
-                width: 80%;
-                height: 80%;
-                display: flex;
-                justify-content: flex-start;
-                align-items: flex-start;
-            }
-
-            
         }
     }
 }
