@@ -22,10 +22,7 @@ function TypingSentence_Launch(){
     ]
 
     return(
-        <div className="nameApparition">
-            <TypingSentenceCompiler sentencesConfiguration={sentencesConfiguration}/>
-            <Cursor_Launch />
-        </div>
+        <TypingSentenceCompiler sentencesConfiguration={sentencesConfiguration}/>
     )
 }
 
