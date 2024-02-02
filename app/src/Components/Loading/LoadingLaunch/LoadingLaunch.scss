@@ -37,13 +37,6 @@
                 opacity: 0;
                 animation: opacity-in 1s 0.5s ease forwards, opacity-out 1s 4s ease forwards;
                 // animation: opacity-out 1s 6s ease forwards;
-                
-
-                .loadingCursorBar{ // Deuxième solution : Comment
-                    width: 1.3rem;
-                    height: 60%;
-                    background-color: white;
-                } 
             }
         }
     }

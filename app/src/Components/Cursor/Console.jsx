@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
-import Cursor from "../Cursor";
+import Cursor from "./Cursor_Constructor/Cursor";
 
 function Cursor_Console(){
 
 
     const cursorConfiguration = {
-        cursorClass:"pendingSentenceCursor",
+        cursorClass:"consoleCursor",
         cursorBlink:true,
     }
 

@@ -1,11 +1,11 @@
 import React from "react";
-import Cursor from "../Cursor";
+import Cursor from "./Cursor_Constructor/Cursor";
 
 function Cursor_Launch(){
 
 
     const cursorConfiguration = {
-        cursorClass:"loadingCursorBar",
+        cursorClass:"cursorLaunch",
         cursorBlink:false,
         // cursorRef:cursorLaunchRef,
     }
