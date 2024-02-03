@@ -4,7 +4,7 @@ import LoadingLaunch from "./Components/Loading/Launch";
 import Main from "./Components/Main/Main";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoadingAnimation from "./Components/Loading/Animation";
-import Projet from "./Components/Project/Projet";
+import Projet from "./Components/Projet/Projet";
 import Profil from "./Components/Profil/Profil";
 import Contact from "./Components/Contact/Contact";
 
