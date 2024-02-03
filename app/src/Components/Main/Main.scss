@@ -10,11 +10,11 @@ div.mainDisplay{
     
 
     .mainBox{
-        width: 80%;
-        height: 90%;
+        width: 100%;
+        height: 100%;
         // background-color: grey; //
         display: grid;
-        grid-template-columns: minmax(25rem, 30%) minmax(70vh, 70%);
+        grid-template-columns: 15% 15% 70%;
     }
 }
 

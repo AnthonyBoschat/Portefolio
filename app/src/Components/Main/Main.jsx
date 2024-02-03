@@ -1,6 +1,7 @@
 import React from "react";
-import Nav from "../Nav/Nav";
+import FirstNav from "../Nav/FirstNav";
 import Render from "../Render/Render";
+import SecondNav from "../Nav/SecondNav";
 
 
 function Main(){
@@ -11,8 +12,8 @@ function Main(){
             <div className="mainDisplay">
                 <div className="mainBox">
                     
-                    <Nav/>
-
+                    <FirstNav/>
+                    <SecondNav/>
                     <Render/>
 
                 </div>
