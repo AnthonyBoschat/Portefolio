@@ -1,5 +1,3 @@
-@use "../../Sass/Function/Function.scss";
-
 div.mainDisplay{
     opacity: 0;
     animation: opacity-in 0.5s ease forwards;
@@ -8,87 +6,15 @@ div.mainDisplay{
     display: flex;
     justify-content:center;
     align-items: center;
+    // background-color: rgb(81, 81, 81); //
+    
 
-    >div.mainCategoryBox{
+    .mainBox{
         width: 80%;
         height: 90%;
         // background-color: grey; //
         display: grid;
         grid-template-columns: minmax(25rem, 30%) minmax(70vh, 70%);
-
-        >div.mainCategoryList{
-            // background-color: rgba(255, 0, 0, 0.32); //
-            // outline: 1px solid blue; //
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-
-            div.hexagon{
-
-                >*:hover{
-                    cursor: pointer;
-                }
-
-                &:hover svg{
-                    transform: scale(1.1);
-                    fill: rgba(250, 250, 250, 0.146);
-                }
-                
-                font-size: 0.8em;
-                position: absolute;
-                // outline: 1px solid red; //
-                border-radius: 100%; //
-            
-                svg{
-                    // outline: 1px solid red; //
-                    // border-radius: 100%; //
-                    stroke: white;
-                    stroke-width: 4;
-                    width: 7vw;
-                    height: 7vw;
-                    fill: rgba(250, 250, 250, 0.029);
-                    transition: all 0.2s ease;
-                    
-                }
-                
-                div.categorySentenceBox{
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-            
-                    >.categoryName{
-                        font-size: 1.3vw;
-                        // outline: 1px solid green; //
-                        color: white;
-                        text-decoration: none;
-                    }
-                }
-            }
-            
-            >:nth-child(1){
-                transform: Function.hexagonPositionTransform(1);
-            }
-            >:nth-child(2){
-                transform: Function.hexagonPositionTransform(2);
-            }
-            >:nth-child(3){
-                transform: Function.hexagonPositionTransform(3);
-            }
-            >:nth-child(4){
-                transform: Function.hexagonPositionTransform(4);
-            }
-        }
-
-        .mainCategoryPresentationDisplay{
-            // background-color: rgba(0, 0, 255, 0.423); //
-            outline: 1px solid black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
     }
 }
 
