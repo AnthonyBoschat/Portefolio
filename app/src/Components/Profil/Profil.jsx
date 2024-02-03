@@ -1,5 +1,5 @@
 import React from "react";
-import TypingSentenceCompiler from "../TypingSentence/TypingSentence_Constructor/TypingSentenceCompiler";
+import TypingSentenceCompiler from "../TypingSentence/TypingSentenceCompiler";
 import Cursor_Console from "../Cursor/Console";
 import Console from "../Console/Console";
 

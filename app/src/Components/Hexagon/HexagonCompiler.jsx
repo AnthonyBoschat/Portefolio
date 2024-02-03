@@ -1,5 +1,6 @@
 import React from "react";
 import useMain from "../Main/useMain";
+import TypingSentenceCompiler from "../TypingSentence/TypingSentenceCompiler";
 
 function HexagonCompiler({hexagonConfiguration}){
 
@@ -14,7 +15,7 @@ function HexagonCompiler({hexagonConfiguration}){
                     </svg>
                     <div className="hexagonSentenceBox">
                         <div className="hexagonName">
-                            {hexagon.typingSentence}
+                            <TypingSentenceCompiler sentencesConfiguration={hexagon.sentencesConfiguration} />
                         </div>
                     </div>
                 </div>

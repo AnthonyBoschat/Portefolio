@@ -1,27 +1,16 @@
 import React from "react";
-import TypingSentence_Contact from "../TypingSentence/Contact";
-import TypingSentence_Profil from "../TypingSentence/Profil";
-import TypingSentence_Projet from "../TypingSentence/Projet";
 import HexagonCompiler from "../Hexagon/HexagonCompiler";
-import TypingSentenceCompiler from "../TypingSentence/TypingSentence_Constructor/TypingSentenceCompiler";
 
 function Nav(){
 
     
 
     const hexagonConfiguration = [
-        {navigateTo:"Profil", typingSentence:<TypingSentence_Profil/>},
-        {navigateTo:"Projet", typingSentence:<TypingSentence_Projet/>},
-        {navigateTo:"Contact", typingSentence:<TypingSentence_Contact/>},
+        {navigateTo:"Profil", sentencesConfiguration:[{timeout:100,sentence:"Profil",speed:60}]},
+        {navigateTo:"Projet", sentencesConfiguration:[{timeout:500,sentence:"Projet",speed:70}]},
+        {navigateTo:"Contact", sentencesConfiguration:[{timeout:500,sentence:"Contact",speed:40}]},
 
-
-        {navigateTo:"/", typingSentence:<TypingSentenceCompiler sentencesConfiguration={[
-            {
-                timeout:500,
-                sentence:"Sphere",
-                speed:90,
-            }
-        ]}/>},
+        {navigateTo:"/", sentencesConfiguration:[{timeout:500,sentence:"Sphere",speed:90,}]},
     ]
 
     return(
