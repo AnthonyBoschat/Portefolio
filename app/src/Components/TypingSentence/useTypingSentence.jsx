@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 export default function useTypingSentence(configuration){
 
-    const [sentence, setSentence] = useState([])
+    const [sentence, setSentence] = useState("")
     
     // timeout, sentence,  speed, setter, ending
     const write = (configuration) => {
@@ -17,9 +17,9 @@ export default function useTypingSentence(configuration){
                         const currentIndex = index // On sauvegarde l'index en cours
                         const currentChar = sentenceArray[currentIndex]
                         if(currentChar === "\n"){
-                            setSentence(current => [...current, <br key={currentIndex}/>]) // On set dans le current du setter passé le caractère en cours de lecture
+                            setSentence(current => current += "<br/>") // On set dans le current du setter passé le caractère en cours de lecture
                         }else{
-                            setSentence(current => [...current, currentChar]) // On set dans le current du setter passé le caractère en cours de lecture
+                            setSentence(current => current += currentChar) // On set dans le current du setter passé le caractère en cours de lecture
                         }
                            
                         ////////////////// Note -> Changer la logique de la gestion du state en simple string += currentChar

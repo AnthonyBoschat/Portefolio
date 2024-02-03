@@ -6,9 +6,7 @@ function Sentence({configuration}){
     const {sentence} = useTypingSentence(configuration)
 
     return(
-        <>
-            {sentence}
-        </>
+        <span className="sentence" dangerouslySetInnerHTML={{__html:sentence}} style={{whiteSpace: "pre-line"}}></span>
     )
 }
 
