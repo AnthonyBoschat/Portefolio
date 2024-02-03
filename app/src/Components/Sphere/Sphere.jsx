@@ -7,6 +7,7 @@ const Sphere = () => {
     const mountRef = useRef();
     const cameraRef = useRef({})
 
+
     useEffect(() => {
         // Scène, caméra et renderer
         const scene = new THREE.Scene();
@@ -153,7 +154,7 @@ const Sphere = () => {
     }, [startAnimation])
 
 
-    return <div onClick={() => setStartAnimation(current => !current)} className='sphereAnimation' ref={mountRef} style={{ width: '100%', height: '100%'}} />;
+    return <div onClick={() => setStartAnimation(current => !current)} className='sphereAnimation' ref={mountRef} />;
 };
 
 export default Sphere;
