@@ -18,7 +18,7 @@ function FirstNav(){
     ]
 
     return(
-            <div className="firstNavBox">
+            <div className="navBox first">
                 <HexagonCompiler hexagonConfiguration={hexagonConfiguration}/>
             </div>
     )

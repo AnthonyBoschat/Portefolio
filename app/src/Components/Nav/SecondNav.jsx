@@ -13,7 +13,7 @@ function SecondNav(){
     ]
 
     return(
-            <div className="secondNavBox">
+            <div className="navBox second">
                 {showSecondNav && <HexagonCompiler hexagonConfiguration={hexagonConfiguration}/> }
             </div>
     )
