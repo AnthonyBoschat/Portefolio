@@ -7,7 +7,6 @@ function Sentence({configuration}){
 
 
     return(
-        // <span className="sentence" dangerouslySetInnerHTML={{__html:sentence}} style={{whiteSpace: "pre-line"}}></span>
         <span>{returnLineFilter(sentence)}</span>
     )
 }

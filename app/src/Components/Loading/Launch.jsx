@@ -1,8 +1,8 @@
 import React from "react";
-import Cursor_Launch from "../Cursor/Launch";
 import { useDispatch } from "react-redux";
 import { update_loadingLaunch } from "./LoadingSlice";
 import TypingSentenceCompiler from "../TypingSentence/TypingSentenceCompiler";
+import Cursor from "../Cursor/Cursor";
 
 function Loading_Launch(){
 
@@ -26,7 +26,10 @@ function Loading_Launch(){
                 <div className="nameApparitionBox">
                     <div className="nameApparition">
                         <TypingSentenceCompiler sentencesConfiguration={sentencesConfiguration} />
-                        <Cursor_Launch />
+                        <Cursor cursorConfiguration={{
+                            cursorClass:"cursorLaunch",
+                            cursorBlink:false,
+                        }} />
                     </div>
                 </div>
             </div>

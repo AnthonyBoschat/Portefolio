@@ -1,7 +1,7 @@
 import React from "react";
 import TypingSentenceCompiler from "../TypingSentence/TypingSentenceCompiler";
-import Cursor_Console from "../Cursor/Console";
 import Console from "../Console/Console";
+import Cursor from "../Cursor/Cursor";
 
 function Profil(){
 
@@ -17,7 +17,6 @@ function Profil(){
 
     const consoleConfiguration = {
         typingSentence:<TypingSentenceCompiler sentencesConfiguration={sentencesConfiguration}/>,
-        cursor:<Cursor_Console/>,
     }
 
     

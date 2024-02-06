@@ -1,4 +1,5 @@
 import React from "react";
+import Cursor from "../Cursor/Cursor";
 
 function Console({consoleConfiguration}){
 
@@ -6,7 +7,10 @@ function Console({consoleConfiguration}){
         <div ref={consoleConfiguration.presentationConsoleRef ? consoleConfiguration.presentationConsoleRef : null} className="ConsoleBox">
             <div className="typingSentenceBox">
                 {consoleConfiguration.typingSentence}
-                {consoleConfiguration.cursor ? consoleConfiguration.cursor : null}
+                <Cursor cursorConfiguration={{
+                    cursorClass:"consoleCursor",
+                    cursorBlink:true,
+                }}/>
             </div>
         </div>
     )

@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Sphere from "../Sphere/Sphere"
 import Console from "../Console/Console";
-import Cursor_Console from "../Cursor/Console";
 import { update_loadingSphere } from "./LoadingSlice";
 import TypingSentenceCompiler from "../TypingSentence/TypingSentenceCompiler";
 
@@ -61,7 +60,6 @@ function LoadingAnimation(){
                 <Console 
                     consoleConfiguration = {{
                         typingSentence:<TypingSentenceCompiler sentencesConfiguration={sentencesConfiguration}/>,
-                        cursor:<Cursor_Console/>,
                         presentationConsoleRef:presentationConsoleRef
                     }}
                 />
