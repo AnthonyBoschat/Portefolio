@@ -18,4 +18,9 @@
 .cursor-opacity-out{animation: opacity-out 0.5s ease forwards;}
 .presentationBox-opacity-out{animation: opacity-out 1s ease forwards !important;}
 
+@keyframes content-move-leftToRight{
+    to{
+        left:100%
+    }
+}
 

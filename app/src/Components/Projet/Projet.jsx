@@ -3,7 +3,13 @@ import React from "react";
 function Projet(){
 
     return(
-        <h1>Projet</h1>
+        <div className="projetDisplay">
+            <div className="projetBox">
+                <button>Calculatrice</button>
+                <button>Boulangerie</button>
+                <button>Pokemon</button>
+            </div>
+        </div>
     )
 }
 
