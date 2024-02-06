@@ -3,10 +3,12 @@ import useTypingSentence from "./useTypingSentence";
 
 function Sentence({configuration}){
 
-    const {sentence} = useTypingSentence(configuration)
+    const {sentence, returnLineFilter} = useTypingSentence(configuration)
+
 
     return(
-        <span className="sentence" dangerouslySetInnerHTML={{__html:sentence}} style={{whiteSpace: "pre-line"}}></span>
+        // <span className="sentence" dangerouslySetInnerHTML={{__html:sentence}} style={{whiteSpace: "pre-line"}}></span>
+        <span>{returnLineFilter(sentence)}</span>
     )
 }
 
