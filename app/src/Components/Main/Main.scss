@@ -8,6 +8,7 @@ div.mainDisplay{
     align-items: center;
     // background-color: rgb(81, 81, 81); //
     
+    
 
     .mainBox{
         width: 100%;
@@ -15,6 +16,11 @@ div.mainDisplay{
         // background-color: grey; //
         display: grid;
         grid-template-columns: 30% 70%;
+
+        @media (max-width:700px){
+            grid-template-columns: 1fr;
+            grid-template-rows: 30% 70%;
+        }
     }
 }
 
