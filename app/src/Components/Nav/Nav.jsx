@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
 import HexagonCompiler from "../Hexagon/HexagonCompiler";
+import useNav from "./useNav";
 
 function Nav(){
 
-    
+    const {hexagonsConfiguration} = useNav()
 
     return(
             <div className="navBox">
-                <HexagonCompiler/>
+                <HexagonCompiler hexagonsConfiguration={hexagonsConfiguration}/>
             </div>
     )
 }

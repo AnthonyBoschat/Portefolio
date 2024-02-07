@@ -6,25 +6,25 @@ export default function useNav(){
     const navigate = useNavigate()
 
     const [hexagonsConfiguration, setHexagonsConfiguration] = useState([
-        {navigateTo:"/", selected:true, sentencesConfiguration:[{timeout:500,sentence:"Accueil",speed:90}]},
-        {navigateTo:"Projet", selected:false, sentencesConfiguration:[{timeout:500,sentence:"Projet",speed:70}]},
-        {navigateTo:"Profil", selected:false, sentencesConfiguration:[{timeout:100,sentence:"Profil",speed:60}]},
-        {navigateTo:"Contact", selected:false, sentencesConfiguration:[{timeout:500,sentence:"Contact",speed:40}]},
+        {destination:"Accueil", selected:true, onClick: () => handleClick("/"), sentencesConfiguration:[{timeout:500,sentence:"Accueil",speed:90}]},
+        {destination:"Projet", selected:false, onClick: () => handleClick("Projet"), sentencesConfiguration:[{timeout:500,sentence:"Projet",speed:70}]},
+        {destination:"Profil", selected:false, onClick: () => handleClick("Profil"), sentencesConfiguration:[{timeout:100,sentence:"Profil",speed:60}]},
+        {destination:"Contact", selected:false, onClick: () => handleClick("Contact"), sentencesConfiguration:[{timeout:500,sentence:"Contact",speed:40}]},
     ])
 
-    const determineHexagonSelected = (navigateTo) => {
+    const determineHexagonSelected = (destination) => {
         setHexagonsConfiguration(current => {
             return current.map(hexagon => {
                 const copyHexagon = {...hexagon}
-                copyHexagon.selected = hexagon.navigateTo === navigateTo
+                copyHexagon.selected = hexagon.destination === destination
                 return copyHexagon
             })
         })
     }
 
-    const handleClick = (hexagon) => {
-        determineHexagonSelected(hexagon.navigateTo)
-        navigate(hexagon.navigateTo)
+    const handleClick = (navigateTo) => {
+        determineHexagonSelected(navigateTo)
+        navigate(navigateTo)
     }
 
     return{
