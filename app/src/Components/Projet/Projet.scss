@@ -10,20 +10,19 @@
     opacity: 0;
     animation: opacity-in 1s ease forwards;
     overflow-x: hidden;
-    // ::-webkit-scrollbar{
-    //     display: none;
-    // }
+    ::-webkit-scrollbar{
+        display: none;
+    }
 
     .projetBox{
         outline: 1px solid rgba(80, 210, 33, 0.739); //
         width: 80%;
         height: 80%;
-        max-height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         padding-bottom: 1rem;
-        overflow: y;
+        overflow-y: auto;
 
         button{
             flex-shrink: 0;
@@ -44,11 +43,12 @@
         }
 
         .projetPresentation{
+            flex-shrink: 0;
             flex-basis: 0%;
             background-color: rgba(216, 216, 216, 0.161);
             outline: 1px solid blue; //
             width: 99%;
-            animation: animation-displayProjetPresentation 1s ease-in forwards;
+            animation: animation-displayProjetPresentation 0.5s ease-in forwards;
         }
     }
 

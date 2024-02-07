@@ -19,7 +19,11 @@ export default function useProjet(){
         setProjetConfiguration(current => {
             return current.map(projet => {
                 const copyProjet = {...projet}
-                copyProjet.selected = copyProjet.name === projetName
+                if(copyProjet.name === projetName){
+                    copyProjet.selected = copyProjet.selected === false ? true : false
+                }else{
+                    copyProjet.selected = false
+                }
                 return copyProjet
             })
         })
