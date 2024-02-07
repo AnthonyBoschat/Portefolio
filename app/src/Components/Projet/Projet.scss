@@ -1,7 +1,8 @@
 .projetDisplay{
-    // background-color: rgba(255, 0, 0, 0.392); //
+    // background-color: rgba(255, 0, 0, 0.178); //
     width: 100%;
     height: 100%;
+    max-height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,29 +10,45 @@
     opacity: 0;
     animation: opacity-in 1s ease forwards;
     overflow-x: hidden;
+    // ::-webkit-scrollbar{
+    //     display: none;
+    // }
 
     .projetBox{
-        // outline: 1px solid rgba(255, 255, 255, 0.739); //
+        outline: 1px solid rgba(80, 210, 33, 0.739); //
         width: 80%;
         height: 80%;
+        max-height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding-bottom: 1rem;
+        overflow: y;
 
         button{
+            flex-shrink: 0;
             color: white;
             margin-top: 1rem;
-            height: 3rem;
+            flex-basis: 3rem;
             width: 99%;
             background-color: rgba(0, 0, 0, 0.827);
             font-size: 1.5rem;
             border: none;
             outline: 1px solid white;
+            transition: all 0.5s ease;
 
             &:hover{
                 cursor: pointer;
                 background-color: rgba(204, 204, 204, 0.155);
             }
+        }
+
+        .projetPresentation{
+            flex-basis: 0%;
+            background-color: rgba(216, 216, 216, 0.161);
+            outline: 1px solid blue; //
+            width: 99%;
+            animation: animation-displayProjetPresentation 1s ease-in forwards;
         }
     }
 
@@ -47,4 +64,8 @@
         background-color: black;
         animation: content-move-leftToRight 1s ease-in-out forwards;
     }
+}
+
+.projetSelected{
+    background-color: rgba(255, 255, 255, 0.392) !important;
 }

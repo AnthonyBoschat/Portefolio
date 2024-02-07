@@ -1,13 +1,14 @@
 import React from "react";
+import useProjet from "./useProjet";
 
 function Projet(){
+
+    const {projetConfiguration, generateProjetButton} = useProjet()
 
     return(
         <div className="projetDisplay">
             <div className="projetBox">
-                <button>Calculatrice</button>
-                <button>Boulangerie</button>
-                <button>Pokemon</button>
+                {projetConfiguration.map(projet => generateProjetButton(projet))}
             </div>
         </div>
     )
