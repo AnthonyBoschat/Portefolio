@@ -17,6 +17,7 @@
 }
 .cursor-opacity-out{animation: opacity-out 0.5s ease forwards;}
 .presentationBox-opacity-out{animation: opacity-out 1s ease forwards !important;}
+.buttonProjet-opacity-out{animation: opacity-out 0.3s ease forwards !important;}
 
 @keyframes content-move-leftToRight{
     to{
@@ -24,6 +25,17 @@
     }
 }
 
-@keyframes animation-displayProjetPresentation{
-    to{flex-basis: 80%;}
+@keyframes animation-apparitionProjetPresentation{
+    from{flex-basis: 0%;}
+    to{flex-basis: 93%;}
 }
+
+@keyframes animation-disparitionProjetPresentation{
+    from{flex-basis: 93%;}
+    to{flex-basis: 0%;}
+}
+
+@keyframes display-hidden{
+    to{visibility: hidden;}
+}
+

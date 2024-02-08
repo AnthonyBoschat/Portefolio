@@ -15,7 +15,7 @@
     }
 
     .projetBox{
-        outline: 1px solid rgba(80, 210, 33, 0.739); //
+        // outline: 1px solid rgba(80, 210, 33, 0.739); //
         width: 80%;
         height: 80%;
         display: flex;
@@ -23,8 +23,10 @@
         align-items: center;
         padding-bottom: 1rem;
         overflow-y: auto;
+        position: relative;
 
         button{
+            position: relative;
             flex-shrink: 0;
             color: white;
             margin-top: 1rem;
@@ -42,13 +44,34 @@
             }
         }
 
+        .buttonProjet{
+            transition: top 0.4s 0.4s ease;
+        }
+
+        .buttonProjetSelected{
+            background-color: rgba(255, 255, 255, 0.392) !important;
+        }
+
+        .buttonProjetUnselected{
+            animation:  opacity-out 0.3s ease forwards,
+                        display-hidden 0.1s 0.3s ease forwards !important;
+        }
+
         .projetPresentation{
             flex-shrink: 0;
-            flex-basis: 0%;
+            // flex-basis: 0%;
+            position: relative;
+            top: 0;
             background-color: rgba(216, 216, 216, 0.161);
-            outline: 1px solid blue; //
+            // outline: 1px solid blue; //
             width: 99%;
-            animation: animation-displayProjetPresentation 0.5s ease-in forwards;
+            // transition: all 0.5s ease;
+            animation: animation-disparitionProjetPresentation 0.5s ease forwards; //
+        }
+
+        .projetPresentationVisible{
+            // flex-basis: 93% !important;
+            animation: animation-apparitionProjetPresentation 0.5s 0.4s ease forwards; //
         }
     }
 
@@ -66,6 +89,3 @@
     }
 }
 
-.projetSelected{
-    background-color: rgba(255, 255, 255, 0.392) !important;
-}

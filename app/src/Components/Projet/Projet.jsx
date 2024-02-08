@@ -5,11 +5,11 @@ function Projet(){
 
     const {projetConfiguration, generateProjetButton} = useProjet()
 
-    const projetBoxRef = useRef()
+    
 
     return(
         <div className="projetDisplay">
-            <div ref={projetBoxRef} className="projetBox">
+            <div className="projetBox">
                 {projetConfiguration.map(projet => generateProjetButton(projet))}
             </div>
         </div>

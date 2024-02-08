@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function useProjet(){
 
@@ -10,6 +10,7 @@ export default function useProjet(){
         {name:"Test2", selected:false},
         {name:"Test3", selected:false},
     ])
+    const presentationBoxRef = useRef()
 
     const handleClickProjet = (projetName) => {
         selectedButton(projetName)
@@ -29,24 +30,37 @@ export default function useProjet(){
         })
     }
 
+    const animationStyleClassCenter = (aButtonSelected, projet) => {
+        const index = projetConfiguration.findIndex(project => project.name === projet.name)
+        const indexButtonSelected = projetConfiguration.findIndex(projet => projet.selected === true)
+
+        const buttonStyle = aButtonSelected ? {top: 0 - (indexButtonSelected * 4.03) + "rem"} : {top:0 + "rem"}
+        const buttonClassName = !aButtonSelected ? "buttonProjet" : projet.selected ? "buttonProjetSelected" : "buttonProjetUnselected"
+        const projetStyle = aButtonSelected ? {top: 0 - (indexButtonSelected * 3.95) + "rem"} : {top:0 - (index * 3.95) + "rem"}
+        const projetClassName = projet.selected ? "projetPresentationVisible" : null
+
+        
+        return{buttonStyle, buttonClassName, projetStyle, projetClassName}
+    }
+
     const generateProjetButton = (projet) => {
+        
+        const aButtonSelected = projetConfiguration.find(projet => projet.selected === true)
+        const {buttonStyle, buttonClassName, projetStyle, projetClassName} = animationStyleClassCenter(aButtonSelected, projet)
+
         return(
             <>
-                <button className={projet.selected && "projetSelected"} onClick={() => handleClickProjet(projet.name)} key={projet.name}>{projet.name}</button>
-                {projet.selected && (
-                    <div className="projetPresentation"></div>
-                )}
+                <button style={buttonStyle} className={buttonClassName} onClick={() => handleClickProjet(projet.name)} key={projet.name}>
+                    {projet.name}
+                </button>
+                <div ref={projet.selected ? presentationBoxRef : null} style={projetStyle} className={`projetPresentation ${projetClassName}`}></div>
             </>
             
         )
     }
 
-    useEffect(() => {
-        console.log(projetConfiguration)
-    }, [projetConfiguration])
-
     return{
         projetConfiguration,
-        generateProjetButton
+        generateProjetButton,
     }
 }
