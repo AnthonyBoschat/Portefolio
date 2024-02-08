@@ -45,13 +45,13 @@
         }
 
         .buttonProjet{
-            transition: top 0.4s 0.4s ease;
+            transition: top 0.5s 0.4s ease;
         }
 
         .buttonProjetSelected{
             background-color: rgba(255, 255, 255, 0.392) !important;
         }
-
+        
         .buttonProjetUnselected{
             animation:  opacity-out 0.3s ease forwards,
                         display-hidden 0.1s 0.3s ease forwards !important;
