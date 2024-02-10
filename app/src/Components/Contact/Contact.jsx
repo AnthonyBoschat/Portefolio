@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import useContact from "./useContact";
+import RotationLetter from "../RotationLetter/RotationLetter";
 
 function Contact(){
 
@@ -13,6 +14,13 @@ function Contact(){
         // </div>
 
 
+        // <div className="testDisplay">
+        //     <div className="testBox">
+        //         <div className="test">
+        //             <RotationLetter rotationConfiguration={{sentence:"Anthony Boschat"}}/>
+        //         </div>
+        //     </div>
+        // </div> 
 
 
 
@@ -43,7 +51,7 @@ function Contact(){
                         <span>i</span>
                         <span>j</span>
                     </div>
-                    <div className="testContainer tletter">
+                    <div className="testContainer shortLetter">
                         <span>t</span>
                         <span>b</span>
                         <span>c</span>

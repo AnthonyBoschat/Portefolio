@@ -57,6 +57,7 @@ export default function useContact(){
 
         return () => clearInterval(intervalID)
     }, [sentence])
+    
 
     return{
         sentence
