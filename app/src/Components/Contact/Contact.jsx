@@ -14,106 +14,106 @@ function Contact(){
         // </div>
 
 
-        // <div className="testDisplay">
-        //     <div className="testBox">
-        //         <div className="test">
-        //             <RotationLetter rotationConfiguration={{sentence:"Anthony Boschat"}}/>
-        //         </div>
-        //     </div>
-        // </div> 
-
-
-
         <div className="testDisplay">
             <div className="testBox">
                 <div className="test">
-                    <div className="testContainer">
-                        <span>A</span>
-                        <span>B</span>
-                        <span>C</span>
-                        <span>D</span>
-                        <span>E</span>
-                        <span>F</span>
-                        <span>G</span>
-                        <span>H</span>
-                        <span>I</span>
-                        <span>J</span>
-                    </div>
-                    <div className="testContainer">
-                        <span>n</span>
-                        <span>b</span>
-                        <span>c</span>
-                        <span>d</span>
-                        <span>e</span>
-                        <span>f</span>
-                        <span>g</span>
-                        <span>h</span>
-                        <span>i</span>
-                        <span>j</span>
-                    </div>
-                    <div className="testContainer shortLetter">
-                        <span>t</span>
-                        <span>b</span>
-                        <span>c</span>
-                        <span>d</span>
-                        <span>e</span>
-                        <span>f</span>
-                        <span>g</span>
-                        <span>h</span>
-                        <span>i</span>
-                        <span>j</span>
-                    </div>
-                    <div className="testContainer">
-                        <span>h</span>
-                        <span>b</span>
-                        <span>c</span>
-                        <span>d</span>
-                        <span>e</span>
-                        <span>f</span>
-                        <span>g</span>
-                        <span>h</span>
-                        <span>i</span>
-                        <span>j</span>
-                    </div>
-                    <div className="testContainer">
-                        <span>o</span>
-                        <span>b</span>
-                        <span>c</span>
-                        <span>d</span>
-                        <span>e</span>
-                        <span>f</span>
-                        <span>g</span>
-                        <span>h</span>
-                        <span>i</span>
-                        <span>j</span>
-                    </div>
-                    <div className="testContainer">
-                        <span>n</span>
-                        <span>b</span>
-                        <span>c</span>
-                        <span>d</span>
-                        <span>e</span>
-                        <span>f</span>
-                        <span>g</span>
-                        <span>h</span>
-                        <span>i</span>
-                        <span>j</span>
-                    </div>
-                    <div className="testContainer">
-                        <span>y</span>
-                        <span>b</span>
-                        <span>c</span>
-                        <span>d</span>
-                        <span>e</span>
-                        <span>f</span>
-                        <span>g</span>
-                        <span>h</span>
-                        <span>i</span>
-                        <span>j</span>
-                    </div>
+                    <RotationLetter rotationConfiguration={{sentence:"Anthony"}}/>
                 </div>
             </div>
-        </div>
+        </div> 
+
+
+
+        // <div className="testDisplay">
+        //     <div className="testBox">
+        //         <div className="test">
+        //             <div className="testContainer">
+        //                 <span>A</span>
+        //                 <span>B</span>
+        //                 <span>C</span>
+        //                 <span>D</span>
+        //                 <span>E</span>
+        //                 <span>F</span>
+        //                 <span>G</span>
+        //                 <span>H</span>
+        //                 <span>I</span>
+        //                 <span>J</span>
+        //             </div>
+        //             <div className="testContainer">
+        //                 <span>n</span>
+        //                 <span>b</span>
+        //                 <span>c</span>
+        //                 <span>d</span>
+        //                 <span>e</span>
+        //                 <span>f</span>
+        //                 <span>g</span>
+        //                 <span>h</span>
+        //                 <span>i</span>
+        //                 <span>j</span>
+        //             </div>
+        //             <div className="testContainer shortLetter">
+        //                 <span>t</span>
+        //                 <span>b</span>
+        //                 <span>c</span>
+        //                 <span>d</span>
+        //                 <span>e</span>
+        //                 <span>f</span>
+        //                 <span>g</span>
+        //                 <span>h</span>
+        //                 <span>i</span>
+        //                 <span>j</span>
+        //             </div>
+        //             <div className="testContainer shortLetter">
+        //                 <span>h</span>
+        //                 <span>b</span>
+        //                 <span>c</span>
+        //                 <span>d</span>
+        //                 <span>e</span>
+        //                 <span>f</span>
+        //                 <span>g</span>
+        //                 <span>h</span>
+        //                 <span>i</span>
+        //                 <span>j</span>
+        //             </div>
+        //             <div className="testContainer">
+        //                 <span>o</span>
+        //                 <span>b</span>
+        //                 <span>c</span>
+        //                 <span>d</span>
+        //                 <span>e</span>
+        //                 <span>f</span>
+        //                 <span>g</span>
+        //                 <span>h</span>
+        //                 <span>i</span>
+        //                 <span>j</span>
+        //             </div>
+        //             <div className="testContainer">
+        //                 <span>n</span>
+        //                 <span>b</span>
+        //                 <span>c</span>
+        //                 <span>d</span>
+        //                 <span>e</span>
+        //                 <span>f</span>
+        //                 <span>g</span>
+        //                 <span>h</span>
+        //                 <span>i</span>
+        //                 <span>j</span>
+        //             </div>
+        //             <div className="testContainer">
+        //                 <span>y</span>
+        //                 <span>b</span>
+        //                 <span>c</span>
+        //                 <span>d</span>
+        //                 <span>e</span>
+        //                 <span>f</span>
+        //                 <span>g</span>
+        //                 <span>h</span>
+        //                 <span>i</span>
+        //                 <span>j</span>
+        //             </div>
+        //         </div>
+        //     </div>
+        // </div>
     )
 }
 

@@ -37,9 +37,13 @@
         
         .test{
             display: flex;
-            // outline: 1px solid green; // 
+            outline: 1px solid green; // 
             overflow-y: hidden;
+            // overflow-x: hidden;
             height: 2.5rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            width: max-content;
 
             .testContainer{
                 display: flex;
@@ -47,11 +51,11 @@
                 align-items: center;
                 justify-content: flex-start;
                 // outline: 1px solid white; //
-                font-size: 200%;
-                height: 2rem;
+                font-size: 2rem;
                 // overflow-y: hidden;
                 position: relative;
                 top: -21rem; // 
+                width: 1rem;
                 
                 animation: animationLetter 2s ease forwards;
                 filter: blur(5px);
@@ -65,8 +69,12 @@
                 &:nth-child(7) { animation-duration: 3.2s;}
             }
 
+            span{
+                display: inline-block;
+            }
+
             .shortLetter{
-                // outline: 1px solid red;
+                // padding-right: -0.12rem;
                 margin-right: -0.18rem;
                 margin-left: -0.2rem;
             }
