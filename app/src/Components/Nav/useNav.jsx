@@ -35,7 +35,6 @@ export default function useNav(){
 
     useEffect(() => {
         if(!navRenderOnChange && navSelected){
-            console.log(hexagonsConfiguration)
             navigate(navSelected)
         }
     }, [navRenderOnChange])

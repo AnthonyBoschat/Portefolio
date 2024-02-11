@@ -19,7 +19,6 @@ export default function useRender(){
         }
 
         if(navRenderOnChange && renderBoxRef.current){
-            console.log("controle")
             toggleRenderOnChange(500) //
             // renderBoxRef.current.addEventListener("animationend", toggleRenderOnChange)
         }

@@ -49,12 +49,12 @@ export default function useProjet(){
         const {buttonStyle, buttonClassName, projetStyle, projetClassName} = animationStyleClassCenter(aButtonSelected, projet)
 
         return(
-            <>
-                <button style={buttonStyle} className={buttonClassName} onClick={() => handleClickProjet(projet.name)} key={`buttonProjet ${index}`}>
+            <React.Fragment key={index}>
+                <button style={buttonStyle} className={buttonClassName} onClick={() => handleClickProjet(projet.name)}>
                     {projet.name}
                 </button>
-                <div key={`projetPresentation ${index}`} ref={projet.selected ? presentationBoxRef : null} style={projetStyle} className={`projetPresentation ${projetClassName}`}></div>
-            </>
+                <div ref={projet.selected ? presentationBoxRef : null} style={projetStyle} className={`projetPresentation ${projetClassName}`}></div>
+            </React.Fragment>
             
         )
     }
