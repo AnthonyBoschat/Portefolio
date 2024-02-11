@@ -1,30 +1,28 @@
+import { Page, Document } from "react-pdf";
 import React from "react";
-import TypingSentenceCompiler from "../TypingSentence/TypingSentenceCompiler";
-import Console from "../Console/Console";
-import Cursor from "../Cursor/Cursor";
 
 function Profil(){
 
-    const sentencesConfiguration = [{
-        timeout:500,
-        sentence:
-        `Dénomination               :  Anthony Boschat
-        Âge                         :  29 ans
-        Zone d'habitat              :  Tours
-        Caractéristique physique    :  1m73, yeux noisette, cheveux court`,
-        speed:2,
-    }]
-
-    const consoleConfiguration = {
-        typingSentence:<TypingSentenceCompiler sentencesConfiguration={sentencesConfiguration}/>,
-    }
+    
 
     
 
     
 
     return(
-        <Console consoleConfiguration = {consoleConfiguration}/>
+        <div className="profilBox">
+            <div className="presentationCVBox">
+                <div className="presentation">
+                    lorem150
+                </div>
+                <div className="cvBox">
+                    <img src="/Ressource/CVimage.png"></img>
+                </div>
+            </div>
+            <div className="technologieBox">
+
+            </div>
+        </div>
     )
 }
 

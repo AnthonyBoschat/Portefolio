@@ -45,10 +45,14 @@ function LoadingAnimation(){
             speed:2,
             ending:() => {
                 setTimeout(() => {
-                    presentationConsoleRef.current.classList.add("presentationBox-opacity-out")
+                    if(presentationConsoleRef.current){
+                        presentationConsoleRef.current.classList.add("presentationBox-opacity-out")
+                    }
                 }, 500);
                 setTimeout(() => {
-                    dispatch(update_loadingSphere(false))
+                    if(presentationConsoleRef.current){
+                        dispatch(update_loadingSphere(false))
+                    }
                 }, 1500);
             }
         }
