@@ -10,7 +10,7 @@ export default function useRotationLetter(){
         return alphabet[randomIndex]
     }
 
-    const generateRotationLetter = (letter) => {
+    const generateRotationLetter = (letter, index) => {
         const shortLetter = letter === "t" || letter === "j" || letter === "u"
         const uLetter = letter === "u"
         const array = [letter]
@@ -20,8 +20,8 @@ export default function useRotationLetter(){
         }
 
         return(
-            <div className={!shortLetter ? "testContainer" : !uLetter ? "testContainer shortLetter" : "testContainer uLetter"}>
-                {array.map(letter => (<span>{letter}</span>))}
+            <div key={index} className={!shortLetter ? "testContainer" : !uLetter ? "testContainer shortLetter" : "testContainer uLetter"}>
+                {array.map((letter, letterIndex) => (<span key={letterIndex}>{letter}</span>))}
             </div>
         )
     }

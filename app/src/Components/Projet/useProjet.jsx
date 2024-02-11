@@ -43,17 +43,17 @@ export default function useProjet(){
         return{buttonStyle, buttonClassName, projetStyle, projetClassName}
     }
 
-    const generateProjetButton = (projet) => {
+    const generateProjetButton = (projet, index) => {
         
         const aButtonSelected = projetConfiguration.find(projet => projet.selected === true)
         const {buttonStyle, buttonClassName, projetStyle, projetClassName} = animationStyleClassCenter(aButtonSelected, projet)
 
         return(
             <>
-                <button style={buttonStyle} className={buttonClassName} onClick={() => handleClickProjet(projet.name)} key={projet.name}>
+                <button style={buttonStyle} className={buttonClassName} onClick={() => handleClickProjet(projet.name)} key={`buttonProjet ${index}`}>
                     {projet.name}
                 </button>
-                <div ref={projet.selected ? presentationBoxRef : null} style={projetStyle} className={`projetPresentation ${projetClassName}`}></div>
+                <div key={`projetPresentation ${index}`} ref={projet.selected ? presentationBoxRef : null} style={projetStyle} className={`projetPresentation ${projetClassName}`}></div>
             </>
             
         )

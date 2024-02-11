@@ -3,16 +3,21 @@ import {createSlice} from "@reduxjs/toolkit"
 const NavSlice = createSlice({
     name:"nav",
     initialState:{
-        showSecondNav:false
+        navSelected:null,
+        navRenderOnChange:null
     },
     reducers:{
-        update_showSecondNav:(state,action) => {
-            state.showSecondNav = action.payload
+        update_navSelected:(state,action) => {
+            state.navSelected = action.payload
+        },
+        update_navRenderOnChange:(state,action) => {
+            state.navRenderOnChange = action.payload
         }
     },
 })
 
 export const NavSliceReducer = NavSlice.reducer
 export const {
-    update_showSecondNav
+    update_navSelected,
+    update_navRenderOnChange
 } = NavSlice.actions

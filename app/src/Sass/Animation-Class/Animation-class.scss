@@ -6,6 +6,7 @@
         opacity: 1;
     }
 }
+.renderBox-opacity-in{animation: opacity-in 0.5s ease forwards !important;}
 
 @keyframes opacity-out{
     from{
@@ -18,6 +19,7 @@
 .cursor-opacity-out{animation: opacity-out 0.5s ease forwards;}
 .presentationBox-opacity-out{animation: opacity-out 1s ease forwards !important;}
 .buttonProjet-opacity-out{animation: opacity-out 0.3s ease forwards !important;}
+.renderBox-opacity-out{animation: opacity-out 0.5s ease forwards !important;}
 
 @keyframes content-move-leftToRight{
     to{

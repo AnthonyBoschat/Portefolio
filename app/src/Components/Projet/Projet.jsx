@@ -10,7 +10,7 @@ function Projet(){
     return(
         <div className="projetDisplay">
             <div className="projetBox">
-                {projetConfiguration.map(projet => generateProjetButton(projet))}
+                {projetConfiguration.map((projet, index) => generateProjetButton(projet, index))}
             </div>
         </div>
     )

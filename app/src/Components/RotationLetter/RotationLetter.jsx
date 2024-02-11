@@ -8,7 +8,7 @@ function RotationLetter({rotationConfiguration}){
 
     return(
         <>
-            {arrayOfSentence.map(letter => generateRotationLetter(letter))}
+            {arrayOfSentence.map((letter, index) => generateRotationLetter(letter, index))}
         </>
     )
 }
