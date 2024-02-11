@@ -4,7 +4,7 @@ const NavSlice = createSlice({
     name:"nav",
     initialState:{
         navSelected:null,
-        navRenderOnChange:null
+        navRenderOnChange:false
     },
     reducers:{
         update_navSelected:(state,action) => {

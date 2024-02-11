@@ -7,8 +7,8 @@ export default function useNav(){
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    // const navRenderOnChange = useSelector(store => store.nav.navRenderOnChange)
-    // const navSelected = useSelector(store => store.nav.navSelected)
+    const navRenderOnChange = useSelector(store => store.nav.navRenderOnChange)
+    const navSelected = useSelector(store => store.nav.navSelected)
 
     const [hexagonsConfiguration, setHexagonsConfiguration] = useState([
         {destination:"Accueil", selected:true, onClick: () => handleClick("/"), sentencesConfiguration:[{timeout:400,sentence:"Accueil",speed:90}]},
@@ -27,12 +27,17 @@ export default function useNav(){
         })
     }
 
-    const handleClick = (destination) => {
-        determineHexagonSelected(destination)
-        // dispatch(update_navSelected(destination))
-        navigate(destination)
-        // dispatch(update_navRenderOnChange(true))
+    const handleClick = (destination) => { // Quand on clique sur un bouton de navigation
+        determineHexagonSelected(destination) // On change la clef selected en true du bouton appuyer
+        dispatch(update_navSelected(destination)) // On sauvegarde la destination dans redux
+        dispatch(update_navRenderOnChange(true)) // On indique dans redux que le render est en train de changer
     }
+
+    useEffect(() => {
+        if(!navRenderOnChange && navSelected){
+            navigate(navSelected)
+        }
+    }, [navRenderOnChange])
 
     return{
         determineHexagonSelected,
