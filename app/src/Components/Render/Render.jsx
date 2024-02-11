@@ -9,7 +9,7 @@ function Render(){
     const navRenderOnChange = useSelector(store => store.nav.navRenderOnChange)
     
     return(
-        <div ref={renderBoxRef} className={!navRenderOnChange ? "renderBox renderIn" : "renderBox renderOut"}>
+        <div ref={renderBoxRef} className={`renderBox ${!navRenderOnChange ? "renderIn" : "renderOut"}`}>
             <Outlet/>
         </div>
     )

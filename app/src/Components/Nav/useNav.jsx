@@ -11,7 +11,7 @@ export default function useNav(){
     const navSelected = useSelector(store => store.nav.navSelected)
 
     const [hexagonsConfiguration, setHexagonsConfiguration] = useState([
-        {destination:"Accueil", selected:true, onClick: () => handleClick("/"), sentencesConfiguration:[{timeout:400,sentence:"Accueil",speed:90}]},
+        {destination:"/", selected:true, onClick: () => handleClick("/"), sentencesConfiguration:[{timeout:400,sentence:"Accueil",speed:90}]},
         {destination:"Projet", selected:false, onClick: () => handleClick("Projet"), sentencesConfiguration:[{timeout:500,sentence:"Projet",speed:70}]},
         {destination:"Profil", selected:false, onClick: () => handleClick("Profil"), sentencesConfiguration:[{timeout:350,sentence:"Profil",speed:60}]},
         {destination:"Contact", selected:false, onClick: () => handleClick("Contact"), sentencesConfiguration:[{timeout:450,sentence:"Contact",speed:40}]},
@@ -35,6 +35,7 @@ export default function useNav(){
 
     useEffect(() => {
         if(!navRenderOnChange && navSelected){
+            console.log(hexagonsConfiguration)
             navigate(navSelected)
         }
     }, [navRenderOnChange])

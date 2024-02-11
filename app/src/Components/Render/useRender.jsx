@@ -9,17 +9,25 @@ export default function useRender(){
     const dispatch = useDispatch()
 
     useEffect(() => { // Quand il est indiquer qu'un utilisateur viens de cliquer sur un bouton de navigation
-        const toggleRenderOnChange = () => {
-            dispatch(update_navRenderOnChange(false))
+        let timeoutID = false
+
+
+        const toggleRenderOnChange = (time) => {
+            return setTimeout(() => {
+                dispatch(update_navRenderOnChange(false))
+            }, time);
         }
 
         if(navRenderOnChange && renderBoxRef.current){
-            renderBoxRef.current.addEventListener("animationend", toggleRenderOnChange)
+            console.log("controle")
+            toggleRenderOnChange(500) //
+            // renderBoxRef.current.addEventListener("animationend", toggleRenderOnChange)
         }
 
         return () => {
-            if(renderBoxRef.current){
-                renderBoxRef.current.removeEventListener("animationend", toggleRenderOnChange)
+            if(renderBoxRef.current && timeoutID){
+                clearTimeout(timeoutID) //
+                // renderBoxRef.current.removeEventListener("animationend", toggleRenderOnChange)
             }
         }
     }, [navRenderOnChange])
