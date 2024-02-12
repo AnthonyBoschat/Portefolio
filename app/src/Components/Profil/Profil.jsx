@@ -1,28 +1,36 @@
 import { Page, Document } from "react-pdf";
-import React from "react";
+import React, { useState } from "react";
 
 function Profil(){
 
     
-
+    const [CVfocus, setCVfocus] = useState(false)
     
 
     
 
     return(
-        <div className="profilBox">
-            <div className="presentationCVBox">
-                <div className="presentation">
-                    lorem150
-                </div>
-                <div className="cvBox">
-                    <img src="/Ressource/CVimage.png"></img>
-                </div>
-            </div>
-            <div className="technologieBox">
+        
+            <div className="profilOverlay">
+                {CVfocus && 
+                    <div className="cvFocusOverlay">
+                        <div className="cvFocusBox">
+                            <img onClick={() => setCVfocus(current => !current)} src="/Ressource/CVimage.png" alt="" />
+                        </div>
+                    </div>
+                }
 
+                <div className="profilBox">
+                    <div className="presentation">
+                        bonjour
+                    </div>
+                    <div className="cv">
+                        <img onClick={() => setCVfocus(current => !current)} src="/Ressource/CVimage.png" alt="" />
+                    </div>
+                </div>
             </div>
-        </div>
+        
+        
     )
 }
 
