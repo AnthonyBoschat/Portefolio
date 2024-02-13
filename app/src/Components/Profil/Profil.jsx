@@ -1,32 +1,32 @@
-import { Page, Document } from "react-pdf";
-import React, { useState } from "react";
+
+import React from "react";
+import useProfil from "./useProfil";
+import CVzoomIn from "../CV/ZoomIn";
+import CVzoomOut from "../CV/ZoomOut";
 
 function Profil(){
 
     
-    const [CVfocus, setCVfocus] = useState(false)
-    
-
+    const {CVfocus, setCVfocus} = useProfil()
     
 
     return(
         
             <div className="profilOverlay">
-                {CVfocus && 
-                    <div className="cvFocusOverlay">
-                        <div className="cvFocusBox">
-                            <img onClick={() => setCVfocus(current => !current)} src="/Ressource/CVimage.png" alt="" />
-                        </div>
-                    </div>
-                }
+                {CVfocus && <CVzoomIn setCVfocus={setCVfocus}/>}
 
                 <div className="profilBox">
-                    <div className="presentation">
-                        bonjour
+                    <div className="presentationBox">
+                        <div className="shortDescriptionBox">
+                                <span className="sentence">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa odio maiores quos, adipisci fugit reprehenderit sed culpa velit! Error, facere.
+                                <span className="fade"></span>
+                                </span>
+                            </div>
+                        <div className="languagePresentationBox">
+
+                        </div>
                     </div>
-                    <div className="cv">
-                        <img onClick={() => setCVfocus(current => !current)} src="/Ressource/CVimage.png" alt="" />
-                    </div>
+                    <CVzoomOut setCVfocus={setCVfocus}/>
                 </div>
             </div>
         

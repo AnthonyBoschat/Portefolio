@@ -1,7 +1,12 @@
+import { useState } from "react"
+
 export default function useProfil(){
 
-    
-    return{
+    const [CVfocus, setCVfocus] = useState(false)
 
+
+    return{
+        CVfocus,
+        setCVfocus
     }
 }
