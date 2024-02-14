@@ -3,8 +3,6 @@ import Cursor from "../Cursor/Cursor";
 
 function Console({consoleConfiguration}){
 
-    // Test du push
-
     return(
         <div ref={consoleConfiguration.presentationConsoleRef ? consoleConfiguration.presentationConsoleRef : null} className="ConsoleBox">
             <div className="typingSentenceBox">
