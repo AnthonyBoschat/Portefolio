@@ -9,14 +9,14 @@
     .profilBox{
         width: 95%;
         height: 90%;
-        // outline: 1px solid rgb(52, 52, 52); //
-        // background-color: rgba(255, 255, 255, 0.45); //
+        outline: 1px solid rgb(52, 52, 52); //
+        background-color: rgba(255, 255, 255, 0.45); //
         box-shadow: 10px 10px 50px 5px black inset;
         display: grid;
         grid-template-columns: 2fr 1fr;
 
         div.presentationBox{
-            // background-color: rgba(255, 0, 0, 0.24); //
+            background-color: rgba(255, 0, 0, 0.24); //
             display: grid;
             grid-template-rows: 1fr 2fr;
 
@@ -24,19 +24,19 @@
                 display: inline-flex;
                 justify-content: center;
                 align-items: center;
-                font-size: 1rem;
+                font-size: 2rem;
                 padding: 2rem;
-                // background-color: rgba(255, 255, 0, 0.181); //
+                background-color: rgba(255, 255, 0, 0.181); //
                 overflow-x: hidden;
 
 
                 .sentence{
-                    // outline: 1px solid red; //
+                    outline: 1px solid red; //
                     position: relative;
                     display: inline;
 
                     .fade{
-                        // outline: 1px solid blue; //
+                        outline: 1px solid blue; //
                         animation: content-move-leftToRight 5s ease forwards;
                         background: linear-gradient(90deg,
                         rgba(0, 0, 0, 0) 0%,
@@ -55,7 +55,7 @@
         }
 
         .languagePresentationBox{
-            // background-color: rgba(0, 128, 0, 0.24); //
+            background-color: rgba(0, 128, 0, 0.24); //
         }
     }
 }
