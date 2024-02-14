@@ -17,9 +17,9 @@ div.mainDisplay{
         display: grid;
         grid-template-columns: 20% 80%;
 
-        @media (max-width:700px){
-            grid-template-columns: 1fr;
-            grid-template-rows: 30% 70%;
+        @media (max-width:1150px){
+            grid-template-columns: 100vw;
+            grid-template-rows: 20% 80%;
         }
     }
 }
