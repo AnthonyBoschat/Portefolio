@@ -9,6 +9,7 @@
     position: relative;
     top: 15%;
     overflow-y: auto;
+    animation: opacity-in 1s linear forwards;
     
 
     >div.languageBox{
@@ -57,13 +58,6 @@
                     background-color: rgb(44, 44, 44);
                     width: 80%;
                     border-radius: 5px;
-
-                    >div.languageLevel{
-                        width: 90%;
-                        height: 0.5rem;
-                        border-radius: 5px;
-                        background-color: rgb(42, 79, 139);
-                    }
                 }
             }
             
@@ -73,8 +67,15 @@
             // outline: 1px solid red; //
             top: 0;
             left: 0;
+            stroke-dasharray: 105%;
+            stroke-dashoffset: 100%;
+            animation: dashArrayLanguage 3.5s linear forwards;
+            fill: transparent;
+            stroke: white;
+            stroke-width: 1.2;
         }
     }
 
     
 }
+

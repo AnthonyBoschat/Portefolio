@@ -1,23 +1,25 @@
 import React from "react";
 import Language from "./Language";
 
-function LanguageLevel(){
+function LanguagesCompiler(){
 
     const FamillyLevelConfiguration = [
         {name:"Front-end",
         languages:[
-            {name:"HTML", level:0},
-            {name:"CSS", level:0},
-            {name:"Javascript", level:0},
+            {name:"HTML", level:70},
+            {name:"CSS", level:70},
+            {name:"SCSS", level:50},
+            {name:"Javascript", level:60},
         ]},
         {name:"Back-end",
         languages:[
-            {name:"PHP", level:0},
-            {name:"MySQL", level:0},
+            {name:"PHP", level:30},
+            {name:"MySQL", level:35},
         ]},
         {name:"Framework",
         languages:[
-            {name:"React", level:0},
+            {name:"React", level:65},
+            {name:"Redux", level:60},
         ]},
     ]
 
@@ -28,4 +30,4 @@ function LanguageLevel(){
     )
 }
 
-export default LanguageLevel;
+export default LanguagesCompiler;
