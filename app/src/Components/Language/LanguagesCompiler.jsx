@@ -15,6 +15,7 @@ function LanguagesCompiler(){
         languages:[
             {name:"PHP", level:30},
             {name:"MySQL", level:35},
+            {name:"Node", level:10},
         ]},
         {name:"Framework",
         languages:[

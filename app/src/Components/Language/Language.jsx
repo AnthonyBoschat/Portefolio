@@ -4,19 +4,38 @@ import ProgressBar from "../ProgressBar/ProgressBar";
 
 function Language({familly}){
 
-    
+    const [dashArray, setDashArray] = useState(105)
+
     const {
         progressBarRef,
         h1Ref,
         languageListRef,
         svgPoint,
+        svgHeight
     } = useLanguage(familly)
+
+    const numberOfLanguage = familly.languages.length
+    const dashArrayGoal =  105 + 100 + (20 * numberOfLanguage)
+
+    useEffect(() => {
+        let step = 105
+        const intervalID = setInterval(() => {
+            step += 0.5
+            setDashArray(step)
+            if(step >= dashArrayGoal){
+                clearInterval(intervalID)
+            }
+        }, 10);
+
+        return () => clearInterval(intervalID)
+    }, [])
+
+
 
     
 
     return(
         <React.Fragment key={familly.name}>
-
             <div className="languageBox">
                 <div className="title">
                     <h1 ref={h1Ref}>{familly.name}</h1>
@@ -32,7 +51,7 @@ function Language({familly}){
                         </div>
                     ))}
                 </div>
-                <svg width="100%" height="100%">
+                <svg strokeDasharray={`${dashArray}%`} >
                 <polyline
                     points={svgPoint}
                     />

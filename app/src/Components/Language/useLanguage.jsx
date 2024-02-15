@@ -7,6 +7,7 @@ export default function useLanguage(familly){
     const languageListRef = useRef()
 
     const [svgPoint, setSvgPoint] = useState(null)
+    const [svgHeight, setSvgHeight] = useState(null)
 
 
 
@@ -18,11 +19,11 @@ export default function useLanguage(familly){
             const point1 = `${pointXBase + 25},30`
             const point2 = `${pointXBase + 25},50`
             const point3 = `5,50`
-            const point4 = `5,50`
-            const point5 = `5,${languageBoxHeight  + 80}`
-            const point6 = `20,${languageBoxHeight  + 80}`
-            const currentUpdate = `${point1} ${point2} ${point3} ${point4} ${point5} ${point6}`
+            const point4 = `5,${languageBoxHeight  + 80}`
+            const point5 = `20,${languageBoxHeight  + 80}`
+            const currentUpdate = `${point1} ${point2} ${point3} ${point4} ${point5}`
             setSvgPoint(currentUpdate)
+            setSvgHeight(languageBoxHeight)
         }
     }, [])
 
@@ -32,5 +33,6 @@ export default function useLanguage(familly){
         h1Ref,
         languageListRef,
         svgPoint,
+        svgHeight
     }
 }
