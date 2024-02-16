@@ -4,11 +4,13 @@
     padding: 2rem;
     // background-color: rgba(255, 255, 0, 0.181); //
     overflow: hidden;
+    position: relative;
 
     >p{
+        // margin: 2rem;
         // outline: 1px solid green; //
         width: 100%;
-        height: 100%;
+        height: fit-content;
         font-size: 0.8vw;
         font-family: "Playfair Display", serif;
         display: flex;
@@ -18,20 +20,119 @@
         font-weight: 400;
         position: relative;
         overflow-y: hidden;
+        overflow-x: hidden;
 
         span:nth-child(1){
             font-size: 1.2vw;
         }
 
-        &::after{
-            animation: content-move-topToBottom 3s linear forwards;
-            content: "";
-            position: absolute;
-            width: 100%;
-            left: 0;
-            top: 0;
-            height: 100%;
-            background:linear-gradient(rgba(0, 0, 0, 0) 0%, black 10%);
-         }
+        // &::after{
+        //     animation: content-move-topToBottom 3s linear forwards; //
+        //     content: "";
+        //     position: absolute;
+        //     width: 100%;
+        //     left: 0;
+        //     top: 0;
+        //     height: 100%;
+        //     background:linear-gradient(to right,rgba(0, 0, 0, 0) 0%, black 10%);
+        // }
+
+        >span{
+            position: relative;
+
+            
+        }
+
+        span:nth-child(1){
+            &::after{
+                content: "";
+                position: absolute;
+                left: -15%;
+                top: 0;
+                height: 100%;
+                // outline: 1px solid red; //
+                width: 115%;
+                animation: content-move-leftToRight 1s linear forwards;
+                background:linear-gradient(to right,rgba(0, 0, 0, 0) 0%, black 10%);
+            }
+        }
+        span:nth-child(2){
+            &::after{
+                content: "";
+                position: absolute;
+                left: -15%;
+                top: 0;
+                height: 100%;
+                // outline: 1px solid red; //
+                width: 115%;
+                animation: content-move-leftToRight 1s 0.5s linear forwards;
+                background:linear-gradient(to right,rgba(0, 0, 0, 0) 0%, black 10%);
+            }
+        }
+        span:nth-child(3){
+            &::after{
+                content: "";
+                position: absolute;
+                left: -15%;
+                top: 0;
+                height: 100%;
+                // outline: 1px solid red; //
+                width: 115%;
+                animation: content-move-leftToRight 1s 1s linear forwards;
+                background:linear-gradient(to right,rgba(0, 0, 0, 0) 0%, black 10%);
+            }
+        }
+        span:nth-child(4){
+            &::after{
+                content: "";
+                position: absolute;
+                left: -15%;
+                top: 0;
+                height: 100%;
+                // outline: 1px solid red; //
+                width: 115%;
+                animation: content-move-leftToRight 1s 1.5s linear forwards;
+                background:linear-gradient(to right,rgba(0, 0, 0, 0) 0%, black 10%);
+            }
+        }
+        span:nth-child(5){
+            &::after{
+                content: "";
+                position: absolute;
+                left: -15%;
+                top: 0;
+                height: 100%;
+                // outline: 1px solid red; //
+                width: 115%;
+                animation: content-move-leftToRight 1s 2s linear forwards;
+                background:linear-gradient(to right,rgba(0, 0, 0, 0) 0%, black 10%);
+            }
+        }
+        span:nth-child(6){
+            &::after{
+                content: "";
+                position: absolute;
+                left: -15%;
+                top: 0;
+                height: 100%;
+                // outline: 1px solid red; //
+                width: 115%;
+                animation: content-move-leftToRight 1s 2.5s linear forwards;
+                background:linear-gradient(to right,rgba(0, 0, 0, 0) 0%, black 10%);
+            }
+        }
+        span:nth-child(7){
+            &::after{
+                content: "";
+                position: absolute;
+                left: -15%;
+                top: 0;
+                height: 100%;
+                // outline: 1px solid red; //
+                width: 115%;
+                animation: content-move-leftToRight 1s 3s linear forwards;
+                background:linear-gradient(to right,rgba(0, 0, 0, 0) 0%, black 10%);
+            }
+        }
     }
 }
