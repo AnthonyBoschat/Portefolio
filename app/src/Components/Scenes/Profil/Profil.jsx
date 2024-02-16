@@ -3,13 +3,13 @@ import React from "react";
 import useProfil from "./useProfil";
 import CVzoomIn from "../CV/ZoomIn";
 import CVzoomOut from "../CV/ZoomOut";
-import ProfilDescription from "../ProfilDescription/ProfilDescription";
-import LanguagesCompiler from "../Language/LanguagesCompiler";
+import LanguagesCompiler from "../../Constructors/Language/LanguagesCompiler";
+import Presentation from "../Presentation/Presentation";
 
 function Profil(){
 
     
-    const {CVfocus, setCVfocus} = useProfil()
+    const {CVfocus, setCVfocus, languagesConfiguration} = useProfil()
 
     return(
         
@@ -19,14 +19,13 @@ function Profil(){
                 <div className="profilBox">
                     <div className="presentationBox">
 
-                        <ProfilDescription />
+                        <Presentation />
 
                         <CVzoomOut setCVfocus={setCVfocus}/>
-
                         
                     </div>
                     <div className="languagePresentationBox">
-                        <LanguagesCompiler />
+                        <LanguagesCompiler languagesConfiguration={languagesConfiguration} />
                     </div>
                     
                 </div>

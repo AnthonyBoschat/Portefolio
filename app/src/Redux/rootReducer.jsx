@@ -1,7 +1,7 @@
 import { combineReducers } from "@reduxjs/toolkit"
-import { LoadingSliceReducer } from "../Components/Loading/LoadingSlice"
-import { NavSliceReducer } from "../Components/Nav/NavSlice"
-import { ProjetSliceReducer } from "../Components/Projet/ProjetSlice"
+import { LoadingSliceReducer } from "../Components/Scenes/Loading/LoadingSlice"
+import { NavSliceReducer } from "../Components/Scenes/Nav/NavSlice"
+import { ProjetSliceReducer } from "../Components/Scenes/Projet/ProjetSlice"
 
 const rootReducer = combineReducers({
     loading:LoadingSliceReducer,

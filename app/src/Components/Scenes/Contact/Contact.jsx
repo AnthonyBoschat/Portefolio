@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import useContact from "./useContact";
-import RotationLetter from "../RotationLetter/RotationLetter";
+import RotationLetter from "../../Constructors/RotationLetter/RotationLetter";
 
 function Contact(){
 

@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Sphere from "../Sphere/Sphere"
-import Console from "../Console/Console";
+import Console from "../../Constructors/Console/Console";
 import { update_loadingSphere } from "./LoadingSlice";
-import TypingSentenceCompiler from "../TypingSentence/TypingSentenceCompiler";
+import TypingSentenceCompiler from "../../Constructors/TypingSentence/TypingSentenceCompiler";
 
 
-function LoadingAnimation(){
+function Loading_Animation(){
 
     const onLoad = useSelector(store => store.loading.sphere.onLoad)
     const presentationConsoleRef = useRef()
@@ -76,4 +76,4 @@ function LoadingAnimation(){
     
 }
 
-export default LoadingAnimation;
+export default Loading_Animation;

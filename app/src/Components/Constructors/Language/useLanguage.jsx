@@ -2,12 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 
 export default function useLanguage(familly){
 
-    const progressBarRef = useRef()
     const h1Ref = useRef()
     const languageListRef = useRef()
 
     const [svgPoint, setSvgPoint] = useState(null)
-    const [svgHeight, setSvgHeight] = useState(null)
 
 
 
@@ -23,16 +21,13 @@ export default function useLanguage(familly){
             const point5 = `20,${languageBoxHeight  + 80}`
             const currentUpdate = `${point1} ${point2} ${point3} ${point4} ${point5}`
             setSvgPoint(currentUpdate)
-            setSvgHeight(languageBoxHeight)
         }
     }, [])
 
 
     return{
-        progressBarRef,
         h1Ref,
         languageListRef,
         svgPoint,
-        svgHeight
     }
 }

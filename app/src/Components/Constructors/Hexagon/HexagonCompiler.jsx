@@ -1,6 +1,5 @@
 import React from "react";
 import TypingSentenceCompiler from "../TypingSentence/TypingSentenceCompiler";
-import useNav from "../Nav/useNav";
 
 function HexagonCompiler({hexagonsConfiguration}){
 

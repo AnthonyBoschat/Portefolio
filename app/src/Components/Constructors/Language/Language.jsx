@@ -7,11 +7,9 @@ function Language({familly}){
     const [dashArray, setDashArray] = useState(105)
 
     const {
-        progressBarRef,
         h1Ref,
         languageListRef,
         svgPoint,
-        svgHeight
     } = useLanguage(familly)
 
     const numberOfLanguage = familly.languages.length
@@ -35,10 +33,10 @@ function Language({familly}){
     
 
     return(
-        <React.Fragment key={familly.name}>
+        <React.Fragment key={familly.famillyName}>
             <div className="languageBox">
                 <div className="title">
-                    <h1 ref={h1Ref}>{familly.name}</h1>
+                    <h1 ref={h1Ref}>{familly.famillyName}</h1>
                 </div>
                 
                 <div ref={languageListRef} className="languagesList">

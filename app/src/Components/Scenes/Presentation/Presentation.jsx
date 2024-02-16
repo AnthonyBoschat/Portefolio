@@ -1,6 +1,6 @@
 import React from "react";
 
-function ProfilDescription(){
+function Presentation(){
 
     return(
         <div className="shortDescriptionBox">
@@ -26,4 +26,4 @@ function ProfilDescription(){
     )
 }
 
-export default ProfilDescription;
+export default Presentation;

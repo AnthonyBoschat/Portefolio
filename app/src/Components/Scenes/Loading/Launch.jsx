@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { update_loadingLaunch } from "./LoadingSlice";
-import TypingSentenceCompiler from "../TypingSentence/TypingSentenceCompiler";
-import Cursor from "../Cursor/Cursor";
+import TypingSentenceCompiler from "../../Constructors/TypingSentence/TypingSentenceCompiler";
+import Cursor from "../../Constructors/Cursor/Cursor";
 
 function Loading_Launch(){
 

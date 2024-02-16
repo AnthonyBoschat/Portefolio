@@ -1,34 +1,34 @@
-import React from "react";
-import Language from "./Language";
+import { useState } from "react"
 
-function LanguagesCompiler(){
+export default function useProfil(){
 
-    const FamillyLevelConfiguration = [
-        {name:"Front-end",
+    const [CVfocus, setCVfocus] = useState(false)
+
+    const languagesConfiguration = [
+        {famillyName:"Front-end",
         languages:[
             {name:"HTML", level:70},
             {name:"CSS", level:70},
             {name:"SCSS", level:50},
             {name:"Javascript", level:60},
         ]},
-        {name:"Back-end",
+        {famillyName:"Back-end",
         languages:[
             {name:"PHP", level:30},
             {name:"MySQL", level:35},
             {name:"Node", level:10},
         ]},
-        {name:"Framework",
+        {famillyName:"Framework",
         languages:[
             {name:"React", level:65},
             {name:"Redux", level:60},
         ]},
     ]
 
-    return(
-        <div className="languagesLevelBox">
-            {FamillyLevelConfiguration.map(familly => (<Language familly={familly}/>))}
-        </div>
-    )
-}
 
-export default LanguagesCompiler;
+    return{
+        CVfocus,
+        setCVfocus,
+        languagesConfiguration
+    }
+}
