@@ -15,6 +15,9 @@
         opacity: 0;
     }
 }
+.opacity-out200{animation: opacity-out 0.2s linear forwards !important;}
+.opacity-out300{animation: opacity-out 0.3s linear forwards !important;}
+.opacity-out500{animation: opacity-out 0.5s linear forwards !important;}
 .cursor-opacity-out{animation: opacity-out 0.5s ease forwards;}
 .presentationBox-opacity-out{animation: opacity-out 1s ease forwards !important;}
 .buttonProjet-opacity-out{animation: opacity-out 0.3s ease forwards !important;}
@@ -39,6 +42,13 @@
 
 @keyframes display-hidden{
     to{visibility: hidden;}
+}
+
+@keyframes animationLoadingCV{
+    0%{opacity: 0.3;}
+    25%{opacity: 1;}
+    50%{opacity: 0.3;}
+    100%{opacity: 0.3;}
 }
 
 
