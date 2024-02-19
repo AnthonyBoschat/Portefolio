@@ -7,7 +7,6 @@ export default function useSvg(){
     const inputEmailRef = useRef()
     const inputMessageRef = useRef()
     const inputSubmitRef = useRef()
-    const [offsetAnimationEnd, setOffsetAnimationEnd] = useState(false)
 
     const [polylinesValues, setPolylinesValues] = useState([
         {points:{A:null,B:null}, ref:inputNameRef, offsetGoal:400, offset:500, minus:0.001},
@@ -65,7 +64,6 @@ export default function useSvg(){
 
             if(offsetEnd === true){
                 clearInterval(intervalID)
-                setOffsetAnimationEnd(true)
             }else{
                 setPolylinesValues(copyPolylinesValues)
             }
@@ -90,7 +88,6 @@ export default function useSvg(){
     }, [])
 
     return{
-        offsetAnimationEnd,
         displayRef,
         inputNameRef,
         inputEmailRef,
