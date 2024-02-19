@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import RotationLetter from "../../Constructors/RotationLetter/RotationLetter";
-import useContact from "./useContact";
+import Svg from "../Svg/Svg";
+import useSvg from "../Svg/useSvg";
 
 function Contact(){
 
@@ -10,9 +11,8 @@ function Contact(){
         inputEmailRef,
         inputMessageRef,
         inputSubmitRef,
-        polylinesValues,
-        offsetAnimationEnd
-    } = useContact()
+        polylinesValues
+    } = useSvg()
 
     return(
         <div ref={displayRef} className="contactDisplay">
@@ -62,14 +62,7 @@ function Contact(){
                 </svg>
             )} */}
 
-            <svg>
-                {polylinesValues.map(polyline => (
-                    <React.Fragment>
-                        <polyline className="polylineDisapear" strokeDashoffset={`${polyline.offset}%`} points={polyline.points.A}/>
-                        <polyline strokeDashoffset={`${polyline.offset}%`} points={polyline.points.B}/>
-                    </React.Fragment>
-                ))}
-            </svg>
+            <Svg polylinesValues={polylinesValues} />
             
         </div>
     )
