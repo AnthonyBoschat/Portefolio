@@ -8,7 +8,7 @@
     grid-template-columns: repeat(3, 1fr);
     position: relative;
     top: 15%;
-    overflow-y: auto;
+    // overflow-y: auto; //
     animation: opacity-in 0.5s linear forwards;
 
     &::-webkit-scrollbar{
