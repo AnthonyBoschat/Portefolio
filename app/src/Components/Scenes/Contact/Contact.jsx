@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import RotationLetter from "../../Constructors/RotationLetter/RotationLetter";
-import Svg from "../Svg/Svg";
-import useSvg from "../Svg/useSvg";
+import SVG_Contact from "../../Constructors/Svg/Components/Contact";
+import SvgCompiler from "../../Constructors/Svg/SvgCompiler";
+import useSVG_Contact from "../../Constructors/Svg/customHook/Contact";
 
 function Contact(){
-
+    
     const {
         displayRef,
         inputNameRef,
@@ -12,15 +12,20 @@ function Contact(){
         inputMessageRef,
         inputSubmitRef,
         polylinesValues
-    } = useSvg()
+    } = useSVG_Contact()
+
     
+    const svgConfiguration = {
+        svgClass:"contactSvg",
+        component:<SVG_Contact/>,
+        elements:polylinesValues
+    }
 
     return(
         <div ref={displayRef} className="contactDisplay">
             <div className="formBox">
 
                 <form action="">
-
                     <div className="formDiv">
                         <label htmlFor="name">Nom :</label>
                         <input ref={inputNameRef} className="inputName" id="name" type="text" />
@@ -43,7 +48,7 @@ function Contact(){
                 </form>
             </div>
 
-            <Svg polylinesValues={polylinesValues} />
+            <SvgCompiler svgConfiguration={svgConfiguration} />
             
         </div>
     )

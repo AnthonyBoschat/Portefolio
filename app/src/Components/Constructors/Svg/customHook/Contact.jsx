@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-export default function useSvg(){
+export default function useSVG_Contact(){
 
     const displayRef = useRef()
     const inputNameRef = useRef()

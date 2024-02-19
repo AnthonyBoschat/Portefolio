@@ -7,6 +7,8 @@
 @use "Components/Constructors/Cursor/index.scss" as Cursor;
 @use "Components/Constructors/ProgressBar/index.scss" as ProgressBar;
 @use "Components/Constructors/Language/index.scss" as Language;
+@use "Components/Constructors/Svg/index.scss" as Svg;
+
 @use "Components/Scenes/Loading/index.scss" as Loading;
 @use "Components/Scenes/Main/index.scss" as Main;
 @use "Components/Scenes/Nav/index.scss" as Nav;
@@ -17,7 +19,7 @@
 @use "Components/Scenes/Profil/index.scss" as Profil;
 @use "Components/Scenes/Presentation/index.scss" as Presentation;
 @use "Components/Scenes/CV/index.scss" as CV;
-@use "Components/Scenes/Svg/index.scss" as Svg;
+
 
 
 *{margin: 0; padding: 0;}
