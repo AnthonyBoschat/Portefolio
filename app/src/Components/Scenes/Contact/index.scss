@@ -24,11 +24,21 @@
             // outline: 1px solid white; //
             height: 100%;
 
+            input:-webkit-autofill{
+                background-clip: text;
+                -webkit-text-fill-color: #ffffff;
+                // transition: background-color 5000s ease-in-out 2s;
+                -webkit-box-shadow: inset 0 0 20px 20px #ffffff5c !important;
+                caret-color: white;
+            }
+
             .formDiv{
                 // outline: 1px solid green; //
                 display: flex;
                 flex-direction: column;
                 gap: 0.3rem;
+
+                
 
 
                 label{
@@ -42,6 +52,8 @@
                     color: white;
                     padding: 0.5rem;
                     width: 30%;
+                    opacity: 0;
+                    animation: opacity-in 0.5s 2s linear forwards;
 
                     &:focus{
                         outline: none;
@@ -80,6 +92,12 @@
                     font-size: 1.5rem;
                     &:hover{
                         cursor: pointer;
+                        background-color: rgba(255, 255, 255, 0.23);
+                    }
+
+                    &:focus{
+                        background-color: rgba(255, 255, 255, 0.23);
+
                     }
                 }
             }

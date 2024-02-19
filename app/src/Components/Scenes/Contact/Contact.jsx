@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import SVG_Contact from "../../Constructors/Svg/Components/Contact";
+import SVG_Contact from "../../Constructors/Svg/Contact/Contact";
 import SvgCompiler from "../../Constructors/Svg/SvgCompiler";
-import useSVG_Contact from "../../Constructors/Svg/customHook/Contact";
+import useSVG_Contact from "../../Constructors/Svg/Contact/useContact";
 
 function Contact(){
     

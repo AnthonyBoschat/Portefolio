@@ -20,6 +20,9 @@
 @use "Components/Scenes/Presentation/index.scss" as Presentation;
 @use "Components/Scenes/CV/index.scss" as CV;
 
+@use "Components/Scenes/Nav/media.scss" as Media_Nav;
+@use "Components/Scenes/Main/media.scss" as Media_Main;
+
 
 
 *{margin: 0; padding: 0;}
