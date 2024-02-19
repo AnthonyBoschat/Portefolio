@@ -3,22 +3,22 @@
 @use "Sass/Background-Color/Background-color-global.scss";
 
 
-@use "Components/Constructors/Console/index.scss" as Console;
-@use "Components/Constructors/Cursor/index.scss" as Cursor;
-@use "Components/Constructors/ProgressBar/index.scss" as ProgressBar;
-@use "Components/Constructors/Language/index.scss" as Language;
-@use "Components/Constructors/Svg/index.scss" as Svg;
+@use "Components/Constructors/Console/Console.scss";
+@use "Components/Constructors/Cursor/Cursor.scss";
+@use "Components/Constructors/ProgressBar/ProgressBar.scss";
+@use "Components/Constructors/Language/Language.scss";
+@use "Components/Constructors/Svg/Svg.scss";
 
-@use "Components/Scenes/Loading/index.scss" as Loading;
-@use "Components/Scenes/Main/index.scss" as Main;
-@use "Components/Scenes/Nav/index.scss" as Nav;
-@use "Components/Scenes/Render/index.scss" as Render;
-@use "Components/Scenes/Sphere/index.scss" as Sphere;
-@use "Components/Scenes/Projet/index.scss" as Projet;
-@use "Components/Scenes/Contact/index.scss" as Contact;
-@use "Components/Scenes/Profil/index.scss" as Profil;
-@use "Components/Scenes/Presentation/index.scss" as Presentation;
-@use "Components/Scenes/CV/index.scss" as CV;
+@use "Components/Scenes/Loading/Loading.scss";
+@use "Components/Scenes/Main/Main.scss";
+@use "Components/Scenes/Nav/Nav.scss";
+@use "Components/Scenes/Render/Render.scss";
+@use "Components/Scenes/Sphere/Sphere.scss";
+@use "Components/Scenes/Projet/Projet.scss";
+@use "Components/Scenes/Contact/Contact.scss";
+@use "Components/Scenes/Profil/Profil.scss";
+@use "Components/Scenes/Presentation/Presentation.scss";
+@use "Components/Scenes/CV/CV.scss";
 
 @use "Components/Scenes/Nav/media.scss" as Media_Nav;
 @use "Components/Scenes/Main/media.scss" as Media_Main;
