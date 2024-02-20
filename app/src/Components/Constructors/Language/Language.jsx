@@ -50,10 +50,10 @@ function Language({familly}){
                     ))}
                 </div>
                 <svg strokeDasharray={`${dashArray}%`} >
-                <polyline
-                    points={svgPoint}
-                    />
-            </svg>
+                    <polyline
+                        points={svgPoint}
+                        />
+                </svg>
             </div>
             
 
