@@ -3,9 +3,9 @@ import React from "react";
 function SVG_Contact(polyline){
 
     return(
-        <React.Fragment>
+        <React.Fragment key={polyline.id}>
             <polyline className="polylineDisapear" strokeDashoffset={`${polyline.offset}%`} points={polyline.points.A}/>
-            <polyline strokeDashoffset={`${polyline.offset}%`} points={polyline.points.B}/>
+            <polyline  strokeDashoffset={`${polyline.offset}%`} points={polyline.points.B}/>
         </React.Fragment>
     )
 }

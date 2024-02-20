@@ -9,10 +9,10 @@ export default function useSVG_Contact(){
     const inputSubmitRef = useRef()
 
     const [polylinesValues, setPolylinesValues] = useState([
-        {points:{A:null,B:null}, ref:inputNameRef, offsetGoal:400, offset:500, minus:0.001},
-        {points:{A:null,B:null}, ref:inputEmailRef, offsetGoal:400, offset:500, minus:0.01},
-        {points:{A:null,B:null}, ref:inputMessageRef, offsetGoal:300, offset:500, minus:0.8},
-        {points:{A:null,B:null}, ref:inputSubmitRef, offsetGoal:380, offset:500, minus:0.1},
+        {points:{A:null,B:null}, ref:inputNameRef, offsetGoal:400, offset:500, minus:0.001, id:1},
+        {points:{A:null,B:null}, ref:inputEmailRef, offsetGoal:400, offset:500, minus:0.01, id:1},
+        {points:{A:null,B:null}, ref:inputMessageRef, offsetGoal:300, offset:500, minus:0.8, id:1},
+        {points:{A:null,B:null}, ref:inputSubmitRef, offsetGoal:380, offset:500, minus:0.1, id:1},
     ])
 
     // Calcul la position des svg
