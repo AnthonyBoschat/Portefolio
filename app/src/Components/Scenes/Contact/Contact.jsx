@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import SVG_Contact from "../../Constructors/Svg/Contact/Contact";
 import SvgCompiler from "../../Constructors/Svg/SvgCompiler";
 import useSVG_Contact from "../../Constructors/Svg/Contact/useContact";
+import { useSelector } from "react-redux";
 
 function Contact(){
     
@@ -13,6 +14,8 @@ function Contact(){
         inputSubmitRef,
         polylinesValues
     } = useSVG_Contact()
+
+    const animationEnd = useSelector(store => store.contact.animationEnd)
 
     
     const svgConfiguration = {
@@ -28,21 +31,21 @@ function Contact(){
                 <form action="">
                     <div className="formDiv">
                         <label htmlFor="name">Nom :</label>
-                        <input ref={inputNameRef} className="inputName" id="name" type="text" />
+                        <input ref={inputNameRef} className={animationEnd === true ? "inputName inputApparition" : "inputName"} id="name" type="text" />
                     </div>
 
                     <div className="formDiv">
                         <label htmlFor="email">Email :</label>
-                        <input ref={inputEmailRef} className="inputEmail" id="email" type="email" />
+                        <input ref={inputEmailRef} className={animationEnd ? "inputEmail inputApparition" : "inputEmail"} id="email" type="email" />
                     </div>
 
                     <div className="formDiv">
                         <label htmlFor="message">Message :</label>
-                        <textarea ref={inputMessageRef} className="inputContent" id="message" />
+                        <textarea ref={inputMessageRef} className={animationEnd ? "inputContent inputApparition" : "inputContent"} id="message" />
                     </div>
                     
                     <div className="formDiv">
-                        <input ref={inputSubmitRef} className="inputSubmit" type="submit" value={"Envoyer"} />
+                        <input ref={inputSubmitRef} className={animationEnd ? "inputSubmit inputApparition" : "inputSubmit"} type="submit" value={"Envoyer"} />
                     </div>
 
                 </form>

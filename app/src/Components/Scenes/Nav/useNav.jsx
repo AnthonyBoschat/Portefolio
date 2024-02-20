@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { update_navRenderOnChange, update_navSelected } from "./NavSlice";
+import { update_animationEnd } from "../Contact/ContactSlice";
 
 export default function useNav(){
 
@@ -31,6 +32,19 @@ export default function useNav(){
         determineHexagonSelected(destination) // On change la clef selected en true du bouton appuyer
         dispatch(update_navSelected(destination)) // On sauvegarde la destination dans redux
         dispatch(update_navRenderOnChange(true)) // On indique dans redux que le render est en train de changer
+
+
+        switch(destination){    
+            case "Contact":
+                
+                dispatch(update_animationEnd(false))
+                return
+
+            default:
+                return
+
+        }
+        
     }
 
     useEffect(() => {

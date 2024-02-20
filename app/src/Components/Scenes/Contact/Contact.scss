@@ -39,7 +39,10 @@
                 gap: 0.3rem;
 
                 
-
+                .inputApparition{
+                    opacity: 0;
+                    animation: opacity-in 0.5s linear forwards;
+                }
 
                 label{
                     font-size: 1.5rem;
@@ -53,7 +56,6 @@
                     padding: 0.5rem;
                     width: 30%;
                     opacity: 0;
-                    animation: opacity-in 0.5s 2s linear forwards;
 
                     &:focus{
                         outline: none;

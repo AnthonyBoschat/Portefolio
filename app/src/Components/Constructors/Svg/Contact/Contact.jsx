@@ -5,7 +5,7 @@ function SVG_Contact(polyline){
     return(
         <React.Fragment key={polyline.id}>
             <polyline className="polylineDisapear" strokeDashoffset={`${polyline.offset}%`} points={polyline.points.A}/>
-            <polyline  strokeDashoffset={`${polyline.offset}%`} points={polyline.points.B}/>
+            <polyline strokeDasharray={`${polyline.dashArray}px`} strokeDashoffset={`${polyline.offset}px`} points={polyline.points.B}/>
         </React.Fragment>
     )
 }
