@@ -1,21 +1,21 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { update_animationEnd } from "../../../Scenes/Contact/ContactSlice";
+import { update_animationEnd } from "../../Contact/ContactSlice";
 
-export default function useSVG_Contact(){
+export default function useSVG_Contact_Formulaire(displayRef){
 
-    const displayRef = useRef()
+    
     const inputNameRef = useRef()
     const inputEmailRef = useRef()
     const inputMessageRef = useRef()
     const inputSubmitRef = useRef()
     const dispatch = useDispatch()
 
-    const [polylinesValues, setPolylinesValues] = useState([
-        {points:{A:null,B:null}, dashArray:null, ref:inputNameRef, offset:null, id:1},
-        {points:{A:null,B:null}, dashArray:null, ref:inputEmailRef, offset:null, id:1},
-        {points:{A:null,B:null}, dashArray:null, ref:inputMessageRef, offset:null, id:1},
-        {points:{A:null,B:null}, dashArray:null, ref:inputSubmitRef, offset:null, id:1},
+    const [formulaire_PolylinesValues, setFormulaire_PolylinesValues] = useState([
+        {points:{A:null,B:null}, dashArray:null, ref:inputNameRef, offset:null},
+        {points:{A:null,B:null}, dashArray:null, ref:inputEmailRef, offset:null},
+        {points:{A:null,B:null}, dashArray:null, ref:inputMessageRef, offset:null},
+        {points:{A:null,B:null}, dashArray:null, ref:inputSubmitRef, offset:null},
     ])
 
     // Calcul la position des svg
@@ -58,18 +58,18 @@ export default function useSVG_Contact(){
     // pour initiliser le dashArray et le dashOffset
     useEffect(() => {
         if(displayRef && inputNameRef && inputEmailRef && inputMessageRef && inputSubmitRef){
-            const copyPolylinesValues = [...polylinesValues]
+            const copyPolylinesValues = [...formulaire_PolylinesValues]
             const newPolylinesValues = calculateDashArrayOffset(copyPolylinesValues)
-            setPolylinesValues(newPolylinesValues)
+            setFormulaire_PolylinesValues(newPolylinesValues)
         }
     }, [])
 
     // Premier calcul des positions correcte pour les svg
     useEffect(() => {
         if(displayRef && inputNameRef && inputEmailRef && inputMessageRef && inputSubmitRef){
-            const copyPolylinesValues = [...polylinesValues]
+            const copyPolylinesValues = [...formulaire_PolylinesValues]
             const newPolylinesValues = calculatePolylinesPoints(copyPolylinesValues)
-            setPolylinesValues(newPolylinesValues)
+            setFormulaire_PolylinesValues(newPolylinesValues)
         }
     }, [])
 
@@ -77,7 +77,7 @@ export default function useSVG_Contact(){
     // Déclenche l'animation des svg en ajustant leurs offset
     useEffect(() => {
         const intervalID = setInterval(() => {
-            const copyPolylinesValues = [...polylinesValues]
+            const copyPolylinesValues = [...formulaire_PolylinesValues]
             let offsetEnd = true
 
             for(let i = 0; i<copyPolylinesValues.length; i++){
@@ -90,12 +90,11 @@ export default function useSVG_Contact(){
             }
 
             if(offsetEnd === true){
-                console.log("here")
-                setPolylinesValues(copyPolylinesValues)
+                setFormulaire_PolylinesValues(copyPolylinesValues)
                 clearInterval(intervalID)
                 dispatch(update_animationEnd(true))
             }else{
-                setPolylinesValues(copyPolylinesValues)
+                setFormulaire_PolylinesValues(copyPolylinesValues)
             }
         }, 10);
 
@@ -107,9 +106,9 @@ export default function useSVG_Contact(){
     //Replace correctement les svg en cas de resize de l'écran
     useEffect(() => {
         const handleResizeSVG = () => {
-            const copyPolylinesValues = [...polylinesValues]
+            const copyPolylinesValues = [...formulaire_PolylinesValues]
             const newPolylinesValues = calculatePolylinesPoints(copyPolylinesValues)
-            setPolylinesValues(newPolylinesValues)
+            setFormulaire_PolylinesValues(newPolylinesValues)
         }
 
         window.addEventListener("resize", handleResizeSVG)
@@ -118,11 +117,10 @@ export default function useSVG_Contact(){
     }, [])
 
     return{
-        displayRef,
         inputNameRef,
         inputEmailRef,
         inputMessageRef,
         inputSubmitRef,
-        polylinesValues
+        formulaire_PolylinesValues
     }
 }

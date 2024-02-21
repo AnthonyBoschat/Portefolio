@@ -1,34 +1,49 @@
 import React, { useEffect, useRef, useState } from "react";
-import SVG_Contact from "../../Constructors/Svg/Contact/Contact";
+import Contact_Formulaire from "../Svg/Contact_Formulaire/Contact_Formulaire";
 import SvgCompiler from "../../Constructors/Svg/SvgCompiler";
-import useSVG_Contact from "../../Constructors/Svg/Contact/useContact";
+import useSVG_Contact_Formulaire from "../Svg/Contact_Formulaire/useSVG_Contact_Formulaire";
 import { useSelector } from "react-redux";
+import useSVG_Contact_Animation from "../Svg/Contact_Animation/useSVG_Contact_Animation";
+import useContact from "./useContact";
 
 function Contact(){
+
+    const animationEnd = useSelector(store => store.contact.animationEnd)
+    const displayRef = useRef()
+
+    const {handleSubmit} = useContact()
     
     const {
-        displayRef,
         inputNameRef,
         inputEmailRef,
         inputMessageRef,
         inputSubmitRef,
-        polylinesValues
-    } = useSVG_Contact()
+        formulaire_PolylinesValues
+    } = useSVG_Contact_Formulaire(displayRef)
 
-    const animationEnd = useSelector(store => store.contact.animationEnd)
+    const svgConfiguration_Contact_Formulaire = {
+        svgClass:"contactSvg",
+        component:<Contact_Formulaire/>,
+        elements:formulaire_PolylinesValues
+    }
+
+    const {
+        contactAnimationBoxRef
+    } = useSVG_Contact_Animation(displayRef)
+
+    const svgConfiguration_Contact_Animation = {
+        svgClass:null,
+        component:null,
+        elements:null
+    }
 
     
-    const svgConfiguration = {
-        svgClass:"contactSvg",
-        component:<SVG_Contact/>,
-        elements:polylinesValues
-    }
 
     return(
         <div ref={displayRef} className="contactDisplay">
             <div className="formBox">
 
-                <form action="">
+                <form onSubmit={handleSubmit} action="">
                     <div className="formDiv">
                         <label htmlFor="name">Nom :</label>
                         <input ref={inputNameRef} className={animationEnd === true ? "inputName inputApparition" : "inputName"} id="name" type="text" />
@@ -51,7 +66,11 @@ function Contact(){
                 </form>
             </div>
 
-            <SvgCompiler svgConfiguration={svgConfiguration} />
+            <div ref={contactAnimationBoxRef} className="contactAnimationBox">
+                
+            </div>
+
+            <SvgCompiler svgConfiguration={svgConfiguration_Contact_Formulaire} />
             
         </div>
     )

@@ -6,7 +6,7 @@ function LanguagesCompiler({languagesConfiguration}){
 
     return(
         <div className="languagesLevelBox">
-            {languagesConfiguration.map(familly => (<Language familly={familly}/>))}
+            {languagesConfiguration.map((familly, index) => (<Language key={index} familly={familly}/>))}
         </div>
     )
 }
