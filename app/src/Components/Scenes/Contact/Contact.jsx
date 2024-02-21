@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
-import Contact_Formulaire from "../Svg/Contact_Formulaire/Contact_Formulaire";
+import SVG_Contact_Formulaire from "../Svg/Contact_Formulaire/Contact_Formulaire";
 import SvgCompiler from "../../Constructors/Svg/SvgCompiler";
 import useSVG_Contact_Formulaire from "../Svg/Contact_Formulaire/useSVG_Contact_Formulaire";
 import { useSelector } from "react-redux";
 import useSVG_Contact_Animation from "../Svg/Contact_Animation/useSVG_Contact_Animation";
 import useContact from "./useContact";
+import SVG_Contact_Animation from "../Svg/Contact_Animation/Contact_Animation";
 
 function Contact(){
 
@@ -22,19 +23,20 @@ function Contact(){
     } = useSVG_Contact_Formulaire(displayRef)
 
     const svgConfiguration_Contact_Formulaire = {
-        svgClass:"contactSvg",
-        component:<Contact_Formulaire/>,
+        svgClass:"contact_formulaireSvg",
+        component:<SVG_Contact_Formulaire/>,
         elements:formulaire_PolylinesValues
     }
 
     const {
+        animation_PolylinesValues,
         contactAnimationBoxRef
     } = useSVG_Contact_Animation(displayRef)
 
     const svgConfiguration_Contact_Animation = {
-        svgClass:null,
-        component:null,
-        elements:null
+        svgClass:"contact_animationSvg",
+        component:<SVG_Contact_Animation/>,
+        elements:animation_PolylinesValues
     }
 
     
@@ -67,7 +69,7 @@ function Contact(){
             </div>
 
             <div ref={contactAnimationBoxRef} className="contactAnimationBox">
-                
+                <SvgCompiler svgConfiguration={svgConfiguration_Contact_Animation}/>
             </div>
 
             <SvgCompiler svgConfiguration={svgConfiguration_Contact_Formulaire} />

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { update_navRenderOnChange, update_navSelected } from "./NavSlice";
-import { update_animationEnd } from "../Contact/ContactSlice";
+import { update_animationEnd, update_emailSend } from "../Contact/ContactSlice";
 
 export default function useNav(){
 
@@ -36,7 +36,7 @@ export default function useNav(){
 
         switch(destination){    
             case "Contact":
-                
+                dispatch(update_emailSend(false))
                 dispatch(update_animationEnd(false))
                 return
 

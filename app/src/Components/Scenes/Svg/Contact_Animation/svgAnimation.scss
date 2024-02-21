@@ -1,0 +1,32 @@
+svg.contact_animationSvg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    // background-color: rgba(255, 0, 0, 0.307);
+
+    polyline{
+        background-color: white;
+        fill: transparent;
+        stroke-width: 3px;
+        stroke: rgba(255, 255, 255, 0.767);
+        // stroke: transparent;
+        stroke-opacity: 1;
+        
+    }
+
+    .polylineRect{
+        stroke-dasharray: 127%;
+        fill: transparent;
+        animation: animation 0.3s 1.7s linear forwards;
+    }
+
+    .polylineArrow{
+        stroke-dasharray: 42%;
+    }
+}
+
+@keyframes animation{
+    to{
+        fill: rgb(15, 65, 78);
+    }
+}

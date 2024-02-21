@@ -115,9 +115,10 @@
 
 
     .contactAnimationBox{
-        outline: 1px solid white;
+        // outline: 1px solid white; //
         width: 20rem;
         height: 30rem;
+        position: relative;
     }
 }
 

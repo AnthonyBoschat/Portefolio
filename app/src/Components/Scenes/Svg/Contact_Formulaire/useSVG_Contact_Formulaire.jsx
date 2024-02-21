@@ -59,8 +59,8 @@ export default function useSVG_Contact_Formulaire(displayRef){
     useEffect(() => {
         if(displayRef && inputNameRef && inputEmailRef && inputMessageRef && inputSubmitRef){
             const copyPolylinesValues = [...formulaire_PolylinesValues]
-            const newPolylinesValues = calculateDashArrayOffset(copyPolylinesValues)
-            setFormulaire_PolylinesValues(newPolylinesValues)
+            const newArrayOffsetValue = calculateDashArrayOffset(copyPolylinesValues)
+            setFormulaire_PolylinesValues(newArrayOffsetValue)
         }
     }, [])
 
