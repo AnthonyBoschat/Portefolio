@@ -9,28 +9,29 @@
 
     .profilBox{
         width: 95%;
-        height: 90%;
+        height: 100%;
         // outline: 1px solid rgb(52, 52, 52); //
         // background-color: rgba(255, 255, 255, 0.45); //
         display: grid;
-        grid-template-rows: 50% 50%;
+        grid-template-rows: 40% 60%;
         grid-template-columns: 1fr;
-        overflow: auto;
+        // overflow: auto;
 
         div.presentationBox{
             // background-color: rgba(255, 0, 0, 0.24); //
             display: grid;
             grid-template-columns: 70% 30%;
+            // overflow: auto;
         }
 
         .languagePresentationBox{
             // background-color: rgba(0, 128, 0, 0.24); //
-            position: relative;
+            // position: relative; //
             display: flex;
             align-items: center;
             width: 100%;
             height: 100%;
-            // top: 15%;
+            // top: 15%; //
         }
 
         &::-webkit-scrollbar{

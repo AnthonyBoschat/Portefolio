@@ -1,26 +1,38 @@
 .shortDescriptionBox{
     display: flex;
     align-items: center;
-    padding: 2rem;
+    padding: 1rem;
     // background-color: rgba(255, 255, 0, 0.181); //
     overflow: hidden;
     position: relative;
 
     >p{
-        // margin: 2rem;
+        padding-right: 2rem;
         // outline: 1px solid green; //
         width: 100%;
-        height: fit-content;
+        height: 100%;
+        max-height: 100%;
         font-size: 1rem;
         font-family: "Playfair Display", serif;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         gap: 1rem;
         font-weight: 400;
         position: relative;
-        overflow-y: hidden;
+        overflow-y: auto;
         overflow-x: hidden;
+
+        &::-webkit-scrollbar{
+            width: 8px;
+            background: black;
+        }
+    
+        &::-webkit-scrollbar-thumb{
+            background: rgba(255, 255, 255, 0.517);
+            border-radius: 50px;
+            font-size: 10px;
+        }
 
         span:nth-child(1){
             font-size: 1.5rem;
