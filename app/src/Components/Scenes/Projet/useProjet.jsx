@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 export default function useProjet(){
 
     const [projetConfiguration, setProjetConfiguration] = useState([
-        {name:"Calculatrice", selected:false},
+        {name:"Calculatrice", selected:false, link:"https://anthonyboschat.github.io/Calculatrice"},
         {name:"Boulangerie", selected:false},
         {name:"Pokedex", selected:false},
         {name:"Test1", selected:false},
@@ -53,7 +53,9 @@ export default function useProjet(){
                 <button style={buttonStyle} className={buttonClassName} onClick={() => handleClickProjet(projet.name)}>
                     {projet.name}
                 </button>
-                <div ref={projet.selected ? presentationBoxRef : null} style={projetStyle} className={`projetPresentation ${projetClassName}`}></div>
+                <div ref={projet.selected ? presentationBoxRef : null} style={projetStyle} className={`projetPresentation ${projetClassName}`}>
+                    { projet.selected ? <iframe width="100%" height="100%" src={projet.link} frameborder="0"></iframe> : null}
+                </div>
             </React.Fragment>
             
         )
