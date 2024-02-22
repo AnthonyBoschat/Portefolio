@@ -59,3 +59,17 @@
 .animationClass_hexagon_svgFill{animation: hexagon_svgFill 0.3s linear forwards !important;}
 
 
+@keyframes mailIcon_In{
+    from{fill: transparent;}
+    to{fill: rgb(15, 65, 78);}
+}
+
+@keyframes mailIcon_Out{
+    from{fill: rgb(15, 65, 78);}
+    to{fill: transparent;}
+}
+.animationClass_mailIcon_Out{animation: mailIcon_Out 0.3s linear forwards !important;}
+
+
+
+

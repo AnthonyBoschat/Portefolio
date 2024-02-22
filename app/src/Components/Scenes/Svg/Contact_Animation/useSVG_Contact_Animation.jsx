@@ -3,8 +3,11 @@ import { useSelector } from "react-redux";
 
 export default function useSVG_Contact_Animation(displayRef){
 
-    const contactAnimationBoxRef = useRef()
     const emailSend = useSelector(store => store.contact.emailSend)
+    const contactAnimationBoxRef = useRef()
+    const polylineRectRef = useRef()
+    const animationSpeed = 1
+    
 
     const [animation_PolylinesValues, setAnimation_PolylinesValues] = useState([
         {points:{A:null,B:null}, dashOffsetA:127, dashOffsetB:42} 
@@ -45,13 +48,15 @@ export default function useSVG_Contact_Animation(displayRef){
     }, [])
 
     useEffect(() => {
+
+        // Animation d'apparition
         if(!emailSend){
             let beginAnimation2 = false
             const intervalID = setInterval(() => {
                 const copyPolylinesValues = [...animation_PolylinesValues]
                 let offsetEnd = true
-                if(copyPolylinesValues[0].dashOffsetA >= 1){
-                    copyPolylinesValues[0].dashOffsetA -= 1
+                if(copyPolylinesValues[0].dashOffsetA >= animationSpeed){
+                    copyPolylinesValues[0].dashOffsetA -= animationSpeed
                     offsetEnd = false
                 }else{
                     copyPolylinesValues[0].dashOffsetA = 0
@@ -59,8 +64,8 @@ export default function useSVG_Contact_Animation(displayRef){
                 }
 
                 if(beginAnimation2){
-                    if(copyPolylinesValues[0].dashOffsetB >= 1){
-                        copyPolylinesValues[0].dashOffsetB -= 1
+                    if(copyPolylinesValues[0].dashOffsetB >= animationSpeed){
+                        copyPolylinesValues[0].dashOffsetB -= animationSpeed
                         offsetEnd = false
                     }else{
                         copyPolylinesValues[0].dashOffsetB = 0
@@ -77,14 +82,48 @@ export default function useSVG_Contact_Animation(displayRef){
 
             return () => clearInterval(intervalID)
         }
+
+        // Animation de disparition
         else if(emailSend){
-            console.log("emailEnovyer")
+
+
+            let beginAnimation2 = false
+            const intervalID = setInterval(() => {
+                const copyPolylinesValues = [...animation_PolylinesValues]
+                let offsetEnd = true
+                if(copyPolylinesValues[0].dashOffsetB < 42){
+                    copyPolylinesValues[0].dashOffsetB += animationSpeed
+                    offsetEnd = false
+                }else{
+                    copyPolylinesValues[0].dashOffsetB = 42
+                    beginAnimation2 = true
+                }
+
+                if(beginAnimation2){
+                    if(copyPolylinesValues[0].dashOffsetA < 127){
+                        copyPolylinesValues[0].dashOffsetA += animationSpeed
+                        offsetEnd = false
+                    }else{
+                        copyPolylinesValues[0].dashOffsetA = 127
+                    }
+                }
+
+                if(offsetEnd === true){
+                    setAnimation_PolylinesValues(copyPolylinesValues)
+                    clearInterval(intervalID)
+                }else{
+                    setAnimation_PolylinesValues(copyPolylinesValues)
+                }
+            }, 10);
+
+            return () => clearInterval(intervalID)
         }
     }, [emailSend])
 
 
     return{
         contactAnimationBoxRef,
-        animation_PolylinesValues
+        animation_PolylinesValues,
+        polylineRectRef,
     }
 }
