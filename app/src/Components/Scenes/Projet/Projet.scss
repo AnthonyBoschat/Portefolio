@@ -62,11 +62,14 @@
             // flex-basis: 0%;
             position: relative;
             top: 0;
-            background-color: rgba(216, 216, 216, 0.161);
+            background-color: rgba(216, 216, 216, 0.142);
+            box-shadow: 10px 10px 50px 5px black inset;
             // outline: 1px solid blue; //
             width: 99%;
             // transition: all 0.5s ease;
             animation: animation-disparitionProjetPresentation 0.5s ease forwards; //
+
+            
         }
 
         .projetPresentationVisible{

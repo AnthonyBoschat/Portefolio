@@ -4,7 +4,7 @@ import useProfil from "./useProfil";
 import CVzoomIn from "../CV/ZoomIn";
 import CVzoomOut from "../CV/ZoomOut";
 import LanguagesCompiler from "../../Constructors/Language/LanguagesCompiler";
-import Presentation from "../Presentation/Presentation";
+import Presentation from "../Presentation/Profil/Presentation";
 
 function Profil(){
 

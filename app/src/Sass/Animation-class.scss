@@ -92,6 +92,8 @@
 }
 .animationClass_toggleCheck{animation: toggleCheck 0.5s linear forwards !important;}
 
-
+@keyframes iframeApparition{
+    to{display: flex;}
+}
 
 

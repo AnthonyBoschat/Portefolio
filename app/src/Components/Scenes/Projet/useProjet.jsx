@@ -1,14 +1,33 @@
 import React, { useEffect, useRef, useState } from "react";
+import Projet_Presentation from "../Presentation/Projet/Presentation";
+import Integration_image from "../../../Assets/3Wintegration.png";
+import Calculatrice_image from "../../../Assets/Calculatrice.png";
 
 export default function useProjet(){
 
+
+    const iframeRef = useRef()
     const [projetConfiguration, setProjetConfiguration] = useState([
-        {name:"Calculatrice", selected:false, link:"https://anthonyboschat.github.io/Calculatrice"},
         {name:"Boulangerie", selected:false},
-        {name:"Pokedex", selected:false},
-        {name:"Intégration web", selected:false, link:"https://anthonyboschat.github.io/LaunchPage3W"},
-        {name:"Test2", selected:false},
-        {name:"Test3", selected:false},
+        {
+            name:"Calculatrice",
+            selected:false,
+            link:"https://anthonyboschat.github.io/Calculatrice",
+            img:Calculatrice_image
+        },
+        {
+            name:"Intégration web",
+            selected:false,
+            link:"https://anthonyboschat.github.io/LaunchPage3W",
+            img:Integration_image,
+
+            description:`Il s'agit d'une intégration web réaliser dans le cadre de mon entrée au CEFIM. Nous avions le visuel d'une page web qu'il fallait reproduire le plus fidèlement possible afin de pouvoir participer à la semaine d'examen d'entrée à la formation.
+            
+            
+            Il s'agit du tout premier projet qui n'était pas un projet sortie mon chapeau. Je devais effectuer un certain travail avec un certain cahier des charges. Suite à cette intégration j'ai pu participer à la semaine d'examen pour l'entrée au CEFIM.
+            
+            ( Je m'étais permis de glisser un easter-egg dans la page, je ne pense pas qu'il ai été trouver par le staff du CEFIM ).`,
+        },
     ])
     const presentationBoxRef = useRef()
 
@@ -43,6 +62,14 @@ export default function useProjet(){
         return{buttonStyle, buttonClassName, projetStyle, projetClassName}
     }
 
+    useEffect(() => {
+        if(iframeRef.current){
+            setTimeout(() => {
+                iframeRef.current.style.display = "block"
+            }, 700);
+        }
+    }, [projetConfiguration])
+
     const generateProjetButton = (projet, index) => {
         
         const aButtonSelected = projetConfiguration.find(projet => projet.selected === true)
@@ -54,7 +81,7 @@ export default function useProjet(){
                     {projet.name}
                 </button>
                 <div ref={projet.selected ? presentationBoxRef : null} style={projetStyle} className={`projetPresentation ${projetClassName}`}>
-                    { projet.selected ? <iframe width="100%" height="100%" src={projet.link} frameborder="0"></iframe> : null}
+                    { projet.selected ? <Projet_Presentation projet={projet}/> : null}
                 </div>
             </React.Fragment>
             
