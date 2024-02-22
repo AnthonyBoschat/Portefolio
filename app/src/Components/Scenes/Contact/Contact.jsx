@@ -6,10 +6,13 @@ import { useSelector } from "react-redux";
 import useSVG_Contact_Animation from "../Svg/Contact_Animation/useSVG_Contact_Animation";
 import useContact from "./useContact";
 import SVG_Contact_Animation from "../Svg/Contact_Animation/Contact_Animation";
+import useSVG_Contact_AnimationConfirm from "../Svg/Contact_Animation/useSVG_Contact_AnimationConfirm";
+import Contact_AnimationConfirm from "../Svg/Contact_Animation/Contact_AnimationConfirm";
 
 function Contact(){
 
     const animationEnd = useSelector(store => store.contact.animationEnd)
+    const emailSendConfirmation = useSelector(store => store.contact.emailSendConfirmation)
     const displayRef = useRef()
 
     const {handleSubmit} = useContact()
@@ -37,6 +40,16 @@ function Contact(){
         svgClass:"contact_animationSvg",
         component:<SVG_Contact_Animation/>,
         elements:animation_PolylinesValues
+    }
+
+    const {
+        animationConfirm_PolylinesValues,
+    } = useSVG_Contact_AnimationConfirm(contactAnimationBoxRef)
+
+    const svgConfiguration_Contact_AnimationConfirm = {
+        svgClass:"contact_animationConfirmSvg",
+        component:<Contact_AnimationConfirm/>,
+        elements:animationConfirm_PolylinesValues
     }
 
     
@@ -69,7 +82,7 @@ function Contact(){
             </div>
 
             <div ref={contactAnimationBoxRef} className="contactAnimationBox">
-                <SvgCompiler svgConfiguration={svgConfiguration_Contact_Animation}/>
+                {!emailSendConfirmation ? <SvgCompiler svgConfiguration={svgConfiguration_Contact_Animation}/> : <SvgCompiler svgConfiguration={svgConfiguration_Contact_AnimationConfirm}/>}
             </div>
 
             <SvgCompiler svgConfiguration={svgConfiguration_Contact_Formulaire} />

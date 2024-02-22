@@ -1,16 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { update_emailSendConfirmation } from "../../Contact/ContactSlice";
 
-export default function useSVG_Contact_Animation(displayRef){
+export default function useSVG_Contact_Animation(){
 
+    const dispatch = useDispatch()
     const emailSend = useSelector(store => store.contact.emailSend)
     const contactAnimationBoxRef = useRef()
     const polylineRectRef = useRef()
-    const animationSpeed = 1
+    const animationSpeedIn = 1
+    const animationSpeedOut = 2
     
 
     const [animation_PolylinesValues, setAnimation_PolylinesValues] = useState([
-        {points:{A:null,B:null}, dashOffsetA:127, dashOffsetB:42} 
+        {points:{A:null,B:null}, baseOffsetA:127, baseOffsetB:42, dashOffsetA:127, dashOffsetB:42} 
     ])
 
     const calculatePolylinesPoints = (polylinesValuesArray) => {
@@ -40,11 +43,9 @@ export default function useSVG_Contact_Animation(displayRef){
     }
 
     useEffect(() => {
-        if(displayRef.current){
-            const copyPolylinesValues = [...animation_PolylinesValues]
-            const newPolylinesValues = calculatePolylinesPoints(copyPolylinesValues)
-            setAnimation_PolylinesValues(newPolylinesValues)
-        }
+        const copyPolylinesValues = [...animation_PolylinesValues]
+        const newPolylinesValues = calculatePolylinesPoints(copyPolylinesValues)
+        setAnimation_PolylinesValues(newPolylinesValues)
     }, [])
 
     useEffect(() => {
@@ -55,8 +56,8 @@ export default function useSVG_Contact_Animation(displayRef){
             const intervalID = setInterval(() => {
                 const copyPolylinesValues = [...animation_PolylinesValues]
                 let offsetEnd = true
-                if(copyPolylinesValues[0].dashOffsetA >= animationSpeed){
-                    copyPolylinesValues[0].dashOffsetA -= animationSpeed
+                if(copyPolylinesValues[0].dashOffsetA >= animationSpeedIn){
+                    copyPolylinesValues[0].dashOffsetA -= animationSpeedIn
                     offsetEnd = false
                 }else{
                     copyPolylinesValues[0].dashOffsetA = 0
@@ -64,8 +65,8 @@ export default function useSVG_Contact_Animation(displayRef){
                 }
 
                 if(beginAnimation2){
-                    if(copyPolylinesValues[0].dashOffsetB >= animationSpeed){
-                        copyPolylinesValues[0].dashOffsetB -= animationSpeed
+                    if(copyPolylinesValues[0].dashOffsetB >= animationSpeedIn){
+                        copyPolylinesValues[0].dashOffsetB -= animationSpeedIn
                         offsetEnd = false
                     }else{
                         copyPolylinesValues[0].dashOffsetB = 0
@@ -85,32 +86,32 @@ export default function useSVG_Contact_Animation(displayRef){
 
         // Animation de disparition
         else if(emailSend){
-
-
+            console.log("controle")
             let beginAnimation2 = false
             const intervalID = setInterval(() => {
                 const copyPolylinesValues = [...animation_PolylinesValues]
                 let offsetEnd = true
-                if(copyPolylinesValues[0].dashOffsetB < 42){
-                    copyPolylinesValues[0].dashOffsetB += animationSpeed
+                if(copyPolylinesValues[0].dashOffsetB < copyPolylinesValues[0].baseOffsetB){
+                    copyPolylinesValues[0].dashOffsetB += animationSpeedOut
                     offsetEnd = false
                 }else{
-                    copyPolylinesValues[0].dashOffsetB = 42
+                    copyPolylinesValues[0].dashOffsetB = copyPolylinesValues[0].baseOffsetB
                     beginAnimation2 = true
                 }
 
                 if(beginAnimation2){
-                    if(copyPolylinesValues[0].dashOffsetA < 127){
-                        copyPolylinesValues[0].dashOffsetA += animationSpeed
+                    if(copyPolylinesValues[0].dashOffsetA < copyPolylinesValues[0].baseOffsetA){
+                        copyPolylinesValues[0].dashOffsetA += animationSpeedOut
                         offsetEnd = false
                     }else{
-                        copyPolylinesValues[0].dashOffsetA = 127
+                        copyPolylinesValues[0].dashOffsetA = copyPolylinesValues[0].baseOffsetA
                     }
                 }
 
                 if(offsetEnd === true){
                     setAnimation_PolylinesValues(copyPolylinesValues)
                     clearInterval(intervalID)
+                    dispatch(update_emailSendConfirmation(true)) //
                 }else{
                     setAnimation_PolylinesValues(copyPolylinesValues)
                 }

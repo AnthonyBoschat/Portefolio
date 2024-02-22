@@ -70,6 +70,12 @@
 }
 .animationClass_mailIcon_Out{animation: mailIcon_Out 0.3s linear forwards !important;}
 
+@keyframes circle_svgFill_In{
+    from{fill: transparent;}
+    to{fill: rgb(15, 65, 78);}
+}
+.animationClass_circle_svgFill_In{animation: circle_svgFill_In 0.3s linear forwards !important;}
+
 
 
 
