@@ -6,7 +6,7 @@ export default function useProjet(){
         {name:"Calculatrice", selected:false, link:"https://anthonyboschat.github.io/Calculatrice"},
         {name:"Boulangerie", selected:false},
         {name:"Pokedex", selected:false},
-        {name:"Test1", selected:false},
+        {name:"Intégration web", selected:false, link:"https://anthonyboschat.github.io/LaunchPage3W"},
         {name:"Test2", selected:false},
         {name:"Test3", selected:false},
     ])
