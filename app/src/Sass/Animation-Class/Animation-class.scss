@@ -52,4 +52,10 @@
     100%{opacity: 0.3;}
 }
 
+@keyframes hexagon_svgFill{
+    from{fill: transparent;}
+    to{fill: rgba(250, 250, 250, 0.029);}
+}
+.animationClass_hexagon_svgFill{animation: hexagon_svgFill 0.3s linear forwards !important;}
+
 

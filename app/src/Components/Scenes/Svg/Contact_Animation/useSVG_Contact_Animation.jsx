@@ -48,9 +48,7 @@ export default function useSVG_Contact_Animation(displayRef){
         if(!emailSend){
             let beginAnimation2 = false
             const intervalID = setInterval(() => {
-                console.log("HERE")
                 const copyPolylinesValues = [...animation_PolylinesValues]
-                console.log(copyPolylinesValues)
                 let offsetEnd = true
                 if(copyPolylinesValues[0].dashOffsetA >= 1){
                     copyPolylinesValues[0].dashOffsetA -= 1

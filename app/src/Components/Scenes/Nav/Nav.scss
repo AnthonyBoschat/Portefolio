@@ -1,6 +1,4 @@
 @use "../../../Sass/Function/Function.scss";
-
-
 .navBox{
     // background-color: rgba(255, 0, 0, 0.32); //
     // outline: 1px solid blue; //
@@ -8,62 +6,9 @@
     flex-direction: column;
     // align-items: center;
     justify-content: center;
-    position: relative;
+    position: relative;    
 
 
-
-    
-
-    .hexagon{
-
-        .hexagonSelected{
-            transform: scale(1.1) !important;
-            fill: rgba(250, 250, 250, 0.146) !important;
-        }
-
-        >*:hover{
-            cursor: pointer;
-        }
-
-        &:hover svg{
-            transform: scale(1.1);
-            fill: rgba(250, 250, 250, 0.146);
-        }
-        
-        position: absolute;
-        top: 30%;
-        left: 20%;
-        // outline: 1px solid red; //
-        border-radius: 100%; //
-    
-        svg{
-            // outline: 1px solid red; //
-            // border-radius: 100%; //
-            stroke: white;
-            stroke-width: 4;
-            fill: rgba(250, 250, 250, 0.029);
-            transition: all 0.2s ease;
-            width: 8rem;
-            height: 8rem;
-        }
-
-        
-        
-        .hexagonSentenceBox{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-    
-            .hexagonName{
-                // outline: 1px solid green; //
-                color: white;
-                text-decoration: none;
-                font-size: 1.5rem;
-            }
-        }
-    }
-    
     @media(min-width:1150px){
         >:nth-child(1){
             transform: Function.hexagonPositionTransform(1);
@@ -78,10 +23,9 @@
             transform: Function.hexagonPositionTransform(4);
         }
     }
-    
-
-    
 }
+
+
 
 
 
