@@ -29,19 +29,6 @@ export default function useProjet(){
 
     const [projetConfiguration, setProjetConfiguration] = useState([
         {
-            name:"Calculatrice",
-            selected:false,
-            link:"https://anthonyboschat.github.io/Calculatrice",
-            img:Calculatrice_image,
-            languages:[programmationLanguage.html, programmationLanguage.css, programmationLanguage.javascript],
-            description:
-            `Il s'agit de l'un de mes premiers projets, je me suis principalement concentré sur l'aspect design. L'objectif était de créer une calculatrice offrant une sensation de profondeur, de relief. Travailler sur ce projet m'a permis de me familiariser avec la manipulation du DOM avec JavaScript, ce qui était relativement nouveau pour moi, et de créer mes premières animations.
-
-            De plus, j'ai intégré la possibilité pour l'utilisateur de saisir des opérations directement via le clavier, afin d'améliorer l'expérience utilisateur.
-            
-            À part cela, il s'agit d'une calculatrice standard.`,
-        },
-        {
             name:"Intégration web",
             selected:false,
             link:"https://anthonyboschat.github.io/LaunchPage3W",
@@ -55,13 +42,32 @@ export default function useProjet(){
             ( Je m'étais permis de glisser un easter-egg dans la page, je ne pense pas qu'il ai été trouver par le staff du CEFIM ).`,
         },
         {
+            name:"Calculatrice",
+            selected:false,
+            link:"https://anthonyboschat.github.io/Calculatrice",
+            img:Calculatrice_image,
+            languages:[programmationLanguage.html, programmationLanguage.css, programmationLanguage.javascript],
+            description:
+            `Il s'agit de l'un de mes premiers projets, je me suis principalement concentré sur l'aspect design. L'objectif était de créer une calculatrice offrant une sensation de profondeur, de relief. Travailler sur ce projet m'a permis de me familiariser avec la manipulation du DOM avec JavaScript, ce qui était relativement nouveau pour moi, et de créer mes premières animations.
+
+            De plus, j'ai intégré la possibilité pour l'utilisateur de saisir des opérations directement via le clavier, afin d'améliorer l'expérience utilisateur.
+            
+            À part cela, il s'agit d'une calculatrice standard.`,
+        },
+        {
             name:"Reaction-Time",
             selected:false,
             link:"https://anthonyboschat.github.io/Reaction-Time",
             img:ReactionTime,
             languages:[programmationLanguage.html, programmationLanguage.css, programmationLanguage.javascript],
             description:
-            `Jeu de temp de réaction`,
+            `Il s'agit d'un projet réalisé peu après le projet Calculatrice. Je souhaitais continuer mon apprentissage de la gestion des animations en CSS.
+
+            L'objectif était de créer un jeu simple et accessible via une page unique, capable de mémoriser le meilleur score réalisé par l'utilisateur.
+            
+            Au début de son développement, je ne maîtrisais pas encore le concept de cache navigateur, et la sauvegarde de l'historique n'était active que tant que l'onglet restait ouvert. Pour corriger ce fonctionnement assez horrible, j'ai dû m'initier à la persistance des données dans le localStorage.
+            
+            Depuis, l'historique du meilleur temps réalisé est sauvegardé tant que le cache n'est pas effacé.`,
         },
     ])
     
