@@ -2,25 +2,46 @@ import React, { useEffect, useRef, useState } from "react";
 import Projet_Presentation from "../Presentation/Projet/Presentation";
 import Integration_image from "../../../Assets/3Wintegration.png";
 import Calculatrice_image from "../../../Assets/Calculatrice.png";
+import html from "../../../Assets/html.png";
+import css from "../../../Assets/css.png";
+import scss from "../../../Assets/scss.png";
+import javascript from "../../../Assets/javascript.png";
+import react from "../../../Assets/react.png";
+import php from "../../../Assets/php.png";
+import mysql from "../../../Assets/sql.png";
 
 export default function useProjet(){
 
 
     const iframeRef = useRef()
+    const presentationBoxRef = useRef()
+    const programmationLanguage = {
+        html:{image:html, name:"Html"},
+        css:{image:css, name:"Css"},
+        scss:{image:scss, name:"Scss"},
+        javascript:{image:javascript, name:"Javascript"},
+        react:{image:react, name:"React"},
+        php:{image:php, name:"Php"},
+        sql:{image:mysql, name:"MySQL"},
+
+    }
+
     const [projetConfiguration, setProjetConfiguration] = useState([
         {name:"Boulangerie", selected:false},
         {
             name:"Calculatrice",
             selected:false,
             link:"https://anthonyboschat.github.io/Calculatrice",
-            img:Calculatrice_image
+            img:Calculatrice_image,
+            languages:[programmationLanguage.scss, programmationLanguage.css, programmationLanguage.javascript],
+            description:`Description Calculatrice`,
         },
         {
             name:"Intégration web",
             selected:false,
             link:"https://anthonyboschat.github.io/LaunchPage3W",
             img:Integration_image,
-
+            languages:[programmationLanguage.html, programmationLanguage.css],
             description:`Il s'agit d'une intégration web réaliser dans le cadre de mon entrée au CEFIM. Nous avions le visuel d'une page web qu'il fallait reproduire le plus fidèlement possible afin de pouvoir participer à la semaine d'examen d'entrée à la formation.
             
             
@@ -29,7 +50,11 @@ export default function useProjet(){
             ( Je m'étais permis de glisser un easter-egg dans la page, je ne pense pas qu'il ai été trouver par le staff du CEFIM ).`,
         },
     ])
-    const presentationBoxRef = useRef()
+    
+
+
+
+
 
     const handleClickProjet = (projetName) => {
         selectedButton(projetName)

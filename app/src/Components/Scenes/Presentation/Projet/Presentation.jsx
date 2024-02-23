@@ -11,11 +11,19 @@ function Projet_Presentation({projet}){
             <div className="projet_presentationBox">
 
                 <div className="imageTechnologieBox">
-                    <div className="imageBox">
+                    <div className="imageProjetBox">
                         <img onClick={() => handleClick(projet.link)} src={projet.img} alt={`Image du projet ${projet.name}`} />
                     </div>
-                    <div className="technologieBox">
-
+                    <div className="technologieDisplay">
+                        <div className="technologieBox">
+                            {projet.languages.map(language => (
+                                <div className="languageBox">
+                                    <div className="imageBox">
+                                        <img src={language.image} alt={`Logo ${language.name}`} />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
 

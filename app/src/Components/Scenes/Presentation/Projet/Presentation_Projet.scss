@@ -26,7 +26,7 @@
             background-color: rgba(0, 0, 255, 0.258); //
             display: flex;
 
-            .imageBox{
+            .imageProjetBox{
                 width: 40%;
                 outline: 1px solid white; //
                 display: flex;
@@ -34,7 +34,7 @@
                 align-items: center;
 
                 img{
-                    outline: 1px solid red;
+                    outline: 1px solid red; //
                     width: 90%;
                     height: auto;
                     transition: opacity 0.3s linear;
@@ -46,9 +46,48 @@
                 }
             }
 
-            .technologieBox{
+            .technologieDisplay{
                 width: 60%;
-                outline: 1px solid yellow; //
+                background-color: rgba(255, 255, 0, 0.306); //
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .technologieBox{
+                    width: 90%;
+                    height: 90%;
+                    outline: 1px solid red; //
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10%;
+                    justify-content: center;
+                    align-items: center;
+
+                    .languageBox{
+                        width: 6rem;
+                        height: 6rem;
+                        outline: 1px solid white; //
+                        display: flex;
+                        align-items: center;
+
+                        .imageBox{
+                            width: 100%;
+                            outline: 1px solid red; //
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: rgb(108, 84, 214);
+                            font-size: 2.5rem;
+
+                            img{
+                                width: 100%;
+                                height:auto;
+                            }
+                        }
+                    }
+                }
+                
             }
         }
 
