@@ -3,6 +3,7 @@ import Projet_Presentation from "../Presentation/Projet/Presentation";
 import Integration_image from "../../../Assets/3Wintegration.png";
 import Calculatrice_image from "../../../Assets/Calculatrice.png";
 import ReactionTime from "../../../Assets/Reaction-Time.png";
+import Pokedex from "../../../Assets/Pokedex.png";
 import html from "../../../Assets/html.png";
 import css from "../../../Assets/css.png";
 import scss from "../../../Assets/scss.png";
@@ -10,11 +11,11 @@ import javascript from "../../../Assets/javascript.png";
 import react from "../../../Assets/react.png";
 import php from "../../../Assets/php.png";
 import mysql from "../../../Assets/sql.png";
+import redux from "../../../Assets/redux.png";
 
 export default function useProjet(){
 
 
-    const iframeRef = useRef()
     const presentationBoxRef = useRef()
     const programmationLanguage = {
         html:{image:html, name:"Html"},
@@ -24,6 +25,7 @@ export default function useProjet(){
         react:{image:react, name:"React"},
         php:{image:php, name:"Php"},
         sql:{image:mysql, name:"MySQL"},
+        redux:{image:redux, name:"Redux Toolkit"},
 
     }
 
@@ -69,6 +71,21 @@ export default function useProjet(){
             
             Depuis, l'historique du meilleur temps réalisé est sauvegardé tant que le cache n'est pas effacé.`,
         },
+        {
+            name:"Pokedex",
+            selected:false,
+            link:"https://anthonyboschat.github.io/Pokedex",
+            img:Pokedex,
+            languages:[programmationLanguage.react, programmationLanguage.scss],
+            description:
+            `Mon projet Pokedex a été une étape importante dans mon apprentissage de React, particulièrement pour maîtriser les requêtes API. Bien que ce soit un projet assez classique, il m'a permis de me familiariser avec SCSS et d'expérimenter les boucles pour créer des arrière-plans dynamiques basés sur les types de Pokémon.
+            
+            Initialement, j'utilisais le contexte de React pour la gestion d'état, avant de découvrir et d'adopter Redux Toolkit dans les projets suivant, qui m'a semblé plus simple dans son utilisation.
+            
+            J'ai également exploré de nouvelles animations, notamment un carrousel qui a été particulièrement complexe à mettre en œuvre, surtout pour Evoli ( et ses milliards d'évolutions là ).
+            
+            Malheureusement, l'API utilisée ne couvre que jusqu'à la huitième génération de Pokémon.`,
+        },
     ])
     
 
@@ -97,23 +114,14 @@ export default function useProjet(){
     const animationStyleClassCenter = (aButtonSelected, projet) => {
         const index = projetConfiguration.findIndex(project => project.name === projet.name)
         const indexButtonSelected = projetConfiguration.findIndex(projet => projet.selected === true)
-
         const buttonStyle = aButtonSelected ? {top: 0 - (indexButtonSelected * 4.03) + "rem"} : {top:0 + "rem"}
         const buttonClassName = !aButtonSelected ? "buttonProjet" : projet.selected ? "buttonProjetSelected" : "buttonProjetUnselected"
         const projetStyle = aButtonSelected ? {top: 0 - (indexButtonSelected * 3.95) + "rem"} : {top:0 - (index * 3.95) + "rem"}
         const projetClassName = projet.selected ? "projetPresentationVisible" : null
-
-        
         return{buttonStyle, buttonClassName, projetStyle, projetClassName}
     }
 
-    useEffect(() => {
-        if(iframeRef.current){
-            setTimeout(() => {
-                iframeRef.current.style.display = "block"
-            }, 700);
-        }
-    }, [projetConfiguration])
+
 
     const generateProjetButton = (projet, index) => {
         

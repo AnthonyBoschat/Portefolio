@@ -2,7 +2,7 @@
 
     .hexagonSelected{
         transform: scale(1.1) !important;
-        fill: rgba(250, 250, 250, 0.146) !important;
+        fill: rgba(15, 65, 78, 0.64) !important;
     }
 
     >*:hover{
@@ -11,7 +11,7 @@
 
     &:hover svg{
         transform: scale(1.1);
-        fill: rgba(250, 250, 250, 0.146);
+        fill: rgba(15, 65, 78, 0.248);
     }
     
     position: absolute;

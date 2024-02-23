@@ -32,7 +32,7 @@
             margin-top: 1rem;
             flex-basis: 3rem;
             width: 99%;
-            background-color: rgba(0, 0, 0, 0.827);
+            background-color: rgba(33, 135, 161, 0.231);
             font-size: 1.5rem;
             border: none;
             outline: 1px solid white;
@@ -40,7 +40,7 @@
 
             &:hover{
                 cursor: pointer;
-                background-color: rgba(204, 204, 204, 0.155);
+                background-color: rgba(33, 135, 161, 0.34);
             }
         }
 
@@ -49,7 +49,7 @@
         }
 
         .buttonProjetSelected{
-            background-color: rgba(255, 255, 255, 0.392) !important;
+            background-color: rgba(33, 135, 161, 0.694) !important;
         }
         
         .buttonProjetUnselected{
@@ -59,17 +59,13 @@
 
         .projetPresentation{
             flex-shrink: 0;
-            // flex-basis: 0%;
             position: relative;
             top: 0;
-            background-color: rgba(216, 216, 216, 0.313);
+            background-color: rgba(29, 91, 107, 0.783);
             box-shadow: 10px 10px 50px 5px black inset;
             // outline: 1px solid blue; //
             width: 99%;
-            // transition: all 0.5s ease;
             animation: animation-disparitionProjetPresentation 0.5s ease forwards; //
-
-            
         }
 
         .projetPresentationVisible{

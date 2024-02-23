@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import usePresentation_Projet from "./usePresentation_Projet";
 import TypingSentenceCompiler from "../../../Constructors/TypingSentence/TypingSentenceCompiler";
 
 function Projet_Presentation({projet}){
 
+    const presentationBoxRef = useRef()
+
+    useEffect(() => {
+        if(presentationBoxRef.current){
+            setTimeout(() => {
+                presentationBoxRef.current.style.display = "flex"
+            }, 500);
+        }
+    }, [])
 
     return(
-        <div className="projet_presentationDisplay">
+        <div ref={presentationBoxRef} className="projet_presentationDisplay">
             <div className="projet_presentationBox">
 
                 <div className="imageTechnologieBox">
