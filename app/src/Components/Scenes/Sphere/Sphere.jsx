@@ -13,7 +13,8 @@ const Sphere = () => {
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, mountRef.current.clientWidth / mountRef.current.clientHeight, 0.1, 1000);
         camera.position.z = 15;
-        const renderer = new THREE.WebGLRenderer();
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        // renderer.setClearColor(0x000000, 0);
         renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
         mountRef.current.appendChild(renderer.domElement);
         cameraRef.current = {camera}
