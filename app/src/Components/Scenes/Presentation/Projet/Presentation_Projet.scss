@@ -7,12 +7,12 @@
     justify-content: center;
     align-items: center;
 
-    background-color: rgba(255, 0, 0, 0.182); //
+    // background-color: rgba(255, 0, 0, 0.182); //
 
     .projet_presentationBox{
         width: 90%;
         height: 90%;
-        outline: 1px solid red; //
+        // outline: 1px solid red; //
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 50% 50%;
@@ -23,40 +23,55 @@
 
         .imageTechnologieBox{
             width: 100%;
-            background-color: rgba(0, 0, 255, 0.258); //
+            // background-color: rgba(0, 0, 255, 0.258); //
             display: flex;
 
             .imageProjetBox{
-                width: 40%;
-                outline: 1px solid white; //
+                width: 50%;
+                // outline: 1px solid white; //
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                position: relative;
 
-                img{
-                    outline: 1px solid red; //
+                a{
                     width: 90%;
-                    height: auto;
-                    transition: opacity 0.3s linear;
+                    height: 90%;
+                    height: fit-content;
+                    // outline: 1px solid red; //
 
-                    &:hover{
-                        opacity: 0.7;
-                        cursor: pointer;
+                    img{
+                        // outline: 1px solid red; //
+                        width: 100%;
+                        height: auto;
+                        transition: opacity 0.3s linear;
+                        box-shadow: 10px 10px 20px 5px black;
+    
+                        &:hover{
+                            opacity: 0.7;
+                            cursor: pointer;
+                        }
                     }
                 }
+
+                
+
+
+
             }
 
             .technologieDisplay{
-                width: 60%;
-                background-color: rgba(255, 255, 0, 0.306); //
+                width: 50%;
+                // background-color: rgba(255, 255, 0, 0.306); //
                 display: flex;
                 justify-content: center;
                 align-items: center;
 
                 .technologieBox{
                     width: 90%;
+                    max-width: 90%;
                     height: 90%;
-                    outline: 1px solid red; //
+                    // outline: 1px solid red; //
                     display: flex;
                     flex-wrap: wrap;
                     gap: 10%;
@@ -66,13 +81,13 @@
                     .languageBox{
                         width: 6rem;
                         height: 6rem;
-                        outline: 1px solid white; //
+                        // outline: 1px solid white; //
                         display: flex;
                         align-items: center;
 
                         .imageBox{
                             width: 100%;
-                            outline: 1px solid red; //
+                            // outline: 1px solid red; //
                             height: 100%;
                             display: flex;
                             align-items: center;
@@ -98,12 +113,13 @@
 
 
         .descriptionBox{
-            background-color: rgba(0, 128, 0, 0.267); //
-            height: 100%;
+            // background-color: rgba(0, 128, 0, 0.267); //
+            height: fit-content;
             display: flex;
-            padding-top: 1rem;
-            outline: 1px solid white; //
+            margin-top: 4rem;
+            // outline: 1px solid white; //
             font-size: 1.2rem;
+            text-shadow: 10px 10px 6px black, 0px 0px 1px white;
 
             @media(max-width:1150px){font-size: 1rem;}
             @media(max-width:750px){font-size: 0.8rem;}

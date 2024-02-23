@@ -4,7 +4,6 @@ import TypingSentenceCompiler from "../../../Constructors/TypingSentence/TypingS
 
 function Projet_Presentation({projet}){
 
-    const {handleClick} = usePresentation_Projet()
 
     return(
         <div className="projet_presentationDisplay">
@@ -12,14 +11,17 @@ function Projet_Presentation({projet}){
 
                 <div className="imageTechnologieBox">
                     <div className="imageProjetBox">
-                        <img onClick={() => handleClick(projet.link)} src={projet.img} alt={`Image du projet ${projet.name}`} />
+                        <a href={projet.link} target="_blank">
+                            <img src={projet.img} alt={`Image du projet ${projet.name}`} />
+                        </a>
                     </div>
+                    
                     <div className="technologieDisplay">
                         <div className="technologieBox">
                             {projet.languages.map(language => (
                                 <div className="languageBox">
                                     <div className="imageBox">
-                                        <img src={language.image} alt={`Logo ${language.name}`} />
+                                        <img src={language.image} title={language.name} alt={`Logo ${language.name}`} />
                                     </div>
                                 </div>
                             ))}
