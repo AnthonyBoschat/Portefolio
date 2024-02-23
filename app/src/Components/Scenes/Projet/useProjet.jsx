@@ -33,8 +33,13 @@ export default function useProjet(){
             selected:false,
             link:"https://anthonyboschat.github.io/Calculatrice",
             img:Calculatrice_image,
-            languages:[programmationLanguage.scss, programmationLanguage.css, programmationLanguage.javascript],
-            description:`Description Calculatrice`,
+            languages:[programmationLanguage.html, programmationLanguage.css, programmationLanguage.javascript],
+            description:
+            `Il s'agît de l'un de mes premiers projet, je m'était principalement concentré sur l'aspect design. L'objectif était de créer une calculatrice offrant une sensation de profondeur, de relief. Travailler sur ce projet m'a permis de me familiariser avec la manipulation du DOM avec JavaScript, ce qui était relativement nouveau pour moi.
+
+            De plus, j'ai intégré la possibilité pour l'utilisateur de saisir des opérations directement via le clavier, afin d'améliorer l'expérience utilisateur.
+            
+            À part cela, il s'agit d'une calculatrice standard.`,
         },
         {
             name:"Intégration web",
