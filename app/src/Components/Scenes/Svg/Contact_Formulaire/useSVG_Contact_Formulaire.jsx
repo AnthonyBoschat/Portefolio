@@ -39,7 +39,6 @@ export default function useSVG_Contact_Formulaire(displayRef){
             const L = D
             polylinesValuesArray[i].points.A = `${A},${B} ${C},${D}`
             polylinesValuesArray[i].points.B = `${C},${D} ${E},${F} ${G},${H} ${I},${J} ${K},${L}`
-
         }
         return(polylinesValuesArray)
     }

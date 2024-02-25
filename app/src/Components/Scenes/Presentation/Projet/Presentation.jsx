@@ -27,8 +27,8 @@ function Projet_Presentation({projet}){
                     
                     <div className="technologieDisplay">
                         <div className="technologieBox">
-                            {projet.languages.map(language => (
-                                <div className="languageBox">
+                            {projet.languages.map((language, index) => (
+                                <div key={index} className="languageBox">
                                     <div className="imageBox">
                                         <img src={language.image} title={language.name} alt={`Logo ${language.name}`} />
                                     </div>

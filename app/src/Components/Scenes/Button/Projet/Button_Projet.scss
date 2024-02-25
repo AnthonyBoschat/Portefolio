@@ -1,0 +1,56 @@
+.projetBox{
+
+    button{
+        background-color: transparent;
+        position: relative;
+        flex-shrink: 0;
+        margin-top: 1rem;
+        flex-basis: 3rem;
+        width: 99%;
+        // background-color: rgba(33, 135, 161, 0.231); //
+        border: none;
+        transition: all 0.5s ease;
+        
+        &:hover{
+            cursor: pointer;
+            background-color: rgba(33, 135, 161, 0.34);
+        }
+
+        span.projetName{
+            font-size: 1.5rem;
+            opacity: 0;
+            color: white;
+        }
+
+        
+    }
+
+    .buttonProjet{
+        transition: top 0.5s 0.4s ease;
+    }
+
+    .buttonProjetSelected{
+        background-color: rgba(33, 135, 161, 0.694) !important;
+    }
+    
+    .buttonProjetUnselected{
+        animation:  opacity-out 0.3s ease forwards,
+                    display-hidden 0.1s 0.3s ease forwards !important;
+    }
+
+    .projetPresentation{
+        flex-shrink: 0;
+        position: relative;
+        top: 0;
+        background-color: rgba(29, 91, 107, 0.783);
+        box-shadow: 10px 10px 50px 5px black inset;
+        // outline: 1px solid blue; //
+        width: 99%;
+        // animation: animation-disparitionProjetPresentation 0.5s ease forwards; // // //
+    }
+
+    .projetPresentationVisible{
+        // flex-basis: 93% !important;
+        animation: animation-apparitionProjetPresentation 0.5s 0.4s ease forwards; //
+    }
+}

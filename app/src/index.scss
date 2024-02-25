@@ -9,6 +9,7 @@
 @use "Components/Constructors/ProgressBar/ProgressBar.scss";
 @use "Components/Constructors/Language/Language.scss";
 @use "Components/Constructors/Hexagon/Hexagon.scss";
+@use "Components/Constructors/Polylines/Polylines.scss";
 
 
 @use "Components/Scenes/Loading/Loading.scss";
@@ -17,6 +18,7 @@
 @use "Components/Scenes/Render/Render.scss";
 @use "Components/Scenes/Sphere/Sphere.scss";
 @use "Components/Scenes/Projet/Projet.scss";
+@use "Components/Scenes/Button/Projet/Button_Projet.scss";
 @use "Components/Scenes/Contact/Contact.scss";
 @use "Components/Scenes/Profil/Profil.scss";
 @use "Components/Scenes/Presentation/Profil/Presentation_Profil.scss";
@@ -24,6 +26,7 @@
 @use "Components/Scenes/CV/CV.scss";
 @use "Components/Scenes/Svg/Contact_Formulaire/svgFormulaire.scss";
 @use "Components/Scenes/Svg/Contact_Animation/svgAnimation.scss";
+
 
 @use "Components/Scenes/Nav/media.scss" as Media_Nav;
 @use "Components/Scenes/Main/media.scss" as Media_Main;

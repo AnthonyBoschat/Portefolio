@@ -6,6 +6,7 @@
         opacity: 1;
     }
 }
+.animationClass_opacity-in500{animation: opacity-in 0.5s linear forwards !important;}
 
 @keyframes opacity-out{
     from{
@@ -107,5 +108,12 @@
       mask-position: 0 0;
     }
   }
+
+
+@keyframes projetButtonBackgroundAnimation{
+    from{background-color: transparent;}
+    to{background-color: rgba(33, 135, 161, 0.231);}
+}
+.animationClass_projetButtonBackgroundAnimation{animation: projetButtonBackgroundAnimation 0.5s linear forwards !important;}
 
 
