@@ -7,30 +7,34 @@
         margin-top: 1rem;
         flex-basis: 3rem;
         width: 99%;
-        // background-color: rgba(33, 135, 161, 0.231); //
+        background-color: transparent; //
         border: none;
         transition: all 0.5s ease;
-        
-        &:hover{
-            cursor: pointer;
-            background-color: rgba(33, 135, 161, 0.34);
-        }
 
         span.projetName{
             font-size: 1.5rem;
             opacity: 0;
             color: white;
         }
-
+        
         
     }
 
     .buttonProjet{
         transition: top 0.5s 0.4s ease;
+
+        &:hover{
+            cursor: pointer;
+            background-color: rgba(33, 135, 161, 0.34) !important;
+        }
     }
 
     .buttonProjetSelected{
         background-color: rgba(33, 135, 161, 0.694) !important;
+
+        &:hover{
+            cursor: pointer;
+        }
     }
     
     .buttonProjetUnselected{

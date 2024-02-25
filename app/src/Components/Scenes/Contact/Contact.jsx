@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import SVG_Contact_Formulaire from "../Svg/Contact_Formulaire/Contact_Formulaire";
 import SvgCompiler from "../../Constructors/Svg/SvgCompiler";
-import useSVG_Contact_Formulaire from "../Svg/Contact_Formulaire/useSVG_Contact_Formulaire";
+import PolylinesWrap from "../../Constructors/Polylines/PolylinesWrap";
 import { useSelector } from "react-redux";
 import useSVG_Contact_Animation from "../Svg/Contact_Animation/useSVG_Contact_Animation";
 import useContact from "./useContact";
@@ -11,25 +10,16 @@ import Contact_AnimationConfirm from "../Svg/Contact_Animation/Contact_Animation
 
 function Contact(){
 
-    const animationEnd = useSelector(store => store.contact.animationEnd)
     const emailSendConfirmation = useSelector(store => store.contact.emailSendConfirmation)
+    const [animationEnd, setAnimationEnd] = useState(false)
     const displayRef = useRef()
+    const inputNameRef = useRef()
+    const inputEmailRef = useRef()
+    const inputMessageRef = useRef()
+    const inputSubmitRef = useRef()
+    
 
     const {handleSubmit} = useContact()
-    
-    const {
-        inputNameRef,
-        inputEmailRef,
-        inputMessageRef,
-        inputSubmitRef,
-        formulaire_PolylinesValues
-    } = useSVG_Contact_Formulaire(displayRef)
-
-    const svgConfiguration_Contact_Formulaire = {
-        svgClass:"contact_formulaireSvg",
-        component:<SVG_Contact_Formulaire/>,
-        elements:formulaire_PolylinesValues
-    }
 
     const {
         animation_PolylinesValues,
@@ -61,21 +51,44 @@ function Contact(){
                 <form onSubmit={handleSubmit} action="">
                     <div className="formDiv">
                         <label htmlFor="name">Nom :</label>
-                        <input ref={inputNameRef} className={animationEnd === true ? "inputName inputApparition" : "inputName"} id="name" type="text" />
+                        <div className="formInputBox">
+                            <input ref={inputNameRef} className={animationEnd === true ? "inputName inputApparition" : "inputName"} id="name" type="text" />
+                            <PolylinesWrap
+                                elementToWrapRef={inputNameRef}
+                                configuration={{animation:true, animationSpeed:5}}/>
+                        </div>
                     </div>
 
                     <div className="formDiv">
                         <label htmlFor="email">Email :</label>
-                        <input ref={inputEmailRef} className={animationEnd ? "inputEmail inputApparition" : "inputEmail"} id="email" type="email" />
+                        <div className="formInputBox">
+                            <input ref={inputEmailRef} className={animationEnd ? "inputEmail inputApparition" : "inputEmail"} id="email" type="email" />
+                            <PolylinesWrap
+                                elementToWrapRef={inputEmailRef}
+                                configuration={{animation:true, animationSpeed:5}}/>
+                        </div>
+
                     </div>
 
                     <div className="formDiv">
                         <label htmlFor="message">Message :</label>
-                        <textarea ref={inputMessageRef} className={animationEnd ? "inputContent inputApparition" : "inputContent"} id="message" />
+                        <div className="formInputBox">
+                            <textarea ref={inputMessageRef} className={animationEnd ? "inputContent inputApparition" : "inputContent"} id="message" />
+                            <PolylinesWrap 
+                                elementToWrapRef={inputMessageRef} 
+                                configuration={{animation:true, animationSpeed:10, ending:() => setAnimationEnd(true)}}/>
+                        </div>
+
                     </div>
                     
                     <div className="formDiv">
-                        <input ref={inputSubmitRef} className={animationEnd ? "inputSubmit inputApparition" : "inputSubmit"} type="submit" value={"Envoyer"} />
+                        <div className="formInputBox">
+                            <input ref={inputSubmitRef} className={animationEnd ? "inputSubmit inputApparition" : "inputSubmit"} type="submit" value={"Envoyer"} />
+                            <PolylinesWrap 
+                             elementToWrapRef={inputSubmitRef} 
+                             configuration={{animation:true, animationSpeed:5}}/>
+                        </div>
+
                     </div>
 
                 </form>
@@ -84,9 +97,6 @@ function Contact(){
             <div ref={contactAnimationBoxRef} className="contactAnimationBox">
                 {!emailSendConfirmation ? <SvgCompiler svgConfiguration={svgConfiguration_Contact_Animation}/> : <SvgCompiler svgConfiguration={svgConfiguration_Contact_AnimationConfirm}/>}
             </div>
-
-            <SvgCompiler svgConfiguration={svgConfiguration_Contact_Formulaire} />
-            
         </div>
     )
 }

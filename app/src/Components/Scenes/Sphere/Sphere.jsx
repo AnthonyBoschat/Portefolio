@@ -45,7 +45,7 @@ const Sphere = () => {
 
 
         // Géométrie de la plus grande sphère
-        const sphere1Geometry = new THREE.SphereGeometry(6, 100, 50);
+        const sphere1Geometry = new THREE.SphereGeometry(4, 80, 40);
         // const sphere1Material = new THREE.PointsMaterial({color: "blue",size: 0.01});
         const sphere1Material = new THREE.ShaderMaterial(get3DPointMaterial(colorToVec4("rgb(17, 124, 166)"), "1.5"));
         const sphere1 = new THREE.Points(sphere1Geometry, sphere1Material);
@@ -53,7 +53,7 @@ const Sphere = () => {
 
         
         // Géométrie de la plus petite sphère
-        const sphere2Geometry = new THREE.SphereGeometry(3, 80, 40); // Une petite sphère
+        const sphere2Geometry = new THREE.SphereGeometry(2, 60, 30); // Une petite sphère
         // const sphere2Material = new THREE.PointsMaterial({ color: "red", size: 0.01} ); // Couleur rouge pour visibilité
         const sphere2Material = new THREE.ShaderMaterial(get3DPointMaterial(colorToVec4("rgb(200, 116, 7)"), "1.0"));
         const sphere2 = new THREE.Points(sphere2Geometry, sphere2Material);

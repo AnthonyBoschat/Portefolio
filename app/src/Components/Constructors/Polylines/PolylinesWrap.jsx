@@ -11,7 +11,7 @@ function PolylinesWrap({elementToWrapRef, configuration}){
         <svg className="svg_polylinesConstructor">
             <polyline
                 strokeDasharray={`${dashArray}px`}
-                strokeDashoffset={`${dashOffset}px`}
+                strokeDashoffset={!configuration.animation ? 0 : `${dashOffset}px`}
                 points={polylinesPoints}
             />
         </svg>
