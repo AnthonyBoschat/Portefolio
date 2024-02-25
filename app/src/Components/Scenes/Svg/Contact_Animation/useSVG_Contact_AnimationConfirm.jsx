@@ -6,17 +6,17 @@ export default function useSVG_Contact_AnimationConfirm(contactAnimationBoxRef){
     const emailSendConfirmation = useSelector(store => store.contact.emailSendConfirmation)
     const animationCircleSpeed = 2
     const animationCheckSpeed = 1
-    const [animationConfirm_PolylinesValues, setAnimationConfirm_PolylinesValues] = useState([
+    const [animationConfirm_PolylinesValues, setAnimationConfirm_PolylinesValues] = useState(
         {polyline:{points:null, dashOffset:26}, circle:{cx:null, cy:null, r:null, baseOffset:110, dashOffset:110}} 
-    ])
+    )
 
     const calculatePositionCircle = (copyPolylinesValues) => {
         const parentBounding = contactAnimationBoxRef.current.getBoundingClientRect()
 
         // Calcul pour le cercle
-        copyPolylinesValues[0].circle.cx = parentBounding.width / 2
-        copyPolylinesValues[0].circle.cy = parentBounding.height / 3
-        copyPolylinesValues[0].circle.r = parentBounding.width / 4.5
+        copyPolylinesValues.circle.cx = parentBounding.width / 2
+        copyPolylinesValues.circle.cy = parentBounding.height / 3
+        copyPolylinesValues.circle.r = parentBounding.width / 4.5
 
         // Calcul pour le polyline
         const A = parentBounding.width / 2 - 30
@@ -26,13 +26,36 @@ export default function useSVG_Contact_AnimationConfirm(contactAnimationBoxRef){
         const E = parentBounding.width / 2 + 35
         const F = B - 20
 
-        copyPolylinesValues[0].polyline.points = `${A},${B} ${C},${D} ${E},${F}`
+        copyPolylinesValues.polyline.points = `${A},${B} ${C},${D} ${E},${F}`
 
         return copyPolylinesValues
     }
 
+    const handleClick = (IconeRef) => {
+        if(IconeRef.current){
+            IconeRef.current.classList.remove("animationClass_toggleCheck")
+            requestAnimationFrame(() => {
+                IconeRef.current.classList.add("animationClass_toggleCheck")
+            })
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     useEffect(() => {
-        const copyPolylinesValues = [...animationConfirm_PolylinesValues]
+        const copyPolylinesValues = {...animationConfirm_PolylinesValues}
         const newPolylinesValues = calculatePositionCircle(copyPolylinesValues)
         setAnimationConfirm_PolylinesValues(newPolylinesValues)
     }, [])
@@ -41,23 +64,23 @@ export default function useSVG_Contact_AnimationConfirm(contactAnimationBoxRef){
         if(emailSendConfirmation){
             let beginAnimation2 = false
             const intervalID = setInterval(() => {
-                const copyPolylinesValues = [...animationConfirm_PolylinesValues]
+                const copyPolylinesValues = {...animationConfirm_PolylinesValues}
                 let offsetEnd = true
-                if(copyPolylinesValues[0].circle.dashOffset >= animationCircleSpeed){
-                    copyPolylinesValues[0].circle.dashOffset -= animationCircleSpeed
+                if(copyPolylinesValues.circle.dashOffset >= animationCircleSpeed){
+                    copyPolylinesValues.circle.dashOffset -= animationCircleSpeed
                     offsetEnd = false
                 }else{
-                    copyPolylinesValues[0].circle.dashOffset = 0
+                    copyPolylinesValues.circle.dashOffset = 0
                     beginAnimation2 = true
                 }
 
 
                 if(beginAnimation2){
-                    if(copyPolylinesValues[0].polyline.dashOffset >= animationCheckSpeed){
-                        copyPolylinesValues[0].polyline.dashOffset -= animationCheckSpeed
+                    if(copyPolylinesValues.polyline.dashOffset >= animationCheckSpeed){
+                        copyPolylinesValues.polyline.dashOffset -= animationCheckSpeed
                         offsetEnd = false
                     }else{
-                        copyPolylinesValues[0].polyline.dashOffset = 0
+                        copyPolylinesValues.polyline.dashOffset = 0
                     }
                 }
 
@@ -75,6 +98,7 @@ export default function useSVG_Contact_AnimationConfirm(contactAnimationBoxRef){
 
 
     return{
-        animationConfirm_PolylinesValues
+        animationConfirm_PolylinesValues,
+        handleClick
     }
 }

@@ -2,22 +2,19 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { update_emailSendConfirmation } from "../../Contact/ContactSlice";
 
-export default function useSVG_Contact_Animation(){
+export default function useSVG_Contact_Animation(displayRef){
 
     const dispatch = useDispatch()
     const emailSend = useSelector(store => store.contact.emailSend)
-    const contactAnimationBoxRef = useRef()
-    const polylineRectRef = useRef()
     const animationSpeedIn = 1
     const animationSpeedOut = 2
-    
 
-    const [animation_PolylinesValues, setAnimation_PolylinesValues] = useState([
-        {points:{A:null,B:null}, baseOffsetA:127, baseOffsetB:42, dashOffsetA:127, dashOffsetB:42} 
-    ])
+    const [animation_PolylinesValues, setAnimation_PolylinesValues] = useState(
+        {points:{A:null,B:null}, baseOffsetA:127, baseOffsetB:41, dashOffsetA:127, dashOffsetB:42} 
+    )
 
     const calculatePolylinesPoints = (polylinesValuesArray) => {
-        const parentBounding = contactAnimationBoxRef.current.getBoundingClientRect()
+        const parentBounding = displayRef.current.getBoundingClientRect()
         const A = parentBounding.width / 4
         const B = parentBounding.height / 5
         const C = parentBounding.width - (parentBounding.width / 4)
@@ -37,94 +34,140 @@ export default function useSVG_Contact_Animation(){
 
         const O = C
         const P = B+30
-        polylinesValuesArray[0].points.A = `${A},${B} ${C},${D} ${E},${F} ${G},${H}, ${I},${J}`
-        polylinesValuesArray[0].points.B = `${K},${L} ${M},${N} ${O},${P}`
+        polylinesValuesArray.points.A = `${A},${B} ${C},${D} ${E},${F} ${G},${H}, ${I},${J}`
+        polylinesValuesArray.points.B = `${K},${L} ${M},${N} ${O},${P}`
         return polylinesValuesArray
     }
 
     useEffect(() => {
-        const copyPolylinesValues = [...animation_PolylinesValues]
+        const copyPolylinesValues = {...animation_PolylinesValues}
         const newPolylinesValues = calculatePolylinesPoints(copyPolylinesValues)
         setAnimation_PolylinesValues(newPolylinesValues)
     }, [])
 
     useEffect(() => {
 
-        // Animation d'apparition
-        if(!emailSend){
-            let beginAnimation2 = false
-            const intervalID = setInterval(() => {
-                const copyPolylinesValues = [...animation_PolylinesValues]
+        // Animation
+        let beginAnimation2 = false
+        const intervalID = setInterval(() => {
+            setAnimation_PolylinesValues(current => {
+                let newDashOffsetA = current.dashOffsetA
+                let newDashOffsetB = current.dashOffsetB
                 let offsetEnd = true
-                if(copyPolylinesValues[0].dashOffsetA >= animationSpeedIn){
-                    copyPolylinesValues[0].dashOffsetA -= animationSpeedIn
-                    offsetEnd = false
-                }else{
-                    copyPolylinesValues[0].dashOffsetA = 0
-                    beginAnimation2 = true
-                }
+    
+                if(!emailSend){
+                    if(!beginAnimation2){
+                        if (newDashOffsetA >= animationSpeedIn) {
+                            newDashOffsetA -= animationSpeedIn
+                            offsetEnd = false
+                        } else {
+                            newDashOffsetA = 0
+                            beginAnimation2 = true
+                        }
+                    }
+                    
 
-                if(beginAnimation2){
-                    if(copyPolylinesValues[0].dashOffsetB >= animationSpeedIn){
-                        copyPolylinesValues[0].dashOffsetB -= animationSpeedIn
-                        offsetEnd = false
-                    }else{
-                        copyPolylinesValues[0].dashOffsetB = 0
+                    if (beginAnimation2) {
+                        if (newDashOffsetB >= animationSpeedIn) {
+                            newDashOffsetB -= animationSpeedIn
+                            offsetEnd = false
+                        } else {
+                            newDashOffsetB = 0
+                        }
+                    }
+                    if (offsetEnd === true) {
+                        clearInterval(intervalID)
                     }
                 }
+                else if(emailSend){
+                    // console.log("activation")
+                    // console.log("controle => ", offsetEnd)
+                    // console.log("dashOffsetB => ", newDashOffsetB)
 
-                if(offsetEnd === true){
-                    setAnimation_PolylinesValues(copyPolylinesValues)
-                    clearInterval(intervalID)
-                }else{
-                    setAnimation_PolylinesValues(copyPolylinesValues)
-                }
-            }, 10);
-
-            return () => clearInterval(intervalID)
-        }
-
-        // Animation de disparition
-        else if(emailSend){
-            console.log("controle")
-            let beginAnimation2 = false
-            const intervalID = setInterval(() => {
-                const copyPolylinesValues = [...animation_PolylinesValues]
-                let offsetEnd = true
-                if(copyPolylinesValues[0].dashOffsetB < copyPolylinesValues[0].baseOffsetB){
-                    copyPolylinesValues[0].dashOffsetB += animationSpeedOut
-                    offsetEnd = false
-                }else{
-                    copyPolylinesValues[0].dashOffsetB = copyPolylinesValues[0].baseOffsetB
-                    beginAnimation2 = true
-                }
-
-                if(beginAnimation2){
-                    if(copyPolylinesValues[0].dashOffsetA < copyPolylinesValues[0].baseOffsetA){
-                        copyPolylinesValues[0].dashOffsetA += animationSpeedOut
-                        offsetEnd = false
-                    }else{
-                        copyPolylinesValues[0].dashOffsetA = copyPolylinesValues[0].baseOffsetA
+                    if(!beginAnimation2){
+                        if(newDashOffsetB <= current.baseOffsetB) {
+                            newDashOffsetB += animationSpeedOut
+                            offsetEnd = false
+                        } else{
+                            newDashOffsetB = current.baseOffsetB
+                            console.log(newDashOffsetB)
+                            beginAnimation2 = true
+                        }
+                    }
+                    
+        
+                    if (beginAnimation2) {
+                        if (newDashOffsetA <= current.baseOffsetA) {
+                            newDashOffsetA += animationSpeedOut
+                            offsetEnd = false
+                        } else {
+                            newDashOffsetA = current.baseOffsetA
+                        }
+                    }
+                    if (offsetEnd === true) {
+                        clearInterval(intervalID)
+                        dispatch(update_emailSendConfirmation(true))
                     }
                 }
+    
+                // Création d'un nouvel objet pour l'état sans muter l'objet actuel
+                return {
+                    ...current,
+                    dashOffsetA: newDashOffsetA,
+                    dashOffsetB: newDashOffsetB,
+                };
+            });
+        }, 10);
 
-                if(offsetEnd === true){
-                    setAnimation_PolylinesValues(copyPolylinesValues)
-                    clearInterval(intervalID)
-                    dispatch(update_emailSendConfirmation(true)) //
-                }else{
-                    setAnimation_PolylinesValues(copyPolylinesValues)
-                }
-            }, 10);
+        return () => clearInterval(intervalID)
+        
 
-            return () => clearInterval(intervalID)
-        }
+        // else if (emailSend){
+        //     let beginAnimation2 = false // ?
+        //     const intervalID = setInterval(() => {
+        //         setAnimation_PolylinesValues(current => {
+        //             let newDashOffsetA = current.dashOffsetA
+        //             let newDashOffsetB = current.dashOffsetB
+        //             let offsetEnd = true
+        //             let beginAnimation2 = newDashOffsetA <= 0
+        
+        //             if (newDashOffsetB >= animationSpeedOut) {
+        //                 newDashOffsetB += animationSpeedOut
+        //                 offsetEnd = false
+        //             } else {
+        //                 newDashOffsetB = current.baseOffsetB
+        //                 beginAnimation2 = true
+        //             }
+        
+        //             if (beginAnimation2) {
+        //                 if (newDashOffsetA >= animationSpeedOut) {
+        //                     newDashOffsetA += animationSpeedOut
+        //                     offsetEnd = false
+        //                 } else {
+        //                     newDashOffsetA = current.baseOffsetA
+        //                 }
+        //             }
+        
+        //             if (offsetEnd === true) {
+        //                 clearInterval(intervalID)
+        //                 dispatch(update_emailSendConfirmation(true))
+        //             }
+        
+        //             // Création d'un nouvel objet pour l'état sans muter l'objet actuel
+        //             return {
+        //                 ...current,
+        //                 dashOffsetA: newDashOffsetA,
+        //                 dashOffsetB: newDashOffsetB,
+        //             };
+        //         });
+        //     }, 50);
+
+        //     return () => clearInterval(intervalID)
+        // }
     }, [emailSend])
 
 
     return{
-        contactAnimationBoxRef,
         animation_PolylinesValues,
-        polylineRectRef,
     }
 }

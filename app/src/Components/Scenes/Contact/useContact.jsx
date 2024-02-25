@@ -5,11 +5,10 @@ import { update_emailSend } from "./ContactSlice";
 export default function useContact(){
 
     const dispatch = useDispatch()
-    const emailSend = useSelector(store => store.contact.emailSend) // Debug
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(update_emailSend(!emailSend))
+        dispatch(update_emailSend(true))
     }
 
     return{

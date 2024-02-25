@@ -1,51 +1,24 @@
 import React, { useEffect, useRef, useState } from "react";
-import SvgCompiler from "../../Constructors/Svg/SvgCompiler";
 import PolylinesWrap from "../../Constructors/Polylines/PolylinesWrap";
-import { useSelector } from "react-redux";
-import useSVG_Contact_Animation from "../Svg/Contact_Animation/useSVG_Contact_Animation";
 import useContact from "./useContact";
 import SVG_Contact_Animation from "../Svg/Contact_Animation/Contact_Animation";
-import useSVG_Contact_AnimationConfirm from "../Svg/Contact_Animation/useSVG_Contact_AnimationConfirm";
-import Contact_AnimationConfirm from "../Svg/Contact_Animation/Contact_AnimationConfirm";
 
 function Contact(){
 
-    const emailSendConfirmation = useSelector(store => store.contact.emailSendConfirmation)
+    
     const [animationEnd, setAnimationEnd] = useState(false)
     const displayRef = useRef()
     const inputNameRef = useRef()
     const inputEmailRef = useRef()
     const inputMessageRef = useRef()
     const inputSubmitRef = useRef()
-    
 
     const {handleSubmit} = useContact()
-
-    const {
-        animation_PolylinesValues,
-        contactAnimationBoxRef
-    } = useSVG_Contact_Animation(displayRef)
-
-    const svgConfiguration_Contact_Animation = {
-        svgClass:"contact_animationSvg",
-        component:<SVG_Contact_Animation/>,
-        elements:animation_PolylinesValues
-    }
-
-    const {
-        animationConfirm_PolylinesValues,
-    } = useSVG_Contact_AnimationConfirm(contactAnimationBoxRef)
-
-    const svgConfiguration_Contact_AnimationConfirm = {
-        svgClass:"contact_animationConfirmSvg",
-        component:<Contact_AnimationConfirm/>,
-        elements:animationConfirm_PolylinesValues
-    }
 
     
 
     return(
-        <div ref={displayRef} className="contactDisplay">
+        <div className="contactDisplay">
             <div className="formBox">
 
                 <form onSubmit={handleSubmit} action="">
@@ -94,8 +67,8 @@ function Contact(){
                 </form>
             </div>
 
-            <div ref={contactAnimationBoxRef} className="contactAnimationBox">
-                {!emailSendConfirmation ? <SvgCompiler svgConfiguration={svgConfiguration_Contact_Animation}/> : <SvgCompiler svgConfiguration={svgConfiguration_Contact_AnimationConfirm}/>}
+            <div ref={displayRef} className="contactAnimationBox">
+                <SVG_Contact_Animation configuration={{displayRef:displayRef}}/>
             </div>
         </div>
     )
