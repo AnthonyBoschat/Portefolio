@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-export default function useSVG_Contact_AnimationConfirm(contactAnimationBoxRef){
+export default function useSecondAnimation(contactAnimationBoxRef){
 
     const emailSendConfirmation = useSelector(store => store.contact.emailSendConfirmation)
     const animationCircleSpeed = 2

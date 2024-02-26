@@ -16,10 +16,10 @@ export default function usePolylinesWrap(elementToWrapRef, configuration){
             setPolylinesPoints(current => {
                 const A = 0
                 const B = 0
-                const C = elementToWrapBounding.width
+                const C = Math.floor(elementToWrapBounding.width)
                 const D = B
                 const E = C
-                const F = elementToWrapBounding.height
+                const F = Math.floor(elementToWrapBounding.height)
                 const G = A
                 const H = F
                 const I = A
@@ -43,7 +43,9 @@ export default function usePolylinesWrap(elementToWrapRef, configuration){
     useEffect(() => {
         calculPolylinesPoints(elementToWrapRef)
         calculArrayOffset(elementToWrapRef)
-        setAnimationBegin(true)
+        if(configuration.animation){
+            setAnimationBegin(true)
+        }
     }, [])
 
     // On déclenche un recalcule de position si resize de la page

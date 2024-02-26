@@ -9,7 +9,7 @@ function Projet(){
 
     return(
         <div ref={displayRef} className="projetDisplay">
-            <div  className="projetBox">
+            <div className="projetBox">
                 {projetConfiguration.map((projet, index) => 
                     <Button_Projet 
                         setProjetConfiguration={setProjetConfiguration}

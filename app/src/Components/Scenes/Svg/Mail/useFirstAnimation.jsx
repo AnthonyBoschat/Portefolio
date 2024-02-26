@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { update_emailSendConfirmation } from "../../Contact/ContactSlice";
 
-export default function useSVG_Contact_Animation(displayRef){
+export default function useFirstAnimation(displayRef){
 
     const dispatch = useDispatch()
     const emailSend = useSelector(store => store.contact.emailSend)

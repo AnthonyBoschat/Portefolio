@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import PolylinesWrap from "../../Constructors/Polylines/PolylinesWrap";
 import useContact from "./useContact";
-import SVG_Contact_Animation from "../Svg/Contact_Animation/Contact_Animation";
+import Mail_SVG from "../Svg/Mail/Mail";
 
 function Contact(){
 
@@ -68,7 +68,7 @@ function Contact(){
             </div>
 
             <div ref={displayRef} className="contactAnimationBox">
-                <SVG_Contact_Animation configuration={{displayRef:displayRef}}/>
+                <Mail_SVG configuration={{displayRef:displayRef}}/>
             </div>
         </div>
     )

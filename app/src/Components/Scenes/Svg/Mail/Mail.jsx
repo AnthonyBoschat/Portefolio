@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-import useSVG_Contact_Animation from "./useSVG_Contact_Animation";
-import useSVG_Contact_AnimationConfirm from "./useSVG_Contact_AnimationConfirm";
+import useFirstAnimation from "./useFirstAnimation";
+import useSecondAnimation from "./useSecondAnimation";
 
-function SVG_Contact_Animation({configuration}){
+function Mail_SVG({configuration}){
 
 
 
@@ -11,8 +11,8 @@ function SVG_Contact_Animation({configuration}){
     const emailSendConfirmation = useSelector(store => store.contact.emailSendConfirmation)
     const IconeRef = useRef()
 
-    const {animation_PolylinesValues} = useSVG_Contact_Animation(configuration.displayRef)
-    const {animationConfirm_PolylinesValues, handleClick} = useSVG_Contact_AnimationConfirm(configuration.displayRef)
+    const {animation_PolylinesValues} = useFirstAnimation(configuration.displayRef)
+    const {animationConfirm_PolylinesValues, handleClick} = useSecondAnimation(configuration.displayRef)
 
 
     return(
@@ -39,4 +39,4 @@ function SVG_Contact_Animation({configuration}){
     )
 }
 
-export default SVG_Contact_Animation;
+export default Mail_SVG;

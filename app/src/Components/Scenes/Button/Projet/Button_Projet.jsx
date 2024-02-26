@@ -18,6 +18,7 @@ function Button_Projet({projet, projetConfiguration, setProjetConfiguration}){
 
     const aButtonSelected = projetConfiguration.find(projet => projet.selected === true)
     const {buttonStyle, buttonClassName, projetStyle, projetClassName} = animationStyleClassCenter(aButtonSelected, projet)
+    
     return(
         <>
             <button ref={buttonRef} style={buttonStyle} className={!endAnimation ? buttonClassName : `${buttonClassName} animationClass_projetButtonBackgroundAnimation`} onClick={() => handleClickProjet(projet.name)}>
@@ -25,7 +26,7 @@ function Button_Projet({projet, projetConfiguration, setProjetConfiguration}){
                 <PolylinesWrap
                     configuration={{
                         animation:true,
-                        animationSpeed:15,
+                        animationSpeed:25,
                         ending: () => setEndAnimation(true)
                     }}
                     elementToWrapRef={buttonRef}

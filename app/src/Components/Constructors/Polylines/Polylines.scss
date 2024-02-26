@@ -6,12 +6,12 @@ svg.svg_polylinesConstructor{
     width: 100%;
     height: 100%;
     // outline: 1px solid red;
-    z-index: -1;
+    z-index: 2;
 
     polyline{
         width: fit-content;
         fill: transparent;
         stroke: white;
-        stroke-width: 2;
+        stroke-width: 1;
     }
 }
