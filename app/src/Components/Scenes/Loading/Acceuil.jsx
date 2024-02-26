@@ -4,6 +4,7 @@ import Sphere from "../Sphere/Sphere"
 import Console from "../../Constructors/Console/Console";
 import { update_loadingSphere } from "./LoadingSlice";
 import TypingSentenceCompiler from "../../Constructors/TypingSentence/TypingSentenceCompiler";
+import CircuitCompiler from "../../Constructors/Circuit/CircuitCompiler";
 
 
 function Loading_Acceuil(){
@@ -123,7 +124,8 @@ function Loading_Acceuil(){
                 />
             )}
             {!onLoad && (
-                <Sphere/>
+                // <Sphere/>
+                <CircuitCompiler/>
             )}
         </>
     )

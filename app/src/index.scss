@@ -10,9 +10,11 @@
 @use "Components/Constructors/Language/Language.scss";
 @use "Components/Constructors/Hexagon/Hexagon.scss";
 @use "Components/Constructors/Polylines/Polylines.scss";
+@use "Components/Constructors/Circuit/Circuit.scss";
 
 
 @use "Components/Scenes/Loading/Loading.scss";
+
 @use "Components/Scenes/Main/Main.scss";
 @use "Components/Scenes/Nav/Nav.scss";
 @use "Components/Scenes/Render/Render.scss";
