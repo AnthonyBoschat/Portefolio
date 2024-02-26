@@ -6,10 +6,11 @@ import { update_loadingSphere } from "./LoadingSlice";
 import TypingSentenceCompiler from "../../Constructors/TypingSentence/TypingSentenceCompiler";
 
 
-function Loading_Animation(){
+function Loading_Acceuil(){
 
     const onLoad = useSelector(store => store.loading.sphere.onLoad)
     const presentationConsoleRef = useRef()
+    const [pourcent, setPourcent] = useState(0)
 
     const dispatch = useDispatch()
 
@@ -43,6 +44,59 @@ function Loading_Animation(){
             \u00A0\u00A0\u00A0\u00A0- Activation du firewall...
             Connexion sécurisée établie`,
             speed:2,
+        },
+        {
+            timeout:5000,
+            sentence:
+            `
+
+
+
+
+            Chargement du programme principal... `,
+            speed:4,
+        },
+        {timeout:5200, speed:4, sentence:
+            `
+            ... 0%`,
+        },
+        {timeout:5300, speed:4, sentence:
+            `
+            ... 10%`,
+        },
+        {timeout:5400, speed:4, sentence:
+            `
+            ... 20%`,
+        },
+        {timeout:5500, speed:4, sentence:
+            `
+            ... 30%`,
+        },
+        {timeout:5600, speed:4, sentence:
+            `
+            ... 40%`,
+        },
+        {timeout:5700, speed:4, sentence:
+            `
+            ... 50%`,
+        },
+        {timeout:5800, speed:4, sentence:
+            `
+            ... 60%`,
+        },
+        {timeout:5900, speed:4, sentence:
+            `
+            ... 80%`,
+        },
+        {timeout:6000, speed:4, sentence:
+            `
+            ... 99%`,
+        },
+        {
+            timeout:6500, speed:4,
+            sentence:
+            `
+            ... 100%`,
             ending:() => {
                 setTimeout(() => {
                     if(presentationConsoleRef.current){
@@ -55,7 +109,7 @@ function Loading_Animation(){
                     }
                 }, 1500);
             }
-        }
+        },
     ]
 
     return(
@@ -76,4 +130,4 @@ function Loading_Animation(){
     
 }
 
-export default Loading_Animation;
+export default Loading_Acceuil;
