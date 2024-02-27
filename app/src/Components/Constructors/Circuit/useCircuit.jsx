@@ -1,234 +1,140 @@
 import React, { useEffect, useRef, useState } from "react";
 
-export default function useCircuit(index, svgRef, circuitCenterRef, configuration){
+export default function useCircuit(polylineRef){
 
-    const animationSpeed = 5
-    const polylineRef = useRef()
-    const [startAnimation, setStartAnimation] = useState(false)
+    
+    const [cx, setcX] = useState(null) // position X du cercle
+    const [cy, setcY] = useState(null) // position Y du cercle
     const [dashArray, setDashArray] = useState(null)
     const [dashOffset, setDashOffset] = useState(null)
-    const [points, setPoints] = useState(null)
-    const [pathConfiguration, setPathConfiguration] = useState(null)
-    const [svgBounding, setSvgBounding] = useState(null)
-    const [circuitBounding, setCircuitBounding] = useState(null)
-    const [squarePoints, setSquarePoints] = useState(null)
-
-
-    // On commence par récupérer les dimensions des deux élément circuit et svg
-    useEffect(() => {
-        if(svgRef.current && circuitCenterRef.current){
-            const svgBounding = svgRef.current.getBoundingClientRect()
-            const circuitBounding = circuitCenterRef.current.getBoundingClientRect()
-            setSvgBounding(svgBounding)
-            setCircuitBounding(circuitBounding)
-        }
-    }, [svgRef, circuitCenterRef])
-
-
-    // Ensuite, avec les dimensions, on trouve la position des 36 points
-
-    useEffect(() => {
-        if(circuitBounding && svgBounding){
-            const squareWidth = circuitBounding.width // On trouve la longueur du carré
-            const squarePointStep = circuitBounding.width / 10 // On le divise par 9
-            const squareHeight = circuitBounding.top + circuitBounding.width
-            const topLeft = svgBounding.width / 2 - circuitBounding.width / 2 - 3 // On trouve la position haute gauche du carré
-            const bottomRight = svgBounding.width / 2 + circuitBounding.width / 2 - 3 // On trouve la position bas droite du carré
-            const spaceX = svgBounding.height - circuitBounding.height
-            const spaceY = svgBounding.width - circuitBounding.width
-
-            const squarePoints = [] // On initialise un tableau vide qu'on va remplir de la position de tout les points
-            for(let i = 0; i<4; i++){
-                switch(i){
-                    case 0:
-                        for(let a = 1; a<10; a++){
-                            let newPoint = `${topLeft + (a * squarePointStep)},${topLeft - spaceY} ${topLeft + (a * squarePointStep)},${topLeft} `
-                            squarePoints.push(newPoint)
-                        }
-                        continue
-                    case 1:
-                        for(let a = 1; a<10; a++){
-                            let newPoint = `${topLeft},${topLeft  + (a * squarePointStep)} `
-                            squarePoints.push(newPoint)
-                        }
-                        continue
-                    case 2:
-                        for(let a = 1; a<10; a++){
-                            let newPoint = `${bottomRight - (a * squarePointStep)},${bottomRight} `
-                            squarePoints.push(newPoint)
-                        }
-                        continue
-                    case 3:
-                        for(let a = 1; a<10; a++){
-                            let newPoint = `${bottomRight},${bottomRight - (a * squarePointStep)} `
-                            squarePoints.push(newPoint)
-                        }
-                        continue
-                }
-            }
-            console.log(squarePoints)
-
-        }
-    }, [circuitBounding, svgBounding])
-
-
-
-
+    const [startAnimation, setStartAnimation] = useState(false)
+    const [startRandomAnimation, setStartRandomAnimation] = useState(false)
+    const [circleDashArray, setCircleDashArray] = useState(2 * Math.PI * 5)
+    const [circleDashOffset, setCircleDashOffset] = useState(2 * Math.PI * 5)
     
     
 
-    // const calculatePoints = (svgRef, circuitCenterRef, configuration) => {
-        // if(svgRef.current && circuitCenterRef.current){
-        //     const originX = svgBounding.width / 5
-        //     const originY = svgBounding.height / 2
-        //     const goalX = svgBounding.width / 2 - circuitBounding.width / 2 - 6
-        //     const goalY = svgBounding.height / 2
+    const calculatecirclePosition = (polylineRef) => {
+        const points = polylineRef.current.getAttribute("points").split(" ")
+        const firstPoint = points[0].split(",")
+        setcX(firstPoint[0])
+        setcY(firstPoint[1])
+    }
+    
 
-        //     const PourcentX = goalX - originX
-        //     const PourcentY = originY
+    // Quand le polyline est afficher, on calcul automatiquement osn dashArray et Offset
+    useEffect(() => {
+        if(polylineRef.current) {
+            const polylineLength = polylineRef.current.getTotalLength()
+            setDashArray(polylineLength)
+            if(!startAnimation){setDashOffset(polylineLength)}
+            setStartAnimation(true)
+        }
+    }, [])
+
+
+    // Quand le composant est monter, on Trouve la position X et Y pour le cercle à partir du premier point du polyline
+    useEffect(() => {
+        calculatecirclePosition(polylineRef)
+    }, [])
+
+    // Gère le repositionnement des cercle quand l'écran se resize
+    useEffect(() => {
+        const handleResize = () => calculatecirclePosition(polylineRef)
+
+        window.addEventListener("resize", handleResize)
+        return () => window.removeEventListener("resize", handleResize)
+    }, [])
+
+
+    const animationSpeed = 2
+    const timeOutRandom = (Math.random() * 2) * 500
+
+    // Gère la première animation
+    useEffect(() => {
+        if(startAnimation){
+            let copyOffset = dashOffset
+            let copyCircleDashOffset = circleDashOffset
+            let beginAnimation2 = false
+            const timeoutID = setTimeout(() => {
+                const intervalID = setInterval(() => {
+                    let animationEnd = true
+                    
+                    if(!beginAnimation2){
+                        if(copyCircleDashOffset >= 0){
+                            copyCircleDashOffset -= animationSpeed
+                            animationEnd = false
+                        }else{
+                            copyCircleDashOffset = 0
+                            beginAnimation2 = true
+                            animationEnd = false
+                        }
+                    }
+                    
+                    else if(beginAnimation2){
+                        if(copyOffset >= 0){
+                            copyOffset -= animationSpeed
+                            animationEnd = false
+                        }else{
+                            copyOffset = 0
+                        }
+                    }
+
+                    setDashOffset(copyOffset)
+                    setCircleDashOffset(copyCircleDashOffset)
+                    
+                    if(animationEnd === true){
+                        clearInterval(intervalID)
+                        setStartRandomAnimation(true)
+                    }
+                }, 10);
+                
+            }, timeOutRandom);
+            return () => clearInterval(timeoutID)
+        }
+    }, [startAnimation]) 
+
+
+
+    // const animationRandomSpeed = 4
+    // const randomIntervalRandomAnimation = (Math.floor(Math.random() * (10-2) + 1)) * 1000
+    // // Gère la deuxième animation periodique
+    // useEffect(() => {
+    //     if(startRandomAnimation){
+
+    //         let copyPolylineDashOffset = dashOffset
             
-        //     const x2 = originX + PourcentX * 0.2
-        //     const y2 = originY
+    //         const intervalID1 = setInterval(() => {
+    //             const intervalID2 = setInterval(() => {
+    //                 let animationEnd = true
 
-        //     const x3 = originX + PourcentX * 0.4
-        //     const y3 = originY + PourcentY * 0.07
-
-        //     const x4 = originX + PourcentX * 0.6
-        //     const y4 = originY + PourcentY * 0.07
-
-        //     const x5 = originX + PourcentX * 0.8
-        //     const y5 = originY
-
-        //     setPoints(`${originX},${originY} ${x2},${y2} ${x3},${y3} ${x4},${y4} ${x5},${y5} ${goalX},${goalY}`)
-        // }
-        // let newPoints = ""
-        // for(let i = 0; i<configuration.points.length; i++){
-        //     newPoints += `${configuration.points[i].x},${configuration.points[i].y} `
-        // }
-        // setPoints(newPoints)
-    // }
-
-    // Fonction qui gère la position des points selon l'index de l'élément
-    // const pathRouteur = (index) => {
-    //     const configuration = pathConfiguration[index]
-    //     calculatePoints(svgRef, circuitCenterRef, configuration)
-    // }
-
-    // On commence par récupérer les dimensions des deux élément
-    // useEffect(() => {
-    //     if(svgRef.current && circuitCenterRef.current){
-    //         const svgBounding = svgRef.current.getBoundingClientRect()
-    //         const circuitBounding = circuitCenterRef.current.getBoundingClientRect()
-    //         setSvgBounding(svgBounding)
-    //         setCircuitBounding(circuitBounding)
-    //     }
-    // }, [svgRef, circuitCenterRef])
-
-    // Ensuite, avec les nouvelles dimensions, on recalcul la configuration de chaques chemin
-
-    // useEffect(() => {
-    //     if(circuitBounding && svgBounding){
-
-
-    //         // const squarePoints = {
-    //         //     left_50X:svgBounding.width / 2 - circuitBounding.width / 2 - 6,
-    //         //     left_50Y:svgBounding.height / 2
-    //         // }
-
-    //         // const newConfiguration = [
-    //         //     {
-    //         //         points:[
-    //         //             {x:svgBounding.width / 5, y:svgBounding.height / 2},
-    //         //             {x:(svgBounding.width / 5) + (squarePoints.left_50X - svgBounding.width / 5) * 0.2, y:svgBounding.height / 2},
-    //         //             {x:(svgBounding.width / 5) + (squarePoints.left_50X - svgBounding.width / 5) * 0.4, y:svgBounding.height / 2 + squarePoints.left_50Y * 0.07},
-    //         //             {x:(svgBounding.width / 5) + (squarePoints.left_50X - svgBounding.width / 5) * 0.6, y:svgBounding.height / 2 + squarePoints.left_50Y * 0.07},
-    //         //             {x:(svgBounding.width / 5) + (squarePoints.left_50X - svgBounding.width / 5) * 0.8, y:svgBounding.height / 2},
-    //         //             {x:squarePoints.left_50X, y:squarePoints.left_middleY},
-    //         //         ]
-    //         //     },
-    //         // ]
-    //         // setPathConfiguration(newConfiguration)
-    //     }
-    // }, [circuitBounding, svgBounding])
-
-
-    // On calcul ensuite la position de chaques points selon la configuration
-    // useEffect(() => {
-    //     if(pathConfiguration){
-    //         pathRouteur(index)
-    //     }
-    // }, [pathConfiguration])
-
-    
-
-    // Quand les points sont calculer, on calcul automatiquement le dashArray et offset
-    // useEffect(() => {
-    //     if(polylineRef.current && points) {
-    //         const polylineLength = polylineRef.current.getTotalLength()
-    //         setDashArray(polylineLength)
-    //         if(!startAnimation){setDashOffset(polylineLength)}
-    //         setStartAnimation(true)
-    //     }
-    // }, [points])
-    
-
-    // Quand l'écran se redimensionne, on recalcul le bounding d'origine, et on reprovoque la cascade de useEffect
-    // useEffect(() => {
-    //     const handleResize = () => {
-    //         const svgBounding = svgRef.current.getBoundingClientRect()
-    //         const circuitBounding = circuitCenterRef.current.getBoundingClientRect()
-    //         setSvgBounding(svgBounding)
-    //         setCircuitBounding(circuitBounding)
-    //     }
-    //     window.addEventListener("resize", handleResize)
-    //     return () => window.removeEventListener("resize", handleResize)
-    // }, [])
-
-    
-
-    // Gère l'animation
-    // useEffect(() => {
-    //     if(startAnimation){
-    //         const timeoutID = setTimeout(() => {
-    //             let copyOffset = dashOffset
-    //             const intervalID = setInterval(() => {
-    //                 console.log(copyOffset)
-    //                 let offsetEnd = true
-    //                 if(copyOffset >= 0){
-    //                     copyOffset -= configuration.animationSpeed
-    //                     offsetEnd = false
+    //                 if(copyPolylineDashOffset >= dashOffset - (dashArray * 2)){
+    //                     copyPolylineDashOffset -= animationRandomSpeed
+    //                     animationEnd = false
     //                 }else{
-    //                     copyOffset = 0
+    //                     copyPolylineDashOffset = dashArray - dashArray
     //                 }
 
-    //                 if(offsetEnd === true){
-    //                     setDashOffset(copyOffset)
-    //                     clearInterval(intervalID)
+    //                 if(animationEnd){
+    //                     setDashOffset(copyPolylineDashOffset)
+    //                     clearInterval(intervalID2)
     //                 }else{
-    //                     setDashOffset(copyOffset)
+    //                     setDashOffset(copyPolylineDashOffset)
     //                 }
     //             }, 10);
-                
-    //         }, configuration.timeout);
-    //         return () => clearInterval(timeoutID)
+    //         }, randomIntervalRandomAnimation);
+
+    //         return () => clearInterval(intervalID1)
     //     }
-    // }, [startAnimation])
-
-
-
-
-
-
-
-    
-
-    
-    
+    // }, [startRandomAnimation])
+       
 
     return{
-        polylineRef,
+        cx,
+        cy,
         dashArray,
         dashOffset,
-        points
+        circleDashArray,
+        circleDashOffset
     }
 }

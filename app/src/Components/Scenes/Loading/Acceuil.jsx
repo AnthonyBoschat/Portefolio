@@ -47,7 +47,7 @@ function Loading_Acceuil(){
             speed:2,
         },
         {
-            timeout:5000,
+            timeout:4000,
             sentence:
             `
 
@@ -57,44 +57,44 @@ function Loading_Acceuil(){
             Chargement du programme principal... `,
             speed:4,
         },
-        {timeout:5200, speed:4, sentence:
+        {timeout:4200, speed:4, sentence:
             `
             ... 0%`,
         },
-        {timeout:5300, speed:4, sentence:
+        {timeout:4300, speed:4, sentence:
             `
             ... 10%`,
         },
-        {timeout:5400, speed:4, sentence:
+        {timeout:4400, speed:4, sentence:
             `
             ... 20%`,
         },
-        {timeout:5500, speed:4, sentence:
+        {timeout:4500, speed:4, sentence:
             `
             ... 30%`,
         },
-        {timeout:5600, speed:4, sentence:
+        {timeout:4600, speed:4, sentence:
             `
             ... 40%`,
         },
-        {timeout:5700, speed:4, sentence:
+        {timeout:4700, speed:4, sentence:
             `
             ... 50%`,
         },
-        {timeout:5800, speed:4, sentence:
+        {timeout:4800, speed:4, sentence:
             `
             ... 60%`,
         },
-        {timeout:5900, speed:4, sentence:
+        {timeout:4900, speed:4, sentence:
             `
             ... 80%`,
         },
-        {timeout:6000, speed:4, sentence:
+        {timeout:5000, speed:4, sentence:
             `
             ... 99%`,
         },
         {
-            timeout:6500, speed:4,
+            timeout:5500, speed:4,
             sentence:
             `
             ... 100%`,
