@@ -1,28 +1,26 @@
 import React, { useEffect, useRef, useState } from "react";
 import Circuit from "./Circuit"
+import useCircuitCompiler from "./useCircuitCompiler";
 
 function CircuitCompiler(){
 
     const svgRef = useRef()
     const circuitCenterRef = useRef()
+    
 
-    const [polylinesPoints, setPolylinesPoints] = useState([
-        {timeout:0, animationSpeed:5},
-    ])
+    const {squarePoints} = useCircuitCompiler(svgRef, circuitCenterRef)
+    
 
     return(
         <>
-            <div ref={circuitCenterRef} className="circuitCenter">
+            <div ref={circuitCenterRef} className="circuitCenter"></div>
 
-            </div>
             <svg ref={svgRef} className="svgCircuit">
-                {polylinesPoints.map((configuration, index) => (
-                <Circuit
-                    configuration={configuration}
-                    index={index}
-                    svgRef={svgRef}
-                    circuitCenterRef={circuitCenterRef}
-                />))}
+                {squarePoints.map ( points => (
+                    <Circuit 
+                        points={points}
+                    />
+                ))}
             </svg>
         </>
         

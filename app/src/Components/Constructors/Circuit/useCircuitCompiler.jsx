@@ -1,75 +1,151 @@
 import React, { useEffect, useRef, useState } from "react";
 
-export default function useCircuit(index, svgRef, circuitCenterRef, configuration){
+export default function useCircuitCompiler(svgRef, circuitCenterRef){
 
-    const animationSpeed = 5
-    const polylineRef = useRef()
-    const [startAnimation, setStartAnimation] = useState(false)
-    const [dashArray, setDashArray] = useState(null)
-    const [dashOffset, setDashOffset] = useState(null)
-    const [points, setPoints] = useState(null)
-    const [pathConfiguration, setPathConfiguration] = useState(null)
+    
+    // const animationSpeed = 5
+    // const polylineRef = useRef()
+    // const [startAnimation, setStartAnimation] = useState(false)
+    // const [dashArray, setDashArray] = useState(null)
+    // const [dashOffset, setDashOffset] = useState(null)
+    // const [points, setPoints] = useState(null)
+    // const [pathConfiguration, setPathConfiguration] = useState(null)
     const [svgBounding, setSvgBounding] = useState(null)
     const [circuitBounding, setCircuitBounding] = useState(null)
-    const [squarePoints, setSquarePoints] = useState(null)
+    const [squarePoints, setSquarePoints] = useState([])
+    const [startCalcul, setStartCalcul] = useState(false)
 
+
+    const createDivergences = (i, a, insertion, spaceX, spaceY) => {
+        let divergences = ""
+        const insertionSplit = insertion.split(",")
+        const insertionX = insertionSplit[0]
+        const insertionY = insertionSplit[1]
+        console.log("insetionX => ",insertionX)
+        console.log("insetionY => ",insertionY)
+        if(i === 0){
+            if(a === 1){divergences += `${insertionX - (spaceX / 2)},${insertionY - (spaceY / 2)}`}
+            // if(a === 2){}
+            // if(a === 3){}
+            // if(a === 4){}
+            // if(a === 5){}
+            // if(a === 6){}
+            // if(a === 7){}
+            // if(a === 8){}
+            // if(a === 9){}
+        }
+        
+        return divergences
+        
+    }
+
+
+    useEffect(() => {
+        setStartCalcul(true)
+    }, [])
 
     // On commence par récupérer les dimensions des deux élément circuit et svg
     useEffect(() => {
-        if(svgRef.current && circuitCenterRef.current){
+        if(startCalcul){
             const svgBounding = svgRef.current.getBoundingClientRect()
             const circuitBounding = circuitCenterRef.current.getBoundingClientRect()
             setSvgBounding(svgBounding)
             setCircuitBounding(circuitBounding)
+            console.log("0 => ", svgBounding, circuitBounding)
+        }else{
+            console.log("error")
         }
-    }, [svgRef, circuitCenterRef])
+    }, [startCalcul])
 
+    
 
-    // Ensuite, avec les dimensions, on trouve la position des 36 points
-
+    // A partir du carré central, on créé 36 points, et on défini le goal, le point d'insertion, et les divergences
     useEffect(() => {
         if(circuitBounding && svgBounding){
             const squareWidth = circuitBounding.width // On trouve la longueur du carré
-            const squarePointStep = circuitBounding.width / 10 // On le divise par 9
+            const squarePointStep = circuitBounding.width / 9.5 // On le divise par 9.5
             const squareHeight = circuitBounding.top + circuitBounding.width
-            const topLeft = svgBounding.width / 2 - circuitBounding.width / 2 - 3 // On trouve la position haute gauche du carré
-            const bottomRight = svgBounding.width / 2 + circuitBounding.width / 2 - 3 // On trouve la position bas droite du carré
-            const spaceX = svgBounding.height - circuitBounding.height
-            const spaceY = svgBounding.width - circuitBounding.width
+            const topLeftX = svgBounding.width / 2 - circuitBounding.width / 2 - 3 // On trouve la position haute gauche du carré
+            const topLeftY = svgBounding.height / 2 - circuitBounding.height / 2 - 3 // On trouve la position haute gauche du carré
+            const bottomRightX = svgBounding.width / 2 + circuitBounding.width / 2 + 3 // On trouve la position bas droite du carré
+            const bottomRightY = svgBounding.height / 2 + circuitBounding.height / 2 + 3 // On trouve la position bas droite du carré
+            const spaceX = (svgBounding.width / 2 - circuitBounding.width / 2) / 10
+            const spaceY = (svgBounding.width / 2 - circuitBounding.width / 2) / 10
 
             const squarePoints = [] // On initialise un tableau vide qu'on va remplir de la position de tout les points
             for(let i = 0; i<4; i++){
                 switch(i){
                     case 0:
                         for(let a = 1; a<10; a++){
-                            let newPoint = `${topLeft + (a * squarePointStep)},${topLeft - spaceY} ${topLeft + (a * squarePointStep)},${topLeft} `
+                            let baseY = 80
+                            let differenceY = Math.abs(a-3) * 7
+                            if(a!==3){baseY -= differenceY}
+
+                            // const insertion = `${topLeftX + (a * squarePointStep)},${topLeftY - (spaceY + ((10 - a) * (spaceY / 25)))}`
+                            const goal = `${topLeftX + (a * squarePointStep)},${topLeftY}`
+                            const insertion = `${topLeftX + (a * squarePointStep)},${topLeftY - baseY}`
+                            // const divergences = createDivergences(i, a, insertion, spaceX, spaceY)
+                            // let newPoint = `${divergences} ${insertion} ${goal} `
+                            let newPoint = `${insertion} ${goal} `
                             squarePoints.push(newPoint)
                         }
                         continue
                     case 1:
                         for(let a = 1; a<10; a++){
-                            let newPoint = `${topLeft},${topLeft  + (a * squarePointStep)} `
+                            let baseX = 80
+                            let differenceX = Math.abs(a-7) * 7
+                            if(a!==7){baseX -= differenceX}
+
+
+                            const goal = `${topLeftX},${topLeftY  + (a * squarePointStep)}`
+                            const insertion = `${topLeftX - baseX},${topLeftY + (a * squarePointStep)}`
+                            let newPoint = `${insertion} ${goal} `
                             squarePoints.push(newPoint)
                         }
                         continue
                     case 2:
                         for(let a = 1; a<10; a++){
-                            let newPoint = `${bottomRight - (a * squarePointStep)},${bottomRight} `
+                            let baseY = 80
+                            let differenceY = Math.abs(a-3) * 7
+                            if(a!==3){baseY -= differenceY}
+
+                            const goal = `${bottomRightX - (a * squarePointStep)},${bottomRightY}`
+                            const insertion = `${bottomRightX - (a * squarePointStep)},${bottomRightY + baseY}`
+                            let newPoint = `${insertion} ${goal} `
                             squarePoints.push(newPoint)
                         }
                         continue
                     case 3:
                         for(let a = 1; a<10; a++){
-                            let newPoint = `${bottomRight},${bottomRight - (a * squarePointStep)} `
+                            let baseX = 80
+                            let differenceX = Math.abs(a-7) * 7
+                            if(a!==7){baseX -= differenceX}
+
+
+                            const goal = `${bottomRightX},${bottomRightY - (a * squarePointStep)}`
+                            const insertion = `${bottomRightX + baseX},${bottomRightY - (a * squarePointStep)}`
+                            let newPoint = `${insertion} ${goal} `
                             squarePoints.push(newPoint)
                         }
                         continue
                 }
             }
-            console.log(squarePoints)
-
+            setSquarePoints(squarePoints)
         }
     }, [circuitBounding, svgBounding])
+
+
+    useEffect(() => {
+        const handleResize = () => {
+            const svgBounding = svgRef.current.getBoundingClientRect()
+            const circuitBounding = circuitCenterRef.current.getBoundingClientRect()
+            setSvgBounding(svgBounding)
+            setCircuitBounding(circuitBounding)
+        }
+        window.addEventListener("resize", handleResize)
+        return () => window.removeEventListener("resize", handleResize)
+    }, [])
+    
 
 
 
@@ -226,9 +302,6 @@ export default function useCircuit(index, svgRef, circuitCenterRef, configuratio
     
 
     return{
-        polylineRef,
-        dashArray,
-        dashOffset,
-        points
+        squarePoints
     }
 }
