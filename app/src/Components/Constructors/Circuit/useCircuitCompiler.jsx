@@ -13,8 +13,6 @@ export default function useCircuitCompiler(svgRef, circuitCenterRef){
         const insertionSplit = insertion.split(",")
         const insertionX = parseInt(insertionSplit[0])
         const insertionY = parseInt(insertionSplit[1])
-        console.log("insetionX => ",insertionX)
-        console.log("insetionY => ",insertionY)
 
 
         if(i === 0){
