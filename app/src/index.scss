@@ -1,14 +1,39 @@
-@use "Sass/Function/Function.scss" as Function;
-@use "Sass/Animation-Class/Animation-class.scss";
-@use "Sass/Background-Color/Background-color-global.scss";
-@use "Components/Console/Console.scss";
-@use "Components/Cursor/Cursor.scss";
-@use "Components/Loading/Loading.scss";
-@use "Components/Main/Main.scss";
-@use "Components/Nav/Nav.scss";
-@use "Components/Render/Render.scss";
-@use "Components/Sphere/Sphere.scss";
-@use "Components/Projet/Projet.scss";
+@use "Sass/Function.scss" as Function;
+@use "Sass/Animation-class.scss";
+@use "Sass/Background-color-global.scss";
+
+
+
+@use "Components/Constructors/Console/Console.scss";
+@use "Components/Constructors/Cursor/Cursor.scss";
+@use "Components/Constructors/ProgressBar/ProgressBar.scss";
+@use "Components/Constructors/Language/Language.scss";
+@use "Components/Constructors/Hexagon/Hexagon.scss";
+@use "Components/Constructors/Polylines/Polylines.scss";
+@use "Components/Constructors/Circuit/Circuit.scss";
+
+
+@use "Components/Scenes/Loading/Loading.scss";
+
+@use "Components/Scenes/Main/Main.scss";
+@use "Components/Scenes/Nav/Nav.scss";
+@use "Components/Scenes/Render/Render.scss";
+@use "Components/Scenes/Sphere/Sphere.scss";
+@use "Components/Scenes/Projet/Projet.scss";
+@use "Components/Scenes/Button/Projet/Button_Projet.scss";
+@use "Components/Scenes/Contact/Contact.scss";
+@use "Components/Scenes/Profil/Profil.scss";
+@use "Components/Scenes/Presentation/Profil/Presentation_Profil.scss";
+@use "Components/Scenes/Presentation/Projet/Presentation_Projet.scss";
+@use "Components/Scenes/CV/CV.scss";
+@use "Components/Scenes/Svg/Mail/Mail.scss";
+
+
+@use "Components/Scenes/Nav/media.scss" as Media_Nav;
+@use "Components/Scenes/Main/media.scss" as Media_Main;
+@use "Components/Scenes/CV/media.scss" as Media_CV;
+@use "Components/Scenes/Profil/media.scss" as Media_Profil;
+
 
 
 *{margin: 0; padding: 0;}

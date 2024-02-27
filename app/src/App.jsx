@@ -1,12 +1,12 @@
 import "./Css/main.css"
 import {useSelector} from "react-redux"
-import LoadingLaunch from "./Components/Loading/Launch";
-import Main from "./Components/Main/Main";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LoadingAnimation from "./Components/Loading/Animation";
-import Projet from "./Components/Projet/Projet";
-import Profil from "./Components/Profil/Profil";
-import Contact from "./Components/Contact/Contact";
+import Loading_Launch from "./Components/Scenes/Loading/Launch";
+import Loading_Acceuil from "./Components/Scenes/Loading/Acceuil";
+import Main from "./Components/Scenes/Main/Main";
+import Projet from "./Components/Scenes/Projet/Projet";
+import Profil from "./Components/Scenes/Profil/Profil";
+import Contact from "./Components/Scenes/Contact/Contact";
 
 function App() {
 
@@ -16,12 +16,12 @@ function App() {
 
   return (
     <div className="app">
-      {onLoad && <LoadingLaunch />}
+      {onLoad && <Loading_Launch />}
       {!onLoad && (
         <Router>
           <Routes>
             <Route path="/" element={<Main />}>
-              <Route index element={<LoadingAnimation />} />
+              <Route index element={<Loading_Acceuil />} />
               <Route path="/Projet" element={<Projet />}/>
               <Route path="/Profil" element={<Profil />}/>
               <Route path="/Contact" element={<Contact />}/>

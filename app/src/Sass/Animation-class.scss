@@ -1,0 +1,119 @@
+@keyframes opacity-in{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.animationClass_opacity-in500{animation: opacity-in 0.5s linear forwards !important;}
+
+@keyframes opacity-out{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+.opacity-out200{animation: opacity-out 0.2s linear forwards !important;}
+.opacity-out300{animation: opacity-out 0.3s linear forwards !important;}
+.opacity-out500{animation: opacity-out 0.5s linear forwards !important;}
+.cursor-opacity-out{animation: opacity-out 0.5s ease forwards;}
+.presentationBox-opacity-out{animation: opacity-out 1s ease forwards !important;}
+.buttonProjet-opacity-out{animation: opacity-out 0.3s ease forwards !important;}
+.polylineDisapear{animation: opacity-out 0.5s 0.2s linear forwards}
+
+@keyframes content-move-leftToRight{
+    to{left:120%}
+}
+
+@keyframes content-move-topToBottom{
+    to{top: 100%;}
+}
+
+@keyframes animation-apparitionProjetPresentation{
+    from{flex-basis: 0%;}
+    to{flex-basis: 93%;}
+}
+
+@keyframes animation-disparitionProjetPresentation{
+    from{flex-basis: 93%;}
+    to{flex-basis: 0%;}
+}
+
+@keyframes display-hidden{
+    to{visibility: hidden;}
+}
+
+@keyframes animationLoadingCV{
+    0%{opacity: 0.3;}
+    25%{opacity: 1;}
+    50%{opacity: 0.3;}
+    100%{opacity: 0.3;}
+}
+
+@keyframes hexagon_svgFill{
+    from{fill: transparent;}
+    to{fill: rgba(250, 250, 250, 0.029);}
+}
+.animationClass_hexagon_svgFill{animation: hexagon_svgFill 0.3s linear forwards !important;}
+
+
+@keyframes mailIcon_In{
+    from{fill: transparent;}
+    to{fill: rgb(15, 65, 78);}
+}
+
+@keyframes mailIcon_Out{
+    from{fill: rgb(15, 65, 78);}
+    to{fill: transparent;}
+}
+.animationClass_mailIcon_Out{animation: mailIcon_Out 0.3s linear forwards !important;}
+
+@keyframes circle_svgFill_In{
+    from{fill: transparent;}
+    to{fill: rgb(15, 65, 78);}
+}
+.animationClass_circle_svgFill_In{animation: circle_svgFill_In 0.3s linear forwards !important;}
+
+
+@keyframes animationCheckIn{
+    0%{font-size: 0; opacity: 0;}
+    60%{font-size: 5rem; opacity: 1;}
+    80%{font-size: 5.5rem;}
+    100%{font-size: 4.5rem;}
+}
+
+@keyframes toggleCheck{
+    0%{font-size: 4.5rem;}
+    30%{font-size: 2.5rem;}
+    50%{font-size: 6rem;}
+    100%{font-size: 4.5rem;}
+}
+.animationClass_toggleCheck{animation: toggleCheck 0.5s linear forwards !important;}
+
+@keyframes iframeApparition{
+    to{display: flex;}
+}
+
+
+@keyframes masque-animation {
+    from {
+      -webkit-mask-position: 100% 0;
+      mask-position: 100% 0;
+    }
+    to {
+      -webkit-mask-position: 0 0;
+      mask-position: 0 0;
+    }
+  }
+
+
+@keyframes projetButtonBackgroundAnimation{
+    from{background-color: transparent;}
+    to{background-color: rgba(33, 135, 161, 0.231);}
+}
+.animationClass_projetButtonBackgroundAnimation{animation: projetButtonBackgroundAnimation 0.5s linear forwards !important;}
+
+

@@ -1,0 +1,10 @@
+.sphereAnimation{
+    opacity: 0;
+    animation: opacity-in 1s ease forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // outline: 1px solid red;
+    width: 100%;
+    height: 100%;
+}

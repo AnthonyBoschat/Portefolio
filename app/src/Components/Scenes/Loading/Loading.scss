@@ -1,0 +1,76 @@
+///////////// Launch
+.loadingDisplay{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .loadingBox{
+        width: 80%;
+        height: 80%;
+        // outline: 1px solid red;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5vw;
+
+        div.nameApparitionBox{
+            // outline: 1px solid white;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+
+            >div.nameApparition{
+                // outline: 1px solid;
+                color: white;
+                height: 5rem;
+                display: flex;
+                gap: 0.2em;
+                align-items: center;
+                font-size: 3rem;
+                width: fit-content;
+                position: relative;
+                padding-left: 0.5em;
+                padding-right: 0.5em;
+                opacity: 0;
+                animation: opacity-in 1s 0.5s ease forwards, opacity-out 1s 4s ease forwards;
+            }
+        }
+    }
+}
+
+.loadingCVBox{
+    // outline: 1px solid white; //
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+
+    >span{
+        background-color: white;
+        border-radius: 5px;
+        width: 0.5rem;
+        animation: animationLoadingCV 2s infinite;
+        opacity: 0.3;
+    }
+
+    >span.big{
+        height: 3rem;
+    }
+
+    >span.small{
+        height: 1.5rem;
+    }
+
+    span:nth-child(1){animation-delay: 0s;}
+    span:nth-child(2){animation-delay: 0.5s;}
+    span:nth-child(3){animation-delay: 1s;}
+}
+
+
+
+

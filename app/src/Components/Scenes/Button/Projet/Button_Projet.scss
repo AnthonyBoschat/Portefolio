@@ -1,0 +1,44 @@
+.projetBox{
+
+    padding-top: 4.03rem;
+    overflow-y: hidden;
+
+    button{
+        background-color: transparent;
+        position: relative;
+        flex-shrink: 0;
+        margin-top: 1rem;
+        flex-basis: 3rem;
+        width: 99%;
+        background-color: transparent; //
+        border: none;
+        transition: all 0.5s ease;
+
+        span.projetName{
+            font-size: 1.5rem;
+            opacity: 0;
+            color: white;
+        }
+        
+        
+    }
+
+    .buttonProjet{
+        &:hover{
+            cursor: pointer;
+            background-color: rgba(33, 135, 161, 0.34) !important;
+        }
+    }
+
+    .buttonProjetSelected{
+        background-color: rgba(33, 135, 161, 0.694) !important;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .buttonProjetUnselected{
+        animation:  opacity-out 0.3s ease forwards,
+                    display-hidden 0.1s 0.3s ease forwards !important;
+    }
+}

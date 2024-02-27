@@ -1,0 +1,83 @@
+svg.controleClassSVG{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    // background-color: rgba(255, 0, 0, 0.307);
+
+    polyline{
+        background-color: white;
+        fill: transparent;
+        stroke-width: 2;
+        stroke: rgba(255, 255, 255, 0.767);
+        // stroke: transparent;
+        stroke-opacity: 1;
+        
+    }
+
+    .polylineRect{
+        stroke-dasharray: 127%;
+        animation: mailIcon_In 0.3s 1.7s linear forwards;
+    }
+
+    .polylineArrow{
+        stroke-dasharray: 42%;
+    }
+
+
+
+
+
+
+    circle{
+        box-shadow: 0px 0px 10px inset black;
+        stroke: rgba(255, 255, 255, 0.765);
+        stroke-width: 2;
+        stroke-dasharray: 125%;
+    }
+
+    .checkIconeBox{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        // background-color: rgba(255, 0, 0, 0.301);
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 5px 5px 20px 2px black inset;
+        transition: all 0.3s linear;
+
+        &:hover{
+            cursor: pointer;
+            box-shadow: -5px -5px 20px 2px black inset;
+        }
+
+        i{
+            position: relative;
+            font-size: 0;
+            color: rgb(42, 140, 42);
+            animation: animationCheckIn 0.5s 0.4s linear forwards;
+            text-shadow: 4px 4px 10px black;
+            transition: all 0.3s linear;
+        }
+    }
+}
+
+
+
+
+svg.contact_animationConfirmSvg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    // background-color: rgba(255, 0, 0, 0.307); //
+
+    
+}
+
+
+
+
+
+

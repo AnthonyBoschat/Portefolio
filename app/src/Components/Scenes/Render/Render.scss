@@ -1,0 +1,21 @@
+.renderBox{
+    // background-color: rgba(0, 0, 255, 0.155); //
+    // outline: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+
+    canvas{
+        background-color: transparent;
+    }
+}
+
+.renderIn{
+    animation: opacity-in 1s ease forwards !important;
+}
+
+.renderOut{
+    animation: opacity-out 0.5s ease forwards !important;
+}
