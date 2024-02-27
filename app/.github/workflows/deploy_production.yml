@@ -1,0 +1,36 @@
+name: En cours de déploiement | Développement -> Production
+
+on:
+  push:
+    branches:
+      - production
+
+jobs: 
+  deploy:
+    runs-on: unbuntu-latest
+
+    steps:
+    - name: 🔐 Installation de la clef SSH
+      # Je donne à gitHub la clef pour se connecter à mon site
+      run: |
+        install -m 600 -D /dev/null ~/.ssh/id_rsa
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        ssh-keyscan -H ${{ vars.HOST }} > ~/.ssh/known_hosts
+
+    - name: 🚀 Déploiement en cours
+      # Je suis connecter sur le serveur, j'éxecute maintenant les commande nécessaire pour déployer
+      run: ssh ${{ secrets.SSH_USER }}@${{ vars.SERVER_HOST }} \
+          'sudo -u ${{ secrets.SSH_SERVER_USERNAME }} bash -c " \
+            cd ${{ vars.SERVER_WORK_DIR }} && \
+            git checkout production && \
+            git pull origin production && \
+            cd app && \
+            npm run build && \
+            exit \
+          "'
+
+    - name: ✨ Nettoyage de la mémoire
+      # C'est psychologique, je lance une commande ta mère sa race chaude, supprime les fichier indiqués, plusieurs fois
+      run: |
+        shred -vzn 3 ~/.ssh/id_rsa
+        shred -vzn 3 ~/.ssh/known_hosts
