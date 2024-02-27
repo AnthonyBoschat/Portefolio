@@ -50,7 +50,7 @@ export default function useCircuit(polylineRef){
     
 
     // Gère la première animation
-    const animationSpeed = 2
+    const animationSpeed = 3
     const timeOutRandom = (Math.random() * 2) * 500
     
     useEffect(() => {
@@ -99,37 +99,37 @@ export default function useCircuit(polylineRef){
 
 
     
-    // // Gère la deuxième animation periodique
-    // const animationRandomSpeed = 4
-    // const randomIntervalRandomAnimation = (Math.floor(Math.random() * (10-2) + 1)) * 1000
+    // Gère la deuxième animation periodique
+    const animationRandomSpeed = 8
+    const randomIntervalRandomAnimation = (Math.floor(Math.random() * (10-4) + 4)) * 1000
 
-    // useEffect(() => {
-    //     if(startRandomAnimation){
+    useEffect(() => {
+        if(startRandomAnimation){
 
-    //         let copyPolylineDashOffset = polylineDashOffset
+            let copyPolylineDashOffset = polylineDashOffset
             
-    //         const intervalID1 = setInterval(() => {
-    //             const intervalID2 = setInterval(() => {
-    //                 let animationEnd = true
+            const intervalID1 = setInterval(() => {
+                const intervalID2 = setInterval(() => {
+                    let animationEnd = true
 
-    //                 if(copyPolylineDashOffset >= polylineDashOffset - (polylineDashArray * 2)){
-    //                     copyPolylineDashOffset -= animationRandomSpeed
-    //                     animationEnd = false
-    //                 }else{
-    //                     copyPolylineDashOffset = polylineDashArray - polylineDashArray
-    //                 }
-
-
-    //                 setPolylineDashOffset(copyPolylineDashOffset)
-    //                 if(animationEnd){clearInterval(intervalID2)}
+                    if(copyPolylineDashOffset >= polylineDashOffset - (polylineDashArray * 2)){
+                        copyPolylineDashOffset -= animationRandomSpeed
+                        animationEnd = false
+                    }else{
+                        copyPolylineDashOffset = polylineDashArray - polylineDashArray
+                    }
 
 
-    //             }, 10);
-    //         }, randomIntervalRandomAnimation);
+                    setPolylineDashOffset(copyPolylineDashOffset)
+                    if(animationEnd){clearInterval(intervalID2)}
 
-    //         return () => clearInterval(intervalID1)
-    //     }
-    // }, [startRandomAnimation])
+
+                }, 10);
+            }, randomIntervalRandomAnimation);
+
+            return () => clearInterval(intervalID1)
+        }
+    }, [startRandomAnimation])
        
 
     return{

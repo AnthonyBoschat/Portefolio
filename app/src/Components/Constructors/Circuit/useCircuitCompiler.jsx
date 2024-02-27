@@ -15,46 +15,756 @@ export default function useCircuitCompiler(svgRef, circuitCenterRef){
         const insertionY = parseInt(insertionSplit[1])
         console.log("insetionX => ",insertionX)
         console.log("insetionY => ",insertionY)
+
+
         if(i === 0){
-            if(a === 1){divergences += `${insertionX - (spaceX / 2)},${insertionY - (spaceY / 2)}`}
-            if(a === 2){divergences += `${insertionX - (spaceX / 2)},${insertionY - (spaceY / 2)}`}
-            if(a === 3){divergences += `${insertionX - (spaceX / 2)},${insertionY - (spaceY / 2)}`}
-            if(a === 4){divergences += `${insertionX + (spaceX / 2)},${insertionY - (spaceY / 2)}`}
-            if(a === 5){divergences += `${insertionX + (spaceX / 2)},${insertionY - (spaceY / 2)}`}
-            if(a === 6){divergences += `${insertionX + (spaceX / 2)},${insertionY - (spaceY / 2)}`}
-            if(a === 7){divergences += `${insertionX + (spaceX / 2)},${insertionY - (spaceY / 2)}`}
-            if(a === 8){divergences += `${insertionX + (spaceX / 2)},${insertionY - (spaceY / 2)}`}
-            if(a === 9){divergences += `${insertionX + (spaceX / 2)},${insertionY - (spaceY / 2)}`}
-        }else if(i === 1){
-            if(a === 1){divergences += `${insertionX - (spaceX / 2)},${insertionY - (spaceY / 2)}`}
-            if(a === 2){divergences += `${insertionX - (spaceX / 2)},${insertionY - (spaceY / 2)}`}
-            if(a === 3){divergences += `${insertionX - (spaceX / 2)},${insertionY - (spaceY / 2)}`}
-            if(a === 4){divergences += `${insertionX - (spaceX / 2)},${insertionY - (spaceY / 2)}`}
-            if(a === 5){divergences += `${insertionX - (spaceX / 2)},${insertionY - (spaceY / 2)}`}
-            if(a === 6){divergences += `${insertionX - (spaceX / 2)},${insertionY + (spaceY / 2)}`}
-            if(a === 7){divergences += `${insertionX - (spaceX / 2)},${insertionY + (spaceY / 2)}`}
-            if(a === 8){divergences += `${insertionX - (spaceX / 2)},${insertionY + (spaceY / 2)}`}
-            if(a === 9){divergences += `${insertionX - (spaceX / 2)},${insertionY + (spaceY / 2)}`}
-        }else if(i === 2){
-            if(a === 1){divergences += `${insertionX + (spaceX / 2)},${insertionY + (spaceY / 2)}`}
-            if(a === 2){divergences += `${insertionX + (spaceX / 2)},${insertionY + (spaceY / 2)}`}
-            if(a === 3){divergences += `${insertionX + (spaceX / 2)},${insertionY + (spaceY / 2)}`}
-            if(a === 4){divergences += `${insertionX - (spaceX / 2)},${insertionY + (spaceY / 2)}`}
-            if(a === 5){divergences += `${insertionX - (spaceX / 2)},${insertionY + (spaceY / 2)}`}
-            if(a === 6){divergences += `${insertionX - (spaceX / 2)},${insertionY + (spaceY / 2)}`}
-            if(a === 7){divergences += `${insertionX - (spaceX / 2)},${insertionY + (spaceY / 2)}`}
-            if(a === 8){divergences += `${insertionX - (spaceX / 2)},${insertionY + (spaceY / 2)}`}
-            if(a === 9){divergences += `${insertionX - (spaceX / 2)},${insertionY + (spaceY / 2)}`}
-        }else if(i === 3){
-            if(a === 1){divergences += `${insertionX + (spaceX / 2)},${insertionY + (spaceY / 2)}`}
-            if(a === 2){divergences += `${insertionX + (spaceX / 2)},${insertionY + (spaceY / 2)}`}
-            if(a === 3){divergences += `${insertionX + (spaceX / 2)},${insertionY + (spaceY / 2)}`}
-            if(a === 4){divergences += `${insertionX + (spaceX / 2)},${insertionY + (spaceY / 2)}`}
-            if(a === 5){divergences += `${insertionX + (spaceX / 2)},${insertionY + (spaceY / 2)}`}
-            if(a === 6){divergences += `${insertionX + (spaceX / 2)},${insertionY - (spaceY / 2)}`}
-            if(a === 7){divergences += `${insertionX + (spaceX / 2)},${insertionY - (spaceY / 2)}`}
-            if(a === 8){divergences += `${insertionX + (spaceX / 2)},${insertionY - (spaceY / 2)}`}
-            if(a === 9){divergences += `${insertionX + (spaceX / 2)},${insertionY - (spaceY / 2)}`}
+
+            if(a <= 4){
+
+                if(a === 1){
+                    const x0 = insertionX - (spaceX / 2)
+                    const y0 = insertionY - (spaceY / 2)
+                    const x1 = x0
+                    const y1 = insertionY - (spaceY / 1.2)
+                    const x2 = x1 - (spaceX / 4)
+                    const y2 = y1 - (spaceY / 4)
+                    const x3 = x2 - (spaceX / 1)
+                    const y3 = y2
+                    const x4 = x3 - (spaceX / 3)
+                    const y4 = y3 - (spaceY / 3)
+                    const x5 = x4
+                    const y5 = y4 - (spaceY / 2)
+                    const x6 = x5 - spaceX / 2
+                    const y6 = y5 - spaceY / 2
+                    const x7 = x6 
+                    const y7 = y6 - spaceY / 1
+                    divergences += `${x7},${y7} ${x6},${y6} ${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if(a === 2){
+                    const x0 = insertionX - (spaceX / 2.5)
+                    const y0 = insertionY - (spaceY / 2.5)
+                    const x1 = x0
+                    const y1 = insertionY - (spaceY / 1.1)
+                    const x2 = x1 - (spaceX / 3)
+                    const y2 = y1 - (spaceY / 3)
+                    const x3 = x2 - (spaceX / 3)
+                    const y3 = y2
+                    const x4 = x3 - (spaceX / 3)
+                    const y4 = y3 - (spaceY / 3)
+                    const x5 = x4 
+                    const y5 = y4 - (spaceY / 2)
+                    const x6 = x5 - (spaceX / 2) 
+                    const y6 = y5 - (spaceY / 2)
+                    const x7 = x6
+                    const y7 = y6 - spaceY / 2
+                    divergences += `${x7},${y7} ${x6},${y6} ${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if(a === 3){
+                    const x0 = insertionX - (spaceX / 3)
+                    const y0 = insertionY - (spaceY / 3)
+                    const x1 = x0
+                    const y1 = insertionY - (spaceY / 0.8)
+                    const x2 = x1 - (spaceX / 5)
+                    const y2 = y1 - (spaceY / 5)
+                    const x3 = x2
+                    const y3 = y2 - (spaceY / 1.4)
+
+                    divergences += `${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if(a === 4){
+                    const x0 = insertionX - (spaceX / 3.5)
+                    const y0 = insertionY - (spaceY / 3.5)
+                    const x1 = x0 
+                    const y1 = insertionY - (spaceY / 1.2)
+                    const x2 = x0 + (spaceX / 3.5)
+                    const y2 = y1 - (spaceY / 3.5)
+                    const x3 = x2 
+                    const y3 = y2 - (spaceY / 0.6)
+
+                    divergences += `${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+            }
+            else if(a > 4){
+                if(a === 5){
+                    const x0 = insertionX + (spaceX / 2)
+                    const y0 = insertionY - (spaceY / 2)
+
+                    const x1 = x0 
+                    const y1 = y0 - (spaceY / 2)
+
+                    const x2 = x1 - (spaceX / 3)
+                    const y2 = y1 - (spaceY / 3)
+
+                    const x3 = x2
+                    const y3 = y2 - (spaceY / 1.5)
+
+                    divergences += `${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if(a === 6){
+                    const x0 = insertionX + (spaceX / 2)
+                    const y0 = insertionY - (spaceY / 2)
+
+                    const x1 = x0 + spaceX / 2
+                    const y1 = y0
+
+                    const x2 = x1 + spaceX / 3
+                    const y2 = y1 - spaceY / 3
+
+                    const x3 = x2
+                    const y3 = y2 - spaceY / 2
+
+                    const x4 = x3 - spaceX / 3
+                    const y4 = y3 - spaceY / 3
+
+                    const x5 = x4
+                    const y5 = y4 - spaceY / 1.5
+
+                    const x6 = x5 - spaceX / 3
+                    const y6 = y5 - spaceY / 3
+
+                    const x7 = x6
+                    const y7 = y6 - spaceY / 1
+
+
+                    divergences += `${x7},${y7} ${x6},${y6} ${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if(a === 7){
+                    const x0 = insertionX + (spaceX / 2)
+                    const y0 = insertionY - (spaceY / 2)
+
+                    const x1 = x0 + spaceX / 2
+                    const y1 = y0
+
+                    const x2 = x1 + spaceX / 3
+                    const y2 = y1 - spaceY / 3
+
+                    const x3 = x2
+                    const y3 = y2 - spaceY / 1
+
+                    const x4 = x3 - spaceX / 3
+                    const y4 = y3 - spaceY / 3
+
+                    const x5 = x4
+                    const y5 = y4 - spaceY / 1
+
+                    divergences += `${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+
+                }
+                else if(a === 8){
+                    const x0 = insertionX + (spaceX / 2)
+                    const y0 = insertionY - (spaceY / 2)
+
+                    const x1 = x0 + spaceX / 2
+                    const y1 = y0
+
+                    const x2 = x1 + spaceX / 3
+                    const y2 = y1 - spaceY / 3
+
+                    const x3 = x2
+                    const y3 = y2 - spaceY / 0.5
+
+                    const x4 = x3 - spaceX / 4
+                    const y4 = y3 - spaceY / 4
+
+                    const x5 = x4
+                    const y5 = y4 - spaceY / 1
+
+                    divergences += `${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if(a === 9){
+                    const x0 = insertionX + (spaceX / 2)
+                    const y0 = insertionY - (spaceY / 2)
+                    const x1 = x0 + spaceX / 2
+                    const y1 = y0
+                    const x2 = x1 + spaceX / 3
+                    const y2 = y1 - spaceY / 3
+                    const x3 = x2
+                    const y3 = y1 - spaceY / 0.8
+                    const x4 = x3 + spaceX / 2
+                    const y4 = y3 - spaceY / 2
+                    const x5 = x4
+                    const y5 = y4 - spaceY / 0.8
+                    const x6 = x5 - spaceX / 4
+                    const y6 = y5 - spaceY / 4
+                    const x7 = x6 
+                    const y7 = y6 - spaceY / 2
+
+                    divergences += `${x7},${y7} ${x6},${y6} ${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+            }
+
+        }
+
+        else if(i === 1){
+
+            if(a < 6){
+                if(a === 1){
+                    const x0 = insertionX - (spaceX / 2)
+                    const y0 = insertionY - (spaceY / 2)
+
+                    const x1 = x0 
+                    const y1 = y0 - (spaceY / 2)
+
+                    const x2 = x1 - (spaceX / 3)
+                    const y2 = y1 - (spaceY / 3)
+
+                    const x3 = x2
+                    const y3 = y2 - (spaceY / 5)
+
+                    divergences += `${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if(a === 2){
+                    const x0 = insertionX - (spaceX / 2)
+                    const y0 = insertionY - (spaceY / 2)
+
+                    const x1 = x0 - spaceX / 2
+                    const y1 = y0
+
+                    const x2 = x1 - spaceX / 3
+                    const y2 = y1 - spaceY / 3
+
+                    const x3 = x2
+                    const y3 = y2 - spaceY / 2
+
+                    const x4 = x3 - spaceX / 3
+                    const y4 = y3 - spaceY / 3
+
+                    const x5 = x4
+                    const y5 = y4 - spaceY / 1.5
+
+                    const x6 = x5 - spaceX / 3
+                    const y6 = y5 - spaceY / 3
+
+                    const x7 = x6
+                    const y7 = y6 - spaceY / 1
+
+
+                    divergences += `${x7},${y7} ${x6},${y6} ${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if(a === 3){
+                    const x0 = insertionX - (spaceX / 2)
+                    const y0 = insertionY - (spaceY / 2)
+
+                    const x1 = x0 - spaceX / 2
+                    const y1 = y0
+
+                    const x2 = x1 - spaceX / 1
+                    const y2 = y1 - spaceY / 1
+
+                    const x3 = x2
+                    const y3 = y2 - spaceY / 1
+
+                    const x4 = x3 - spaceX / 1
+                    const y4 = y3 - spaceY / 1
+
+                    const x5 = x4
+                    const y5 = y4 - spaceY / 1
+
+                    divergences += `${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if(a === 4){
+                    const x0 = insertionX - (spaceX / 2)
+                    const y0 = insertionY - (spaceY / 2)
+
+                    const x1 = x0 - spaceX / 2
+                    const y1 = y0
+
+                    const x2 = x1 - spaceX / 3
+                    const y2 = y1 - spaceY / 3
+
+                    const x3 = x2 - spaceY / 0.5
+                    const y3 = y2 
+
+                    const x4 = x3 - spaceX / 4
+                    const y4 = y3 - spaceY / 4
+
+                    const x5 = x4
+                    const y5 = y4 - spaceY / 1
+
+                    divergences += `${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if(a === 5){
+                    const x0 = insertionX - (spaceX / 2)
+                    const y0 = insertionY - (spaceY / 2)
+
+                    const x1 = x0 - spaceX / 2
+                    const y1 = y0
+                    
+                    const x2 = x1 - spaceX / 3
+                    const y2 = y1 - spaceY / 3
+
+                    const x3 = x2 - spaceX / 0.8
+                    const y3 = y2 
+
+                    const x4 = x3 - spaceX / 2
+                    const y4 = y3 + spaceY / 2
+
+                    const x5 = x4 - spaceY / 0.8
+                    const y5 = y4 
+
+                    const x6 = x5 - spaceX / 4
+                    const y6 = y5 - spaceY / 4
+                    
+                    const x7 = x6 
+                    const y7 = y6 - spaceY / 2
+
+                    divergences += `${x7},${y7} ${x6},${y6} ${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+            }
+            else if(a >= 6){
+                if(a === 9){
+                    const x0 = insertionX - (spaceX / 3)
+                    const y0 = insertionY + (spaceY / 3)
+                    const x1 = x0
+                    const y1 = y0 + (spaceY / 1.1)
+                    const x2 = x1 - (spaceX / 3)
+                    const y2 = y1 + (spaceY / 3)
+                    const x3 = x2 - (spaceX / 3)
+                    const y3 = y2
+                    const x4 = x3 - (spaceX / 3)
+                    const y4 = y3 + (spaceY / 3)
+                    const x5 = x4 
+                    const y5 = y4 + (spaceY / 2)
+                    const x6 = x5 - (spaceX / 2) 
+                    const y6 = y5 + (spaceY / 2)
+                    const x7 = x6
+                    const y7 = y6 + spaceY / 2
+                    divergences += `${x7},${y7} ${x6},${y6} ${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+
+
+                    
+                }
+                else if(a === 8){
+                    const x0 = insertionX - (spaceX / 3)
+                    const y0 = insertionY + (spaceY / 3)
+                    const x1 = x0
+                    const y1 = y0 + (spaceY / 1.2)
+                    const x2 = x1 - (spaceX / 4)
+                    const y2 = y1 + (spaceY / 4)
+                    const x3 = x2 - (spaceX / 1)
+                    const y3 = y2
+                    const x4 = x3 - (spaceX / 3)
+                    const y4 = y3 + (spaceY / 3)
+                    const x5 = x4
+                    const y5 = y4 + (spaceY / 2)
+                    const x6 = x5 - spaceX / 2
+                    const y6 = y5 + spaceY / 2
+                    const x7 = x6 - spaceX / 1
+                    const y7 = y6
+                    divergences += `${x7},${y7} ${x6},${y6} ${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if(a === 7){
+                    const x0 = insertionX - (spaceX / 3)
+                    const y0 = insertionY + (spaceY / 3)
+                    
+                    const x1 = x0 - (spaceX / 0.8)
+                    const y1 = y0
+                    
+                    const x2 = x1 - (spaceX / 5)
+                    const y2 = y1 + (spaceY / 5)
+                    
+                    const x3 = x2 - (spaceX / 1.4)
+                    const y3 = y2
+                    
+
+
+                    divergences += `${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if(a === 6){
+                    const x0 = insertionX - (spaceX / 3.5)
+                    const y0 = insertionY + (spaceY / 3.5)
+
+                    const x1 = x0 - (spaceX / 1.2)
+                    const y1 = y0
+
+                    const x2 = x1 - (spaceX / 3.5)
+                    const y2 = y1 - (spaceY / 3.5)
+
+                    const x3 = x2 - (spaceX / 0.6)
+                    const y3 = y2
+
+                    divergences += `${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else{
+                    divergences += `${insertionX - (spaceX / 2)},${insertionY + (spaceY / 2)}`
+                }
+                
+            }
+        }
+        
+        else if(i === 2){
+
+            if(a <= 4){
+                if (a === 1) {
+                    const x0 = insertionX + (spaceX / 2)
+                    const y0 = insertionY + (spaceY / 2)
+                    const x1 = x0
+                    const y1 = insertionY + (spaceY / 1.2)
+                    const x2 = x1 + (spaceX / 4)
+                    const y2 = y1 + (spaceY / 4)
+                    const x3 = x2 + (spaceX / 1)
+                    const y3 = y2
+                    const x4 = x3 + (spaceX / 3)
+                    const y4 = y3 + (spaceY / 3)
+                    const x5 = x4
+                    const y5 = y4 + (spaceY / 2)
+                    const x6 = x5 + spaceX / 2
+                    const y6 = y5 + spaceY / 2
+                    const x7 = x6 
+                    const y7 = y6 + spaceY / 1
+                    divergences += `${x7},${y7} ${x6},${y6} ${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if (a === 2) {
+                    const x0 = insertionX + (spaceX / 2.5)
+                    const y0 = insertionY + (spaceY / 2.5)
+                    const x1 = x0
+                    const y1 = insertionY + (spaceY / 1.1)
+                    const x2 = x1 + (spaceX / 3)
+                    const y2 = y1 + (spaceY / 3)
+                    const x3 = x2 + (spaceX / 3)
+                    const y3 = y2
+                    const x4 = x3 + (spaceX / 3)
+                    const y4 = y3 + (spaceY / 3)
+                    const x5 = x4 
+                    const y5 = y4 + (spaceY / 2)
+                    const x6 = x5 + (spaceX / 2) 
+                    const y6 = y5 + (spaceY / 2)
+                    const x7 = x6
+                    const y7 = y6 + spaceY / 2
+                    divergences += `${x7},${y7} ${x6},${y6} ${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                    
+                }
+                else if(a === 3){
+                    const x0 = insertionX + (spaceX / 3)
+                    const y0 = insertionY + (spaceY / 3)
+                    const x1 = x0
+                    const y1 = insertionY + (spaceY / 0.8)
+                    const x2 = x1 + (spaceX / 5)
+                    const y2 = y1 + (spaceY / 5)
+                    const x3 = x2
+                    const y3 = y2 + (spaceY / 1.4)
+
+                    divergences += `${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if(a === 4){
+                    const x0 = insertionX + (spaceX / 3.5)
+                    const y0 = insertionY + (spaceY / 3.5)
+                    const x1 = x0 
+                    const y1 = insertionY + (spaceY / 1.2)
+                    const x2 = x0 - (spaceX / 3.5)
+                    const y2 = y1 + (spaceY / 3.5)
+                    const x3 = x2 
+                    const y3 = y2 + (spaceY / 0.6)
+
+                    divergences += `${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                
+            }
+            else if(a > 4){
+                if(a === 5){
+                    const x0 = insertionX - (spaceX / 2)
+                    const y0 = insertionY + (spaceY / 2)
+
+                    const x1 = x0 
+                    const y1 = y0 + (spaceY / 2)
+
+                    const x2 = x1 + (spaceX / 3)
+                    const y2 = y1 + (spaceY / 3)
+
+                    const x3 = x2
+                    const y3 = y2 + (spaceY / 1.5)
+
+                    divergences += `${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if(a === 6){
+                    const x0 = insertionX - (spaceX / 2)
+                    const y0 = insertionY + (spaceY / 2)
+
+                    const x1 = x0 - spaceX / 2
+                    const y1 = y0
+
+                    const x2 = x1 - spaceX / 3
+                    const y2 = y1 + spaceY / 3
+
+                    const x3 = x2
+                    const y3 = y2 + spaceY / 2
+
+                    const x4 = x3 + spaceX / 3
+                    const y4 = y3 + spaceY / 3
+
+                    const x5 = x4
+                    const y5 = y4 + spaceY / 1.5
+
+                    const x6 = x5 + spaceX / 3
+                    const y6 = y5 + spaceY / 3
+
+                    const x7 = x6
+                    const y7 = y6 + spaceY / 1
+
+
+                    divergences += `${x7},${y7} ${x6},${y6} ${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if(a === 7){
+                    const x0 = insertionX - (spaceX / 2)
+                    const y0 = insertionY + (spaceY / 2)
+
+                    const x1 = x0 - spaceX / 2
+                    const y1 = y0
+
+                    const x2 = x1 - spaceX / 3
+                    const y2 = y1 + spaceY / 3
+
+                    const x3 = x2
+                    const y3 = y2 + spaceY / 1
+
+                    const x4 = x3 + spaceX / 3
+                    const y4 = y3 + spaceY / 3
+
+                    const x5 = x4
+                    const y5 = y4 + spaceY / 1
+
+                    divergences += `${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if(a === 8){
+                    const x0 = insertionX - (spaceX / 2)
+                    const y0 = insertionY + (spaceY / 2)
+
+                    const x1 = x0 - spaceX / 2
+                    const y1 = y0
+
+                    const x2 = x1 - spaceX / 3
+                    const y2 = y1 + spaceY / 3
+
+                    const x3 = x2
+                    const y3 = y2 + spaceY / 0.5
+
+                    const x4 = x3 + spaceX / 4
+                    const y4 = y3 + spaceY / 4
+
+                    const x5 = x4
+                    const y5 = y4 + spaceY / 1
+
+                    divergences += `${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if(a === 9){
+                    const x0 = insertionX - (spaceX / 2)
+                    const y0 = insertionY + (spaceY / 2)
+                    const x1 = x0 - spaceX / 2
+                    const y1 = y0
+                    const x2 = x1 - spaceX / 3
+                    const y2 = y1 + spaceY / 3
+                    const x3 = x2
+                    const y3 = y1 + spaceY / 0.8
+                    const x4 = x3 - spaceX / 2
+                    const y4 = y3 + spaceY / 2
+                    const x5 = x4
+                    const y5 = y4 + spaceY / 0.8
+                    const x6 = x5 + spaceX / 4
+                    const y6 = y5 + spaceY / 4
+                    const x7 = x6 
+                    const y7 = y6 + spaceY / 2
+
+                    divergences += `${x7},${y7} ${x6},${y6} ${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+            }
+
+        }
+        
+        else if(i === 3){
+
+            if(a < 6){
+                if(a === 1){
+                    const x0 = insertionX + (spaceX / 2)
+                    const y0 = insertionY + (spaceY / 2)
+
+                    const x1 = x0 
+                    const y1 = y0 + (spaceY / 2)
+
+                    const x2 = x1 + (spaceX / 3)
+                    const y2 = y1 + (spaceY / 3)
+
+                    const x3 = x2
+                    const y3 = y2 + (spaceY / 5)
+
+                    divergences += `${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if(a === 2){
+                    const x0 = insertionX + (spaceX / 2)
+                    const y0 = insertionY + (spaceY / 2)
+
+                    const x1 = x0 + spaceX / 2
+                    const y1 = y0
+
+                    const x2 = x1 + spaceX / 3
+                    const y2 = y1 + spaceY / 3
+
+                    const x3 = x2
+                    const y3 = y2 + spaceY / 2
+
+                    const x4 = x3 + spaceX / 3
+                    const y4 = y3 + spaceY / 3
+
+                    const x5 = x4
+                    const y5 = y4 + spaceY / 1.5
+
+                    const x6 = x5 + spaceX / 3
+                    const y6 = y5 + spaceY / 3
+
+                    const x7 = x6
+                    const y7 = y6 + spaceY / 1
+
+
+                    divergences += `${x7},${y7} ${x6},${y6} ${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if(a === 3){
+                    const x0 = insertionX + (spaceX / 2)
+                    const y0 = insertionY + (spaceY / 2)
+
+                    const x1 = x0 + spaceX / 2
+                    const y1 = y0
+
+                    const x2 = x1 + spaceX / 1
+                    const y2 = y1 + spaceY / 1
+
+                    const x3 = x2
+                    const y3 = y2 + spaceY / 1
+
+                    const x4 = x3 + spaceX / 1
+                    const y4 = y3 + spaceY / 1
+
+                    const x5 = x4
+                    const y5 = y4 + spaceY / 1
+
+                    divergences += `${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if(a === 4){
+                    const x0 = insertionX + (spaceX / 2)
+                    const y0 = insertionY + (spaceY / 2)
+
+                    const x1 = x0 + spaceX / 2
+                    const y1 = y0
+
+                    const x2 = x1 + spaceX / 3
+                    const y2 = y1 + spaceY / 3
+
+                    const x3 = x2 + spaceY / 0.5
+                    const y3 = y2 
+
+                    const x4 = x3 + spaceX / 4
+                    const y4 = y3 + spaceY / 4
+
+                    const x5 = x4
+                    const y5 = y4 + spaceY / 1
+
+                    divergences += `${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if(a === 5){
+                    const x0 = insertionX + (spaceX / 2)
+                    const y0 = insertionY + (spaceY / 2)
+
+                    const x1 = x0 + spaceX / 2
+                    const y1 = y0
+                    
+                    const x2 = x1 + spaceX / 3
+                    const y2 = y1 + spaceY / 3
+
+                    const x3 = x2 + spaceX / 0.8
+                    const y3 = y2 
+
+                    const x4 = x3 + spaceX / 2
+                    const y4 = y3 - spaceY / 2
+
+                    const x5 = x4 + spaceY / 0.8
+                    const y5 = y4 
+
+                    const x6 = x5 + spaceX / 4
+                    const y6 = y5 + spaceY / 4
+                    
+                    const x7 = x6 
+                    const y7 = y6 + spaceY / 2
+
+                    divergences += `${x7},${y7} ${x6},${y6} ${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+            }
+            else if(a >= 6){
+                if(a === 9){
+                    const x0 = insertionX + (spaceX / 3)
+                    const y0 = insertionY - (spaceY / 3)
+                    const x1 = x0
+                    const y1 = y0 - (spaceY / 1.1)
+                    const x2 = x1 + (spaceX / 3)
+                    const y2 = y1 - (spaceY / 3)
+                    const x3 = x2 + (spaceX / 3)
+                    const y3 = y2
+                    const x4 = x3 + (spaceX / 3)
+                    const y4 = y3 - (spaceY / 3)
+                    const x5 = x4 
+                    const y5 = y4 - (spaceY / 2)
+                    const x6 = x5 + (spaceX / 2) 
+                    const y6 = y5 - (spaceY / 2)
+                    const x7 = x6
+                    const y7 = y6 - spaceY / 2
+                    divergences += `${x7},${y7} ${x6},${y6} ${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+
+
+                    
+                }
+                else if(a === 8){
+                    const x0 = insertionX + (spaceX / 3)
+                    const y0 = insertionY - (spaceY / 3)
+                    const x1 = x0
+                    const y1 = y0 - (spaceY / 1.2)
+                    const x2 = x1 + (spaceX / 4)
+                    const y2 = y1 - (spaceY / 4)
+                    const x3 = x2 + (spaceX / 1)
+                    const y3 = y2
+                    const x4 = x3 + (spaceX / 3)
+                    const y4 = y3 - (spaceY / 3)
+                    const x5 = x4
+                    const y5 = y4 - (spaceY / 2)
+                    const x6 = x5 + spaceX / 2
+                    const y6 = y5 - spaceY / 2
+                    const x7 = x6 + spaceX / 1
+                    const y7 = y6
+                    divergences += `${x7},${y7} ${x6},${y6} ${x5},${y5} ${x4},${y4} ${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if(a === 7){
+                    const x0 = insertionX + (spaceX / 3)
+                    const y0 = insertionY - (spaceY / 3)
+                    
+                    const x1 = x0 + (spaceX / 0.8)
+                    const y1 = y0
+                    
+                    const x2 = x1 + (spaceX / 5)
+                    const y2 = y1 - (spaceY / 5)
+                    
+                    const x3 = x2 + (spaceX / 1.4)
+                    const y3 = y2
+                    
+
+
+                    divergences += `${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else if(a === 6){
+                    const x0 = insertionX + (spaceX / 3.5)
+                    const y0 = insertionY - (spaceY / 3.5)
+
+                    const x1 = x0 + (spaceX / 1.2)
+                    const y1 = y0
+
+                    const x2 = x1 + (spaceX / 3.5)
+                    const y2 = y1 + (spaceY / 3.5)
+
+                    const x3 = x2 + (spaceX / 0.6)
+                    const y3 = y2
+
+                    divergences += `${x3},${y3} ${x2},${y2} ${x1},${y1} ${x0},${y0} `
+                }
+                else{
+                    divergences += `${insertionX - (spaceX / 2)},${insertionY + (spaceY / 2)}`
+                }
+                
+            }
         }
         
         
