@@ -5,14 +5,14 @@ function Circuit({points}){
     
     const polylineRef = useRef()
     
-    const {cx, cy, dashArray, dashOffset, circleDashArray, circleDashOffset} = useCircuit(polylineRef)
+    const {cx, cy, polylineDashArray, polylineDashOffset, circleDashArray, circleDashOffset} = useCircuit(polylineRef)
 
     return(
         <>
             
             <polyline
-                strokeDasharray={dashArray}
-                strokeDashoffset={dashOffset}
+                strokeDasharray={polylineDashArray}
+                strokeDashoffset={polylineDashOffset}
                 ref={polylineRef}
                 points={points}
             />

@@ -5,8 +5,8 @@ export default function useCircuit(polylineRef){
     
     const [cx, setcX] = useState(null) // position X du cercle
     const [cy, setcY] = useState(null) // position Y du cercle
-    const [dashArray, setDashArray] = useState(null)
-    const [dashOffset, setDashOffset] = useState(null)
+    const [polylineDashArray, setPolylineDashArray] = useState(null)
+    const [polylineDashOffset, setPolylineDashOffset] = useState(null)
     const [startAnimation, setStartAnimation] = useState(false)
     const [startRandomAnimation, setStartRandomAnimation] = useState(false)
     const [circleDashArray, setCircleDashArray] = useState(2 * Math.PI * 5)
@@ -26,8 +26,8 @@ export default function useCircuit(polylineRef){
     useEffect(() => {
         if(polylineRef.current) {
             const polylineLength = polylineRef.current.getTotalLength()
-            setDashArray(polylineLength)
-            if(!startAnimation){setDashOffset(polylineLength)}
+            setPolylineDashArray(polylineLength)
+            if(!startAnimation){setPolylineDashOffset(polylineLength)}
             setStartAnimation(true)
         }
     }, [])
@@ -47,13 +47,15 @@ export default function useCircuit(polylineRef){
     }, [])
 
 
-    const animationSpeed = 2
-    const timeOutRandom = (Math.random() * 2) * 500
+    
 
     // Gère la première animation
+    const animationSpeed = 2
+    const timeOutRandom = (Math.random() * 2) * 500
+    
     useEffect(() => {
         if(startAnimation){
-            let copyOffset = dashOffset
+            let copyOffset = polylineDashOffset
             let copyCircleDashOffset = circleDashOffset
             let beginAnimation2 = false
             const timeoutID = setTimeout(() => {
@@ -80,7 +82,7 @@ export default function useCircuit(polylineRef){
                         }
                     }
 
-                    setDashOffset(copyOffset)
+                    setPolylineDashOffset(copyOffset)
                     setCircleDashOffset(copyCircleDashOffset)
                     
                     if(animationEnd === true){
@@ -96,31 +98,32 @@ export default function useCircuit(polylineRef){
 
 
 
+    
+    // // Gère la deuxième animation periodique
     // const animationRandomSpeed = 4
     // const randomIntervalRandomAnimation = (Math.floor(Math.random() * (10-2) + 1)) * 1000
-    // // Gère la deuxième animation periodique
+
     // useEffect(() => {
     //     if(startRandomAnimation){
 
-    //         let copyPolylineDashOffset = dashOffset
+    //         let copyPolylineDashOffset = polylineDashOffset
             
     //         const intervalID1 = setInterval(() => {
     //             const intervalID2 = setInterval(() => {
     //                 let animationEnd = true
 
-    //                 if(copyPolylineDashOffset >= dashOffset - (dashArray * 2)){
+    //                 if(copyPolylineDashOffset >= polylineDashOffset - (polylineDashArray * 2)){
     //                     copyPolylineDashOffset -= animationRandomSpeed
     //                     animationEnd = false
     //                 }else{
-    //                     copyPolylineDashOffset = dashArray - dashArray
+    //                     copyPolylineDashOffset = polylineDashArray - polylineDashArray
     //                 }
 
-    //                 if(animationEnd){
-    //                     setDashOffset(copyPolylineDashOffset)
-    //                     clearInterval(intervalID2)
-    //                 }else{
-    //                     setDashOffset(copyPolylineDashOffset)
-    //                 }
+
+    //                 setPolylineDashOffset(copyPolylineDashOffset)
+    //                 if(animationEnd){clearInterval(intervalID2)}
+
+
     //             }, 10);
     //         }, randomIntervalRandomAnimation);
 
@@ -132,8 +135,8 @@ export default function useCircuit(polylineRef){
     return{
         cx,
         cy,
-        dashArray,
-        dashOffset,
+        polylineDashArray,
+        polylineDashOffset,
         circleDashArray,
         circleDashOffset
     }
