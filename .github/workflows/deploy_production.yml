@@ -6,9 +6,8 @@ on:
       - production
 
 jobs: 
-
   deploy:
-    runs-on: unbuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: 🔐 Installation de la clef SSH
