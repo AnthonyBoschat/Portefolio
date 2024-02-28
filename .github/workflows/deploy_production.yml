@@ -1,4 +1,4 @@
-name: En cours de déploiement | Développement -> Production
+name: deploy
 
 on:
   push:
