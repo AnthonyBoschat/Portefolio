@@ -19,7 +19,7 @@ jobs:
 
     - name: 🚀 Déploiement en cours
       # Je suis connecter sur le serveur, j'éxecute maintenant les commande nécessaire pour déployer
-      run: ssh ${{ secrets.SSH_USER }}@${{ vars.SERVER_HOST }} \
+      run: ssh ${{ secrets.SSH_USER }}@${{ vars.HOST }} \
           'sudo -u ${{ secrets.SSH_SERVER_USERNAME }} bash -c " \
             cd ${{ vars.SERVER_WORK_DIR }} && \
             git checkout production && \
