@@ -24,7 +24,6 @@ jobs:
             cd ${{ vars.SERVER_WORK_DIR }} && \
             git checkout production && \
             git pull origin production && \
-            cd app && \
             npm run build && \
             exit \
           "'
