@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { update_impulseHyperActivation } from "./CircuitSlice";
 
-export default function useCircuitCompiler(svgRef, circuitCenterRef){
+export default function useCircuitCompiler(svgRef, circuitCenterRef, circleRef){
+    const dispatch = useDispatch()
 
     const [svgBounding, setSvgBounding] = useState(null)
     const [circuitBounding, setCircuitBounding] = useState(null)
@@ -875,6 +878,22 @@ export default function useCircuitCompiler(svgRef, circuitCenterRef){
         window.addEventListener("resize", handleResize)
         return () => window.removeEventListener("resize", handleResize)
     }, [])
+
+
+    useEffect(() => {
+        const circleElement = circleRef.current;
+        if (circleElement) {
+            const handleMouseEnter = () => {dispatch(update_impulseHyperActivation(true))}
+            const handleMouseLeave = () => {dispatch(update_impulseHyperActivation(false))}
+            circleElement.addEventListener("mouseenter", handleMouseEnter)
+            circleElement.addEventListener("mouseleave", handleMouseLeave)
+    
+            return () => {
+                circleElement.removeEventListener("mouseenter", handleMouseEnter)
+                circleElement.removeEventListener("mouseleave", handleMouseLeave)
+            }
+        }
+    }, [circleRef])
 
     return{
         squarePoints
