@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import useCircuit from "./useCircuit";
 
-function Circuit({points}){
+function Circuit({points, index}){
     
     const circuitRef = useRef()
     const impulseRef = useRef()
@@ -20,7 +20,7 @@ function Circuit({points}){
         impulseHyperActivation,
         impulseLength,
         cancelAnimation
-    } = useCircuit(circuitRef)
+    } = useCircuit(circuitRef, index)
 
     return(
         <>
@@ -34,7 +34,7 @@ function Circuit({points}){
             {!cancelAnimation && (
                 <polyline className="impulse"
                     stroke={impulseHyperActivation ? "rgb(86, 214, 253)" : "rgb(188, 208, 255)"}
-                    strokeWidth={impulseHyperActivation ? 4 : 2}
+                    strokeWidth={impulseHyperActivation ? 2 : 2}
                     strokeDasharray={`${impulseDashArray * impulseLength}, ${impulseDashArray + (impulseDashArray * impulseLength)}`}
                     strokeDashoffset={impulseDashOffset}
                     ref={impulseRef}

@@ -26,12 +26,15 @@ function CircuitCompiler(){
              ref={circuitCenterRef} className="circuitCenter"></div>
 
             <svg ref={svgRef} className="svgCircuit">
-                {squarePoints.map ( (points, index) => (
+                {squarePoints.map ( (points, index) => 
+                (
                     <Circuit 
+                        index={index}
                         key={index}
                         points={points}
                     />
-                ))}
+                )
+                )}
             </svg>
         </>
         
