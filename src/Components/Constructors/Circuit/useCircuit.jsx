@@ -1,16 +1,27 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { update_impulseHyperActivation } from "./CircuitSlice";
 
 export default function useCircuit(polylineRef){
 
-    
+    const cancelAnimation = useSelector(store => store.circuit.cancelAnimation)
+    const impulseHyperActivation = useSelector(store => store.circuit.impulseHyperActivation)
+
     const [cx, setcX] = useState(null) // position X du cercle
     const [cy, setcY] = useState(null) // position Y du cercle
-    const [polylineDashArray, setPolylineDashArray] = useState(null)
-    const [polylineDashOffset, setPolylineDashOffset] = useState(null)
+
+    const [circuitDashArray, setCircuitDashArray] = useState(null) // DashArray du circuit
+    const [circuitDashOffset, setCircuitDashOffset] = useState(null) // DashOffset du circuit
+
+    const [impulseDashArray, setImpulseDashArray] = useState(null) // DashArray du impulse
+    const [impulseDashOffset, setImpulseDashOffset] = useState(null) // DashOffset du impulse
+
     const [startAnimation, setStartAnimation] = useState(false)
     const [startRandomAnimation, setStartRandomAnimation] = useState(false)
     const [circleDashArray, setCircleDashArray] = useState(2 * Math.PI * 5)
     const [circleDashOffset, setCircleDashOffset] = useState(2 * Math.PI * 5)
+
+    const impulseLength = impulseHyperActivation ? 0.20 : 0.05
     
     
 
@@ -26,8 +37,13 @@ export default function useCircuit(polylineRef){
     useEffect(() => {
         if(polylineRef.current) {
             const polylineLength = polylineRef.current.getTotalLength()
-            setPolylineDashArray(polylineLength)
-            if(!startAnimation){setPolylineDashOffset(polylineLength)}
+            setCircuitDashArray(polylineLength)
+            setImpulseDashArray(polylineLength)
+            if(!startAnimation){
+                setCircuitDashOffset(polylineLength)
+                setImpulseDashOffset(polylineLength * impulseLength)
+            }
+
             setStartAnimation(true)
         }
     }, [])
@@ -50,12 +66,11 @@ export default function useCircuit(polylineRef){
     
 
     // Gère la première animation
-    const animationSpeed = 3
-    const timeOutRandom = (Math.random() * 2) * 500
-    
+    const animationSpeedCircuit = 5
+    const randomTimeoutCircuitAnimation = (Math.random() * 2) * 500
     useEffect(() => {
         if(startAnimation){
-            let copyOffset = polylineDashOffset
+            let copyCircuitDashOffset = circuitDashOffset
             let copyCircleDashOffset = circleDashOffset
             let beginAnimation2 = false
             const timeoutID = setTimeout(() => {
@@ -64,7 +79,7 @@ export default function useCircuit(polylineRef){
                     
                     if(!beginAnimation2){
                         if(copyCircleDashOffset >= 0){
-                            copyCircleDashOffset -= animationSpeed
+                            copyCircleDashOffset -= animationSpeedCircuit
                             animationEnd = false
                         }else{
                             copyCircleDashOffset = 0
@@ -74,15 +89,15 @@ export default function useCircuit(polylineRef){
                     }
                     
                     else if(beginAnimation2){
-                        if(copyOffset >= 0){
-                            copyOffset -= animationSpeed
+                        if(copyCircuitDashOffset >= 0){
+                            copyCircuitDashOffset -= animationSpeedCircuit
                             animationEnd = false
                         }else{
-                            copyOffset = 0
+                            copyCircuitDashOffset = 0
                         }
                     }
 
-                    setPolylineDashOffset(copyOffset)
+                    setCircuitDashOffset(copyCircuitDashOffset)
                     setCircleDashOffset(copyCircleDashOffset)
                     
                     if(animationEnd === true){
@@ -91,7 +106,7 @@ export default function useCircuit(polylineRef){
                     }
                 }, 10);
                 
-            }, timeOutRandom);
+            }, randomTimeoutCircuitAnimation);
             return () => clearInterval(timeoutID)
         }
     }, [startAnimation]) 
@@ -99,45 +114,122 @@ export default function useCircuit(polylineRef){
 
 
     
-    // Gère la deuxième animation periodique
-    const animationRandomSpeed = 8
-    const randomIntervalRandomAnimation = (Math.floor(Math.random() * (10-4) + 4)) * 1000
+    
+    let animation_timeoutID = null
+    let animation_intervalID = null
+    
+    // Gère l'animation des impulses
+    const resetImpulsePosition = () => {
+        setImpulseDashOffset(impulseDashArray * impulseLength)
+    }
+
 
     useEffect(() => {
+        
         if(startRandomAnimation){
+            // Fonction pour démarrer l'animation lente
+            const startAnimation = () => {
+                resetImpulsePosition();
+                const animationSpeed = impulseHyperActivation ? (0 - circuitDashArray) / 30 : -3
+                const timeout = impulseHyperActivation ? 20 : Math.floor(Math.random() * (10000 - 500) + 500)
+                const log = impulseHyperActivation ? "fast" : "slow"
 
-            let copyPolylineDashOffset = polylineDashOffset
-            
-            const intervalID1 = setInterval(() => {
-                const intervalID2 = setInterval(() => {
+                let copyImpulseDashOffset = impulseDashOffset * impulseLength;
+                animation_timeoutID = setTimeout(() => {
+                    animation_intervalID = setInterval(() => {
+                        
+                        // console.log(log);
+                        
+                        let animationEnd = true
+                        if(copyImpulseDashOffset >= 0 - circuitDashArray ){
+                            copyImpulseDashOffset -= animationSpeed
+                            animationEnd = false
+                        }
+                        setImpulseDashOffset(copyImpulseDashOffset)
+                        if(animationEnd){
+                            clearInterval(animation_intervalID)
+                            startAnimation()
+                        }
+                        
+                    }, 10);
+                }, timeout);
+            };
+
+            startAnimation();
+
+        }
+        
+    
+
+        
+    
+        return () => {
+            clearInterval(animation_intervalID);
+            clearTimeout(animation_timeoutID);
+        };
+    }, [startRandomAnimation, impulseHyperActivation]); 
+
+    // Quand le circuit est cancal par le changement d'onglet
+    const cancelAnimationSpeedCircuit = 40
+    const cancelAnimationSpeedCircle = 2
+    const cancelAnimationTimeOutRandom = (Math.random()) * 50
+    useEffect(() => {
+        if(cancelAnimation){
+            setStartRandomAnimation(false)
+            let copyCircuitDashOffset = circuitDashOffset
+            let copyCircleDashOffset = circleDashOffset
+            let beginAnimation2 = false
+            const timeoutID = setTimeout(() => {
+                const intervalID = setInterval(() => {
                     let animationEnd = true
 
-                    if(copyPolylineDashOffset >= polylineDashOffset - (polylineDashArray * 2)){
-                        copyPolylineDashOffset -= animationRandomSpeed
-                        animationEnd = false
-                    }else{
-                        copyPolylineDashOffset = polylineDashArray - polylineDashArray
+                    if(!beginAnimation2){
+                        if(copyCircuitDashOffset < circuitDashArray){
+                            copyCircuitDashOffset += cancelAnimationSpeedCircuit
+                            animationEnd = false
+                        }else{
+                            copyCircuitDashOffset = circuitDashArray
+                            animationEnd = false
+                            beginAnimation2 = true
+                        }
+                    }
+                    
+                    else if(beginAnimation2){
+                        if(copyCircleDashOffset < circleDashArray){
+                            
+                            copyCircleDashOffset += cancelAnimationSpeedCircle
+                            animationEnd = false
+                        }else{
+                            copyCircleDashOffset = circleDashArray
+                        }
                     }
 
-
-                    setPolylineDashOffset(copyPolylineDashOffset)
-                    if(animationEnd){clearInterval(intervalID2)}
-
-
+                    setCircuitDashOffset(copyCircuitDashOffset)
+                    setCircleDashOffset(copyCircleDashOffset)
+                    
+                    if(animationEnd === true){
+                        clearInterval(intervalID)
+                        
+                    }
                 }, 10);
-            }, randomIntervalRandomAnimation);
-
-            return () => clearInterval(intervalID1)
+                
+            }, cancelAnimationTimeOutRandom);
+            return () => clearInterval(timeoutID)
         }
-    }, [startRandomAnimation])
+    }, [cancelAnimation])
        
 
     return{
         cx,
         cy,
-        polylineDashArray,
-        polylineDashOffset,
+        circuitDashArray,
+        circuitDashOffset,
+        impulseDashArray,
+        impulseDashOffset,
         circleDashArray,
-        circleDashOffset
+        circleDashOffset,
+        impulseHyperActivation,
+        impulseLength,
+        cancelAnimation
     }
 }

@@ -38,12 +38,15 @@
     
     
     .hexagonSentenceBox{
+        // outline: 1px solid red; //
+        
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
 
         .hexagonName{
+            // z-index: -1;
             // outline: 1px solid green; //
             color: white;
             text-decoration: none;
