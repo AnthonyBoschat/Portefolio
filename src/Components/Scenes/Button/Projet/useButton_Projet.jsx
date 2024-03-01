@@ -1,7 +1,8 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-export default function useButton_Projet(projetConfiguration, setProjetConfiguration){
+export default function useButton_Projet(projetConfiguration, setProjetConfiguration, buttonRef){
 
+    const [mouseOn, setMouseOn] = useState(false)
     const presentationBoxRef = useRef()
 
     const handleClickProjet = (projetName) => {
@@ -32,9 +33,26 @@ export default function useButton_Projet(projetConfiguration, setProjetConfigura
         return{buttonStyle, buttonClassName, projetStyle, projetClassName}
     }
 
+    useEffect(() => {
+        const button = buttonRef.current
+        if(button){
+            const targetButton = () => setMouseOn(true)
+            const untargetButton = () => setMouseOn(false)
+
+            button.addEventListener("mouseenter", targetButton)
+            button.addEventListener("mouseleave", untargetButton)
+
+            return () => {
+                button.removeEventListener("mouseenter", targetButton)
+                button.removeEventListener("leave", untargetButton)
+            }
+        }
+    }, [buttonRef.current])
+
     return{
         handleClickProjet,
         animationStyleClassCenter,
-        presentationBoxRef
+        presentationBoxRef,
+        mouseOn
     }
 }

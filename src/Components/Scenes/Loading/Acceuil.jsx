@@ -18,86 +18,109 @@ function Loading_Acceuil(){
     const sentencesConfiguration = [
         {
             timeout:600,
-            sentence:
-            `Initialisation ...
-            Récupération des données ...
-            Vérifications des dépendances systèmes . . .
-            \u00A0\u00A0\u00A0\u00A0- react@18.2.0 OK
-            \u00A0\u00A0\u00A0\u00A0- redux@5.0.1 OK 
-            \u00A0\u00A0\u00A0\u00A0- react-redux@9.1.0 OK
-            \u00A0\u00A0\u00A0\u00A0- @reduxjs/toolkit@2.1.0 OK
-            \u00A0\u00A0\u00A0\u00A0- react-router-dom@6.21.3 OK
-            \u00A0\u00A0\u00A0\u00A0- npm@10.3.0 OK
-            \u00A0\u00A0\u00A0\u00A0- three@0.160.1 OK
-            Démarrage de l'environnement de développement`,
             speed:2,
+            whiteSpace:true,
+            sentence:
+`Initialisation ...
+Récupération des données ...
+Vérifications des dépendances systèmes . . .
+    - react@18.2.0 OK
+    - redux@5.0.1 OK 
+    - react-redux@9.1.0 OK
+    - @reduxjs/toolkit@2.1.0 OK
+    - react-router-dom@6.21.3 OK
+    - npm@10.3.0 OK
+    - three@0.160.1 OK
+Démarrage de l'environnement de développement`,
+            
             // Trouver un moyen de faire une reaction en chaine comme avec les useEffect dans usePending
         },
         {
             timeout:3000,
-            sentence:
-            `
-
-
-            Sécurisation de la connexion . . .
-            \u00A0\u00A0\u00A0\u00A0- Génération de clés SSH...
-            \u00A0\u00A0\u00A0\u00A0- Etablissement d'un tunnel VPN...
-            \u00A0\u00A0\u00A0\u00A0- Activation du firewall...
-            Connexion sécurisée établie`,
             speed:2,
+            whiteSpace:true,
+            sentence:
+`
+
+
+Sécurisation de la connexion . . .
+    - Génération de clés SSH...
+    - Etablissement d'un tunnel VPN...
+    - Activation du firewall...
+Connexion sécurisée établie`,
+            
         },
         {
             timeout:4000,
-            sentence:
-            `
-
-
-
-
-            Chargement du programme principal... `,
             speed:4,
+            whiteSpace:true,
+            sentence:
+`
+
+
+Chargement du programme principal... `,
+            
         },
-        {timeout:4200, speed:4, sentence:
+        {timeout:4200, speed:4, whiteSpace:true, sentence:
             `
-            ... 0%`,
+... 0%`,
         },
-        {timeout:4300, speed:4, sentence:
+        {timeout:4300, speed:4, whiteSpace:true, sentence:
             `
-            ... 10%`,
+... 10%`,
         },
-        {timeout:4400, speed:4, sentence:
+        {timeout:4400, speed:4, whiteSpace:true, sentence:
             `
-            ... 20%`,
+... 20%`,
         },
-        {timeout:4500, speed:4, sentence:
+        {timeout:4500, speed:4, whiteSpace:true, sentence:
             `
-            ... 30%`,
+... 30%`,
         },
-        {timeout:4600, speed:4, sentence:
+        {timeout:4600, speed:4, whiteSpace:true, sentence:
             `
-            ... 40%`,
+... 40%`,
         },
-        {timeout:4700, speed:4, sentence:
+        {timeout:4700, speed:4, whiteSpace:true, sentence:
             `
-            ... 50%`,
+... 50%`,
         },
-        {timeout:4800, speed:4, sentence:
+        {timeout:4800, speed:4, whiteSpace:true, sentence:
             `
-            ... 60%`,
+... 60%`,
         },
-        {timeout:4900, speed:4, sentence:
+        {timeout:4900, speed:4, whiteSpace:true, sentence:
             `
-            ... 80%`,
+... 80%`,
         },
-        {timeout:5000, speed:4, sentence:
+        {timeout:5000, speed:4, whiteSpace:true, sentence:
             `
-            ... 99%`,
+... 99%`,
         },
         {
-            timeout:5500, speed:4,
+            timeout:5500, speed:4, whiteSpace:true,
             sentence:
             `
-            ... 100%`,
+... 100%`,
+        },
+        {
+            timeout:6000, speed:1, whiteSpace:true,
+            sentence:
+            `
+
+
+          •   •  •_  •   •
+        _  \\__|    | |__/  _
+     •_/ \\____\\_   |_/____/ \\_•
+   •__    •_/   \\_/    \\_•   __•
+      \\____     |0|     ____/
+     •_/   \\____/ \\____/   \\_•
+       •__   /  |    \\    __•
+          \\_|   |     |__/
+       •___/   / \\_•   \\___•
+         |    |_         |
+         •      |_•      •
+`,
             ending:() => {
                 setTimeout(() => {
                     if(presentationConsoleRef.current){
@@ -110,7 +133,7 @@ function Loading_Acceuil(){
                     }
                 }, 1500);
             }
-        },
+        }
     ]
 
     return(

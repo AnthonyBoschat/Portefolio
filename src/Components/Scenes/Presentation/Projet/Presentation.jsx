@@ -47,7 +47,7 @@ function Projet_Presentation({projet}){
                         <TypingSentenceCompiler sentencesConfiguration={[{
                             timeout:1000,
                             sentence:projet.description,
-                            speed:1
+                            speed:1,
                         }]}/>
                         <Cursor cursorConfiguration={{
                             cursorBlink:true,

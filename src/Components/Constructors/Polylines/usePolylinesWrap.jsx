@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
-export default function usePolylinesWrap(elementToWrapRef, configuration){
+export default function usePolylinesWrap(elementToWrapRef, configuration, mouseOn){
 
+
+    const impulseHyperActivation = useSelector(store => store.circuit.impulseHyperActivation)
+    const impulseLength = 0.20
     const [polylinesPoints, setPolylinesPoints] = useState(null)
     const [dashArray, setDashArray] = useState(null)
     const [dashOffset, setDashOffset] = useState(null)
     const [animationBegin, setAnimationBegin] = useState(false)
+    const [impulseDashOffset, setImpulseDashOffset] = useState(null)
 
     // Calcule la positions des points
     const calculPolylinesPoints = (elementToWrapRef) => {
@@ -37,6 +42,7 @@ export default function usePolylinesWrap(elementToWrapRef, configuration){
         const elementToWrapBounding = elementToWrapRef.current.getBoundingClientRect()
         setDashArray((elementToWrapBounding.width + elementToWrapBounding.height) * 2)
         setDashOffset((elementToWrapBounding.width + elementToWrapBounding.height) * 2)
+        setImpulseDashOffset(((elementToWrapBounding.width + elementToWrapBounding.height) * 2) * impulseLength)
     }
 
     // On déclenche un premier calcul de position et de dashArray et offset
@@ -84,9 +90,40 @@ export default function usePolylinesWrap(elementToWrapRef, configuration){
         }
     }, [animationBegin])
 
+
+
+    let animation_timeoutID = null
+    let animation_intervalID = null
+
+    const resetImpulsePosition = () => {
+        setImpulseDashOffset(dashArray * impulseLength)
+    }
+
+    useEffect(() => {
+        if(mouseOn){
+            resetImpulsePosition()
+            let copyImpulseOffset = impulseDashOffset
+            // const randomTimeout = Math.floor(Math.random() * (200 - 10) + 10)
+            const animationSpeed = 20
+            animation_intervalID = setInterval(() => {
+                copyImpulseOffset -= animationSpeed
+                setImpulseDashOffset(copyImpulseOffset)
+            }, 10);
+        }
+
+        return () => {
+            clearInterval(animation_intervalID)
+            // clearTimeout(animation_timeoutID)
+        }
+    }, [mouseOn])
+
+    
+
     return{
+        impulseLength,
         polylinesPoints,
         dashArray,
-        dashOffset
+        dashOffset,
+        impulseDashOffset
     }
 }

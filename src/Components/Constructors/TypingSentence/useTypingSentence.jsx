@@ -61,6 +61,6 @@ export default function useTypingSentence(configuration){
         write,
         sentence,
         setSentence,
-        returnLineFilter
+        returnLineFilter,
     }
 }
