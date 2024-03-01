@@ -94,7 +94,8 @@ export default function useCircuit(polylineRef){
     let animation_intervalID = null
 
     const resetImpulsePosition = () => {
-        setImpulseDashOffset(impulseDashArray * impulseLength)
+        setImpulseDashOffset(circuitDashArray * impulseLength)
+        // setImpulseDashOffset(impulseDashArray * impulseLength)
         clearInterval(animation_intervalID);
         clearTimeout(animation_timeoutID);
     }
@@ -107,7 +108,6 @@ export default function useCircuit(polylineRef){
                 resetImpulsePosition();
                 const animationSpeed = impulseHyperActivation ? circuitDashArray / 30 : -4
                 const timeout = impulseHyperActivation ? 5 : Math.floor(Math.random() * (10000 - 500) + 500)
-                const log = impulseHyperActivation ? "fast" : "slow"
                 const randomDirection = Math.floor(Math.random() * 2)
 
                 let copyImpulseDashOffset = impulseDashOffset * impulseLength;

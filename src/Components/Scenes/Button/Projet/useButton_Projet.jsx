@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function useButton_Projet(projetConfiguration, setProjetConfiguration, buttonRef){
 
@@ -36,7 +37,7 @@ export default function useButton_Projet(projetConfiguration, setProjetConfigura
     useEffect(() => {
         const button = buttonRef.current
         if(button){
-            const targetButton = () => setMouseOn(true)
+            const targetButton = () => {setMouseOn(true)}
             const untargetButton = () => setMouseOn(false)
 
             button.addEventListener("mouseenter", targetButton)

@@ -7,3 +7,13 @@
 
     @return unquote("translate(#{$translateX}, #{$translateY})")
 }
+
+@function hexagonSelectedPositionTransform($index){
+    $baseY:-50%;
+    $ecartY:50;
+    $translateY:$baseY + ($ecartY * $index);
+
+    $translateX: if($index % 2 == 0, 110%, 0%);
+
+    @return unquote("translate(#{$translateX}, #{$translateY})")
+}

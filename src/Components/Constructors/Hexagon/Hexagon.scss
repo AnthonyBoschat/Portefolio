@@ -1,19 +1,19 @@
 .hexagon{
+    // outline: 1px solid red; //
 
-    .hexagonSelected{
-        transform: scale(1.1) !important;
-        fill: rgba(15, 65, 78, 0.64) !important;
-    }
-
-    >*:hover{
+    &:hover{
         cursor: pointer;
     }
 
     &:hover svg{
-        transform: scale(1.1);
-        fill: rgba(15, 65, 78, 0.248);
+        transform: scale(1.1) !important;
+        polygon{
+            stroke: rgb(198, 198, 198);
+            stroke-width: 12;
+            fill: rgba(10, 87, 106, 0.254);
+        }
     }
-    
+
     position: absolute;
     top: 30%;
     left: 20%;
@@ -22,35 +22,40 @@
 
     svg{
         // outline: 1px solid red; //
-        // border-radius: 100%; //
-        stroke: white;
-        stroke-width: 4;
+        border-radius: 100%; //
+        stroke: rgb(224, 250, 255);
+        stroke-width: 3;
         fill: transparent;
         transition: all 0.2s ease;
-        width: 8rem;
-        height: 8rem;
-
-        .navPolygon{
-            stroke-dasharray: 320%;
-        }
+        width: 6vw;
+        height: 6vw;
     }
+
+    svg.svgSelected{
+        polygon{
+            fill: rgba(0, 85, 116, 0.656);
+        }
+        
+    }
+
 
     
     
     .hexagonSentenceBox{
         // outline: 1px solid red; //
-        
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
 
         .hexagonName{
-            // z-index: -1;
+            z-index: 100;
+            // height: 2rem;
             // outline: 1px solid green; //
             color: white;
             text-decoration: none;
-            font-size: 1.5rem;
+            font-size: 1.2vw;
+            font-family: inconsolata;
         }
     }
 }

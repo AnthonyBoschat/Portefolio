@@ -10,7 +10,9 @@ function PolylinesWrap({elementToWrapRef, configuration, mouseOn}){
     const {polylinesPoints, dashArray, dashOffset, impulseDashOffset, impulseLength} = usePolylinesWrap(elementToWrapRef, configuration, mouseOn)
 
     return(
-        <svg className={mouseOn ? "svg_polylinesConstructor impulse" : "svg_polylinesConstructor"}>
+        <svg className="svg_polylinesConstructor">
+            
+            
             <polyline
                 strokeDasharray={`${dashArray}px`}
                 strokeDashoffset={!configuration.animation ? "0px" : `${dashOffset}px`}
@@ -21,6 +23,14 @@ function PolylinesWrap({elementToWrapRef, configuration, mouseOn}){
                     className="impulse"
                     strokeDasharray={`${dashArray * impulseLength}px,${dashArray}px`}
                     strokeDashoffset={`${impulseDashOffset}px`}
+                    points={polylinesPoints}
+                />
+            )}
+            {impulseHyperActivation && (
+                <polyline
+                    className="impulseHyperActivation"
+                    strokeDasharray={`${dashArray}px`}
+                    strokeDashoffset={`0px`}
                     points={polylinesPoints}
                 />
             )}

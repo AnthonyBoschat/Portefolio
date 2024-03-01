@@ -5,7 +5,7 @@ export default function usePolylinesWrap(elementToWrapRef, configuration, mouseO
 
 
     const impulseHyperActivation = useSelector(store => store.circuit.impulseHyperActivation)
-    const impulseLength = 0.20
+    const impulseLength = 0.30
     const [polylinesPoints, setPolylinesPoints] = useState(null)
     const [dashArray, setDashArray] = useState(null)
     const [dashOffset, setDashOffset] = useState(null)
@@ -32,8 +32,6 @@ export default function usePolylinesWrap(elementToWrapRef, configuration, mouseO
                 const points = `${A},${B} ${C},${D} ${E},${F} ${G},${H} ${I},${J}`
                 return points
             })
-            // Calcul du dashArray
-            setDashArray((elementToWrapBounding.width + elementToWrapBounding.height) * 2)
         }
     }
 
@@ -47,12 +45,15 @@ export default function usePolylinesWrap(elementToWrapRef, configuration, mouseO
 
     // On déclenche un premier calcul de position et de dashArray et offset
     useEffect(() => {
-        calculPolylinesPoints(elementToWrapRef)
-        calculArrayOffset(elementToWrapRef)
-        if(configuration.animation){
-            setAnimationBegin(true)
+        if(elementToWrapRef.current){
+            calculPolylinesPoints(elementToWrapRef)
+            calculArrayOffset(elementToWrapRef)
+            if(configuration.animation){
+                setAnimationBegin(true)
+            }
         }
-    }, [])
+        
+    }, [elementToWrapRef])
 
     // On déclenche un recalcule de position si resize de la page
     useEffect(() => {
@@ -66,7 +67,7 @@ export default function usePolylinesWrap(elementToWrapRef, configuration, mouseO
 
     // Si l'animation est spécifier, on le déclenche avec la vitesse indiquer
     useEffect(() => {
-        if(configuration.animation){
+        if(configuration.animation && animationBegin){
             let copyOffset = dashOffset
             const intervalID = setInterval(() => {
                 let offsetEnd = true
@@ -77,12 +78,10 @@ export default function usePolylinesWrap(elementToWrapRef, configuration, mouseO
                     copyOffset = 0
                 }
 
+                setDashOffset(copyOffset)
                 if(offsetEnd === true){
-                    setDashOffset(copyOffset)
                     clearInterval(intervalID)
                     if(configuration.ending){configuration.ending()}
-                }else{
-                    setDashOffset(copyOffset)
                 }
             }, 10);
 
@@ -103,7 +102,6 @@ export default function usePolylinesWrap(elementToWrapRef, configuration, mouseO
         if(mouseOn){
             resetImpulsePosition()
             let copyImpulseOffset = impulseDashOffset
-            // const randomTimeout = Math.floor(Math.random() * (200 - 10) + 10)
             const animationSpeed = 20
             animation_intervalID = setInterval(() => {
                 copyImpulseOffset -= animationSpeed
@@ -113,9 +111,37 @@ export default function usePolylinesWrap(elementToWrapRef, configuration, mouseO
 
         return () => {
             clearInterval(animation_intervalID)
-            // clearTimeout(animation_timeoutID)
         }
     }, [mouseOn])
+
+
+    const impulseAnimationSpeed = 500
+    useEffect(() => {
+        if(impulseHyperActivation){
+            // resetImpulsePosition()
+            let copyImpulseOffset = dashArray
+            const animationSpeed = impulseAnimationSpeed
+            animation_intervalID = setInterval(() => {
+
+                let animationEnd = true
+                if(copyImpulseOffset >= 0  - animationSpeed){
+                    copyImpulseOffset -= animationSpeed
+                    animationEnd = false
+                }else{
+                    copyImpulseOffset = 0
+                }
+                setImpulseDashOffset(copyImpulseOffset)
+                if(animationEnd){
+                    clearInterval(animation_intervalID)
+                    setImpulseDashOffset(0)
+                }
+            }, 10);
+        }
+
+        return () => {
+            clearInterval(animation_intervalID)
+        }
+    }, [impulseHyperActivation])
 
     
 

@@ -33,7 +33,7 @@ function Circuit({points, circlePosition}){
                 <polyline className="impulse"
                     stroke={impulseHyperActivation ? "rgb(86, 214, 253)" : "rgb(188, 208, 255)"}
                     strokeWidth={impulseHyperActivation ? 2 : 2}
-                    strokeDasharray={`${impulseDashArray * impulseLength}, ${impulseDashArray + (impulseDashArray * impulseLength)}`}
+                    strokeDasharray={`${impulseDashArray * impulseLength}, ${impulseDashArray + (impulseDashArray * (impulseLength * 2))}`}
                     strokeDashoffset={impulseDashOffset}
                     ref={impulseRef}
                     points={points}
