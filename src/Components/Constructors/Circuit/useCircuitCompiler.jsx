@@ -8,6 +8,7 @@ export default function useCircuitCompiler(svgRef, circuitCenterRef, circleRef){
     const [svgBounding, setSvgBounding] = useState(null)
     const [circuitBounding, setCircuitBounding] = useState(null)
     const [squarePoints, setSquarePoints] = useState([])
+    const [circlePositions, setCirclePositions] = useState([])
     const [startCalcul, setStartCalcul] = useState(false)
 
 
@@ -768,7 +769,12 @@ export default function useCircuitCompiler(svgRef, circuitCenterRef, circleRef){
             }
         }
         
-        
+        // On récupère la position des circles
+        const points = divergences.split(" ")
+        const firstPoint = points[0].split(",")
+        const circleObject = {cx:firstPoint[0], cy:firstPoint[1]}
+        setCirclePositions(current => [...current, circleObject])
+
         return divergences
         
     }
@@ -803,7 +809,7 @@ export default function useCircuitCompiler(svgRef, circuitCenterRef, circleRef){
             const spaceX = (svgBounding.width / 2 - circuitBounding.width / 2) / 10
             const spaceY = (svgBounding.width / 2 - circuitBounding.width / 2) / 10
             const pourcentOfScale = 8
-
+            setCirclePositions([]) // On réinitialise la position des circles
             const squarePoints = [] // On initialise un tableau vide qu'on va remplir de la position de tout les points
             for(let i = 0; i<4; i++){
                 switch(i){
@@ -867,7 +873,7 @@ export default function useCircuitCompiler(svgRef, circuitCenterRef, circleRef){
         }
     }, [circuitBounding, svgBounding])
 
-
+    // Gère le redimensionnement
     useEffect(() => {
         const handleResize = () => {
             const svgBounding = svgRef.current.getBoundingClientRect()
@@ -896,6 +902,7 @@ export default function useCircuitCompiler(svgRef, circuitCenterRef, circleRef){
     }, [circleRef])
 
     return{
-        squarePoints
+        squarePoints,
+        circlePositions
     }
 }

@@ -10,11 +10,11 @@ function CircuitCompiler(){
     const circuitCenterRef = useRef()
     const circleRef = useRef()
     
-    const cancelAnimation = useSelector(store => store.circuit.cancelAnimation)
     const impulseHyperActivation = useSelector(store => store.circuit.impulseHyperActivation)
 
-    const {squarePoints} = useCircuitCompiler(svgRef, circuitCenterRef, circleRef)
+    const {squarePoints, circlePositions} = useCircuitCompiler(svgRef, circuitCenterRef, circleRef)
 
+    
     return(
         <>
             <div ref={circuitCenterRef} className="circuitCenter">
@@ -28,9 +28,9 @@ function CircuitCompiler(){
                 {squarePoints.map ( (points, index) => 
                 (
                     <Circuit 
-                        index={index}
                         key={index}
                         points={points}
+                        circlePosition={circlePositions[index]}
                     />
                 )
                 )}

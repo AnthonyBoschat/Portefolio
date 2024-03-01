@@ -6,7 +6,19 @@
     align-items: center;
     height: 100%;
     position: relative;
+    overflow: hidden;
 
+
+    *::-webkit-scrollbar{
+        width: 8px;
+        background: transparent;
+    }
+
+    *::-webkit-scrollbar-thumb{
+        background: rgba(255, 255, 255, 0.517);
+        border-radius: 50px;
+        font-size: 10px;
+    }
     canvas{
         background-color: transparent;
     }

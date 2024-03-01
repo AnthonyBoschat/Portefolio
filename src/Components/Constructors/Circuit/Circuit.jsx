@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import useCircuit from "./useCircuit";
 
-function Circuit({points, index}){
+function Circuit({points, circlePosition}){
     
     const circuitRef = useRef()
     const impulseRef = useRef()
@@ -9,8 +9,6 @@ function Circuit({points, index}){
     
     
     const {
-        cx, 
-        cy, 
         circuitDashArray,
         circuitDashOffset, 
         impulseDashArray,
@@ -20,7 +18,7 @@ function Circuit({points, index}){
         impulseHyperActivation,
         impulseLength,
         cancelAnimation
-    } = useCircuit(circuitRef, index)
+    } = useCircuit(circuitRef)
 
     return(
         <>
@@ -41,13 +39,12 @@ function Circuit({points, index}){
                     points={points}
                 />
             ) }
-            
             <circle
                 strokeDasharray={circleDashArray}
                 strokeDashoffset={circleDashOffset}
                 r={4}
-                cx={cx}
-                cy={cy}
+                cx={circlePosition.cx}
+                cy={circlePosition.cy}
             />
         </>
     )

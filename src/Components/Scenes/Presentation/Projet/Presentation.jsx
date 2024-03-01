@@ -9,17 +9,7 @@ function Projet_Presentation({projet}){
     const presentationBoxRef = useRef()
     const imageRef = useRef()
 
-    useEffect(() => {
-        if(presentationBoxRef.current && imageRef.current){
-            setTimeout(() => {
-                presentationBoxRef.current.style.display = "flex"
-                
-            }, 500);
-            setTimeout(() => {
-                imageRef.current.style.display = "block"
-            }, 1000);
-        }
-    }, [])
+    usePresentation_Projet(presentationBoxRef, imageRef)
 
     return(
         <>
@@ -39,6 +29,13 @@ function Projet_Presentation({projet}){
                                     <div key={index} className="languageBox">
                                         <div className="imageBox">
                                             <img  src={language.image} title={language.name} alt={`Logo ${language.name}`} />
+                                            <span>
+                                            <TypingSentenceCompiler sentencesConfiguration={[{
+                                                timeout:1500,
+                                                sentence:language.name,
+                                                speed:100
+                                            }]}/>
+                                            </span>
                                         </div>
                                     </div>
                                 ))}

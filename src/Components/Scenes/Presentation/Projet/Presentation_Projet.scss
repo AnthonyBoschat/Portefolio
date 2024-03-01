@@ -39,7 +39,7 @@
                 display: flex;
     
                 .imageProjetBox{
-                    width: 50%;
+                    width: 80%;
                     // outline: 1px solid white; //
                     display: flex;
                     justify-content: center;
@@ -51,6 +51,12 @@
                         height: 90%;
                         height: fit-content;
                         // outline: 1px solid red; //
+                        transition: opacity 0.2s linear;
+
+                        &:hover{
+                            opacity: 0.8;
+                            cursor: pointer;
+                        }
     
                         img{
                             // outline: 1px solid red; //
@@ -61,10 +67,7 @@
                             outline: 2px solid black;
                             display: none;
         
-                            &:hover{
-                                opacity: 0.7;
-                                cursor: pointer;
-                            }
+                            
                         }
                     }
     
@@ -88,34 +91,45 @@
                         // outline: 1px solid red; //
                         display: flex;
                         flex-wrap: wrap;
-                        gap: 10%;
+                        gap: 3vw;
                         justify-content: center;
                         align-items: center;
     
                         .languageBox{
-                            width: 6rem;
-                            height: 6rem;
+                            width: 4rem;
+                            height: 4rem;
                             // outline: 1px solid white; //
                             display: flex;
                             align-items: center;
 
-                            @media(max-width:1150px){width: 4rem; height: 4rem;}
-                            @media(max-width:750px){width: 3rem; height: 3rem;}
+                            @media(max-width:1150px){width: 3rem; height: 3rem;}
+                            @media(max-width:750px){width: 2rem; height: 2rem;}
     
                             .imageBox{
                                 width: 100%;
                                 // outline: 1px solid red; //
-                                height: 100%;
+                                height: fit-content;
                                 display: flex;
                                 align-items: center;
                                 justify-content: center;
                                 color: rgb(108, 84, 214);
-                                font-size: 2.5rem;
+                                flex-direction: column;
+                                gap: 0.5vw;
     
                                 img{
-                                    width: 100%;
-                                    height:auto;
+                                    // outline: 1px solid red; //
+                                    width: auto;
+                                    height:3vw;
                                     filter: drop-shadow(5px 5px 5px black);
+                                }
+
+                                span{
+                                    text-shadow: 10px 10px 6px black, 0px 0px 1px white;
+                                    font-family: inconsolata;
+                                    color: white;
+                                    height: 1rem;
+                                    // outline: 1px solid pink;
+                                    font-size: 1rem;
                                 }
                             }
                         }
@@ -132,14 +146,16 @@
     
             .descriptionBox{
                 // background-color: rgba(0, 128, 0, 0.267); //
-                height: 90%;
-                max-height: 90%;
+                padding-right: 5%;
+                height: 80%;
+                max-height: 80%;
+                width: 95%;
                 display: flex;
-                margin-top: 3rem;
+                margin-top: 4rem;
                 // outline: 1px solid white; //
-                font-size: 1vw;
+                font-size: 2vh;
                 text-shadow: 10px 10px 6px black, 0px 0px 1px white;
-                overflow-y: scroll;
+                overflow-y: auto;
                 font-family: inconsolata;
                 display: inline;
 
@@ -147,6 +163,8 @@
                     height: 1vw;
                     width: 0.4rem;
                 }
+
+                
                 
     
                 @media(max-width:1150px){font-size: 1.7vh;}
