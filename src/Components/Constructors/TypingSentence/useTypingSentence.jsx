@@ -24,7 +24,7 @@ export default function useTypingSentence(configuration){
         if(configuration){
             // Dans configuration.timeout seconde, on lance l'écriture
             const timeoutID = setTimeout(() => {
-                const sentenceArray = configuration.sentence.split("") // On casse le phrase dans un tableau
+                const sentenceArray = configuration.sentence // On casse le phrase dans un tableau
                 let index = 0
                 let goal = sentenceArray.length
                 const intervalID = setInterval(() => {

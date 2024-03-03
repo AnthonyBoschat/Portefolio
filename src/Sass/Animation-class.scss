@@ -117,3 +117,41 @@
 .animationClass_projetButtonBackgroundAnimation{animation: projetButtonBackgroundAnimation 0.5s linear forwards !important;}
 
 
+@keyframes impulseHyperActivationProjet{
+    0%{stroke-width: 3;}
+    50%{stroke-width: 4;}
+    100%{stroke-width: 3;}
+}
+
+@keyframes impulseHyperActivationProfil{
+    0%{stroke-width: 2;}
+    50%{stroke-width: 3;}
+    100%{stroke-width: 2;}
+}
+
+@keyframes impulseHyperActivationProgressBar{
+    0%{background-color: rgb(17, 84, 101); }
+    50%{background-color: rgb(23, 114, 137); }
+    100%{background-color: rgb(17, 84, 101); }
+}
+
+@keyframes impulseHyperActivation_TextColorProfil{
+    0%{color: rgba(255, 255, 255, 0.961);}
+    50%{color: white; text-shadow: 0px 0px 1px white;}
+    100%{color: rgba(255, 255, 255, 0.961);}
+}
+.impulseHyperActivation_TextColorProfil{animation: impulseHyperActivation_TextColorProfil 0.3s linear infinite;}
+
+@keyframes impulseHyperActivation_TextColorProjet{
+    0%{color: rgba(255, 255, 255, 0.502);}
+    50%{color: white;}
+    100%{color: rgba(255, 255, 255, 0.502);}
+}
+.impulseHyperActivation_TextColorProjet{animation: impulseHyperActivation_TextColorProjet 0.3s linear infinite;}
+
+@keyframes impulseHyperActivation_LanguageOpacity{
+    0%{opacity: 0.8;}
+    50%{opacity: 1;}
+    100%{opacity: 0.8;}
+}
+.impulseHyperActivation_LanguageOpacity{animation: impulseHyperActivation_LanguageOpacity 0.3s linear infinite;}

@@ -48,7 +48,7 @@
                 >div.languageName{
                     // outline: 1px solid blue; //
                     font-family: "Playfair Display", serif;
-            font-family: "inconsolata";
+                    font-family: "inconsolata";
 
                     font-weight: 500;
                     text-shadow: 0px 0px 1px white;
@@ -75,6 +75,25 @@
             fill: transparent;
             stroke: white;
             stroke-width: 1.2;
+
+            circle{
+                fill: black;
+                position: absolute;
+                z-index: 20;
+            }
+
+            polyline{
+                stroke-linecap: round;
+            }
+
+            .impulseHyperActivation{
+                width: fit-content;
+                // fill: transparent;
+                stroke: rgb(255, 255, 255);
+                stroke-linecap: round;
+                stroke-width: 3;
+                animation: impulseHyperActivationProfil 0.2s linear infinite;
+            }
         }
     }
 

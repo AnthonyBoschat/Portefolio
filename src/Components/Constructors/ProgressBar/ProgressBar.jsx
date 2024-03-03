@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import useProgressBar from "./useProgressBar";
 
-function ProgressBar({className,level}){
+function ProgressBar({level, impulseHyperActivation}){
 
     const {progressBarWidth} = useProgressBar(level)
 
     return(
-        <div style={{width:`${progressBarWidth}%`}} className={className}></div>
+        <div className={impulseHyperActivation ? "languageProgressBar impulseHyperActivation" : "languageProgressBar"} style={{width:`${progressBarWidth}%`}}></div>
     )
 }
 

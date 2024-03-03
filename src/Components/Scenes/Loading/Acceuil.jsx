@@ -36,7 +36,7 @@ Démarrage de l'environnement de développement`,
             // Trouver un moyen de faire une reaction en chaine comme avec les useEffect dans usePending
         },
         {
-            timeout:3000,
+            timeout:2000,
             speed:2,
             whiteSpace:true,
             sentence:
@@ -51,7 +51,7 @@ Connexion sécurisée établie`,
             
         },
         {
-            timeout:4000,
+            timeout:2700,
             speed:4,
             whiteSpace:true,
             sentence:
@@ -61,50 +61,50 @@ Connexion sécurisée établie`,
 Chargement du programme principal... `,
             
         },
-        {timeout:4200, speed:4, whiteSpace:true, sentence:
+        {timeout:2900, speed:4, whiteSpace:true, sentence:
             `
 ... 0%`,
         },
-        {timeout:4300, speed:4, whiteSpace:true, sentence:
+        {timeout:3000, speed:4, whiteSpace:true, sentence:
             `
 ... 10%`,
         },
-        {timeout:4400, speed:4, whiteSpace:true, sentence:
+        {timeout:3100, speed:4, whiteSpace:true, sentence:
             `
 ... 20%`,
         },
-        {timeout:4500, speed:4, whiteSpace:true, sentence:
+        {timeout:3200, speed:4, whiteSpace:true, sentence:
             `
 ... 30%`,
         },
-        {timeout:4600, speed:4, whiteSpace:true, sentence:
+        {timeout:3300, speed:4, whiteSpace:true, sentence:
             `
 ... 40%`,
         },
-        {timeout:4700, speed:4, whiteSpace:true, sentence:
+        {timeout:3400, speed:4, whiteSpace:true, sentence:
             `
 ... 50%`,
         },
-        {timeout:4800, speed:4, whiteSpace:true, sentence:
+        {timeout:3500, speed:4, whiteSpace:true, sentence:
             `
 ... 60%`,
         },
-        {timeout:4900, speed:4, whiteSpace:true, sentence:
+        {timeout:3600, speed:4, whiteSpace:true, sentence:
             `
 ... 80%`,
         },
-        {timeout:5000, speed:4, whiteSpace:true, sentence:
+        {timeout:3700, speed:4, whiteSpace:true, sentence:
             `
 ... 99%`,
         },
         {
-            timeout:5500, speed:4, whiteSpace:true,
+            timeout:4000, speed:4, whiteSpace:true,
             sentence:
             `
 ... 100%`,
         },
         {
-            timeout:6000, speed:1, whiteSpace:true,
+            timeout:4200, speed:1, whiteSpace:true,
             sentence:
             `
 

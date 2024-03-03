@@ -30,12 +30,7 @@ svg.svg_polylinesConstructor{
         stroke: rgb(255, 255, 255);
         stroke-linecap: round;
         stroke-width: 3;
-        animation: impulseHyperActivationButtonProject 0.2s linear infinite;
+        animation: impulseHyperActivationProjet 0.2s linear infinite;
     }
 }
 
-@keyframes impulseHyperActivationButtonProject{
-    0%{stroke-width: 3;}
-    50%{stroke-width: 4;}
-    100%{stroke-width: 3;}
-}

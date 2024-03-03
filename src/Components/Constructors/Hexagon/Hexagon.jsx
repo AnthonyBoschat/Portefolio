@@ -9,14 +9,12 @@ function Hexagon({hexagon}){
     const hexagonRef = useRef()
     const polygonRef = useRef()
     const dispatch = useDispatch()
-    const impulseHyperActivation = useSelector(store => store.circuit.impulseHyperActivation)
     const navSelected = useSelector(store => store.nav.navSelected)
 
     const {
         dashOffset,
         svgRef,
         dashArray,
-        impulseDashOffset
     } = useHexagon(polygonRef)
 
     useEffect(() => {

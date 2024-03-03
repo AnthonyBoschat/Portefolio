@@ -1,15 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import useLanguage from "./useLanguage";
 import ProgressBar from "../ProgressBar/ProgressBar";
+import { useSelector } from "react-redux";
 
 function Language({familly}){
 
+    const impulseHyperActivation = useSelector(store => store.circuit.impulseHyperActivation)
     const [dashArray, setDashArray] = useState(105)
 
     const {
         h1Ref,
         languageListRef,
         svgPoint,
+        circlePointX,
+        circlePointY
     } = useLanguage(familly)
 
     const numberOfLanguage = familly.languages.length
@@ -44,15 +48,23 @@ function Language({familly}){
                         <div key={language.name} className="language">
                             <div className="languageName">{language.name}</div>
                             <div className="languageLevelBox">
-                                <ProgressBar className={"languageProgressBar"} level={language.level}/>
+                                <ProgressBar impulseHyperActivation={impulseHyperActivation} level={language.level}/>
                             </div>
                         </div>
                     ))}
                 </div>
                 <svg strokeDasharray={`${dashArray}%`} >
                     <polyline
+                        className={impulseHyperActivation ? "impulseHyperActivation" : null}
                         points={svgPoint}
-                        />
+                    />
+                    <circle 
+                    className={impulseHyperActivation ? "impulseHyperActivation" : null}
+                        cx={circlePointX}
+                        cy={circlePointY}
+                        r={4}
+                    />
+                    
                 </svg>
             </div>
             

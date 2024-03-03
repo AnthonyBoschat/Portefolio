@@ -1,11 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 function Presentation(){
+
+    const impulseHyperActivation = useSelector(store => store.circuit.impulseHyperActivation)
 
     return(
         <div className="shortDescriptionDisplay">
             <div className="shortDescriptionBox">
-                <p>
+                <p className={impulseHyperActivation ? "impulseHyperActivation_TextColorProfil" : null}>
                     <span>Salut ! Je m'appelle Anthony Boschat.</span>
                     <span>
                         En 2022 débute mon parcours d'apprenant développeur web,
