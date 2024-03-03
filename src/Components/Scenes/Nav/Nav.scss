@@ -1,14 +1,17 @@
 @use "../../../Sass/Function.scss";
 .navBox{
-    // background-color: rgba(255, 0, 0, 0.32); //
+    // background-color: rgba(255, 0, 0, 0.157); //
     width: 100%;
+    height: 100%;
     // min-width: 20rem;
     // outline: 1px solid blue; //
     display: flex;
     flex-direction: column;
     // align-items: center;
-    justify-content: center;
-    position: relative;    
+    justify-content: flex-end;
+    position: relative;
+    z-index: 1;
+
 
 
     @media(min-width:1150px){
@@ -18,14 +21,18 @@
         >:nth-child(1){transform: Function.hexagonPositionTransform(1);}
         >:nth-child(2){transform: Function.hexagonPositionTransform(2);}
         >:nth-child(3){transform: Function.hexagonPositionTransform(3);}
-        >:nth-child(4){transform: Function.hexagonPositionTransform(4);}
+        // >:nth-child(4){transform: Function.hexagonPositionTransform(4);}
 
         >:nth-child(1).hexagonSelected{transform: Function.hexagonSelectedPositionTransform(1)}
         >:nth-child(2).hexagonSelected{transform: Function.hexagonSelectedPositionTransform(2)}
         >:nth-child(3).hexagonSelected{transform: Function.hexagonSelectedPositionTransform(3)}
-        >:nth-child(4).hexagonSelected{transform: Function.hexagonSelectedPositionTransform(4)}
+        // >:nth-child(4).hexagonSelected{transform: Function.hexagonSelectedPositionTransform(4)}
     }
 }
+
+
+
+
 
 
 

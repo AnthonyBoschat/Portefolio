@@ -31,8 +31,8 @@ function Projet_Presentation({projet}){
                                 {projet.languages.map((language, index) => (
                                     <div key={index} className="languageBox">
                                         <div className="imageBox">
-                                            <img className={impulseHyperActivation && "impulseHyperActivation_LanguageOpacity"} src={language.image} title={language.name} alt={`Logo ${language.name}`} />
-                                            <span className={impulseHyperActivation && "impulseHyperActivation_TextColorProjet"}>
+                                            <img className={impulseHyperActivation ? "impulseHyperActivation_LanguageOpacity" : undefined} src={language.image} title={language.name} alt={`Logo ${language.name}`} />
+                                            <span className={impulseHyperActivation ? "impulseHyperActivation_TextColorProjet" : undefined}>
                                                 <TypingSentenceCompiler sentencesConfiguration={[{
                                                     timeout:1500,
                                                     sentence:language.name,
