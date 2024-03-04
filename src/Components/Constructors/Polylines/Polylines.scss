@@ -10,14 +10,12 @@ svg.svg_polylinesConstructor{
     animation: boxShadowImpulseDisapear 0.2s linear forwards;
 
     polyline{
-        width: fit-content;
         fill: transparent;
         stroke: rgb(0, 0, 0);
         stroke-width: 2;
     }
 
     polyline.impulse{
-        width: fit-content;
         fill: transparent;
         stroke: rgb(0, 0, 0);
         stroke-linecap: round;
