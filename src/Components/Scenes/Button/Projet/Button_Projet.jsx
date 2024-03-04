@@ -1,11 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import Projet_Presentation from "../../Presentation/Projet/Presentation";
-import useButton_Projet from "./useProjet";
+import useButton_Projet from "./useButton_Projet";
 import PolylinesWrap from "../../../Constructors/Polylines/PolylinesWrap";
+import { useSelector } from "react-redux";
 
 function Button_Projet({projet, projetConfiguration, setProjetConfiguration}){
 
 
+    
+    const aButtonSelected = projetConfiguration.find(projet => projet.selected === true)
     // Detail
     const buttonRef = useRef()
     const [endAnimation, setEndAnimation] = useState(false)
@@ -13,22 +16,23 @@ function Button_Projet({projet, projetConfiguration, setProjetConfiguration}){
     const {
         animationStyleClassCenter,
         handleClickProjet,
-        presentationBoxRef
-    } = useButton_Projet(projetConfiguration, setProjetConfiguration)
+        presentationBoxRef,
+        mouseOn
+    } = useButton_Projet(projetConfiguration, setProjetConfiguration, buttonRef)
 
-
-
-    const aButtonSelected = projetConfiguration.find(projet => projet.selected === true)
+    
     const {buttonStyle, buttonClassName, projetStyle, projetClassName} = animationStyleClassCenter(aButtonSelected, projet)
     
     return(
         <>
-            <button ref={buttonRef} style={buttonStyle} className={!endAnimation ? buttonClassName : `${buttonClassName} animationClass_projetButtonBackgroundAnimation`} onClick={() => handleClickProjet(projet.name)}>
+            <button style={buttonStyle} ref={buttonRef} className={!endAnimation ? buttonClassName : `${buttonClassName} animationClass_projetButtonBackgroundAnimation`} onClick={() => handleClickProjet(projet.name)}>
                 <span className={!endAnimation ? "projetName" : "projetName animationClass_opacity-in500"}>{projet.name}</span>
                 <PolylinesWrap
+                    mouseOn={mouseOn}
                     configuration={{
+                        
                         animation:true,
-                        animationSpeed:25,
+                        animationSpeed:20,
                         ending: () => setEndAnimation(true)
                     }}
                     elementToWrapRef={buttonRef}

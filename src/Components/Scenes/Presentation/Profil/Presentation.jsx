@@ -1,6 +1,8 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 function Presentation(){
+
 
     return(
         <div className="shortDescriptionDisplay">

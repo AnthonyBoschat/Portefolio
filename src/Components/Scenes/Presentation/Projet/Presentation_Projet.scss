@@ -6,8 +6,8 @@
     flex-shrink: 0;
     position: relative;
     top: 0;
-    background-color: rgba(32, 118, 139, 0.343); /////////////
-    box-shadow: 10px 10px 30px 5px black inset;
+    // background-color: rgba(218, 211, 211, 0.136); /////////////
+    // box-shadow: 10px 10px 30px 5px black inset;
     // outline: 1px solid blue; //
     width: 99%;
     // animation: animation-disparitionProjetPresentation 0.5s ease forwards; // // //
@@ -21,9 +21,8 @@
         justify-content: center;
         align-items: center;
         opacity: 0;
-        animation: opacity-in 1s 0.5s linear forwards;
+        animation: opacity-in 0.5s linear forwards;
         // outline: 1px solid white;
-        // background-color: transparent; //
     
         .projet_presentationBox{
             width: 90%;
@@ -39,7 +38,7 @@
                 display: flex;
     
                 .imageProjetBox{
-                    width: 50%;
+                    width: 80%;
                     // outline: 1px solid white; //
                     display: flex;
                     justify-content: center;
@@ -51,20 +50,23 @@
                         height: 90%;
                         height: fit-content;
                         // outline: 1px solid red; //
+                        transition: opacity 0.2s linear;
+                        position: relative;
+                        background-color: black;
+
+                        &:hover{
+                            opacity: 0.7;
+                            cursor: pointer;
+                        }
     
                         img{
                             // outline: 1px solid red; //
                             width: 100%;
                             height: auto;
                             animation: opacity-in 0.3s linear forwards;
-                            box-shadow: 10px 10px 20px 5px black;
-                            outline: 2px solid black;
+                            box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.378);
+                            outline: 1px solid black;
                             display: none;
-        
-                            &:hover{
-                                opacity: 0.7;
-                                cursor: pointer;
-                            }
                         }
                     }
     
@@ -88,34 +90,50 @@
                         // outline: 1px solid red; //
                         display: flex;
                         flex-wrap: wrap;
-                        gap: 10%;
+                        gap: 3vw;
                         justify-content: center;
                         align-items: center;
     
                         .languageBox{
-                            width: 6rem;
-                            height: 6rem;
+                            width: 4rem;
+                            height: 4rem;
                             // outline: 1px solid white; //
                             display: flex;
                             align-items: center;
 
-                            @media(max-width:1150px){width: 4rem; height: 4rem;}
-                            @media(max-width:750px){width: 3rem; height: 3rem;}
+                            @media(max-width:1150px){width: 3rem; height: 3rem;}
+                            @media(max-width:750px){width: 2rem; height: 2rem;}
     
                             .imageBox{
                                 width: 100%;
                                 // outline: 1px solid red; //
-                                height: 100%;
+                                height: fit-content;
                                 display: flex;
                                 align-items: center;
                                 justify-content: center;
-                                color: rgb(108, 84, 214);
-                                font-size: 2.5rem;
+                                flex-direction: column;
+                                gap: 0.5vw;
     
                                 img{
-                                    width: 100%;
-                                    height:auto;
-                                    filter: drop-shadow(5px 5px 5px black);
+                                    opacity: 0.9;
+                                    // outline: 1px solid red; //
+                                    width: auto;
+                                    height:3vw;
+                                    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.703));
+                                }
+
+                                span{
+                                    text-shadow: 5px 5px 3px rgba(0, 0, 0, 0.51), 0px 0px 1px black;
+                                    font-family: inconsolata;
+                                    color: black;
+
+
+                                    height: 1rem;
+                                    // outline: 1px solid pink;
+                                    font-size: 1rem;
+                                }
+                                span.impulseHyperActivation_TextColorProjet{
+                                    span{animation: impulseHyperActivation_TextColorProjet 0.3s linear infinite;}
                                 }
                             }
                         }
@@ -132,21 +150,30 @@
     
             .descriptionBox{
                 // background-color: rgba(0, 128, 0, 0.267); //
-                height: 90%;
-                max-height: 90%;
+                padding-right: 5%;
+                height: 80%;
+                max-height: 80%;
+                width: 95%;
                 display: flex;
-                margin-top: 3rem;
+                margin-top: 4rem;
                 // outline: 1px solid white; //
-                font-size: 1vw;
-                text-shadow: 10px 10px 6px black, 0px 0px 1px white;
-                overflow-y: scroll;
+                font-size: 2vh;
+                text-shadow: 10px 10px 6px rgba(0, 0, 0, 0.356), 0px 0px 1px black;
+                overflow-y: auto;
                 font-family: inconsolata;
                 display: inline;
+                color: black;
 
                 .cursorDescription{
+                    position: relative;
+                    top: -1%;
+                    background-color: rgba(0, 0, 0, 0.735);
                     height: 1vw;
                     width: 0.4rem;
+                    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.179);
                 }
+
+                
                 
     
                 @media(max-width:1150px){font-size: 1.7vh;}

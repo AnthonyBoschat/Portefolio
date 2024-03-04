@@ -20,12 +20,16 @@ function Console({consoleConfiguration}){
 
     return(
         <div  ref={consoleConfiguration.presentationConsoleRef ? consoleConfiguration.presentationConsoleRef : null} className="ConsoleBox">
-            <div ref={typingSentenceBoxRef} className="typingSentenceBox">
-                {consoleConfiguration.typingSentence}
-                <Cursor cursorConfiguration={{
-                    cursorClass:"consoleCursor",
-                    cursorBlink:true,
-                }}/>
+            <div className="consoleBorder">
+                <div className="consoleBorderGui">Exploring Gui.cs</div>
+                <div ref={typingSentenceBoxRef} className="typingSentenceBox">
+                    {consoleConfiguration.typingSentence}
+                    <Cursor cursorConfiguration={{
+                        cursorClass:"consoleCursor",
+                        cursorBlink:true,
+                    }}/>
+                </div>
+                
             </div>
         </div>
     )

@@ -1,11 +1,14 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { update_cvOnload } from "../Profil/ProfilSlice";
 
-function CVzoomOut({setCVfocus}){
+function CVzoomOut(){
 
+    const dispatch = useDispatch()
 
     return(
         <div className="cvUnfocus">
-            <img onClick={() => setCVfocus(current => !current)} src="/Ressource/CVimage.png" alt="" />
+            <img onClick={() => dispatch(update_cvOnload(true))} src="/Ressource/CVimage.png" alt="" />
         </div>
     )
 }

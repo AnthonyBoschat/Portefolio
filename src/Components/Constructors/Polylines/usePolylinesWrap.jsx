@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
-export default function usePolylinesWrap(elementToWrapRef, configuration){
+export default function usePolylinesWrap(elementToWrapRef, configuration, mouseOn){
 
+
+    const impulseHyperActivation = useSelector(store => store.circuit.impulseHyperActivation)
+    const impulseLength = 0.30
     const [polylinesPoints, setPolylinesPoints] = useState(null)
     const [dashArray, setDashArray] = useState(null)
     const [dashOffset, setDashOffset] = useState(null)
     const [animationBegin, setAnimationBegin] = useState(false)
+    const [impulseDashOffset, setImpulseDashOffset] = useState(null)
 
     // Calcule la positions des points
     const calculPolylinesPoints = (elementToWrapRef) => {
@@ -27,8 +32,6 @@ export default function usePolylinesWrap(elementToWrapRef, configuration){
                 const points = `${A},${B} ${C},${D} ${E},${F} ${G},${H} ${I},${J}`
                 return points
             })
-            // Calcul du dashArray
-            setDashArray((elementToWrapBounding.width + elementToWrapBounding.height) * 2)
         }
     }
 
@@ -37,16 +40,20 @@ export default function usePolylinesWrap(elementToWrapRef, configuration){
         const elementToWrapBounding = elementToWrapRef.current.getBoundingClientRect()
         setDashArray((elementToWrapBounding.width + elementToWrapBounding.height) * 2)
         setDashOffset((elementToWrapBounding.width + elementToWrapBounding.height) * 2)
+        setImpulseDashOffset(((elementToWrapBounding.width + elementToWrapBounding.height) * 2) * impulseLength)
     }
 
     // On déclenche un premier calcul de position et de dashArray et offset
     useEffect(() => {
-        calculPolylinesPoints(elementToWrapRef)
-        calculArrayOffset(elementToWrapRef)
-        if(configuration.animation){
-            setAnimationBegin(true)
+        if(elementToWrapRef.current){
+            calculPolylinesPoints(elementToWrapRef)
+            calculArrayOffset(elementToWrapRef)
+            if(configuration.animation){
+                setAnimationBegin(true)
+            }
         }
-    }, [])
+        
+    }, [elementToWrapRef])
 
     // On déclenche un recalcule de position si resize de la page
     useEffect(() => {
@@ -60,7 +67,7 @@ export default function usePolylinesWrap(elementToWrapRef, configuration){
 
     // Si l'animation est spécifier, on le déclenche avec la vitesse indiquer
     useEffect(() => {
-        if(configuration.animation){
+        if(configuration.animation && animationBegin){
             let copyOffset = dashOffset
             const intervalID = setInterval(() => {
                 let offsetEnd = true
@@ -71,12 +78,10 @@ export default function usePolylinesWrap(elementToWrapRef, configuration){
                     copyOffset = 0
                 }
 
+                setDashOffset(copyOffset)
                 if(offsetEnd === true){
-                    setDashOffset(copyOffset)
                     clearInterval(intervalID)
                     if(configuration.ending){configuration.ending()}
-                }else{
-                    setDashOffset(copyOffset)
                 }
             }, 10);
 
@@ -84,9 +89,67 @@ export default function usePolylinesWrap(elementToWrapRef, configuration){
         }
     }, [animationBegin])
 
+
+
+    let animation_timeoutID = null
+    let animation_intervalID = null
+
+    const resetImpulsePosition = () => {
+        setImpulseDashOffset(dashArray * impulseLength)
+    }
+
+    useEffect(() => {
+        if(mouseOn){
+            resetImpulsePosition()
+            let copyImpulseOffset = impulseDashOffset
+            const animationSpeed = 20
+            animation_intervalID = setInterval(() => {
+                copyImpulseOffset -= animationSpeed
+                setImpulseDashOffset(copyImpulseOffset)
+            }, 10);
+        }
+
+        return () => {
+            clearInterval(animation_intervalID)
+        }
+    }, [mouseOn])
+
+
+    const impulseAnimationSpeed = 500
+    useEffect(() => {
+        if(impulseHyperActivation){
+            // resetImpulsePosition()
+            let copyImpulseOffset = dashArray
+            const animationSpeed = impulseAnimationSpeed
+            animation_intervalID = setInterval(() => {
+
+                let animationEnd = true
+                if(copyImpulseOffset >= 0  - animationSpeed){
+                    copyImpulseOffset -= animationSpeed
+                    animationEnd = false
+                }else{
+                    copyImpulseOffset = 0
+                }
+                setImpulseDashOffset(copyImpulseOffset)
+                if(animationEnd){
+                    clearInterval(animation_intervalID)
+                    setImpulseDashOffset(0)
+                }
+            }, 10);
+        }
+
+        return () => {
+            clearInterval(animation_intervalID)
+        }
+    }, [impulseHyperActivation])
+
+    
+
     return{
+        impulseLength,
         polylinesPoints,
         dashArray,
-        dashOffset
+        dashOffset,
+        impulseDashOffset
     }
 }

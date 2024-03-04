@@ -3,23 +3,16 @@ import usePresentation_Projet from "./usePresentation_Projet";
 import TypingSentenceCompiler from "../../../Constructors/TypingSentence/TypingSentenceCompiler";
 import PolylinesWrap from "../../../Constructors/Polylines/PolylinesWrap";
 import Cursor from "../../../Constructors/Cursor/Cursor";
+import { useSelector } from "react-redux";
 
 function Projet_Presentation({projet}){
 
     const presentationBoxRef = useRef()
     const imageRef = useRef()
+    const impulseHyperActivation = useSelector(store => store.circuit.impulseHyperActivation)
 
-    useEffect(() => {
-        if(presentationBoxRef.current && imageRef.current){
-            setTimeout(() => {
-                presentationBoxRef.current.style.display = "flex"
-                
-            }, 500);
-            setTimeout(() => {
-                imageRef.current.style.display = "block"
-            }, 1000);
-        }
-    }, [])
+
+    usePresentation_Projet(presentationBoxRef, imageRef)
 
     return(
         <>
@@ -38,7 +31,14 @@ function Projet_Presentation({projet}){
                                 {projet.languages.map((language, index) => (
                                     <div key={index} className="languageBox">
                                         <div className="imageBox">
-                                            <img  src={language.image} title={language.name} alt={`Logo ${language.name}`} />
+                                            <img className={impulseHyperActivation ? "impulseHyperActivation_LanguageOpacity" : undefined} src={language.image} title={language.name} alt={`Logo ${language.name}`} />
+                                            <span className={impulseHyperActivation ? "impulseHyperActivation_TextColorProjet" : undefined}>
+                                                <TypingSentenceCompiler sentencesConfiguration={[{
+                                                    timeout:500,
+                                                    sentence:language.name,
+                                                    speed:100
+                                                }]}/>
+                                            </span>
                                         </div>
                                     </div>
                                 ))}
@@ -46,11 +46,11 @@ function Projet_Presentation({projet}){
                         </div>
                     </div>
 
-                    <div className="descriptionBox">
+                    <div className={impulseHyperActivation ? "impulseHyperActivation_TextColorProjet descriptionBox" : "descriptionBox"} >
                         <TypingSentenceCompiler sentencesConfiguration={[{
-                            timeout:1000,
+                            timeout:700,
                             sentence:projet.description,
-                            speed:1
+                            speed:1,
                         }]}/>
                         <Cursor cursorConfiguration={{
                             cursorBlink:true,

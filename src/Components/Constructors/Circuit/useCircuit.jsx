@@ -2,13 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { update_impulseHyperActivation } from "./CircuitSlice";
 
-export default function useCircuit(polylineRef, index){
+export default function useCircuit(polylineRef){
 
     const cancelAnimation = useSelector(store => store.circuit.cancelAnimation)
     const impulseHyperActivation = useSelector(store => store.circuit.impulseHyperActivation)
-
-    const [cx, setcX] = useState(null) // position X du cercle
-    const [cy, setcY] = useState(null) // position Y du cercle
 
     const [circuitDashArray, setCircuitDashArray] = useState(null) // DashArray du circuit
     const [circuitDashOffset, setCircuitDashOffset] = useState(null) // DashOffset du circuit
@@ -20,17 +17,10 @@ export default function useCircuit(polylineRef, index){
     const [startRandomAnimation, setStartRandomAnimation] = useState(false)
     const [circleDashArray, setCircleDashArray] = useState(2 * Math.PI * 5)
     const [circleDashOffset, setCircleDashOffset] = useState(2 * Math.PI * 5)
+    const [fillCircle, setFillCircle] = useState(false)
 
     const impulseLength = impulseHyperActivation ? 0.20 : 0.02
     
-    
-
-    const calculatecirclePosition = (polylineRef) => {
-        const points = polylineRef.current.getAttribute("points").split(" ")
-        const firstPoint = points[0].split(",")
-        setcX(firstPoint[0])
-        setcY(firstPoint[1])
-    }
     
 
     // Quand le polyline est afficher, on calcul automatiquement osn dashArray et Offset
@@ -43,26 +33,10 @@ export default function useCircuit(polylineRef, index){
                 setCircuitDashOffset(polylineLength)
                 setImpulseDashOffset(polylineLength * impulseLength)
             }
-
+            // console.log("recalcule")
             setStartAnimation(true)
         }
     }, [])
-
-
-    // Quand le composant est monter, on Trouve la position X et Y pour le cercle à partir du premier point du polyline
-    useEffect(() => {
-        calculatecirclePosition(polylineRef)
-    }, [])
-
-    // Gère le repositionnement des cercle quand l'écran se resize
-    useEffect(() => {
-        const handleResize = () => calculatecirclePosition(polylineRef)
-
-        window.addEventListener("resize", handleResize)
-        return () => window.removeEventListener("resize", handleResize)
-    }, [])
-
-
     
 
     // Gère la première animation
@@ -79,12 +53,13 @@ export default function useCircuit(polylineRef, index){
                     
                     if(!beginAnimation2){
                         if(copyCircleDashOffset >= 0){
-                            copyCircleDashOffset -= animationSpeedCircuit
+                            copyCircleDashOffset -= animationSpeedCircuit / 3
                             animationEnd = false
                         }else{
                             copyCircleDashOffset = 0
                             beginAnimation2 = true
                             animationEnd = false
+                            setFillCircle(true)
                         }
                     }
                     
@@ -114,19 +89,18 @@ export default function useCircuit(polylineRef, index){
 
 
     
-    const [animationSpeed, setAnimationSpeed] = useState(null)
+    
+    // Gère l'animation des impulses
+
     let animation_timeoutID = null
     let animation_intervalID = null
 
-    
-    // Gère l'animation des impulses
     const resetImpulsePosition = () => {
-        
-        setImpulseDashOffset(impulseDashArray * impulseLength)
+        setImpulseDashOffset(circuitDashArray * impulseLength)
+        // setImpulseDashOffset(impulseDashArray * impulseLength)
         clearInterval(animation_intervalID);
         clearTimeout(animation_timeoutID);
     }
-
 
     useEffect(() => {
         
@@ -136,7 +110,6 @@ export default function useCircuit(polylineRef, index){
                 resetImpulsePosition();
                 const animationSpeed = impulseHyperActivation ? circuitDashArray / 30 : -4
                 const timeout = impulseHyperActivation ? 5 : Math.floor(Math.random() * (10000 - 500) + 500)
-                const log = impulseHyperActivation ? "fast" : "slow"
                 const randomDirection = Math.floor(Math.random() * 2)
 
                 let copyImpulseDashOffset = impulseDashOffset * impulseLength;
@@ -171,7 +144,6 @@ export default function useCircuit(polylineRef, index){
                         
                         setImpulseDashOffset(copyImpulseDashOffset)
                         if(animationEnd){
-                            if(index === 0){console.log("circuit fini")}
                             clearInterval(animation_intervalID)
                             startAnimation()
                         }
@@ -245,8 +217,6 @@ export default function useCircuit(polylineRef, index){
        
 
     return{
-        cx,
-        cy,
         circuitDashArray,
         circuitDashOffset,
         impulseDashArray,
@@ -255,6 +225,7 @@ export default function useCircuit(polylineRef, index){
         circleDashOffset,
         impulseHyperActivation,
         impulseLength,
-        cancelAnimation
+        cancelAnimation,
+        fillCircle
     }
 }

@@ -16,7 +16,7 @@ export default function useNav(){
         {destination:"/", selected:true, onClick: () => handleClick("/"), sentencesConfiguration:[{timeout:400,sentence:"Accueil",speed:90}]},
         {destination:"Projet", selected:false, onClick: () => handleClick("Projet"), sentencesConfiguration:[{timeout:500,sentence:"Projet",speed:70}]},
         {destination:"Profil", selected:false, onClick: () => handleClick("Profil"), sentencesConfiguration:[{timeout:350,sentence:"Profil",speed:60}]},
-        {destination:"Contact", selected:false, onClick: () => handleClick("Contact"), sentencesConfiguration:[{timeout:450,sentence:"Contact",speed:40}]},
+        // {destination:"Contact", selected:false, onClick: () => handleClick("Contact"), sentencesConfiguration:[{timeout:450,sentence:"Contact",speed:40}]},
     ])
 
     const determineHexagonSelected = (destination) => {

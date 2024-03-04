@@ -7,7 +7,16 @@ function Sentence({configuration}){
 
 
     return(
-        <span>{returnLineFilter(sentence)}</span>
+        <>
+            {configuration.whiteSpace && (
+                <span style={{whiteSpace:"pre"}}>{sentence}</span>
+            )}
+            {!configuration.whiteSpace && (
+                <span>{returnLineFilter(sentence)}</span>
+            )}
+        </>
+        
+        
     )
 }
 

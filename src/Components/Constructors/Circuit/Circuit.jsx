@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import useCircuit from "./useCircuit";
 
-function Circuit({points, index}){
+function Circuit({points, circlePosition}){
     
     const circuitRef = useRef()
     const impulseRef = useRef()
@@ -9,8 +9,6 @@ function Circuit({points, index}){
     
     
     const {
-        cx, 
-        cy, 
         circuitDashArray,
         circuitDashOffset, 
         impulseDashArray,
@@ -19,8 +17,9 @@ function Circuit({points, index}){
         circleDashOffset,
         impulseHyperActivation,
         impulseLength,
-        cancelAnimation
-    } = useCircuit(circuitRef, index)
+        cancelAnimation,
+        fillCircle
+    } = useCircuit(circuitRef)
 
     return(
         <>
@@ -33,21 +32,22 @@ function Circuit({points, index}){
             />
             {!cancelAnimation && (
                 <polyline className="impulse"
-                    stroke={impulseHyperActivation ? "rgb(86, 214, 253)" : "rgb(188, 208, 255)"}
-                    strokeWidth={impulseHyperActivation ? 2 : 2}
-                    strokeDasharray={`${impulseDashArray * impulseLength}, ${impulseDashArray + (impulseDashArray * impulseLength)}`}
+                    stroke={impulseHyperActivation ? "white" : "black"}
+                    strokeWidth={impulseHyperActivation ? 5 : 3}
+                    strokeDasharray={`${impulseDashArray * impulseLength}, ${impulseDashArray + (impulseDashArray * (impulseLength * 2))}`}
                     strokeDashoffset={impulseDashOffset}
                     ref={impulseRef}
                     points={points}
                 />
             ) }
-            
             <circle
+        
+                fill={fillCircle ? "rgb(49, 49, 49)" : "transparent"}
                 strokeDasharray={circleDashArray}
                 strokeDashoffset={circleDashOffset}
                 r={4}
-                cx={cx}
-                cy={cy}
+                cx={circlePosition.cx}
+                cy={circlePosition.cy}
             />
         </>
     )

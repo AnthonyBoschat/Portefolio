@@ -7,11 +7,30 @@ svg.svg_polylinesConstructor{
     height: 100%;
     // outline: 1px solid red;
     z-index: 2;
+    animation: boxShadowImpulseDisapear 0.2s linear forwards;
 
     polyline{
         width: fit-content;
         fill: transparent;
-        stroke: white;
-        stroke-width: 1;
+        stroke: rgb(0, 0, 0);
+        stroke-width: 2;
+    }
+
+    polyline.impulse{
+        width: fit-content;
+        fill: transparent;
+        stroke: rgb(0, 0, 0);
+        stroke-linecap: round;
+        stroke-width: 4;
+    }
+
+    polyline.impulseHyperActivation{
+        width: fit-content;
+        fill: transparent;
+        stroke: black;
+        stroke-linecap: round;
+        stroke-width: 3;
+        animation: impulseHyperActivationProjet 0.2s linear infinite;
     }
 }
+

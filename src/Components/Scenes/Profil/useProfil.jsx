@@ -16,7 +16,7 @@ export default function useProfil(){
         languages:[
             {name:"PHP", level:30},
             {name:"MySQL", level:35},
-            {name:"Node", level:10},
+            {name:"Node", level:5},
         ]},
         {famillyName:"Framework",
         languages:[

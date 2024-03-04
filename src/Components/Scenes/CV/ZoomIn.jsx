@@ -1,25 +1,20 @@
 import React, { useRef, useState } from "react";
 import Loading_CV from "../Loading/CV";
+import { useDispatch } from "react-redux";
+import { update_cvOnload } from "../Profil/ProfilSlice";
 
-function CVzoomIn({setCVfocus}){
+function CVzoomIn(){
 
 
     const boxRef = useRef()
     const height = window.innerHeight / 14
     const overlayRef = useRef()
     const [pdfOnload, setPdfOnload] = useState(true)
+    const dispatch = useDispatch()
 
     const handleClickUnfocusCV = (event) => {
         if(event.target === event.currentTarget){
-            if(boxRef.current){
-                boxRef.current.classList.add("opacity-out300")
-                setTimeout(() => {
-                    overlayRef.current.classList.add("opacity-out300")
-                    setTimeout(() => {
-                        setCVfocus(current => !current)
-                    }, 300);
-                }, 150);
-            }
+            dispatch(update_cvOnload(false))
         }
     }
 
