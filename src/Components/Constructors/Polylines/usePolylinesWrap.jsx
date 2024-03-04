@@ -40,7 +40,7 @@ export default function usePolylinesWrap(elementToWrapRef, configuration, mouseO
         const elementToWrapBounding = elementToWrapRef.current.getBoundingClientRect()
         setDashArray((elementToWrapBounding.width + elementToWrapBounding.height) * 2)
         setDashOffset((elementToWrapBounding.width + elementToWrapBounding.height) * 2)
-        setImpulseDashOffset(((elementToWrapBounding.width + elementToWrapBounding.height) * 2) * impulseLength)
+        // setImpulseDashOffset(((elementToWrapBounding.width + elementToWrapBounding.height) * 2) * impulseLength)
     }
 
     // On déclenche un premier calcul de position et de dashArray et offset
@@ -58,7 +58,11 @@ export default function usePolylinesWrap(elementToWrapRef, configuration, mouseO
     // On déclenche un recalcule de position si resize de la page
     useEffect(() => {
         if(elementToWrapRef.current){
-            const handleResize = () => calculPolylinesPoints(elementToWrapRef)
+            const handleResize = () => {
+                calculPolylinesPoints(elementToWrapRef)
+                const elementToWrapBounding = elementToWrapRef.current.getBoundingClientRect()
+                setDashArray((elementToWrapBounding.width + elementToWrapBounding.height) * 2)
+            }
 
             window.addEventListener("resize", handleResize)
             return () => window.removeEventListener("resize", handleResize)

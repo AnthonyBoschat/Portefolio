@@ -32,7 +32,7 @@ function Button_Projet({projet, projetConfiguration, setProjetConfiguration}){
                     configuration={{
                         
                         animation:true,
-                        animationSpeed:20,
+                        animationSpeed:30,
                         ending: () => setEndAnimation(true)
                     }}
                     elementToWrapRef={buttonRef}
