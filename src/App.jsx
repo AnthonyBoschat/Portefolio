@@ -7,6 +7,7 @@ import Main from "./Components/Scenes/Main/Main";
 import Projet from "./Components/Scenes/Projet/Projet";
 import Profil from "./Components/Scenes/Profil/Profil";
 import Contact from "./Components/Scenes/Contact/Contact";
+import ImpulseActivity from "./Components/Scenes/ImpulseActivity/ImpulseActivity";
 
 function App() {
 
@@ -15,8 +16,15 @@ function App() {
   
 
   return (
+    <>  
     <div className="app">
-      {onLoad && <Loading_Launch />}
+      {onLoad && (
+        <>
+          <Loading_Launch />
+          <ImpulseActivity/>
+        </>
+      
+      )}
       {!onLoad && (
         <Router>
           <Routes>
@@ -30,6 +38,9 @@ function App() {
         </Router>
       )}
     </div>
+    
+    </>
+    
   );
 
 

@@ -18,7 +18,8 @@ function Circuit({points, circlePosition}){
         impulseHyperActivation,
         impulseLength,
         cancelAnimation,
-        fillCircle
+        fillCircle,
+        startRandomAnimation
     } = useCircuit(circuitRef)
 
     return(
@@ -30,7 +31,7 @@ function Circuit({points, circlePosition}){
                 ref={circuitRef}
                 points={points}
             />
-            {!cancelAnimation && (
+            {(!cancelAnimation && startRandomAnimation) && (
                 <polyline className="impulse"
                     stroke={impulseHyperActivation ? "white" : "black"}
                     strokeWidth={impulseHyperActivation ? 5 : 3}
