@@ -10,6 +10,8 @@ function Hexagon({hexagon}){
     const polygonRef = useRef()
     const dispatch = useDispatch()
     const navSelected = useSelector(store => store.nav.navSelected)
+    const animationHexagonEnd = useSelector(store => store.nav.animationHexagonEnd)
+
 
     const {
         dashOffset,
@@ -45,8 +47,8 @@ function Hexagon({hexagon}){
     }, [hexagonRef, navSelected])
 
     return(
-        <div ref={hexagonRef} onClick={() => hexagon.onClick && hexagon.onClick()} className={hexagon.selected === true ? "hexagon hexagonSelected" : "hexagon"}>
-            <svg ref={svgRef} className={hexagon.selected === true ? "svgSelected" : null} viewBox="0 0 600 516.8">
+        <div ref={hexagonRef} onClick={() => hexagon.onClick()} className={hexagon.selected === true ? "hexagon hexagonSelected" : "hexagon"}>
+            <svg style={animationHexagonEnd ? null : {fill:"transparent"}} ref={svgRef} className={hexagon.selected === true ? "svgSelected" : null} viewBox="0 0 600 516.8">
                 <polygon ref={polygonRef} strokeDasharray={`${dashArray}px`} strokeDashoffset={`${dashOffset}px`} points="150.7,516.8 1.5,258.4 150.7,0 449,0 598.2,258.4 449,516.8 "/>
             </svg>
             

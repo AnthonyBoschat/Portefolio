@@ -25,16 +25,16 @@
         border-radius: 100%; //
         stroke: rgb(51, 51, 51);
         stroke-width: 6;
-        fill: rgba(232, 232, 232, 0.745);
+        fill:rgb(230, 230, 230);
         transition: all 0.2s ease;
         width: 6vw;
         height: 6vw;
     }
 
     svg.svgSelected{
-        polygon{
+        
             fill: rgb(255, 255, 255);
-        }
+        
         
     }
 

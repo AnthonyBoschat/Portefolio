@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { update_navRenderOnChange, update_navSelected } from "./NavSlice";
 import { reset_contactSlice } from "../Contact/ContactSlice";
 import { update_cancelAnimation } from "../../Constructors/Circuit/CircuitSlice";
+import { update_cvOnload } from "../Profil/ProfilSlice";
 
 export default function useNav(){
 
@@ -34,7 +35,8 @@ export default function useNav(){
         dispatch(update_navSelected(destination)) // On sauvegarde la destination dans redux
         dispatch(update_navRenderOnChange(true)) // On indique dans redux que le render est en train de changer
         dispatch(update_cancelAnimation(true)) // On indique de cancel l'animation
-
+        
+        
         switch(destination){    
             case "Contact":
                 dispatch(reset_contactSlice())
@@ -51,6 +53,7 @@ export default function useNav(){
 
     useEffect(() => {
         if(!navRenderOnChange && navSelected){
+            dispatch(update_cvOnload(false))
             navigate(navSelected)
         }
     }, [navRenderOnChange])

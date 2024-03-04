@@ -155,10 +155,6 @@ export default function useCircuit(polylineRef){
             startAnimation();
 
         }
-        
-    
-
-        
     
         return () => {
             clearInterval(animation_intervalID);
@@ -226,6 +222,7 @@ export default function useCircuit(polylineRef){
         impulseHyperActivation,
         impulseLength,
         cancelAnimation,
-        fillCircle
+        fillCircle,
+        startRandomAnimation
     }
 }
