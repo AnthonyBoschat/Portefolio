@@ -1,27 +1,57 @@
 .ConsoleBox{
-    outline: 1px solid rgba(255, 255, 255, 0.597); //
+    // outline: 1px solid rgba(255, 255, 255, 0.597); //
     padding: 1rem;
     width: 80%;
     height: 80%;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     background-color: black;
 
-    .typingSentenceBox{
-        // background-color: blue; //
-        display: inline;
-        width: 100%;
-        height: 100%;
-        max-height: 100%;
-        // background-color: rgba(0, 255, 255, 0.521); //
-        font-size: 1.5rem;
-        margin-left: 0.3rem;
-        margin-top: 0.3rem;
-        overflow-y:hidden;
+    .consoleBorder{
+        outline: 1px solid white;
+        // background-color: red;
+        padding-top: 1rem;
+        padding-left: 1rem;
+        width: 98%;
         height: 95%;
-        font-family: 'Inconsolata', monospace;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        position: relative;
+
+        div.consoleBorderGui{
+            position: absolute;
+            width: 20%;
+            width: fit-content;
+            font-family: inconsolata;
+            // outline: 1px solid red; //
+            padding-left: 1rem;
+            padding-right: 1rem;
+            background-color: black;
+            font-size: 1.6vw;
+            top: 0;
+            transform: translateY(-50%);
+        }
+
+        .typingSentenceBox{
+            // outline: 1px solid white;
+            // background-color: blue; //
+            display: inline;
+            width: 100%;
+            height: 90%;
+            max-height: 90%;
+            // background-color: rgba(0, 255, 255, 0.521); //
+            font-size: 0.9vw;
+            margin-left: 0.3rem;
+            margin-top: 1rem;
+            overflow-y:hidden;
+            height: 95%;
+            font-family: 'Inconsolata', monospace;
+        }
     }
+
+    
 }
 
 

@@ -17,6 +17,7 @@ export default function useCircuit(polylineRef){
     const [startRandomAnimation, setStartRandomAnimation] = useState(false)
     const [circleDashArray, setCircleDashArray] = useState(2 * Math.PI * 5)
     const [circleDashOffset, setCircleDashOffset] = useState(2 * Math.PI * 5)
+    const [fillCircle, setFillCircle] = useState(false)
 
     const impulseLength = impulseHyperActivation ? 0.20 : 0.02
     
@@ -52,12 +53,13 @@ export default function useCircuit(polylineRef){
                     
                     if(!beginAnimation2){
                         if(copyCircleDashOffset >= 0){
-                            copyCircleDashOffset -= animationSpeedCircuit
+                            copyCircleDashOffset -= animationSpeedCircuit / 3
                             animationEnd = false
                         }else{
                             copyCircleDashOffset = 0
                             beginAnimation2 = true
                             animationEnd = false
+                            setFillCircle(true)
                         }
                     }
                     
@@ -223,6 +225,7 @@ export default function useCircuit(polylineRef){
         circleDashOffset,
         impulseHyperActivation,
         impulseLength,
-        cancelAnimation
+        cancelAnimation,
+        fillCircle
     }
 }

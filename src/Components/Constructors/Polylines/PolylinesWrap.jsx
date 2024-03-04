@@ -18,7 +18,7 @@ function PolylinesWrap({elementToWrapRef, configuration, mouseOn}){
                 strokeDashoffset={!configuration.animation ? "0px" : `${dashOffset}px`}
                 points={polylinesPoints}
             />
-            {mouseOn && (
+            {/* {mouseOn && (
                 <polyline
                     className="impulse"
                     strokeDasharray={`${dashArray * impulseLength}px,${dashArray}px`}
@@ -33,7 +33,7 @@ function PolylinesWrap({elementToWrapRef, configuration, mouseOn}){
                     strokeDashoffset={`0px`}
                     points={polylinesPoints}
                 />
-            )}
+            )} */}
             
         </svg>
     )

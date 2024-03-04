@@ -34,7 +34,7 @@ function Projet_Presentation({projet}){
                                             <img className={impulseHyperActivation ? "impulseHyperActivation_LanguageOpacity" : undefined} src={language.image} title={language.name} alt={`Logo ${language.name}`} />
                                             <span className={impulseHyperActivation ? "impulseHyperActivation_TextColorProjet" : undefined}>
                                                 <TypingSentenceCompiler sentencesConfiguration={[{
-                                                    timeout:1500,
+                                                    timeout:500,
                                                     sentence:language.name,
                                                     speed:100
                                                 }]}/>
@@ -48,7 +48,7 @@ function Projet_Presentation({projet}){
 
                     <div className={impulseHyperActivation ? "impulseHyperActivation_TextColorProjet descriptionBox" : "descriptionBox"} >
                         <TypingSentenceCompiler sentencesConfiguration={[{
-                            timeout:1000,
+                            timeout:700,
                             sentence:projet.description,
                             speed:1,
                         }]}/>

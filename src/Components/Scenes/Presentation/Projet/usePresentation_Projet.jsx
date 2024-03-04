@@ -12,7 +12,7 @@ export default function usePresentation_Projet(presentationBoxRef, imageRef){
             }, 500);
             setTimeout(() => {
                 imageRef.current.style.display = "block"
-            }, 1000);
+            }, 500);
         }
     }, [])
 

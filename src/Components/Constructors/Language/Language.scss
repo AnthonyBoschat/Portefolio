@@ -30,6 +30,7 @@
             font-family: "inconsolata";
             padding: 1rem;
             position: relative;
+            color: black;
         }
 
         >div.languagesList{
@@ -49,9 +50,9 @@
                     // outline: 1px solid blue; //
                     font-family: "Playfair Display", serif;
                     font-family: "inconsolata";
-
+                    color: black;
                     font-weight: 500;
-                    text-shadow: 0px 0px 1px white;
+                    text-shadow: 0px 0px 1px black;
                     font-size: 1.2rem;
                 }
     
@@ -73,8 +74,7 @@
             left: 0;
             stroke-dashoffset: 100%;
             fill: transparent;
-            stroke: white;
-            stroke-width: 1.2;
+            
 
             circle{
                 fill: black;
@@ -83,13 +83,15 @@
             }
 
             polyline{
+                stroke-width: 1.2;
+                stroke: black;
                 stroke-linecap: round;
             }
 
             .impulseHyperActivation{
                 width: fit-content;
                 // fill: transparent;
-                stroke: rgb(255, 255, 255);
+                stroke: rgb(0, 0, 0);
                 stroke-linecap: round;
                 stroke-width: 3;
                 animation: impulseHyperActivationProfil 0.2s linear infinite;

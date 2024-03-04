@@ -6,7 +6,7 @@ function ProgressBar({level, impulseHyperActivation}){
     const {progressBarWidth} = useProgressBar(level)
 
     return(
-        <div className={impulseHyperActivation ? "languageProgressBar impulseHyperActivation" : "languageProgressBar"} style={{width:`${progressBarWidth}%`}}></div>
+        <div className="languageProgressBar" style={{width:`${progressBarWidth}%`}}></div>
     )
 }
 

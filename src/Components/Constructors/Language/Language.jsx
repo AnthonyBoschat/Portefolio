@@ -55,11 +55,9 @@ function Language({familly}){
                 </div>
                 <svg strokeDasharray={`${dashArray}%`} >
                     <polyline
-                        className={impulseHyperActivation ? "impulseHyperActivation" : null}
                         points={svgPoint}
                     />
                     <circle 
-                    className={impulseHyperActivation ? "impulseHyperActivation" : null}
                         cx={circlePointX}
                         cy={circlePointY}
                         r={4}

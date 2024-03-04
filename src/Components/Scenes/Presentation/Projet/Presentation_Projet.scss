@@ -6,8 +6,8 @@
     flex-shrink: 0;
     position: relative;
     top: 0;
-    background-color: rgba(32, 118, 139, 0.343); /////////////
-    box-shadow: 10px 10px 30px 5px black inset;
+    // background-color: rgba(218, 211, 211, 0.136); /////////////
+    // box-shadow: 10px 10px 30px 5px black inset;
     // outline: 1px solid blue; //
     width: 99%;
     // animation: animation-disparitionProjetPresentation 0.5s ease forwards; // // //
@@ -21,9 +21,8 @@
         justify-content: center;
         align-items: center;
         opacity: 0;
-        animation: opacity-in 1s 0.5s linear forwards;
+        animation: opacity-in 0.5s linear forwards;
         // outline: 1px solid white;
-        // background-color: transparent; //
     
         .projet_presentationBox{
             width: 90%;
@@ -52,9 +51,11 @@
                         height: fit-content;
                         // outline: 1px solid red; //
                         transition: opacity 0.2s linear;
+                        position: relative;
+                        background-color: black;
 
                         &:hover{
-                            opacity: 0.8;
+                            opacity: 0.7;
                             cursor: pointer;
                         }
     
@@ -63,11 +64,9 @@
                             width: 100%;
                             height: auto;
                             animation: opacity-in 0.3s linear forwards;
-                            box-shadow: 10px 10px 20px 5px black;
-                            outline: 2px solid black;
+                            box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.378);
+                            outline: 1px solid black;
                             display: none;
-        
-                            
                         }
                     }
     
@@ -112,7 +111,6 @@
                                 display: flex;
                                 align-items: center;
                                 justify-content: center;
-                                color: rgb(108, 84, 214);
                                 flex-direction: column;
                                 gap: 0.5vw;
     
@@ -121,13 +119,13 @@
                                     // outline: 1px solid red; //
                                     width: auto;
                                     height:3vw;
-                                    filter: drop-shadow(5px 5px 5px black);
+                                    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.703));
                                 }
 
                                 span{
-                                    text-shadow: 10px 10px 6px black, 0px 0px 1px white;
+                                    text-shadow: 5px 5px 3px rgba(0, 0, 0, 0.51), 0px 0px 1px black;
                                     font-family: inconsolata;
-                                    color: rgba(255, 255, 255, 0.84);
+                                    color: black;
 
 
                                     height: 1rem;
@@ -160,15 +158,19 @@
                 margin-top: 4rem;
                 // outline: 1px solid white; //
                 font-size: 2vh;
-                text-shadow: 10px 10px 6px black, 0px 0px 1px white;
+                text-shadow: 10px 10px 6px rgba(0, 0, 0, 0.356), 0px 0px 1px black;
                 overflow-y: auto;
                 font-family: inconsolata;
                 display: inline;
-                color: rgba(255, 255, 255, 0.84);
+                color: black;
 
                 .cursorDescription{
+                    position: relative;
+                    top: -1%;
+                    background-color: rgba(0, 0, 0, 0.735);
                     height: 1vw;
                     width: 0.4rem;
+                    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.179);
                 }
 
                 

@@ -17,7 +17,8 @@ function Circuit({points, circlePosition}){
         circleDashOffset,
         impulseHyperActivation,
         impulseLength,
-        cancelAnimation
+        cancelAnimation,
+        fillCircle
     } = useCircuit(circuitRef)
 
     return(
@@ -31,8 +32,8 @@ function Circuit({points, circlePosition}){
             />
             {!cancelAnimation && (
                 <polyline className="impulse"
-                    stroke={impulseHyperActivation ? "rgb(86, 214, 253)" : "rgb(188, 208, 255)"}
-                    strokeWidth={impulseHyperActivation ? 2 : 2}
+                    stroke={impulseHyperActivation ? "white" : "black"}
+                    strokeWidth={impulseHyperActivation ? 5 : 3}
                     strokeDasharray={`${impulseDashArray * impulseLength}, ${impulseDashArray + (impulseDashArray * (impulseLength * 2))}`}
                     strokeDashoffset={impulseDashOffset}
                     ref={impulseRef}
@@ -40,6 +41,8 @@ function Circuit({points, circlePosition}){
                 />
             ) }
             <circle
+        
+                fill={fillCircle ? "rgb(49, 49, 49)" : "transparent"}
                 strokeDasharray={circleDashArray}
                 strokeDashoffset={circleDashOffset}
                 r={4}

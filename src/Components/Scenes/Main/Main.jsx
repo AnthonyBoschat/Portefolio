@@ -12,7 +12,7 @@ function Main(){
                     <Nav/>
                     <Render/>
                 </div>
-                {/* <ImpulseActivity/> */}
+                <ImpulseActivity/>
             </div>
     )
 }
