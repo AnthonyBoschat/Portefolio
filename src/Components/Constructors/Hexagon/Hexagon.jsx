@@ -49,7 +49,7 @@ function Hexagon({hexagon}){
     return(
         <div ref={hexagonRef} onClick={() => hexagon.onClick()} className={hexagon.selected === true ? "hexagon hexagonSelected" : "hexagon"}>
             <svg style={animationHexagonEnd ? null : {fill:"transparent"}} ref={svgRef} className={hexagon.selected === true ? "svgSelected" : null} viewBox="0 0 600 516.8">
-                <polygon ref={polygonRef} strokeDasharray={`${dashArray}px`} strokeDashoffset={`${dashOffset}px`} points="150.7,516.8 1.5,258.4 150.7,0 449,0 598.2,258.4 449,516.8 "/>
+                <polygon style={animationHexagonEnd && hexagon.selected ? {fill:"rgb(250, 250, 250)"} : {fill:"transparent"}} ref={polygonRef} strokeDasharray={`${dashArray}px`} strokeDashoffset={`${dashOffset}px`} points="150.7,516.8 1.5,258.4 150.7,0 449,0 598.2,258.4 449,516.8 "/>
             </svg>
             
             <div className="hexagonSentenceBox">
