@@ -3,6 +3,7 @@ import Projet_Presentation from "../Presentation/Projet/Presentation";
 import Integration_image from "../../../Assets/3Wintegration.png";
 import Calculatrice_image from "../../../Assets/Calculatrice.png";
 import ReactionTime from "../../../Assets/Reaction-Time.png";
+import PokeQuizz from "../../../Assets/pokeQuizz.png";
 import Pokedex from "../../../Assets/Pokedex.png";
 import html from "../../../Assets/html.png";
 import css from "../../../Assets/css.png";
@@ -86,8 +87,24 @@ export default function useProjet(){
             
             Malheureusement, l'API utilisée ne couvre que jusqu'à la huitième génération de Pokémon.`,
         },
+        {
+            name:"Poke-Quizz",
+            selected:false,
+            link:"https://anthonyboschat.github.io/PokeQuizz",
+            img:PokeQuizz,
+            languages:[programmationLanguage.react, programmationLanguage.scss, programmationLanguage.redux],
+            description:
+            `Poke-Quizz, créé peu après le projet Pokedex, approfondit mon usage des API via un jeu.
+
+            De fait, ce projet a considérablement renforcé ma compréhension de React et sa nature asynchrone. De plus, c'est à ce moment-là que j'ai commencé à intégrer Redux pour le partage d'états. Ce projet a aussi été l'occasion de revoir et d'ajuster mon architecture de développement.
+            
+            Pour le jeu en lui-même : il faut s'inscrire, un mot de passe aléatoire est fourni, ce dernier est nécessaire pour accéder à l'application.
+            
+            Trois sections sont disponibles : recherche, quizz, et statistiques. Le quizz propose des questions sur les noms ou types de Pokémon affichés à l'écran et attribue des points pour les réponses justes. Les performances sont suivies et comparées dans la section statistiques entre les autres utilisateurs de la machine.`,
+        },
     ])
     
+    // https://anthonyboschat.github.io/PokeQuizz
 
     return{
         projetConfiguration,
