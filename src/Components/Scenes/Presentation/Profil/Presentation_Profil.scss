@@ -32,7 +32,11 @@
             overflow-x: hidden;
             color: black;
             text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.801), 5px 5px 1px rgba(0, 0, 0, 0.042);
-            
+            @media(max-width:1150px){
+                padding-top: 0;
+                padding-right: 1rem;
+                font-size: 1.4vh;
+            }
             
     
             >span{
@@ -43,7 +47,11 @@
 
             
 
-            span:nth-child(1){font-size: 2.7vh;animation: opacity-in 1s linear forwards;}
+            span:nth-child(1){font-size: 2.7vh;animation: opacity-in 1s linear forwards;
+                @media(max-width:1150px){
+                    font-size: 1.8vh;
+                }
+            }
             span:nth-child(2){animation: opacity-in 1s 0.4s linear forwards;}
             span:nth-child(3){animation: opacity-in 1s 0.8s linear forwards;}
             span:nth-child(4){animation: opacity-in 1s 1.2s linear forwards;}
