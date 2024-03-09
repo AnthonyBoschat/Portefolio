@@ -10,7 +10,12 @@
     // opacity: 0; //
     // animation: opacity-in 1s ease forwards; //
     overflow-x: hidden;
+    overflow-y: visible;
     z-index: 4000;
+
+    @media(max-width:425px){
+        align-items: flex-start;
+    }
 
     .projetBox{
         // outline: 1px solid rgba(80, 210, 33, 0.739); //
@@ -21,6 +26,11 @@
         align-items: center;
         padding-bottom: 1rem;
         position: relative;
+
+        // @media(max-width:425px){
+        //     width: 95%;
+        //     height: 95%;
+        // }
     }
 
     

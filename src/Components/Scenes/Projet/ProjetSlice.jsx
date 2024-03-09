@@ -10,7 +10,7 @@ const ProjetSlice = createSlice({
             state.projetSelected = action.payload
         }
     },
-})
+}) 
 
 export const ProjetSliceReducer = ProjetSlice.reducer
 export const {

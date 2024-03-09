@@ -9,20 +9,22 @@
     // background-color: rgba(218, 211, 211, 0.136); /////////////
     // box-shadow: 10px 10px 30px 5px black inset;
     // outline: 1px solid blue; //
+    // overflow-y: scroll;
     width: 99%;
     // animation: animation-disparitionProjetPresentation 0.5s ease forwards; // // //
-
+    
     .projet_presentationDisplay{
         width: 100%;
         max-width: 100%;
         height: 100%;
-        max-height: 100%;
+        // max-height: 100%;
         display: none;
         justify-content: center;
         align-items: center;
         opacity: 0;
         animation: opacity-in 0.5s linear forwards;
-        // outline: 1px solid white;
+        // outline: 1px solid black; //
+        // overflow-y: auto;
     
         .projet_presentationBox{
             width: 90%;
@@ -31,11 +33,22 @@
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: 50% 50%;
+            @media(max-width:425px){
+                width: 100%;
+            }
+
+
     
             .imageTechnologieBox{
                 width: 100%;
                 // background-color: rgba(0, 0, 255, 0.258); //
                 display: flex;
+                @media(max-width:425px){
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 2rem;
+                }
     
                 .imageProjetBox{
                     width: 80%;
@@ -44,6 +57,10 @@
                     justify-content: center;
                     align-items: center;
                     position: relative;
+
+                    @media(max-width:425px){
+                        width: 100%;
+                    }
     
                     a{
                         width: 90%;
@@ -67,6 +84,8 @@
                             box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.378);
                             outline: 1px solid black;
                             display: none;
+
+                            @media(max-width:425px){box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.378);}
                         }
                     }
     
@@ -82,6 +101,10 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
+
+                    @media(max-width:425px){
+                        width: 100%;
+                    }
     
                     .technologieBox{
                         width: 90%;
@@ -93,6 +116,12 @@
                         gap: 3vw;
                         justify-content: center;
                         align-items: center;
+
+                        @media(max-width:425px){
+                            width: 100%;
+                            max-width: 100%;
+                            justify-content: space-evenly;
+                        }
     
                         .languageBox{
                             width: 4rem;
@@ -120,6 +149,9 @@
                                     width: auto;
                                     height:3vw;
                                     filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.703));
+                                    @media(max-width:425px){
+                                        height:7vw;
+                                    }
                                 }
 
                                 span{
@@ -132,6 +164,8 @@
                                     height: 1rem;
                                     // outline: 1px solid pink;
                                     font-size: 1rem;
+                                    @media(max-width:1150px){font-size: 0.9rem;}
+                                    @media(max-width:425px){font-size: 0.7rem;}
                                 }
                             }
                         }
@@ -153,7 +187,7 @@
                 max-height: 100%;
                 width: 95%;
                 display: flex;
-                margin-top: 4rem;
+                margin-top: 3vw;
                 // outline: 1px solid white; //
                 font-size: 2vh;
                 text-shadow: 7px 7px 5px rgba(0, 0, 0, 0.356), 0px 0px 1px black;
@@ -162,13 +196,20 @@
                 display: inline;
                 color: black;
 
+                @media(max-width:425px){
+                    margin-top: 10vw;
+                    // overflow-y: visible;
+                }
+
                 .cursorDescription{
                     position: relative;
-                    // top: -1%;
+                    top: -0.5%;
                     background-color: rgba(0, 0, 0, 0.605);
-                    height: 1vw;
+                    height: 1.2rem;
                     width: 0.4rem;
                     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.179);
+                    @media(max-width:1150px){height: 1.1rem; width: 0.3rem;}
+                    @media(max-width:750px){height: 1rem; width: 0.2rem;}
                 }
 
                 

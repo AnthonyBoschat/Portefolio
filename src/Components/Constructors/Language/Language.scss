@@ -9,7 +9,11 @@
     align-self: center;
     
     animation: opacity-in 0.5s linear forwards;
-
+    @media(max-width:500px){
+        max-height: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3,1fr);
+    }
     
     
 
@@ -21,6 +25,9 @@
         position: relative;
         padding-bottom: 2rem;
         // background-color: rgba(0, 0, 255, 0.266); //
+        @media(max-width:500px){
+            padding-bottom: 4rem;
+        }
 
         >div.title{
             height: fit-content;

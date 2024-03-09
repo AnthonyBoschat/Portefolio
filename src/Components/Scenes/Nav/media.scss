@@ -15,12 +15,20 @@
             svg{
                 width: 6rem;
                 height: 6rem;
+
+                @media(max-width:425px){
+                    width: 4rem;
+                    height: 4rem;
+                }
             }
 
             .hexagonSentenceBox{
 
                 .hexagonName{
                     font-size: 1.3rem;
+                    @media(max-width:425px){
+                        font-size: 0.8rem;
+                    }
                 }
             }
         }
