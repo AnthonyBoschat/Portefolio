@@ -7,8 +7,8 @@ import { useSelector } from "react-redux";
 function Button_Projet({projet, projetConfiguration, setProjetConfiguration}){
 
 
-    
-    const aButtonSelected = projetConfiguration.find(projet => projet.selected === true)
+    const projetSelected = useSelector(store => store.projet.projetSelected)
+    // const aButtonSelected = projetConfiguration.find(projet => projet.selected === true)
     // Detail
     const buttonRef = useRef()
     const [endAnimation, setEndAnimation] = useState(false)
@@ -21,7 +21,7 @@ function Button_Projet({projet, projetConfiguration, setProjetConfiguration}){
     } = useButton_Projet(projetConfiguration, setProjetConfiguration, buttonRef)
 
     
-    const {buttonStyle, buttonClassName, projetStyle, projetClassName} = animationStyleClassCenter(aButtonSelected, projet)
+    const {buttonStyle, buttonClassName, projetStyle, projetClassName} = animationStyleClassCenter(projetSelected, projet)
     
     return(
         <>
@@ -38,8 +38,8 @@ function Button_Projet({projet, projetConfiguration, setProjetConfiguration}){
                     elementToWrapRef={buttonRef}
                 />
             </button>
-            <div ref={projet.selected ? presentationBoxRef : null} style={projetStyle} className={`projetPresentation ${projetClassName}`}>
-                { projet.selected ? <Projet_Presentation projet={projet}/> : null}
+            <div ref={projet.name === projetSelected ? presentationBoxRef : null} style={projetStyle} className={`projetPresentation ${projetClassName}`}>
+                { projet.name === projetSelected ? <Projet_Presentation projet={projet}/> : null}
             </div>
         </>
     )

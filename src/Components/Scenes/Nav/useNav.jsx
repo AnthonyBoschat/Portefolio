@@ -5,6 +5,7 @@ import { update_navRenderOnChange, update_navSelected } from "./NavSlice";
 import { reset_contactSlice } from "../Contact/ContactSlice";
 import { update_cancelAnimation } from "../../Constructors/Circuit/CircuitSlice";
 import { update_cvOnload } from "../Profil/ProfilSlice";
+import { update_projetSelected } from "../Projet/ProjetSlice";
 
 export default function useNav(){
 
@@ -12,6 +13,7 @@ export default function useNav(){
     const dispatch = useDispatch()
     const navRenderOnChange = useSelector(store => store.nav.navRenderOnChange)
     const navSelected = useSelector(store => store.nav.navSelected)
+    const [buttonClicked, setButtonClicked] = useState(false)
 
     const [hexagonsConfiguration, setHexagonsConfiguration] = useState([
         {destination:"/", selected:true, onClick: () => handleClick("/"), sentencesConfiguration:[{timeout:400,sentence:"Accueil",speed:90}]},
@@ -20,46 +22,64 @@ export default function useNav(){
         // {destination:"Contact", selected:false, onClick: () => handleClick("Contact"), sentencesConfiguration:[{timeout:450,sentence:"Contact",speed:40}]},
     ])
 
-    const determineHexagonSelected = (destination) => {
-        setHexagonsConfiguration(current => {
+    const handleClick = (destination) => {
+
+        setHexagonsConfiguration(current => { // On change le selected de l'hexagon sur lequel on vient de cliquer
             return current.map(hexagon => {
                 const copyHexagon = {...hexagon}
                 copyHexagon.selected = hexagon.destination === destination
                 return copyHexagon
             })
         })
-    }
 
-    const handleClick = (destination) => { // Quand on clique sur un bouton de navigation
-        determineHexagonSelected(destination) // On change la clef selected en true du bouton appuyer
         dispatch(update_navSelected(destination)) // On sauvegarde la destination dans redux
-        dispatch(update_navRenderOnChange(true)) // On indique dans redux que le render est en train de changer
-        dispatch(update_cancelAnimation(true)) // On indique de cancel l'animation
-        
-        
-        switch(destination){    
+        dispatch(update_cancelAnimation(true)) // On indique de cancel l'animation principal
+
+        switch(destination){    // Effet lors du clique sur les hexagons déjà selectionner
             case "Contact":
                 dispatch(reset_contactSlice())
                 return
 
             case "/":
                 dispatch(update_cancelAnimation(false))
-            default:
                 return
 
+            case "Projet":
+                dispatch(update_projetSelected(null))
+                return
+
+            default:
+                return
         }
-        
     }
 
+    useEffect(() => { // Si la destination s'est mise à changer
+        if(navSelected){
+            setButtonClicked(true) // On indique qu'un bouton viens d'etre cliquer
+
+            return () => setButtonClicked(false)
+        }
+    }, [navSelected]) // Si la destination a changer
+
+    
+
     useEffect(() => {
+        if(buttonClicked){ // Si un bouton est cliquer
+            dispatch(update_navRenderOnChange(true)) // On indique dans redux que le render est en train de changer
+
+            return () => dispatch(update_navRenderOnChange(false))
+        }
+    }, [buttonClicked])
+
+    useEffect(() => { // Si le render est en train de changer
         if(!navRenderOnChange && navSelected){
-            dispatch(update_cvOnload(false))
-            navigate(navSelected)
+            setButtonClicked(false) // On repasse le controle bouton en false
+            dispatch(update_cvOnload(false)) // On annule la visibilité du CV
+            navigate(navSelected) // On navigate jusqu'a la destination
         }
     }, [navRenderOnChange])
 
     return{
-        determineHexagonSelected,
         hexagonsConfiguration,
         handleClick,
     }
