@@ -109,17 +109,94 @@ Chargement du programme principal... `,
             `
 
 
-                                                     •   •  •_  •   •
-                                                   _  \\__|    | |__/  _
-                                                •_/ \\____\\_   |_/____/ \\_•
-                                             •__    •_/    \\_/    \\_•  __•
-                                                \\____      |0|      ____/
-                                                •_/   \\____/ \\____/   \\_•
-                                                 •__  /    |    \\    __•
-                                                    \\_|   |     |__/
-                                                •___/     / \\_•   \\___•
-                                                    |    |_         |
-                                                    •      |_•      •
+                        &&&&&&&&&$++;;+;;+xxxX;:.x$&$$$$;.;;++XXX+:;::::;:
+                        &&&&&&&&&$xx;::..;xxxx::;x$$$$$$X$$$$$XXXx+++++++:`
+        },
+        {
+            timeout:4250, speed:1, whiteSpace:true,
+            sentence:
+            `
+                        &&&&&&&&&&&X+;;::;xxxx;:.;:+X$$$XX$XxxXxxxxx+++++:
+                        &&&&&&&&&&$xxxxxxxx+.........:$$$XXXXXxxxxx;..+++:`
+        },
+        {
+            timeout:4300, speed:1, whiteSpace:true,
+            sentence:
+            `
+                        &&&&&&&&&&Xxxxxx++.............XXXXXXxxxxxx++++++;
+                        xx$&&&&&&&XXX;:+:..:::;++;:::...+:+Xxxxxx++;.:;+++`
+        },
+        {
+            timeout:4350, speed:1, whiteSpace:true,
+            sentence:
+            `
+                        xxX&&&&&&&XxX;:;..xX$$&&&&$$$X;.:++xxx+;::+;.:;:++
+                        +++$&&&&&$xxxxxx.;$&&&&&&&&&&$X;:xXxx:::..+;;..:++`
+        },
+        {
+            timeout:4400, speed:1, whiteSpace:true,
+            sentence:
+            `
+                        $$x+&&&&&$xxx;;;.+$&&&&&&&&&&$$x.xxxx::::.;:....;;
+                        xx$$&&&&&$xxx++;:XxX&&&&&&&&&$X+:xxx+:....::..:;;.`
+        },
+        {
+            timeout:4450, speed:1, whiteSpace:true,
+            sentence:
+            `
+                        $&&&&&&&&$xxx;.:+X$&$+x&&&$+:;:+;xx++:....:;;;;;;;
+                        +X$$$&&&&&Xxxx:x$$XXx$$$&XX+:xxx;x+++::::;;:.:;;:.`
+        },
+        {
+            timeout:4500, speed:1, whiteSpace:true,
+            sentence:
+            `
+                        xxxXXX$$$$$xxx+xX&&&&&$X$XX$$$Xx;+;;;;;::::::;::..
+                        xxxxxxxXX$$$xxxXx&&&&&X$&$X$$$$++:::;;;:::::::::::`
+        },
+        {
+            timeout:4550, speed:1, whiteSpace:true,
+            sentence:
+            `
+                        x++xxxxxxxxxxxxx;X&&&X;+$;+X&$X++;;;;;:::.....::::
+                        :;++xxxxxxxx+;::::XxxXXXxx+;:X:;;;;::::::.....::::`
+        },
+        {
+            timeout:4600, speed:1, whiteSpace:true,
+            sentence:
+            `
+                        :::+xxxxxx+::..+X:;+$$XXXx+++::::::::::::.....::::
+                        +:::+xxxxxx+.;Xxx...:;;..::..::..::...:::.....::::`
+        },
+        {
+            timeout:4650, speed:1, whiteSpace:true,
+            sentence:
+            `
+                        +;...+xx;:..xXx+..x;........+x+.......::::::::::::
+                        ::;+;:.....:XXx;.:XXXxx+xx+X$XX.......::::::::::::`
+        },
+        {
+            timeout:4700, speed:1, whiteSpace:true,
+            sentence:
+            `
+                        +;++.......xXx;..:XXXxxXXxx$X$X..........::::::::.
+                        xxx........$xx:..++x++x+;+X$xXX.............::....`
+        },
+        {
+            timeout:4750, speed:1, whiteSpace:true,
+            sentence:
+            `
+                        xx;.......XXXx:..+++;:;;.xXXXXX;..................
+                        xx.........XX+;...::;;:..XXx+xx;..................`
+        },
+
+        {
+            timeout:4800, speed:1, whiteSpace:true,
+            sentence:
+            `
+                        +:...........x+....::...XXxx+x+:..................
+                        +:............:........:..........................
+
 `,
             ending:() => {
                 setTimeout(() => {
