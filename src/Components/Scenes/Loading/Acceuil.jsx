@@ -30,7 +30,6 @@ Vérifications des dépendances systèmes . . .
     - @reduxjs/toolkit@2.1.0 OK
     - react-router-dom@6.21.3 OK
     - npm@10.3.0 OK
-    - three@0.160.1 OK
 Démarrage de l'environnement de développement`,
             
             // Trouver un moyen de faire une reaction en chaine comme avec les useEffect dans usePending
