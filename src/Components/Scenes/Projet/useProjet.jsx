@@ -5,6 +5,7 @@ import Calculatrice_image from "../../../Assets/Calculatrice.png";
 import ReactionTime from "../../../Assets/Reaction-Time.png";
 import PokeQuizz from "../../../Assets/pokeQuizz.png";
 import Pokedex from "../../../Assets/Pokedex.png";
+import Todo from "../../../Assets/Todo.png";
 import html from "../../../Assets/html.png";
 import css from "../../../Assets/css.png";
 import scss from "../../../Assets/scss.png";
@@ -101,6 +102,19 @@ export default function useProjet(){
             Pour le jeu en lui-même : il faut s'inscrire, un mot de passe aléatoire est fourni, ce dernier est nécessaire pour accéder à l'application.
             
             Trois sections sont disponibles : recherche, quizz, et statistiques. Le quizz propose des questions sur les noms ou types de Pokémon affichés à l'écran et attribue des points pour les réponses justes. Les performances sont suivies et comparées dans la section statistiques entre les autres utilisateurs de la machine.`,
+        },
+        {
+            name:"Gestionnaire de tâches",
+            selected:false,
+            link:"https://anthonyboschat.github.io/Todo",
+            img:Todo,
+            languages:[programmationLanguage.react, programmationLanguage.scss, programmationLanguage.redux],
+            description:
+            `Après avoir consacré du temps au développement de mon portfolio (le site sur lequel vous naviguez en ce moment), j'ai décidé de prendre une pause en retravaillant sur un vieux projet : un gestionnaire de tâches que j'avais créé pour mon usage personnel, mais cette fois en utilisant React.
+            
+            Sa vocation est de devenir mon premier projet intégrant un back-end Node.js et une base de données MongoDB. Pour le moment, toutes les données sont stockées via le localStorage.
+            
+            Ce projet est actuellement en phase de développement et sera probablement mis à jour fréquemment dans les prochaines semaines. ( Enfin, cela dépend de quand vous lisez cette description. Si c'est en 2042, j'espère avoir terminé d'ici là ).`,
         },
     ])
     
